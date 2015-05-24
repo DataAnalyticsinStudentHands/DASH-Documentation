@@ -1,0 +1,12 @@
+---
+output:
+  html_document:
+    self_contained: no
+---
+
+```{r fig.width=1, fig.height=1, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("../assets/img/honors.png")
+ grid.raster(img)
+```

@@ -1,42 +1,33 @@
 ---
-title: "Software Installation"
-author: "Anjay"
-date: "May 22, 2015"
 output:
   html_document:
     self_contained: no
-    theme: united
-    toc: yes
+    theme: cosmo
+    includes:
+      before_body: header.html
   pdf_document: default
 ---
 
-```{r fig.width=1, fig.height=1, echo=FALSE}
-library(png)
-library(grid)
-img <- readPNG("../assets/img/honors.png")
- grid.raster(img)
-```
-
-#Honors College Software Installation Guides
+# Honors College Software Installation Guides
 
 The Honors College requires certain software packaged on its client computers to ensure the college runs smoothly. There are three classes of users in the Honors College, each with their own lists of packages. All packages will be imported into Munki for distrubtion, but certain software may require some work to create a distributable package.
 
 The list below describes how to configure packages for each software package.
 
 
-##Microsoft Office 2011
+## Microsoft Office 2011
 
-###Package Format
+### Package Format
 
 - ISO disk image, downloaded from AccessUH.
 
-###Instructions
+### Instructions
 
 - Use MunkiAdmin to import the package. ````File > Import Package````
 
-##Adobe Reader
+## Adobe Reader
 
-###Package Format
+### Package Format
 
 - Download the latest DMG disk image from [Adobe Enterprise](http://get.adobe.com/reader/enterprise/).
 
