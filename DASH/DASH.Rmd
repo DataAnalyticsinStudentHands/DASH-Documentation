@@ -10,11 +10,8 @@ output:
   pdf_document: default
 ---
 
-```{r fig.width=1, fig.height=1, echo=FALSE}
-library(png)
-library(grid)
-img <- readPNG("../assets/img/dash.png")
- grid.raster(img)
-```
+<img src="../assets/img/dash.png" width="100">
+
+
 
 here we go

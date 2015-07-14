@@ -1,0 +1,10 @@
+City,SamplerOperator,SamplerType,ZIP,EPASiteNumber,OwnedBy,ParamCarrier,Longitude,SamplerParams,ParamCode,State,ActivationData,ParamName,Latitude,SamplerStatus,TCEQSiteName,POCSegCd,Elevation,CAMS,ParamGroup,County,SamplerDisclaimer,Address,ParamStatus
+,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,Dripping Springs School,,,,,,,,
+,,,,,,,,,,,,,,,PFLUGERVILLE WASTEWATER,,,,,,,,
+,,"
+            	,
+        	",,,,,,,,,,,,,,,,,"[('POCSegCd', [u'01']), ('ParamCode', [u'61106']), ('ParamStatus', [u'Inactive']), ('ParamCarrier', [u'AIR']), ('ParamName', [u'Std Dev Hz Wind Direction'])]",,,,
+,,"
+            	,
+        	",,,,,,,,,,,,,,,,,"[('POCSegCd', [u'01']), ('ParamCode', [u'61106']), ('ParamStatus', [u'Active']), ('ParamCarrier', [u'AIR']), ('ParamName', [u'Std Dev Hz Wind Direction'])]",,,,

@@ -1,0 +1,6 @@
+[{"TCEQSiteName": ["Dripping Springs School"]},
+{"TCEQSiteName": []},
+{"TCEQSiteName": ["PFLUGERVILLE WASTEWATER"]},
+{},
+{"SamplerOperator": [], "SamplerType": ["\r\n            \t", "\r\n        \t"], "ParamCarrier": ["AIR"], "SamplerParams": [], "POCSegCd": ["01"], "ParamCode": ["61106"], "SamplerDisclaimer": [], "ParamName": ["Std Dev Hz Wind Direction"], "ParamStatus": ["Active"], "SamplerStatus": []},
+{"SamplerOperator": [], "SamplerType": ["\r\n            \t", "\r\n        \t"], "ParamCarrier": ["AIR"], "SamplerParams": [], "POCSegCd": ["01"], "ParamCode": ["61106"], "SamplerDisclaimer": [], "ParamName": ["Std Dev Hz Wind Direction"], "ParamStatus": ["Inactive"], "SamplerStatus": []}]
