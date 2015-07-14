@@ -1,0 +1,21 @@
+---
+title: "Honors IT Documentation"
+output:
+  html_document:
+    self_contained: no
+    theme: cosmo
+    toc: yes
+    includes:
+      before_body: header.html
+  pdf_document: default
+---
+
+```{r child='Environment.Rmd'}
+```
+```{r child='Hardware.Rmd'}
+```
+```{r child='Deployment.Rmd'}
+```
+```{r child='SoftwareInstallation.Rmd'}
+```
+[](http://hc-storage.cougarnet.uh.edu:5000/webman/index.cgi)
