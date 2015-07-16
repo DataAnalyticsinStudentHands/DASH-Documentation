@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html>
-<title>Imaging Process</title>
 
-<xmp style="display:none;">
 # Honors College Imaging Process - Setup
 
 ## Software Used
@@ -41,30 +37,30 @@ Server.app is Mac OS X's directory and server application. It provides Profile M
 
 ### Notes
 
-- All of this work will be done on the HC-Deployment virtual machine, on HC-Host. It can be accessed through Apple Remote Desktop from HC-IT-Laptop, HC-IT or by using the vCenter console installed on HC-Management. 
+- All of this work will be done on the HC-Deployment virtual machine, on HC-Host. It can be accessed through Apple Remote Desktop from HC-IT-Laptop, HC-IT or by using the vCenter console installed on HC-Management.
 - All of this software should be installed on HC-Deployment, or can be restored from a backup of HC-Deployment.
-- All of the shares located on HC-Storage should be mounted on HC-Deployment before beginning this process. 
+- All of the shares located on HC-Storage should be mounted on HC-Deployment before beginning this process.
 - Make sure that OS X is up-to-date before proceeding.
 
 ### OS X Server
 
 #### Install Server.app
 
-Server.app should already be installed on HC-Deployment. If not, the VM should be restored from backup. If a backup does not exist, reinstall the app from the App Store. 
+Server.app should already be installed on HC-Deployment. If not, the VM should be restored from backup. If a backup does not exist, reinstall the app from the App Store.
 
 #### Setup OS X Server
 
 **Mac OS X Server should already be configured, the following instructions are for an installation from scratch.**
 
-1. Go through the Mac OS Server setup process, and make sure that it will be set up on the computer HC-Deployment. 
-2. Once Server has completed its setup tasks, go to the settings tab the Overview page, and check that Enable Apple Push Notifications is checked. If not, check the box, and follow the instructions. 
+1. Go through the Mac OS Server setup process, and make sure that it will be set up on the computer HC-Deployment.
+2. Once Server has completed its setup tasks, go to the settings tab the Overview page, and check that Enable Apple Push Notifications is checked. If not, check the box, and follow the instructions.
 3. Turn on Websites service by selecting Websites in the left-hand pane and moving the toggle on the page to **ON**.
 4. Enable Profile Manager by selecting Profile Manager in the left-hand pane and moving the toogle on the page to **ON**.
 5. Configure Profile Manager by following the instructions [here](http://krypted.com/mac-security/configure-profile-manager-on-yosemite-server-yosemite-running-the-server-app/) under the section Setting Up Profile Manager. **Do not configure the Device Enrollment Program, or the Volume Purchase Program.**
 
 ### DeployStudio
 
-#### Install DeployStudio 
+#### Install DeployStudio
 
 DeployStudio should already be installed on HC-Deployment. If not, the VM should be restored from backup. If a backup does not exist, reinstall the app from the download link above.
 
@@ -90,7 +86,7 @@ Our DeployStudio installation will be using the following options:
 
 #### Create a NetBoot Set
 
-Refer to the Creating a DeployStudio NetBoot Set in the [DeployStudio Quick Installation Guide](http://www.deploystudio.com/Doc/Entries/2014/10/21_Quick_Install_Guide_files/Quick%20Install%20Guide.pdf). 
+Refer to the Creating a DeployStudio NetBoot Set in the [DeployStudio Quick Installation Guide](http://www.deploystudio.com/Doc/Entries/2014/10/21_Quick_Install_Guide_files/Quick%20Install%20Guide.pdf).
 
 Use these options:
 
@@ -118,16 +114,16 @@ Use AutoDMG on HC-IT, do not use it on a Virtual Machine. Make sure that the Dep
 
 #### Image Creation
 
-Once the download has completed, open AutoDMG and follow the instructions in [this guide](http://www.theinstructional.com/guides/build-deploy-os-x-images-with-autodmg), and select apply updates, but **do not** install any additional packages. We will create a user package later, that will be deployed with DeployStudio. 
+Once the download has completed, open AutoDMG and follow the instructions in [this guide](http://www.theinstructional.com/guides/build-deploy-os-x-images-with-autodmg), and select apply updates, but **do not** install any additional packages. We will create a user package later, that will be deployed with DeployStudio.
 
 Use the following information to name and save the image:
 
-- Name the image ```` BaseImage.hfs.dmg````. **The image must have the extension ````.hfs.dmg```` to be recognized by DeployStudio.** 
+- Name the image ```` BaseImage.hfs.dmg````. **The image must have the extension ````.hfs.dmg```` to be recognized by DeployStudio.**
 - The image should be saved to ````\Volumes\Deployment\Masters\HFS\```` to ensure that it is placed in the DeployStudio network share.
 
 ### CreateUserPkg
 
-#### Setup 
+#### Setup
 
 Use CreateUserPkg on HC-IT, mount the disk image and open the application.
 
@@ -147,13 +143,13 @@ Save the created package to ````\Volumes\Deployment\Packages\````.
 
 ### Munki
 
-Munki provides a client-server model for maintaining software on computers throughout the College. It replies on a HTTP server, client package, and PLIST files. 
+Munki provides a client-server model for maintaining software on computers throughout the College. It replies on a HTTP server, client package, and PLIST files.
 
 #### How Munki Works
 
 Munki is installed on all client computers, and when called (or at boot), check for ````ManagedInstalls.plist```` in the ````/Library/Preferences```` directory of the client computer. This file contains the location for the munki server, as well as a ClientIdentifier, which maps to a manifest on the Munki server. There are serveral ````ManagedInstalls.plist```` files in the [thinimaging repository](http://github.com/thehonorscollege/thinimaging/). Each file is named after the user class they are meant to be used with. The deployment script uses ````cURL```` to download the file, rename it, and place it into the appropriate directory.
 
-When called, munki checks the appropriate manifest on the server, then checks the catalogs available to that manifest. If a package appears on both the manifest, and in one of the available catalogs, it will be downloaded and installed. 
+When called, munki checks the appropriate manifest on the server, then checks the catalogs available to that manifest. If a package appears on both the manifest, and in one of the available catalogs, it will be downloaded and installed.
 
 #### Setup
 
@@ -173,7 +169,7 @@ Download the latest version of MunkiAdmin from GitHub, and copy it to the Applic
 
 #### Managing a Munki Repository
 
-Open MunkiAdmin, and navigate to the munki share, which should be ````\Volumes\Shared\web\munki\```` and open the repository. You can view all available packages, catalogs, and manifests. 
+Open MunkiAdmin, and navigate to the munki share, which should be ````\Volumes\Shared\web\munki\```` and open the repository. You can view all available packages, catalogs, and manifests.
 
 **Remember that a package and the catalog it is assigned to must be enabled in the manifest.**
 
@@ -184,9 +180,3 @@ AutoPkgr checks for updates to specified pieces of software, and automatically i
 ####Setup
 
 AutoPkgr should be configured according to [these instructions](https://derflounder.wordpress.com/2014/07/15/autopkgr-a-gui-for-autopkg/). Only select recipes that correspond to the Honors College Package List. Do not configure the email notifications. This is the path for the munki repository - ````\Volumes\Shared\web\munki\````. AutoPkgr should run automatically from here on out.
-
-
-</xmp>
-
-<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
-</html>

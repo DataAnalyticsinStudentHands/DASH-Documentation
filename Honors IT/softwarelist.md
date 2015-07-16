@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html>
-<title>Software Package List</title>
 
-<xmp style="display:none;">	
 
 #Honors College User/Computer Classes
 
@@ -73,12 +69,3 @@ These computers are for general purpose computing, and will be accessed by many 
 - These users will **not** be administrators.
 - Papercut is configured to start at login using a LaunchAgent, and cannot be exited.
 - These computers will be connected to the Lab Printers.
-
-
-
-
-
-</xmp>
-
-<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
-</html>
