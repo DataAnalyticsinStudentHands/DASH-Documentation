@@ -47,4 +47,4 @@ public class MyClass {
 </dependencies>
 
 ```
-3. Configure logging 
+3. Configure logging via Logback
