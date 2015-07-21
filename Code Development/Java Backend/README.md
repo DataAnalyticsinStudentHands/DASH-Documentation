@@ -3,12 +3,12 @@
 We are using [Jersey](https://jersey.java.net/) as framework for providing REST.
 
  * Some notes about how we do [logging](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Logging.md)
- * Page [Access Control Lists](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Access-Control-Lists)
+ * Page [Access Control Lists](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Access-Control-Lists.md)
  * Page [Backend Development Reference Introduction](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Backend-Development-Reference-Introduction)
- * Page [DAO Layer](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/DAO-Layer)
- * Page [Resource Layer](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Resource-Layer)
- * Page [Service Layer](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Service-Layers)
- * Page [Core VMA](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Volunteer-Management)
+ * Page [DAO Layer](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/DAO-Layer.md)
+ * Page [Resource Layer](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Resource-Layer.md)
+ * Page [Service Layer](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Service-Layers.md)
+ * Page [Core VMA](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Volunteer-Management.md)
 
 
 
