@@ -1,21 +1,31 @@
-### Description of the Java Backend
+# NEEDS TO BE EDITED: Description of the Java Backend
 
 We are using [Jersey](https://jersey.java.net/) as framework for providing REST.
 
- * Some notes about how we do logging
+ * Some notes about how we do [logging](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Logging.md)
+ * Page [Access Control Lists](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Access-Control-Lists)
+ * Page [Backend Development Reference Introduction](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Backend-Development-Reference-Introduction)
+ * Page [DAO Layer](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/DAO-Layer)
+ * Page [Resource Layer](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Resource-Layer)
+ * Page [Service Layer](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Service-Layers)
+ * Page [Core VMA](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Volunteer-Management)
 
- # DASH Volunteer Management App Backend
+
+
+
+
+ # NEEDS TO BE EDITED: DASH Volunteer Management App Backend
 
  ##Contents
- 1. [Introduction](https://github.com/DataAnalyticsinStudentHands/RESTFUL-WS/wiki#welcome)
-   * [Welcome](https://github.com/DataAnalyticsinStudentHands/RESTFUL-WS/wiki#welcome)
-   * [Using the API](https://github.com/DataAnalyticsinStudentHands/RESTFUL-WS/wiki#using-the-api)
-     * [Type Definition](https://github.com/DataAnalyticsinStudentHands/RESTFUL-WS/wiki#type-definition)
-     * [Resource Use Cases](https://github.com/DataAnalyticsinStudentHands/RESTFUL-WS/wiki#resource-use-cases-create-read-update-delete-ect)
+ 1. [Introduction](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/README.md#welcome)
+   * [Welcome](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/README.md#welcome)
+   * [Using the API](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/README.md#using-the-api)
+     * [Type Definition](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/README.md#type-definition)
+     * [Resource Use Cases](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/README.md#resource-use-cases-create-read-update-delete-ect)
      * [Permission Management](https://github.com/DataAnalyticsinStudentHands/RESTFUL-WS/wiki#permission-management-use-cases-only-for-resources-utilizing-access-control)
-  * [Authentication](https://github.com/DataAnalyticsinStudentHands/RESTFUL-WS/wiki#authentication)
-   * [The Cors Filter](https://github.com/DataAnalyticsinStudentHands/RESTFUL-WS/wiki#the-cors-filter)
-   * [Error Codes](https://github.com/DataAnalyticsinStudentHands/RESTFUL-WS/wiki#error-codes)
+  * [Authentication](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/README.md#authentication)
+   * [The Cors Filter](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/README.md#the-cors-filter)
+   * [Error Codes]https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/README.md#error-codes)
  2. [Volunteer Management App](https://github.com/DataAnalyticsinStudentHands/RESTFUL-WS/wiki/Volunteer-Management#volunteer-management-app)
    * Contents
    * API
