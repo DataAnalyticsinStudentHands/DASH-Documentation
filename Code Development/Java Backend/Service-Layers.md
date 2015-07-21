@@ -1,4 +1,4 @@
-## Introduction
+## Service Layer
 
 The service layer is comprised of two pieces: an interface and the implementation. In addition to the usual benefits of using an interface/implementation pair, Spring Security allows us to perform access control inside the service interface.
 
