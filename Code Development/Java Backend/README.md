@@ -7,7 +7,7 @@ We are using [Jersey](https://jersey.java.net/) as framework for providing REST.
  # DASH Volunteer Management App Backend
 
  ##Contents
- 1. [Introduction](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Logging.md#welcome)
+ 1. [Introduction](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/README.md#welcome)
    * [Welcome](https://github.com/DataAnalyticsinStudentHands/RESTFUL-WS/wiki#welcome)
    * [Using the API](https://github.com/DataAnalyticsinStudentHands/RESTFUL-WS/wiki#using-the-api)
      * [Type Definition](https://github.com/DataAnalyticsinStudentHands/RESTFUL-WS/wiki#type-definition)
