@@ -1,10 +1,20 @@
-### Description of the Java Backend
+# NEEDS TO BE EDITED: Description of the Java Backend
 
 We are using [Jersey](https://jersey.java.net/) as framework for providing REST.
 
  * Some notes about how we do [logging](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Logging.md)
+ * Page [Access Control Lists](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Access-Control-Lists)
+ * Page [Backend Development Reference Introduction](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Backend-Development-Reference-Introduction)
+ * Page [DAO Layer](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/DAO-Layer)
+ * Page [Resource Layer](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Resource-Layer)
+ * Page [Service Layer](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Service-Layers)
+ * Page [Core VMA](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Volunteer-Management)
 
- # DASH Volunteer Management App Backend
+
+
+
+
+ # NEEDS TO BE EDITED: DASH Volunteer Management App Backend
 
  ##Contents
  1. [Introduction](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/README.md#welcome)
