@@ -13,10 +13,10 @@ We are using [Jersey](https://jersey.java.net/) as framework for providing REST.
 
 
 
+# NEEDS TO BE EDITED: DASH Volunteer Management App Backend
 
- # NEEDS TO BE EDITED: DASH Volunteer Management App Backend
+## Contents
 
- ##Contents
  1. [Introduction](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/README.md#welcome)
    * [Welcome](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/README.md#welcome)
    * [Using the API](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/README.md#using-the-api)
@@ -33,36 +33,37 @@ We are using [Jersey](https://jersey.java.net/) as framework for providing REST.
      * Groups
 
 
- ## Welcome
+## Welcome
  This wiki is designed to assist front end developers connect and utilize the RESTful API for their application.  This introduction page includes generic information that is applicable to all of the apps using the DASH server.
 
- ## Using the API
+## Using the API
  Each resource for each application has a dedicated page on the wiki.  You can find a comprehensive list of resources on the home page for that app. An applications resources are accessed by navigating to housuggest.org:8888/*APP NAME HERE*/*RESOURCE*.   Here is a description of the components of a resources wiki.
 
- ### Type Definition
+### Type Definition
  1. Accounts for all of the fields/variables of that data type
  2. Provides a conceptual explanation of any permission or roles that are used.
  3. Outlines the URL structure for that resource
 
- ### Resource Use Cases (Create, Read, Update, Delete, ect..)
+### Resource Use Cases (Create, Read, Update, Delete, ect..)
  1. Defines the URL and Method for each use case.
  2. Defines all of the required and optional parameters.
  3. Declares which roles and permissions are required for access.
  4. Provides the format of possible responses.
 
- ### Permission Management Use Cases (Only for resources utilizing access control)
+### Permission Management Use Cases (Only for resources utilizing access control)
  1. Defines the URL and Method for each use case.
  2. Defines all of the required and optional parameters.
  3. Declares which roles and permissions are required for access.
  4. Provides the format of possible responses.
 
- ##Authentication
+##Authentication
  All apps will use some form of authentication.  Every API request must include a Basic Authorization header, which will be evaluated for validity, prior to performing an service. The password should be hashed and salted  (Please see @CarlSteven or @Tswiggs for our hashing salting algorithm) before encoding the username/password into Basic.  See the section on error codes 401 and 500, code 5001 "access is denied", for information about handling failed Authentication.
 
- ##The Cors Filter
- TODO: Write instructions for using preflights.
 
- ##Error Codes
+##The Cors Filter
+TODO: Write instructions for using preflights.
+
+##Error Codes
  TODO: Write decriptions of each error code
 
 

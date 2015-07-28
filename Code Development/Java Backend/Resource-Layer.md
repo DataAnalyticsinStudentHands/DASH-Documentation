@@ -4,15 +4,17 @@ The Resource layer is generally responsible for containing the code which maps o
 
 ###Defining the Resource Class
 
-The resource layer can be found in the directory "src/.../pojo". We will be stepping through SampleObjectResource.java.
+The resource layer can be found in the directory "src/.../pojo". We will be stepping through **SampleObjectResource.java**.
 
     @Component("sampleObjectResource")
     @Path("/sampleObjects")
     public class SampleObjectResource {...}
 
-@Component registers the class as part of the web service and  will be used on the resource, service implementation, and DAO implementation layers.  When creating your own resource class just replace "sampleObject" with "yourObjectClassName".
+**@Component** registers the class as part of the web service and  will be used on the resource, service implementation, and DAO implementation layers.  When creating your own resource class just replace "sampleObject" with "yourObjectClassName".
 
-@Path defines the url that this resource can be accessed at.  In practice it appends the "/sampleObjects" to the end of the URL for the webservice.
+**@Path** defines the url that this resource can be accessed at.  In practice it appends the "/sampleObjects" to the end of the URL for the webservice.
+
+All resources must also be registered in the **DashApplicationSetup.java** in the dash directoy of the project.
 
 ###Creating New Objects
 
@@ -22,7 +24,7 @@ Generally the API returns a status code which tells the client application that 
 
 ####Creating a Single Object
 
-The create method for a resource should be accessed by a @POST to the resources root path.
+The create method for a resource should be accessed by a **@POST** to the resources root path.
 
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON })
@@ -40,7 +42,7 @@ The create method for a resource should be accessed by a @POST to the resources 
 				.build();
 	}
 	
-The @Consumes tag defines that the Client need to send a JSON string as input.  Jackson will automatically take the incoming JSON and attempt to map it to the methods parameter which in this case is of type SampleObject.  This relies on the mapping provided in SampleObject.java by the @XMLElement tags.
+The **@Consumes** tag defines that the Client need to send a JSON string as input.  Jackson will automatically take the incoming JSON and attempt to map it to the methods parameter which in this case is of type SampleObject.  This relies on the mapping provided in SampleObject.java by the @XMLElement tags.
 
 Inside the method the sampleObject is handed to the createSampleObject funtion of the Service layer.  If everything is successful then the method returns the 201 code and includes information about the new objects ID and the URL to access it.
 
@@ -85,7 +87,7 @@ There are a couple of reasons you would want to return a response code:
 
 In this method the API takes in a JSON string, converts it to a POJO, and then creates a new row in the database to record this object. For this method we don't need to send the client the object back since they are writing to the database and it makes sense just to let the client know that everything worked the way it should.
 
-To return a Response object, you would just make the method return type Response, set the @Produces annotation as "MediaType.TEXT_HTML" and then return a Response object created like the one above.  With this implementation, if no exceptions are thrown, this method will return a 201 (Created) code which tells the client that the request was successfully executed on the new object was created.
+To return a Response object, you would just make the method return type Response, set the **@Produces** annotation as "MediaType.TEXT_HTML" and then return a Response object created like the one above.  With this implementation, if no exceptions are thrown, this method will return a 201 (Created) code which tells the client that the request was successfully executed on the new object was created.
 
 #####Case 2
 
@@ -132,7 +134,7 @@ On line 92 it checks if the sampleObjectById is still null, meaning that it was 
 
 ####To return an Object or and Array of Objects
 
-One of the basic API methods of C.**R**.U.D. is Read.  It should provide the user with a JSON of the object that they requested.  All read based methods should be accessed through a @GET request and therefore will start with that annotation.
+One of the basic API methods of C.**R**.U.D. is Read.  It should provide the user with a JSON of the object that they requested.  All read based methods should be accessed through a **@GET** request and therefore will start with that annotation.
 
 An API method can return POJO or even a List of POJOs which Jackson will translate into a JSON string. The POJO we are working with in these examples is SampleObject.java. Refer to this section for instructions on how to define POJOs so that they are mapped for JSON conversion.
 
@@ -154,7 +156,7 @@ An API method can return POJO or even a List of POJOs which Jackson will transla
 				.allow("OPTIONS").build();
 	}
 
-The @Produces({ MediaType.APPLICATION_JSON }) annotation tells Jackson to treat your object as a JSON string.  Lines 128-131 build the response object which contains the SampleObject. Response.entity(GenericEntity) is where you wrap your SampleObjects in a GenericEntity which can be converted into a JSON string.
+The **@Produces({ MediaType.APPLICATION_JSON })** annotation tells Jackson to treat your object as a JSON string.  Lines 128-131 build the response object which contains the SampleObject. Response.entity(GenericEntity) is where you wrap your SampleObjects in a GenericEntity which can be converted into a JSON string.
 
 The alternative method for returning a single object is the recommended implementation.  
 
@@ -171,7 +173,7 @@ The alternative method for returning a single object is the recommended implemen
 			return null;
 	}
 
-Again the @Produces annotation declares that we are sending a JSON. This implementation just returns the POJO version of the object that you want to return.  This relies on the @XmlElement annotations in POJO class declaration and requires no special Response object or generics.
+Again the **@Produces** annotation declares that we are sending a JSON. This implementation just returns the POJO version of the object that you want to return.  This relies on the **@XmlElement** annotations in POJO class declaration and requires no special Response object or generics.
 
 #####Return an Array of Objects
 
@@ -188,4 +190,4 @@ You can return a collection of objects similar to the first implementation of re
 		return sampleObjects;
 	}
 
-@Produces tag allows the method to produce a JSON string or the XML form of the same collection (The client can use a header to select which version they need).  Just build a list of the objects to be returned and Jackson will convert it to the proper form.
+**@Produces** tag allows the method to produce a JSON string or the XML form of the same collection (The client can use a header to select which version they need).  Just build a list of the objects to be returned and Jackson will convert it to the proper form.
