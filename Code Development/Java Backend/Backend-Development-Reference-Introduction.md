@@ -4,8 +4,6 @@ This page of the wiki is intended to assist backend developers with understandin
 
 This wiki page is going to use the SampleObject as an example for each layer of the project for implementing CRUD (Create, Read, Write, Delete) services.  SampleObject is a "plain old java object" which represents a generic domain object for you to copy/paste->find/replace and implement your own domain objects.  See the section on "Extending the Project for a New Application" for tips on how to use the SampleObject stack to rapidly implement new domain object.
 
-Our design of this backend is based on Object Oriented Design and you should be familiar with that paradigm before attempting to design your own implementations.
-
 # Architecture
 
 Every project extended from this code base is built using a similar architecture.  Please note that we have developed our own flavor of terminology for these layers but for internal purposes it is useful to refer to them the same way.  Simply put each domain object in our RESTful backend have: 

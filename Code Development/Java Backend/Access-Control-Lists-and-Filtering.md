@@ -1,4 +1,4 @@
-#  Introduction
+#Access Control Lists (ACLs) and Filtering/Authorization
 
 We utilize Spring Security to protect data from unauthorized access. There are three primary things that you will need to be able to do: 
 
