@@ -1,0 +1,146 @@
+#!/bin/bash
+
+###
+## Variables/settings
+#
+
+PDIR=$(dirname $(readlink -f $0))
+confFile="$PDIR/runmysqlbackup.conf"
+emailMessage="/tmp/emailmessage.txt"
+errorEmail="/tmp/emailerror.txt"
+
+# unless overriden in the conffile, here are some defaults
+localBackupDir="/var/backup/"
+toggleRemoteCopy=0
+
+###
+## Functions
+#
+
+checkSize() {
+    echo ===== Sizing ===== 
+    echo "Total disk space used for backup storage.."
+    echo "Size - Location"
+    echo `du -hs "$localBackupDir"`
+    echo 
+}
+
+errorEmail() {
+    emailSubject="Erros reported MySQL Backup S3Put on $serverName"
+    /bin/mail -s "$emailSubject" "$mail_address" < $errorEmail
+}
+
+parseVerifyConf() {
+	if [ -e $confFile -a -r $confFile ]
+	then
+		source $confFile
+		echo "Parsing config file ... $confFile" | tee -a $emailMessage
+		toggleRemoteCopy=1
+	else
+		echo "No confFile found; Remote backup copy on S3 DISABLED!" | tee $errorEmail
+		errorEmail
+	fi
+
+}
+
+findAMB() {
+	if [ -e $PDIR/automysqlbackup -a -x $PDIR/automysqlbackup ]
+	then
+		binPath="$PDIR/automysqlbackup"
+		echo "Found automysqlback in $binPath" | tee -a $emailMessage
+	else
+		if [ -e /usr/local/bin/automysqlbackup -a -x /usr/local/bin/automysqlbackup ]
+		then
+			binPath="/usr/local/bin/automysqlbackup"
+                        echo "Found automysqlback in $binPath" | tee -a $emailMessage
+		else
+			echo "Couldn't find the automysqlbackup script. Can't do mysqlbackup!" | -a tee $errorEmail
+			errorEmail
+			exit 1
+		fi
+	fi
+
+}
+
+findConfAMB() {
+	if [ -e $PDIR/automysqlbackup.conf -a -r $PDIR/automysqlbackup.conf ]
+	then
+		confPath="$PDIR/automysqlbackup.conf"
+		echo "Found automysqlback.conf in $confPath" | tee -a $emailMessage
+	else
+		if [ -e /etc/automysqlbackup/automysqlbackup.conf -a -r /etc/automysqlbackup/automysqlbackup.conf ]
+		then
+			confPath="/etc/automysqlbackupautomysqlbackup.conf"
+			echo "Found automysqlback.conf in $confPath" | tee -a $emailMessage
+		else
+			echo "Couldn't find the automysqlbackup config. Can't do myslbackup!" | tee -a $errorEmail
+			errorEmail
+			exit 1
+		fi
+	fi
+}
+
+runAMB() {
+	$binPath $confPath | tee -a $emailMessage
+}
+
+chownLocal() {
+	# do we need to chown things?
+	chown backup.backup $localBackupDir -R
+	find /var/backup/* -type f -exec chmod 400 {} \;
+	find /var/backup/* -type d -exec chmod 700 {} \;
+}
+
+s3Sync() {
+	# s3 sync with default profile
+    	echo "Start s3cmd sync with default profile ..." | tee -a $emailMessage
+    	logFile="$logfilePath/s3backup_`date "+%Y%m%d-%H-%M"`.log"
+   	s3cmd sync -r --delete-removed /var/backup/* $s3bucket/mysqlbackup/ > $logFile 
+ 	echo "S3 put to $s3bucket complete." | tee -a $emailMessage 	
+	tail -1 $logFile | head -1 | tee -a $emailMessage
+	echo "Logfile for s3 put stored in $logFile" | tee -a $emailMessage
+}
+
+email() {
+    emailSubject="Backup to S3 on $serverName"
+    /bin/mail -s "$emailSubject" -r "$fromEmail" "$mail_address" < $emailMessage
+}
+
+## Work
+#
+
+echo "Start runmysqlbackup ... $(date)" | tee $emailMessage
+
+## parse the config file
+parseVerifyConf
+
+# find the automysqlbackup script in this directory and run
+# if we can't find it maybe it is in /usr/local/bin ??
+findAMB
+
+## find the conf file here or in /etc/ or /etc/automysqlbackup??
+findConfAMB
+
+## Run the automysqlbackup script
+runAMB
+
+## chown local copies, if needed
+chownLocal
+
+## size the local copy
+#checkSize
+
+## s3cmd put local to remote
+
+if [[ $toggleRemoteCopy -eq 1 ]]
+then
+	s3Sync
+fi
+
+#send email
+echo "... done runmysqlbackup." | tee -a $emailMessage
+email
+
+###
+## Done
+#
