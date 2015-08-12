@@ -7,12 +7,49 @@ This script replaces all previous restore scripts and is included on every Deplo
 ##Usage
 The restore script should be used at the end of DeployStudio workflows, or can be run by itself if a computer needs the correct LaunchAgents and other files for its restore class.
 
+| Restore Name  | Manifest Name               | Student Logins? | Shared Computer? | Backed Up? |
+|---------------|-----------------------------|-----------------|------------------|------------|
+| Lab Computers | lab_ManagedInstalls.plist   | yes             | yes              | no         |
+| Admin Restore | admin_ManagedInstalls.plist | no              | no               | yes        |
+| Advisor Restore| advisor_ManagedInstalls.plist| no|no|yes|
+|Classroom/Podium Restore|consulting_ManagedInstalls.plist|yes|yes|no|
+|Consulting Restore|consulting_ManagedInstalls.plist|yes|yes|no|
+|Faculty/Staff Restore|facultystaff_ManagedInstalls.plist|no|no|yes|
+|StudentWorker|advisor_ManagedInstalls.plist|no|yes|no|
+
+###Manual Execution
+```merged_restore.sh``` needs to be run as root and has four parameters
+
+```restore_type``` has six possible values, which map to the different types of computers in the College:
+
+* ```lab```
+* ```facultystaff```
+* ```admin```
+* ```advisor```
+* ```presentation```
+* ```consulting```	
+
+```shared``` has two possible values and determines whether the keychain reset and removal LaunchAgent is installed.
+
+* ```shared``` - Installs Keychain reset LaunchDaemon.
+* ```notshared``` - Does nothing.
+
+```student_login``` has two possible values, and determines whether the HC Students Active Directory group is allowed to login to the computer. Student workers are a part of HC Authenticated Users and don't need to use HC Students.
+
+* ```student``` - Adds the HC Students group to the allowed list of users.
+* ```nostudent``` - Only allows HC Admins and HC Authenticated Users to login.
+
+```backup``` has two possible values, and determines whether the backup LaunchDaemon is installed. Computers that are shared should not be backed up. This includes SSO and Recruitment.
+
+* ```backup``` - Installs the LaunchAgent.
+* ```nobackup``` - Does nothing. 
 
 
 ##The Script
 The contents of this version of the script are below, with comments that explain the purpose of each function and the execution flow of the program.
 
 
+###Set interpreter and various constants
 
 ````
 #!/bin/sh
@@ -28,7 +65,11 @@ airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current
 diskutil="/usr/sbin/diskutil"
 hcstorage="http://hc-storage.cougarnet.uh.edu/"
 
+````
+###Turn off AirPort
+This makes sure that all network communications run through the Ethernet port. Wi-Fi interferes with Cougarnet access. It also required an administrator password to turn Wi-Fi on.
 
+````
 function turnOffAirport {
 	$networksetup -detectnewhardware
 	echo "Turning off airport..."
@@ -36,17 +77,29 @@ function turnOffAirport {
 	$airport en1 prefs RequireAdminPowerToggle=YES
 	$systemsetup -setwakeonnetworkaccess on
 }
+````
+###Turn on SSH
+This allows remote access through the command line.
 
+````
 function turnOnSSH {
 	echo "Turning on ssh..."
 	$systemsetup -setremotelogin on
 }
+````
+###Turn on Remote Desktop
+This allows Remote Access through Apple Remote Desktop.
 
+````
 function turnOnRemoteDesktop {
 	echo "Turning on RemoteManagement..."
 	$kickstart -activate -configure -access -on -users hcadmin -privs -all -restart -agent
 }
+````
+###Get ManagedInstalls.plist
+This uses the first parameter to get the correct list of software for the computer.
 
+````
 function getManagedInstallsPlist {
 	echo "Getting ManagedInstalls.plist..."
 	if [ "$1" == "facultystaff" ]
@@ -71,7 +124,11 @@ function getManagedInstallsPlist {
 		echo "Can't load ManagedInstalls.plist..."
 	fi
 }
+````
+###Install Office Setup LaunchAgent
+This installs a script that suppresses the Office Setup screen when a user logs into a computer.
 
+````
 function getOfficeSetupLaunchAgent {
 	echo "Getting Office setup script..."
 	/usr/bin/curl -s --show-error $hcstorage/scripts/curl_office_plists.sh -o "/usr/bin/curl_office_plists.sh"
@@ -82,12 +139,23 @@ function getOfficeSetupLaunchAgent {
 	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.curlofficeprefs.plist
 }
 
+````
+###Install PaperCut LaunchAgent
+This installs a script that keeps PaperCut constantly open on the lab computers.
+
+````
 function getPaperCutLaunchAgent {
 	echo "Getting PaperCut login script..."
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.papercut.plist -o "/Library/LaunchAgents/edu.uh.honors.papercut.plist"
 	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.papercut.plist
 }
 
+````
+
+###Install Screen Lock LaunchAgent
+This installs a script on shared computers to disable the screen lock.
+
+````
 function getScreenLockLaunchAgent {
 	echo "Installing script to disable screen lock..."
 	/usr/bin/curl -s --show-error $hcstorage/scripts/disable_screen_lock.sh -o "/usr/bin/disable_screen_lock.sh"
@@ -96,6 +164,12 @@ function getScreenLockLaunchAgent {
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.disablescreenlock.plist -o "/Library/LaunchAgents/edu.uh.honors.disablescreenlock.plist"
 	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.disablescreenlock.plist
 }
+````
+
+###Get Network Mount Launch Agent
+This used to mount the HCShare on faculty and staff member's desktops. It's been replaced by a mobileconfig file in Munki.
+
+````
 
 function getNetworkMountLaunchAgent {
 	echo "Installing script to mount uhs1 share..."
@@ -105,7 +179,11 @@ function getNetworkMountLaunchAgent {
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.mountuhsa1share.plist -o "/Library/LaunchAgents/edu.uh.honors.mountuhsa1share.plist"
 	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.mountuhsa1share.plist
 }
+````
+###Install Backup LaunchDaemon
+This installs the backup script and schedules regular backups when run with the ```backup``` parameter.
 
+````
 function getBackupLaunchDaemon {
 	echo "Getting Backup Script..."
 	/usr/bin/curl -s --show-error $hcstorage/scripts/backup.sh -o "/usr/bin/backup.sh"
@@ -114,6 +192,11 @@ function getBackupLaunchDaemon {
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.backup.plist -o "/Library/LaunchDaemons/edu.uh.honors.backup.plist"
 	/bin/chmod 644 /Library/LaunchDaemons/edu.uh.honors.backup.plist
 }
+````
+###Install Keychain Reset LaunchDaemon
+This installs a script that resets the keychain nightly on shared computers.
+
+````
 
 function getKeychainResetLaunchDaemon {
 	echo "Getting Keychain Fix Script..."
@@ -123,6 +206,8 @@ function getKeychainResetLaunchDaemon {
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.resetkeychains.plist -o "/Library/LaunchDaemons/edu.uh.honors.resetkeychains.plist"
 	/bin/chmod 644 /Library/LaunchDaemons/edu.uh.honors.resetkeychains.plist
 }
+````
+
 
 function restrictActiveDirectoryLogins {
 	echo "Restricting Active Directory logins..."
