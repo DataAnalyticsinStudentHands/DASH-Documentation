@@ -2,11 +2,17 @@
 
 ## Honors IT Documentation Repository
 
+Those files are the basis for our online documentation which can be found at [Honors FreshService](http://honorscollege.freshservice.com) The folder struture here mimics the structure inside the our FreshService Solutions section.
 
+To get started:
 
-Those files are the basis for our online documentation which can be found at [Honors FreshService](http://honorscollege.freshservice.com)
+1. Clone of Fork https://github.com/DataAnalyticsinStudentHands/DASH-Documentation.git to your local computer
+2. Edit or add the markdown files inside the folder Honors IT using the [Atom](https://atom.io/) editor or any suitable markdown editor
+3. Preview the markdown files and then save them as HTML files
+4. Copy the HTML file into the Solution [Honors FreshService](http://honorscollege.freshservice.com) The file name in GitHub should be reflected in the title of the Solution (e.g. the file [DASH-Documentation/Honors IT/Procedures/OpeningTasks.md](DASH-Documentation/Honors IT/Procedures/OpeningTasks.md) can be found as "Opening Task (Morning)" inside Procedures in the Solutions section)
+5. Don't forget to commit/push your changes.
 
-
-
+Images:
+Store images as png files inside the images folder 
 
 [](http://hc-storage.cougarnet.uh.edu:5000/webman/index.cgi)
