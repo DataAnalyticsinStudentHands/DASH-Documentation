@@ -16,7 +16,8 @@ Images:
 
 Store images as png files inside a folder "Images". They can be embedded using something like 
 ```
-![wireless mic](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/raw/master/Honors IT/Procedures/Images/podium.png "Wireless router with microphone plug in")
+![wireless mic](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/raw/master/Honors IT/Procedures/Images/podium.png 
+"Wireless router with microphone plug in")
 ```
 
 
