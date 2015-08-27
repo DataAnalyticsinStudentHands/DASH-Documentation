@@ -2,7 +2,7 @@
 
 ## Honors IT Documentation Repository
 
-Those files are the basis for our online documentation which can be found at [Honors FreshService](http://honorscollege.freshservice.com) The folder struture here mimics the structure inside the our FreshService Solutions section.
+Our online documentation can be found at [Honors FreshService](http://honorscollege.freshservice.com) The folder struture here mimics the structure inside the our FreshService Solutions section.
 
 To get started:
 
