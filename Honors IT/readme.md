@@ -13,6 +13,11 @@ To get started:
 5. Don't forget to commit/push your changes.
 
 Images:
-Store images as png files inside the images folder 
+
+Store images as png files inside a folder "Images". They can be embedded using something like 
+```
+![wireless mic](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/raw/master/Honors IT/Procedures/Images/podium.png "Wireless router with microphone plug in")
+```
+
 
 [](http://hc-storage.cougarnet.uh.edu:5000/webman/index.cgi)
