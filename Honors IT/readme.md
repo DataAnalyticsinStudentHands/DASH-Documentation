@@ -1,8 +1,8 @@
 ![Honors Logo](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/assets/img/honors.png)
 
-## Honors IT Documentation Repository
+## Honors IT Documentation
 
-Our online documentation can be found at [Honors FreshService](http://honorscollege.freshservice.com) The folder struture here mimics the structure inside the our FreshService Solutions section.
+Our online documentation can be found at [Honors FreshService](http://honorscollege.freshservice.com) The folder struture here mimics the structure inside the FreshService "Solutions" section.
 
 To get started:
 
