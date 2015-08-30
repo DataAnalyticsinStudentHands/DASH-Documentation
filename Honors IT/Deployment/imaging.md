@@ -1,5 +1,4 @@
-
-# Honors College Imaging Process - Setup
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://www.lucidchart.com/documents/embeddedchart/e7fae3b7-587c-4b59-90e3-f410ac3239ad" id="6l89Ew87hb7Q"></iframe></div>
 
 ## Software Used
 
@@ -161,9 +160,9 @@ Make sure that all the shares on HC-Storage are mounted and writable. Make sure 
 
 Install ````munkitools.dmg```` on the local computer. Munki setup is now complete.
 
-###MunkiAdmin
+### MunkiAdmin
 
-####Setup
+#### Setup
 
 Download the latest version of MunkiAdmin from GitHub, and copy it to the Applications folder on the local computer.
 
@@ -173,10 +172,10 @@ Open MunkiAdmin, and navigate to the munki share, which should be ````\Volumes\S
 
 **Remember that a package and the catalog it is assigned to must be enabled in the manifest.**
 
-###AutoPkgr
+### AutoPkgr
 
 AutoPkgr checks for updates to specified pieces of software, and automatically imports them to Munki. This often results in duplicate packages, so you may need to clean up the duplicates in MunkiAdmin every once in awhile. It is installed on HC-Deployment.
 
-####Setup
+#### Setup
 
 AutoPkgr should be configured according to [these instructions](https://derflounder.wordpress.com/2014/07/15/autopkgr-a-gui-for-autopkg/). Only select recipes that correspond to the Honors College Package List. Do not configure the email notifications. This is the path for the munki repository - ````\Volumes\Shared\web\munki\````. AutoPkgr should run automatically from here on out.
