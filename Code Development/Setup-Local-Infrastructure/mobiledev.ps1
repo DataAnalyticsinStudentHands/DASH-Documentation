@@ -1,12 +1,4 @@
 # Run this in an elevated PowerShell prompt
-<# This script worked on a fresh Windows Server 2012 VM in Azure and the following were the latest versions of each package at the time:
-* Chocolatey 0.9.8.27
-* java.jdk 7.0.60.1
-* apache.ant 1.8.4
-* android-sdk 22.6.2
-* cordova 3.5.0-0.2.6
-* nodejs.install 0.10.29
-#>
 # Note: there is one bit that requires user input (accepting the Android SDK license terms)
  
 # Install Chocolatey
@@ -57,30 +49,9 @@ cinst Brackets -force
 
 # Install Cordova
 npm install -g cordova
-cordova # Check this works
- 
-# Check everything works
-cordova create helloworld
-cd helloworld
-cordova platform add android
-cordova build
-cd ..
- 
-# Install Phonegap (optional)
-npm install -g phonegap
-phonegap # Check this works
- 
-# Check everything works
-phonegap create helloworld2
-cd helloworld2
-phonegap build android
-cd ..
 
 # Install bower
 npm install -g bower --quiet
 
 # Install ionic
 npm install -g ionic --quiet
-
-# Check everything works
-bower
