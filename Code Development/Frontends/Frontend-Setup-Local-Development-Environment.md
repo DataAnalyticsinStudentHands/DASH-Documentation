@@ -6,17 +6,19 @@ Installed Components
 
  - Java JDK
 
- - apache ant
+ - Apache Ant
 
  - Android SDK
 
- - nodejs
+ - NodeJS
 
  - VirtualBox
 
- - Genymotion
+ - GenyMotion
 
  - SourceTree
+ 
+ - Brackets
 
  - Cordova
 
@@ -167,15 +169,10 @@ http://phonegap.com/install/
 
 version 3.4
 
-
 ## 6. Install Brackets
-Step 1- download Brackets.Sprint.38.dmg from [Brackets Download Page](http://brackets.io)
-(39 is current)
+Step 1- Download from [Brackets Download Page](http://brackets.io)
 
-
-Step 2- launch the .dmg and install the app by following the directions
-
-version 3 
+Step 2- Launch the .dmg and install the app by following the directions
 
 ## 7. If you are working on a project that involves [ionic](http://ionicframework.com/getting-started/) 
 `sudo npm install -g cordova`
