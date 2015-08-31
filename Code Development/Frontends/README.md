@@ -6,16 +6,17 @@ Overview of Documents
     - [Setup Local Environment for App Development](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontends/Frontend-Setup-Local-Development-Environment.md)
 
 2. Frontend Development  
-    - [Application Structure](https://github.com/DataAnalyticsinStudentHands/VolunteerManagementApp/wiki/Volunteer-Management-Application-Documentation)
+    - [Application Structure](https://github.com/CarlSteven/DASH-Documentation/blob/master/Code%20Development/Frontends/Frontend-File-Structure.md)
 
     - [Link Resources - Cheatsheet](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontends/Link-Resources.md)
     
     - [App Deployment To Web Server](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontends/App-Deployment-to-web-server.md) 
     
-    - [App Deployment to App Store](https://github.com/CarlSteven/DASH-Documentation/blob/master/Code%20Development/Frontends/How-to-Build-Mobile-Applications-for-Production.md)
+    - [App Deployment to App Store](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontends/How-to-Build-Mobile-Applications-for-Production.md)
 
 3. General App Guides
     - [App Design Standards](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontends/App%20Design%20Standards.md)
 
-4. Miscellaneous   
-    - [File Upload](https://github.com/danialfarid/ng-file-upload)
+4. Ionic Instructions
+    - [Ionic Getting Started](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontends/Ionic-Get-Started.md)
+    - [Ionic SASS Setup](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontends/Ionic-SASS-setup.md)

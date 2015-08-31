@@ -24,4 +24,4 @@
 6. Create Pull Request to Release repository.
 
 ## Deploying an Upgrade - Android
-You will need the keystore and password that was used to sign the previous version of the app. Please request from @DrDanPrice or @peggylind.
+You will need the keystore and password that was used to sign the previous version of the app. Please request from [@DrDanPrice](https://github.com/drdanprice) or [@peggylind](https://github.com/peggylind).

@@ -34,7 +34,7 @@ Check whether you have Java installed by opening a command line tool (cmd in Win
 `Java(TM) SE Runtime Environment (build 1.6.0_65-b14-462-11M4609)`
 `Java HotSpot(TM) 64-Bit Server VM (build 20.65-b04-462, mixed mode)` you are ok and don't have to install Java. Please move to step 2.
 
-The JDK may be obtained from Oracle Corporation’s website using the [[URL|http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html]].
+The JDK may be obtained from Oracle Corporation’s website using the [URL](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
 Assuming that a suitable JDK is not already installed on your system, download the latest JDK package that matches the destination computer system. You need to select a package that fits your machine, e.g. jdk-8u5-macosx-x64.dmg if you are using a Mac. Once downloaded, launch the installation executable and follow the on screen instructions to complete the installation process. (It may already be installed - Mac, look under System Preferences, Java, then the update tab for version info)
 
@@ -42,12 +42,12 @@ Assuming that a suitable JDK is not already installed on your system, download t
 
 ### For Mac Users:
 
-Use [MacPorts ](https://guide.macports.org/chunked/installing.macports.html)
+Use [MacPorts](https://guide.macports.org/chunked/installing.macports.html)
 `sudo port install android` from the Terminal command line will do all of the below.
 
 ### For Windows Users:
 
-Get the Android development tools from the [[Android Developer site|http://developer.android.com/sdk/index.html#ExistingIDE]].
+Get the Android development tools from the [Android Developer site](http://developer.android.com/sdk/index.html#ExistingIDE).
 You only need to install the tools. Make sure you click on "Download the SDK tools for ..." where the ... should say Mac or Windows depending on your environment.
 
 Locate the downloaded ADT zip file in a Windows Explorer window, right-click on it and select the Extract All… menu option. In the resulting dialog, choose a suitable location (e.g. create a new folder as C:\AndroidSDK) into which to unzip the file before clicking on the Extract button. 
@@ -146,7 +146,7 @@ Use [MacPorts](https://guide.macports.org/chunked/installing.macports.html) and 
 
 ### For Windows users
 
-Follow instructions [[here|http://ant.apache.org/manual/install.html]]
+Follow instructions [here](http://ant.apache.org/manual/install.html)
 
 ## 4. Install nodeJS
 
@@ -158,16 +158,12 @@ Step 2- install the package and follow the directions to complete
 
 v0.10.26 / current as of May 21 is 0.10.28
 
-## 5. Install Phonegap
+## 5. Install Cordova
 
 ### For Mac users
 step 1- enter the following command into a terminal 
 
-`sudo npm install -g phonegap`
-
-http://phonegap.com/install/
-
-version 3.4
+`sudo npm install -g cordova`
 
 ## 6. Install Brackets
 Step 1- Download from [Brackets Download Page](http://brackets.io)
@@ -175,4 +171,4 @@ Step 1- Download from [Brackets Download Page](http://brackets.io)
 Step 2- Launch the .dmg and install the app by following the directions
 
 ## 7. If you are working on a project that involves [ionic](http://ionicframework.com/getting-started/) 
-`sudo npm install -g cordova`
+`sudo npm install -g ionic`
