@@ -1,3 +1,6 @@
+DASH Frontend Documentation
+===
+
 This is a collection of documentation pertaining to DASH front end development for the AngularJS frontend applications.
 
 Overview of Documents
@@ -13,6 +16,7 @@ Overview of Documents
 
 3. General App Guides
     - [App Design Standards](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontend/App%20Design%20Standards.md)
+    - [IE 9 CORS](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontend/How-To-Implement-IE9CORS.md)
 
 4. Ionic Instructions
     - [Ionic Getting Started](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontend/Ionic-Get-Started.md)
