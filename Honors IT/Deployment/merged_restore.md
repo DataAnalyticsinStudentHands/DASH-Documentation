@@ -1,10 +1,10 @@
-#```merged_restore.sh``` v. 2015.08.11
 
-##Introduction
 
-This script replaces all previous restore scripts and is included on every DeployStudio workflow.
+# Introduction
 
-##Usage
+This script is included on every DeployStudio workflow.
+
+## Usage
 The restore script should be used at the end of DeployStudio workflows, or can be run by itself if a computer needs the correct LaunchAgents and other files for its restore class.
 
 | Restore Name  | Manifest Name               | Student Logins? | Shared Computer? | Backed Up? |
@@ -17,7 +17,7 @@ The restore script should be used at the end of DeployStudio workflows, or can b
 |Faculty/Staff Restore|facultystaff_ManagedInstalls.plist|no|no|yes|
 |StudentWorker|advisor_ManagedInstalls.plist|no|yes|no|
 
-###Manual Execution
+### Manual Execution
 ```merged_restore.sh``` needs to be run as root and has four parameters
 
 ```restore_type``` has six possible values, which map to the different types of computers in the College:
@@ -27,7 +27,7 @@ The restore script should be used at the end of DeployStudio workflows, or can b
 * ```admin```
 * ```advisor```
 * ```presentation```
-* ```consulting```	
+* ```consulting```
 
 ```shared``` has two possible values and determines whether the keychain reset and removal LaunchAgent is installed.
 
@@ -42,7 +42,7 @@ The restore script should be used at the end of DeployStudio workflows, or can b
 ```backup``` has two possible values, and determines whether the backup LaunchDaemon is installed. Computers that are shared should not be backed up. This includes SSO and Recruitment.
 
 * ```backup``` - Installs the LaunchAgent.
-* ```nobackup``` - Does nothing. 
+* ```nobackup``` - Does nothing.
 
 
 ##The Script
@@ -103,7 +103,7 @@ This uses the first parameter to get the correct list of software for the comput
 function getManagedInstallsPlist {
 	echo "Getting ManagedInstalls.plist..."
 	if [ "$1" == "facultystaff" ]
-	then 
+	then
 		/usr/bin/curl -s --show-error $hcstorage/managedinstalls/facultystaff_ManagedInstalls.plist -o "/Library/Preferences/ManagedInstalls.plist"
 	elif [ "$1" == "presentation" ]
 	then
@@ -112,7 +112,7 @@ function getManagedInstallsPlist {
 	then
 		/usr/bin/curl -s --show-error $hcstorage/managedinstalls/consulting_ManagedInstalls.plist -o "/Library/Preferences/ManagedInstalls.plist"
 	elif [ "$1" == "advisor" ]
-	then 
+	then
 		/usr/bin/curl -s --show-error $hcstorage/managedinstalls/advisor_ManagedInstalls.plist -o "/Library/Preferences/ManagedInstalls.plist"
 	elif [ "$1" == "lab" ]
 	then
@@ -133,7 +133,7 @@ function getOfficeSetupLaunchAgent {
 	echo "Getting Office setup script..."
 	/usr/bin/curl -s --show-error $hcstorage/scripts/curl_office_plists.sh -o "/usr/bin/curl_office_plists.sh"
 	/bin/chmod +x /usr/bin/curl_office_plists.sh
-	
+
 	echo "Getting Office preferences login script..."
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.curlofficeprefs.plist -o "/Library/LaunchAgents/edu.uh.honors.curlofficeprefs.plist"
 	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.curlofficeprefs.plist
@@ -160,7 +160,7 @@ function getScreenLockLaunchAgent {
 	echo "Installing script to disable screen lock..."
 	/usr/bin/curl -s --show-error $hcstorage/scripts/disable_screen_lock.sh -o "/usr/bin/disable_screen_lock.sh"
 	/bin/chmod +x /usr/bin/disable_screen_lock.sh
-	
+
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.disablescreenlock.plist -o "/Library/LaunchAgents/edu.uh.honors.disablescreenlock.plist"
 	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.disablescreenlock.plist
 }
@@ -175,7 +175,7 @@ function getNetworkMountLaunchAgent {
 	echo "Installing script to mount uhs1 share..."
 	/usr/bin/curl -s --show-error $hcstorage/scripts/mount_uhsa1_share.sh -o "/usr/bin/mount_uhsa1_share.sh"
 	/bin/chmod +x /usr/bin/mount_uhsa1_share.sh
-	
+
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.mountuhsa1share.plist -o "/Library/LaunchAgents/edu.uh.honors.mountuhsa1share.plist"
 	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.mountuhsa1share.plist
 }
@@ -188,7 +188,7 @@ function getBackupLaunchDaemon {
 	echo "Getting Backup Script..."
 	/usr/bin/curl -s --show-error $hcstorage/scripts/backup.sh -o "/usr/bin/backup.sh"
 	/bin/chmod +x /usr/bin/backup.sh
-	
+
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.backup.plist -o "/Library/LaunchDaemons/edu.uh.honors.backup.plist"
 	/bin/chmod 644 /Library/LaunchDaemons/edu.uh.honors.backup.plist
 }
@@ -202,7 +202,7 @@ function getKeychainResetLaunchDaemon {
 	echo "Getting Keychain Fix Script..."
 	/usr/bin/curl -s --show-error $hcstorage/scripts/reset_keychains.sh -o "/usr/bin/reset_keychains.sh"
 	/bin/chmod +x /usr/bin/reset_keychains.sh
-	
+
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.resetkeychains.plist -o "/Library/LaunchDaemons/edu.uh.honors.resetkeychains.plist"
 	/bin/chmod 644 /Library/LaunchDaemons/edu.uh.honors.resetkeychains.plist
 }
@@ -215,21 +215,21 @@ function restrictActiveDirectoryLogins {
 	/usr/bin/dscl . -create /Groups/com.apple.loginwindow.netaccounts Password "*"
 	/usr/bin/dscl . -create /Groups/com.apple.loginwindow.netaccounts RealName "Login Window's custom net accounts"
 	/usr/bin/dscl . -create /Groups/com.apple.loginwindow.netaccounts PrimaryGroupID 206
-	
+
 	/usr/sbin/dseditgroup -o edit -n /Local/Default -a HC\ Admins -t group com.apple.loginwindow.netaccounts
 	/usr/sbin/dseditgroup -o edit -n /Local/Default -a HC\ Authenticated\ Users -t group com.apple.loginwindow.netaccounts
-	
+
 	if [ "$1" == "student" ]
 	then
-		echo "Adding students to allowed user list..." 
+		echo "Adding students to allowed user list..."
 		/usr/sbin/dseditgroup -o edit -n /Local/Default -a HC\ Students -t group com.apple.loginwindow.netaccounts
 	fi
-	
+
 	/usr/bin/dscl . -create /Groups/com.apple.access_loginwindow
 	/usr/bin/dscl . -create /Groups/com.apple.access_loginwindow Password "*"
 	/usr/bin/dscl . -create /Groups/com.apple.access_loginwindow PrimaryGroupID 223
 	/usr/bin/dscl . -create /Groups/com.apple.access_loginwindow RealName "Login Window ACL"
-	
+
 	/usr/sbin/dseditgroup -o edit -n /Local/Default -a localaccounts -t group com.apple.access_loginwindow
 	/usr/sbin/dseditgroup -o edit -n /Local/Default -a com.apple.loginwindow.netaccounts -t group com.apple.access_loginwindow
 }

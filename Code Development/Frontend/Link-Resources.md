@@ -1,3 +1,5 @@
+These is a cheatsheet of links that should provide an overview of the commonly used libraries at DASH.
+
 ##AngularJS Resources
 * [Angular JS Guide](https://docs.angularjs.org/guide)
 * [Angular JS Conceptual Overview](https://docs.angularjs.org/guide/concepts)
