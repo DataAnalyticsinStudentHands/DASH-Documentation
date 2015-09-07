@@ -1,20 +1,18 @@
-#Printers & Copiers
-
-##Introduction
+## Introduction
 
 There are several different printers at the Honors College, but they're all HP Printers, or Xerox Copiers. Printers are now a self-service operation, managed through Munki. Settings for each printer are created in Profile Manager, and deployed through Munki. Each printer has a static IP address to remove it from the DHCP Pool.
 
-##Installing a Printer
+## Installing a Printer
 
 * Open Managed Software Center located in ```Applications``` -> ```Utilities```.
 * Select **Install** for the desired printer.
 
-##Removing a Printer
+## Removing a Printer
 
 * Open Managed Software Center.
 * Select **Remove** for the desired printer.
 
-##Printer Listings
+## Printer Listings
 
 | Printer Name    | IP Address   | DNS Name                  | Model Number  |
 |-----------------|--------------|---------------------------|---------------|
@@ -31,10 +29,11 @@ There are several different printers at the Honors College, but they're all HP P
 | Lab Printer 2 | 172.27.56.21 | printer11.honors.e.uh.edu | HP 600 Series w/ Duplexer and 3rd Tray |
 | Color Printer | 172.27.56.22 | printer12.honors.e.uh.edu | Xerox Phaser 7400DN |
 
-##Copier Listings
+## Copier Listings
 
 | Printer Name    | IP Address   | DNS Name                  | Model Number  |
 |-----------------|--------------|---------------------------|---------------|
-| Copy Storage Xerox| 172.27.56.7 | copier01.honors.e.uh.edu | Xerox WorkCentre 5855 |
-| Dean's Area Xerox | 172.27.56.8 | copier02.honors.e.uh.edu | Xerox WorkCentre 3615 |
-| South Gardens Xerox | 172.27.219.1 | 584-s15-sgwc-prntr.honors.e.uh.edu | Xerox WorkCenter 5755 |
+| Copy Storage Xerox| https://172.27.56.7/ | copier01.honors.e.uh.edu | Xerox WorkCentre 5855 |
+| Dean's Area Xerox | http://172.27.56.8/ | copier02.honors.e.uh.edu | Xerox WorkCentre 3615 |
+| South Gardens Xerox | http://172.27.219.1/ | 584-s15-sgwc-prntr.honors.e.uh.edu | Xerox WorkCenter 5755 |
+| Speech/Debate Xerox | http://172.27.159.207/ |  | Xerox WorkCenter 4250 |
