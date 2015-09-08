@@ -12,4 +12,4 @@ Add the following code to the `<head>` tag of the index.html:
 <!--[if lte IE 9]>
     <script src="http://cdn.rawgit.com/jpillora/xdomain/0.7.3/dist/xdomain.min.js" slave="https://www.housuggest.org:8443/CORS/index.html"></script>
 <![endif]-->
-```
+``` 
