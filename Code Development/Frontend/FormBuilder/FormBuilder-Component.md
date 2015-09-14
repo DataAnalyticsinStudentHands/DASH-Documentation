@@ -31,3 +31,4 @@ A component has the following main attributes:
 - template - HTML that contains the HTML for the component
 - templateUrl - HTML file that contains the HTML for the component - use template OR templateUrl, not both
 - popoverTemplateUrl - that contains the HTML for the component popover in the editor view and allows user that builds forms to make configure the component.
+- validationOptions - contains options for validation. Refer to component `textInput` for an example.

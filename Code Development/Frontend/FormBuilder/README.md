@@ -8,5 +8,5 @@ It is built from the [angular-form-builder](https://github.com/kelp404/angular-f
 ####Contents
 
 - [Working with FormBuilder Interface](https://github.com/kelp404/angular-form-builder/blob/master/README.md)
-- [Components]()
-- [Modifying FormBuilder Core]()
+- [Components](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontend/FormBuilder/FormBuilder-Component.md)
+- [FormBuilder Core](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontend/FormBuilder/FormBuilder-Core.md)

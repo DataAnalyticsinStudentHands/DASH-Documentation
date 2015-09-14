@@ -9,7 +9,7 @@ Overview of Documents
     - [Setup Local Environment for App Development](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontend/Frontend-Setup-Local-Development-Environment.md)
 
 2. Frontend Development  
-    - [Application Structure](https://github.com/CarlSteven/DASH-Documentation/blob/master/Code%20Development/Frontend/Frontend-File-Structure.md)
+    - [Application Structure](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontend/Frontend-File-Structure.md)
     - [Link Resources - Cheatsheet](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontend/Link-Resources.md)
     - [App Deployment To Web Server](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontend/App-Deployment-to-web-server.md) 
     - [App Deployment to App Store](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontend/How-to-Build-Mobile-Applications-for-Production.md)
