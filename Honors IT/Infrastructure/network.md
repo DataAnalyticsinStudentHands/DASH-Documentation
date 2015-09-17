@@ -1,10 +1,13 @@
 
 ## Introduction
 
-The Honors College has computers in several different locations, which have different network structures and names
+The Honors College has computers in several different locations, which have different network structures and names.
 
 ## M.D. Anderson Library
 
+| Location | Subnet | Network Speed |
+|M.D. Anderson Library|172.27.56.*|100 Mbps|
+|Honors Gardens|172.27.218.* & 172.27.219.*|100 Mbps|
 ### Subnet
 172.27.56.*
 
@@ -22,7 +25,7 @@ The IT office has a 1Gbps Switch between the NAS, ESXi Server, and the IT Comput
 172.27.219.*
 
 ### Network Speed
-100 Mbps
+
 
 ### Special Information
 The Honors Gardens has two different subnets, which presents some difficulties when attempting to netboot from a deployment server. In addition, when looking for computers using remote desktop, scans must be done on each subnet individually.
