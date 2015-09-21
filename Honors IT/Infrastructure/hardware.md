@@ -8,7 +8,7 @@ We use two Mac Mini 5.1 headless computers with Core i5 processors and 16 GB of 
 
 ## Storage
 
-We use a [Synology DS415+](https://www.synology.com/en-global/products/DS415+) NAS device with 24 TB of storage in a RAID 5 to provide network backup and file services. Documenation is attached below. The configuration interface can be reached at http://hc-storage.cougarnet.uh.edu:5000/
+We use a [Synology DS415+](https://www.synology.com/en-global/products/DS415+) NAS device with 24 TB of storage in a RAID 5 to provide network backup and file services. Documentation is attached below. The configuration interface can be reached at http://hc-storage.cougarnet.uh.edu:5000/
 
 ## Computers
 
