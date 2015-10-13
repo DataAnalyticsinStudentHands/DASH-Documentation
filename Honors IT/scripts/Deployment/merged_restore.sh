@@ -5,11 +5,8 @@ kickstart="/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/R
 systemsetup="/usr/sbin/systemsetup"
 networksetup="/usr/sbin/networksetup"
 defaults="/usr/bin/defaults"
-genericppd="/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Versions/A/Resources/Generic.ppd"
-scutil="/usr/sbin/scutil"
 airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
-diskutil="/usr/sbin/diskutil"
-hcstorage="http://hc-storage.cougarnet.uh.edu/web"
+hcstorage="http://hc-storage.cougarnet.uh.edu"
 
 
 function turnOffAirport {
@@ -50,6 +47,9 @@ function getManagedInstallsPlist {
 	elif [ "$1" == "dashlab" ]
 	then
 		/usr/bin/curl -s --show-error $hcstorage/managedinstalls/dashlab_ManagedInstalls.plist -o "/Library/Preferences/ManagedInstalls.plist"
+	elif [ "$1" == "bonnerlab" ]
+	then
+		/usr/bin/curl -s --show-error $hcstorage/managedinstalls/bonnerlab_ManagedInstalls.plist -o "/Library/Preferences/ManagedInstalls.plist"
 	elif [ "$1" == "admin" ]
 	then
 		/usr/bin/curl -s --show-error $hcstorage/managedinstalls/admin_ManagedInstalls.plist -o "/Library/Preferences/ManagedInstalls.plist"
@@ -58,20 +58,19 @@ function getManagedInstallsPlist {
 	fi
 }
 
-function getOfficeSetupLaunchAgent {
-	echo "Getting Office setup script..."
-	/usr/bin/curl -s --show-error $hcstorage/scripts/curl_office_plists.sh -o "/usr/bin/curl_office_plists.sh"
-	/bin/chmod +x /usr/bin/curl_office_plists.sh
-	
-	echo "Getting Office preferences login script..."
-	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.curlofficeprefs.plist -o "/Library/LaunchAgents/edu.uh.honors.curlofficeprefs.plist"
-	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.curlofficeprefs.plist
+function enableGuestAccount {
+	defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool YES
 }
 
 function getPaperCutLaunchAgent {
 	echo "Getting PaperCut login script..."
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.papercut.plist -o "/Library/LaunchAgents/edu.uh.honors.papercut.plist"
 	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.papercut.plist
+}
+
+function setAutomaticGuestLogin {
+	echo "Setting guest to automatic login..."
+	/usr/bin/defaults write /Library/Preferences/com.apple.loginwindow autoLoginUser guest
 }
 
 function getScreenLockLaunchAgent {
@@ -81,24 +80,6 @@ function getScreenLockLaunchAgent {
 	
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.disablescreenlock.plist -o "/Library/LaunchAgents/edu.uh.honors.disablescreenlock.plist"
 	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.disablescreenlock.plist
-}
-
-function getNetworkMountLaunchAgent {
-	echo "Installing script to mount uhs1 share..."
-	/usr/bin/curl -s --show-error $hcstorage/scripts/mount_uhsa1_share.sh -o "/usr/bin/mount_uhsa1_share.sh"
-	/bin/chmod +x /usr/bin/mount_uhsa1_share.sh
-	
-	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.mountuhsa1share.plist -o "/Library/LaunchAgents/edu.uh.honors.mountuhsa1share.plist"
-	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.mountuhsa1share.plist
-}
-
-function getBackupLaunchDaemon {
-	echo "Getting Backup Script..."
-	/usr/bin/curl -s --show-error $hcstorage/scripts/backup.sh -o "/usr/bin/backup.sh"
-	/bin/chmod +x /usr/bin/backup.sh
-	
-	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.backup.plist -o "/Library/LaunchDaemons/edu.uh.honors.backup.plist"
-	/bin/chmod 644 /Library/LaunchDaemons/edu.uh.honors.backup.plist
 }
 
 function getKeychainResetLaunchDaemon {
@@ -135,6 +116,25 @@ function restrictActiveDirectoryLogins {
 	/usr/sbin/dseditgroup -o edit -n /Local/Default -a com.apple.loginwindow.netaccounts -t group com.apple.access_loginwindow
 }
 
+function getBackupLaunchDaemon {
+	echo "Getting Backup Script..."
+	/usr/bin/curl -s --show-error $hcstorage/scripts/backup.sh -o "/usr/bin/backup.sh"
+	/bin/chmod +x /usr/bin/backup.sh
+	
+	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.backup.plist -o "/Library/LaunchDaemons/edu.uh.honors.backup.plist"
+	/bin/chmod 644 /Library/LaunchDaemons/edu.uh.honors.backup.plist
+}
+
+function getOfficeSetupLaunchAgent {
+	echo "Getting Office setup script..."
+	/usr/bin/curl -s --show-error $hcstorage/scripts/curl_office_plists.sh -o "/usr/bin/curl_office_plists.sh"
+	/bin/chmod +x /usr/bin/curl_office_plists.sh
+	
+	echo "Getting Office preferences login script..."
+	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.curlofficeprefs.plist -o "/Library/LaunchAgents/edu.uh.honors.curlofficeprefs.plist"
+	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.curlofficeprefs.plist
+}
+
 function disableSystemSleep {
 	echo "Disabling system sleep..."
 	/usr/bin/pmset sleep 0
@@ -150,13 +150,9 @@ function disableAutomaticSoftwareUpdates {
 	softwareupdate --schedule off
 }
 
-function enableGuestAccount {
-	defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool YES
-}
-
-function setAutomaticGuestLogin {
-	echo "Setting guest to automatic login..."
-	/usr/bin/defaults write /Library/Preferences/com.apple.loginwindow autoLoginUser guest
+function disableGatekeeper {
+	echo "Disabling Gatekeeper..."
+	spctl --master-disable
 }
 
 function enableUsernameAndPasswordFields {
@@ -164,16 +160,10 @@ function enableUsernameAndPasswordFields {
 	/usr/bin/defaults write /Library/Preferences/com.apple.loginwindow SHOWFULLNAME -bool TRUE
 }
 
-function disableGatekeeper {
-	echo "Disabling Gatekeeper..."
-	spctl --master-disable
-}
-
 function bootstrapMunki {
 	echo "Setting munki to bootstrap mode..."
 	touch /Users/Shared/.com.googlecode.munki.checkandinstallatstartup
 }
-
 
 echo "Running firstboot script..."
 turnOffAirport
