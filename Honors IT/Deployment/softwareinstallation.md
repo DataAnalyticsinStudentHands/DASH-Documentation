@@ -1,10 +1,6 @@
-Software is deployed via Munki
-
 # Software Packaging Guide
 
-
-The list below describes how to configure packages for each software package.
-
+Software is deployed via Munki. MunkiAdmin is the tool to be used to create packages and settings to be deployed. The list below describes how to configure packages for each software package.
 
 ## Microsoft Office 2011
 

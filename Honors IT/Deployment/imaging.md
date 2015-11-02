@@ -1,4 +1,8 @@
+The following figures illustrate the workflow for imaging a computer and some other workflows involved.
+
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://www.lucidchart.com/documents/embeddedchart/e7fae3b7-587c-4b59-90e3-f410ac3239ad" id="6l89Ew87hb7Q"></iframe></div>
+
+In the following we describe the software that is used in the process of creating, maintenance and deploying images. We then describe the setup that used within Honors.
 
 ## Software Used
 
@@ -36,7 +40,7 @@ Server.app is Mac OS X's directory and server application. It provides Profile M
 
 ### Notes
 
-- All of this work will be done on the HC-Deployment virtual machine, on HC-Host. It can be accessed through Apple Remote Desktop from HC-IT-Laptop, HC-IT or by using the vCenter console installed on HC-Management.
+- If not noted otherwise, all of this work will be done on the HC-Deployment virtual machine. It can be accessed through Apple Remote Desktop or by using the vCenter console installed on HC-Management.
 - All of this software should be installed on HC-Deployment, or can be restored from a backup of HC-Deployment.
 - All of the shares located on HC-Storage should be mounted on HC-Deployment before beginning this process.
 - Make sure that OS X is up-to-date before proceeding.

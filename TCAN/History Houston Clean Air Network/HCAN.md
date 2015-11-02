@@ -1,20 +1,18 @@
----
-title: "History Houston Clean Air Network"
-author: "Peggy Lindner"
-date: "May 20, 2015"
-output: 
-  html_document:
-    toc: true
-    toc_depth: 2
----
-
 # Introduction
 This document should help to understand the technical background of a website/data environment that we know as HoustonCleanAirNetwork or HCAN. It has been established through an effort by the Honors College at the University of Houston with funding from the Houston Endowment in 2010. It is currently available under <http://www.houstoncleanairnetwork.org>.
 
 The environment is composed of three major components:
-* Data Consumption (move data from TCEQ into database) 
+* Data Consumption (move data from TCEQ into database)
 * Data interpolation (generate grid, contour, updating tables for viewers)
 * Presentation modules (javascript for Drupal)
+
+OZone contour map web service example: http://houstoncan.airalliancehoust.netdna-cdn.com/ozone-viewer-api/contour.php?callback=callbackFunc&type=jsonp&timestamp=1422424800&bandschema=4
+
+OZone at point web service example: http://houstoncan.airalliancehoust.netdna-cdn.com/ozone-viewer-api/point.php?callback=callbackFunc&type=json&timestamp=1422424800&latlng=30.201,-94.69
+
+A working example of a web app using the contour map web service can be found at: http://texascleanairnetwork.org/ Under the "OZone Map" tab.
+
+A working example of an Android app using the point web service can be found at: https://play.google.com/store/apps/details?id=edu.uh.cpl
 
 The workflow that drives the processes under which the components operate is a as follows:
 1. Pushed data from TCEQ every 15 minutes (/home/TCEQ/uploads)
