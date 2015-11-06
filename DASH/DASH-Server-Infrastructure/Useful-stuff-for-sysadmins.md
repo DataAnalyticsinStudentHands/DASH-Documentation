@@ -29,7 +29,7 @@ All our virtualized servers are running RHEL. There are some specifics with perm
 
 ### Firewall-cmd open port 3000
 
-`firewall-cmd --permanent --zone=public --add-port=3000/tcp`
-`firewall-cmd --reload`
-`firewall-cmd --permanent --list-all`
+    firewall-cmd --permanent --zone=public --add-port=3000/tcp
+    firewall-cmd --reload
+    firewall-cmd --permanent --list-all
 
