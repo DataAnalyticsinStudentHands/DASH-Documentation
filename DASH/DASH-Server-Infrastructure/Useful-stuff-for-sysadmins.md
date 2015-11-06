@@ -33,3 +33,6 @@ All our virtualized servers are running RHEL. There are some specifics with perm
     firewall-cmd --reload
     firewall-cmd --permanent --list-all
 
+### Links for Some services
+
+[MariaDB](http://sharadchhetri.com/2014/07/31/install-mariadb-server-centos-7-rhel-7/)
