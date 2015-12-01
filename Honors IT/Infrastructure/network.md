@@ -6,7 +6,7 @@ The Honors College has computers in several different locations, which have diff
 |---|---|
 |172.27.56.*|100 Mbps|
 
-The IT office has a 1Gbps Switch between the NAS, ESXi Server, and the IT Computer, with open ports for high-speed imaging. However, it has a 100 Mbps uplink to the rest of UH's network.
+The IT office has a 1Gbps Switch between the NAS, ESXi Server, FileMaker Server and the IT Computer, with open ports for high-speed imaging. However, it has a 100 Mbps uplink to the rest of UH's network.
 
 ## Honors Gardens
 

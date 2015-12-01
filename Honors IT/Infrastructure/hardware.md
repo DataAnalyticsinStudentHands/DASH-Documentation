@@ -4,7 +4,9 @@ The Honors College uses several types of hardware to provide a seamless computin
 
 ## Servers
 
-We use two Mac Mini 5.1 headless computers with Core i5 processors and 16 GB of RAM, one at the MD Anderson Library and one at the Honors Gardens.
+For deployment and management of the IT infrastructure we use two Mac Mini 5.1 headless computers with Core i5 processors and 16 GB of RAM, one at the MD Anderson Library and one at the Honors Gardens.
+
+We have another Mac Mini 5.1 headless computer to serve as FileMaker server. It is located in the IT office at the MD Anderson Library.
 
 ## Storage
 
@@ -14,49 +16,6 @@ We use a [Synology DS415+](https://www.synology.com/en-global/products/DS415+) N
 
 Descriptions and details of assets touched by Honors IT can be found in the CMDB.
 
-## Printers
+## Printers & Projectors
 
-The printers are described in a separate page.
-
-## Projectors
-
-<table id="table84617"><tbody>
-<tr>
-<td>Projector Name</td>
-<td>Location</td>
-<td>Model</td>
-<td>Asset Tag Number</td>
-<td>Serial Number</td>
-</tr>
-<tr>
-<td class="">212S Projector</td>
-<td class="">212S Classroom</td>
-<td class="">Viewsonic Pro8200</td>
-<td class="">611703</td>
-<td class=""><br></td>
-</tr>
-<tr>
-<td class="">212J Projector</td>
-<td class="">212J Seminar</td>
-<td class="">Pro8200</td>
-<td class=""><p><span>616303</span></p></td>
-<td class="">S8F134400438</td>
-</tr>
-<tr>
-<td class="">212L Projector</td>
-<td class="">212L</td>
-<td class="">Pro8200</td>
-<td class="">611702</td>
-<td class=""><br></td>
-</tr>
-<tr>
-<td class="current">212P Projector</td>
-<td class="">212P</td>
-<td class="">Pro8200</td>
-<td class="">616302</td>
-<td class="">S8F134400457</td>
-</tr>
-</tbody></table>
-<p></p>
-<p></p>
-<p></p>
+The printers and projectors are described in a separate page.

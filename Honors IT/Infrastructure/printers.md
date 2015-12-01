@@ -37,6 +37,7 @@ When the part comes in, install it and return the empty cartridge to Brenda. We 
 | Lab Printer 1 | https://172.27.56.20/ | printer10.honors.e.uh.edu | HP 600 Series w/ Duplexer and 3rd Tray |
 | Lab Printer 2 | https://172.27.56.21/ | printer11.honors.e.uh.edu | HP 600 Series w/ Duplexer and 3rd Tray |
 | Color Printer | http://172.27.56.22/ | printer12.honors.e.uh.edu | Xerox Phaser 7400DN |
+| Communications Priner in 212G | http://172.27.56.23/ | printer13.honors.e.uh.edu | HP LaserJet M402dn |
 
 
 ## Copier Listings

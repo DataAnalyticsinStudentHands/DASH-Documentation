@@ -3,7 +3,7 @@ PaperCut is a commercial software package that we use to track student printing 
 
 
 ##Server
-The PaperCut Server application does all of the heavy lifting and is installed on HC-Papercut, a machine solely dedicated to this purpose. The PaperCut Administration interface is accessible at [http://hc-papercut.local:9191/admin](http://hc-papercut.local:9191/admin). The password can be found in the password vault.
+The PaperCut Server application does all of the heavy lifting and is installed on HC-Papercut, a machine solely dedicated to this purpose. The PaperCut Administration interface is accessible at [http://172.27.56.5:9191/admin](http://172.27.56.5:9191/admin). The password can be found in the password vault.
 
 The server is mostly a set it and forget it operation, unless it messes up majorly.
 
