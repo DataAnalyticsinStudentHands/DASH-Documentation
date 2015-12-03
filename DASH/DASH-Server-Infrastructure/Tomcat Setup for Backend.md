@@ -51,7 +51,7 @@ This is needed to daemonize Tomcat ...
 `cd commons-daemon-1.*-native-src/unix`  
 `./configure > configure.log`  
 `make > make.log`  
-`cp jsvc /opt/tomcat7/bin` 
+`cp jsvc /opt/tomcat7/bin`
 
 ### Create the APR Connector for native networking
 `cd /opt/tomcat7/bin`  
@@ -126,4 +126,9 @@ in server.xml add:
     `<Connector SSLEnabled="true" clientAuth="false" keystoreFile="/path/to/certificate" keystorePass="***" maxThreads="150" port="8443" protocol="org.apache.coyote.http11.Http11Protocol" scheme="https" secure="true" sslProtocol="TLS"/>`
 
 We are using a certificate from Comododo stored in the keystore.
-    
+
+# Change settings for Tomcat to increase available memory
+
+in /etc/tomcat/tomcat.conf change:
+
+`JAVA_OPTS='-Xms512m -Xmx1024m -XX:PermSize=512m -XX:MaxPermSize=1024m -Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n'`
