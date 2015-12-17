@@ -39,6 +39,8 @@ The Honors Gardens has two different subnets, which presents some difficulties w
 | 172.27.56.20 | printer10.honors.e.uh.edu |
 | 172.27.56.21 | printer11.honors.e.uh.edu |
 | 172.27.56.22 | printer12.honors.e.uh.edu |
+| 172.27.56.23 | printer13.honors.e.uh.edu |
+| 172.27.56.30 | printer20.honors.e.uh.edu |
 
 
 Not used right now, but reserved:
@@ -54,7 +56,7 @@ Not used right now, but reserved:
 | 172.27.56.27 | printer17.honors.e.uh.edu
 | 172.27.56.28 | printer18.honors.e.uh.edu
 | 172.27.56.29 | printer19.honors.e.uh.edu
-| 172.27.56.30 | printer20.honors.e.uh.edu
+
 
 Other:
 
