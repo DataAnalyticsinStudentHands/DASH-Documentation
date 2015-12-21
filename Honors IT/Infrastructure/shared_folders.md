@@ -18,12 +18,27 @@ Access to the shared folders inside the HCShare folder is managed via Active Dir
 
 Here is a list of the folders inside HCShare:
 
-
-The access to each of those folders is handled via group permissions. The group "HC Admins" + a administrator from UH IT shoudl have always full control for each of the folders.
+The access to each of those folders is handled via group permissions. The group "HC Admins" + a administrator from UH IT should have always full control for each of the folders.
 
 | Folder Name    | Group Access   | Description |
 |-----------------|--------------|---------------------------|
 | Admissions     | ? | Admissions shared folder |
+| Authenticated Students | ? | Security Group, for HC students |
+| Authenticated Users | ? | Security Group, authenticated users who are non-students |
+| HC Authorized SSO | ? | SSO shared folder |
+| HC Business Office | ? | Business Office shared folder |
+| HC Communications | ? | Communications shared folder |
+| HC Deans Area | ? | Deans Area shared folder |
+| HC Development | ? | Development shared folder |
+| HC Faculty | ? | All Honors Faculty |
+| HC Fulbright | ? | Fulbright scholarship shared folder |
+| HC Health Professions | ? | Health Professions shared folder |
+| HC Houston Scholars | ? | Houston Scholars shared folder |
+| HC IT | ? | IT shared folder |
+| HC Policy Debate | ? | Policy debate shared folder |
+| HC Recruitment | ? | Recruitment shared folder |
+| HC Research | ? | Research shared folder
+| HC Writing Fellows | ? | Writing Fellows shared folder
 
 ## 2. Honors Share
 
