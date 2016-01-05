@@ -3,7 +3,11 @@
 
 2. Cordova 5.0+ requires `cordova-plugin-whitelist`. Refer to configuration data for whitelist [here](https://cordova.apache.org/docs/en/4.0.0/guide_appdev_whitelist_index.md.html) and some applications may need to be upgraded when built.
 
-3. Perform a `cordova build ios` or `cordova build android --release`.
+3. Perform `cordova platform add ios` or `cordova platform add android`
+
+4. Perform `ionic resources` to generate icon/splash assets based on those in `/resources` folder.
+
+3. Perform `cordova build ios` or `cordova build android --release`.
 
     - On **android**, the last lines of the build message will have the path of the APK output.
 
