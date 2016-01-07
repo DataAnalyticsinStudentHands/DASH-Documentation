@@ -1,4 +1,7 @@
 ##Steps for Compiling
+
+In some repositories, steps 1-4 will be automated using `gulp android-setup` or `gulp ios-setup` and steps 4-5 via `gulp android-build` or `gulp ios-build`. Plugins may be automatically installed via add_plugins.js hook in `hooks\before_platform_add\`.
+
 1. `cordova plugin ls` Ensure all plugins are already installed based on the documentation for the repository.
 
 2. Cordova 5.0+ requires `cordova-plugin-whitelist`. Refer to configuration data for whitelist [here](https://cordova.apache.org/docs/en/4.0.0/guide_appdev_whitelist_index.md.html) and some applications may need to be upgraded when built.
