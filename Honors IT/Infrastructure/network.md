@@ -24,7 +24,8 @@ The Honors Gardens has two different subnets, which presents some difficulties w
 | 172.27.56.1 | larry.honors.e.uh.edu |
 | 172.27.56.2 | moe.honors.e.uh.edu |
 | 172.27.56.3 | curly.cougarnet.uh.edu |
-| 172.27.56.5 | hc-papercut.cougarnet.uh.edu & hc-papercut.honors.e.uh.edu
+| 172.27.56.5 | hc-papercut.cougarnet.uh.edu & hc-papercut.honors.e.uh.edu |
+| 172.27.56.6 | hc-management.cougarnet.uh.edu & hc-management.honors.e.uh.edu |
 | 172.27.56.7 | copier01.honors.e.uh.edu |
 | 172.27.56.8 | copier02.honors.e.uh.edu |
 | 172.27.56.11 | printer01.honors.e.uh.edu |
@@ -58,15 +59,12 @@ Not used right now, but reserved:
 | 172.27.56.29 | printer19.honors.e.uh.edu
 
 
-Other:
+To do:
 
 Name:            hc-storage.cougarnet.uh.edu
 Address: 172.27.56.197
 Should use 172.27.56.4
 
-I’m also going to request:
-Name: hc-management.cougarnet.uh.edu & hc-management.honors.e.uh.edu
-For Address: 172.27.56.6
 
 ## Activating Network Jacks
 
