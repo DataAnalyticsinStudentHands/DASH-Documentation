@@ -28,3 +28,8 @@ TODO
 
 * We could write a bash script that would also be committed to the git repo at the top level, the purpose of which would be to automate the updating of files on the AWS server.
 * Ensure that the current repo successfully replicates the current processes of the ibreathe.hnet.uh.edu server (including compiling a new .jar from java sources)
+
+Manual steps when new year starts:
+* Create table in database
+* Create output folders in gridData & generatedContours
+* update processRedraws.pl
