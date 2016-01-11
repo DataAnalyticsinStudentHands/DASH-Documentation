@@ -4,6 +4,7 @@ We only use Mac OS X Profile Manager to solely manage printing and mounting netw
 The settings generated with the Profile Manager are named `*.mobileconfig`. Please refer to the "Software List" document about specific settings generated.
 
 The Profile Manager has been setup on HC-Deployment (using Server.app) and accessible via: https://curly.cougarnet.uh.edu/
+Please use Safari to open the link (doesn't work in Chrome!).
 
 To generate a setting open Profile Manager and go to "Device Groups".
 

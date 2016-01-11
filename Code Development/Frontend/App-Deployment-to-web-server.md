@@ -17,4 +17,4 @@ If needed, please request webadmin SSH keys from @DrDanPrice or @peggylind.
 2. Execute deploy gulp command to staging environment: `gulp deploy-dev` OR to live environment: `gulp deploy-prod`. 
 3. Go to website.
 
-If you need a Gulpfile.js, use and modify [this sample one](https://gist.github.com/CarlSteven/39833149163beeb8fd55) and change remote path variables as required.
+If you need a Gulpfile.js, use and modify [this sample one](https://gist.github.com/CarlSteven/39833149163beeb8fd55) and change remote path variables as required. Additionally, add `gulp-deploy-git` and `gulp-clean` to the packages.json npm dependencies.
