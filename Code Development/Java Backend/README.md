@@ -64,7 +64,7 @@ We are using [Jersey](https://jersey.java.net/) as framework for providing REST.
 TODO: Write instructions for using preflights.
 
 ##Error Codes
- TODO: Write decriptions of each error code
+ TODO: Write descriptions of each error code
 
 
 
