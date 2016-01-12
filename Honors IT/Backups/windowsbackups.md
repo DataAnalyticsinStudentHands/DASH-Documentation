@@ -8,6 +8,6 @@ We only back up user directories of faculty and staff Windows computers.
 
 | User account                  | Backup folder name    | Computer Name |
 |-------------------------------|-------------|-------------------------------------|
-| bjohnson (B. Rhoden)          | Backup Job HC-RHODEN2 | HC-Rhoden2   |
+| bjohnson (B. Rhoden)          | hc-rhoden/Backup Job HC-RHODEN2 | HC-Rhoden2   |
 | sbhojni (S. Bhojani)          | Backup Job HC-SBHOJANI | hc-bhojani |
 | alittle (A. Little)           | Backup Job HC-LITTLE | hc-little |              
