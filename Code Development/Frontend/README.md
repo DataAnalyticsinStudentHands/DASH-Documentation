@@ -10,7 +10,7 @@ Overview of Documents
 
 2. Frontend Development  
     - [Application Structure](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontend/Frontend-File-Structure.md)
-    - [Link Resources - Cheatsheet](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontend/Link-Resources.md)
+    - [Link Resources - Cheat Sheet](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontend/Link-Resources.md)
     - [App Deployment To Web Server](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontend/App-Deployment-to-web-server.md) 
     - [App Deployment to App Store](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontend/How-to-Build-Mobile-Applications-for-Production.md)
 
@@ -24,3 +24,4 @@ Overview of Documents
     
 5. Overview of Projects
     - [FormBuilder](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/tree/master/Code%20Development/Frontend/FormBuilder)
+    - [Community Health Workers](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/tree/master/Code%20Development/Frontend/CommunityHealthWorkers)
