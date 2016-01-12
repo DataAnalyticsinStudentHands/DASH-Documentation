@@ -12,7 +12,7 @@ Overview of Documents
     - [Application Structure](Frontend-File-Structure.md)
     - [Link Resources - Cheat Sheet](Link-Resources.md)
     - [App Deployment To Web Server](App-Deployment-to-web-server.md) 
-    - [App Deployment to App Store](How-to-Build-Mobile-Applications-for-Production.md)u
+    - [App Deployment to App Store](How-to-Build-Mobile-Applications-for-Production.md)
 
 3. General App Guides
     - [App Design Standards](App%20Design%20Standards.md)
@@ -23,7 +23,7 @@ Overview of Documents
     - [Ionic SASS Setup](Ionic-SASS-setup.md)
     
 5. Overview of Projects
+    - [Automation](Automation/README.md)
     - [FormBuilder](FormBuilder/README.md)
     - [Community Health Workers](CommunityHealthWorkers/README.md)
-    - [Automation](Automation/README.md)
     - [Password Reset](PasswordReset/README.md)

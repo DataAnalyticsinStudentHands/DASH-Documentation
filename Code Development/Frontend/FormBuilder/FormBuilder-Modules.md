@@ -9,7 +9,7 @@ FormBuilder has several inter-dependent modules that comprise of the whole appli
 The core modules contains dependencies to all modules/features that are included as a part of the application. Each derivative application created from FormBuilder will have its own core module that contains the main module that is bootstrapped by the `ng-app` statement. 
 
 #### Components
-The components module contains the Form components as described [here](../FormBuilder-Component.md). Additional components shall be defined here.
+The components module contains the Form components as described [here](FormBuilder-Component.md). Additional components shall be defined here.
 
 #### FormBuilder
 The FormBuilder module is the main module that facilitates the creation and editing of a form.
