@@ -16,14 +16,6 @@ public class MyTimerTask extends TimerTask{
 ```
 
 The second important class is the actual `java.util.timer` class. This is the class that will schedule an instance of any `TimerTask` implementation. After initializing an instance of `java.util.timer`, one of its scheduling methods can be called to schedule the task. There are 6 different scheduling timers
-
-* `schedule(TimerTask task, Date time)` - Schedules the specified task for execution at the specified time.
-* `schedule(TimerTask task, Date firstTime, long period)` - Schedules the specified task for repeated fixed-delay execution, beginning at the specified time.
-* `schedule(TimerTask task, long delay)` - Schedules the specified task for execution after the specified delay.
-* `schedule(TimerTask task, long delay, long period)` - Schedules the specified task for repeated fixed-delay execution, beginning after the specified delay.
-* `scheduleAtFixedRate(TimerTask task, Date firstTime, long period)` - Schedules the specified task for repeated fixed-rate execution, beginning at the specified time.
-* `scheduleAtFixedRate(TimerTask task, long delay, long period)` - Schedules the specified task for repeated fixed-rate execution, beginning after the specified delay.
-
 It is worth noting that even though there are 6 methods, there is really only 2 ways to schedule a task. You can either schedule it for a single execution at some point in the future, or you can schedule it to be executed on a fixed, repeated interval, starting at some point in the future. Immediate execution can be considered as some point in the future. The first execution can be provided by either a `long` representing the delay in milliseconds between the scheduling and first execution of a task, or by a `Date` object representing the date and time of the initial execution. The example below schedules 3 timers. The first will execute one time after 5 seconds, the second will execute every 7 seconds starting immediately, and the third will execute every 5 seconds after a 3 second delay. A fourth timer will be used to show the amount of time passed in the output.
 
 ```java
@@ -122,12 +114,12 @@ public class ExampleJob implements Job{
 This simple job will simply print whatever the string value of output is when executed. The setter method is used by the Quartz library to set the value of output, so it is necessary. However, this method should not be called within the application. 
 
 ###Triggers
-The second part of the Quartz library is the `Trigger` interface. In Quartz's scheduling, the trigger provides the "when" of the execution. An instance of a `Trigger` can be attached to an instance of a `Job`, and the `execute()` method of that job will be executed when the conditions of the trigger are met. Developers can create their own implementations of the `Trigger` interface, as detailed in the Quartz Documentation. Several implementations are included in the Quartz Library. Our application does not implement a new `Trigger` class, so these details will not be documented here. Instead, we use the packaged `CronTrigger` implementation. This trigger operates on a unix style "Chron String." This string is made up of seven sections, Seconds, Minutes, Hours, Day-Of-Month, Month, Day-Of-Week, Year (optional). These seven sections are separated by whitespace and accept particular values that correspond to certain conditions that must be true for a trigger activate. The trigger will activate when the current time fulfills the requirements. Below are several examples of Chron strings, and explanations
+The second part of the Quartz library is the `Trigger` interface. In Quartz's scheduling, the trigger provides the "when" of the execution. An instance of a `Trigger` can be attached to an instance of a `Job`, and the `execute()` method of that job will be executed when the conditions of the trigger are met. Developers can create their own implementations of the `Trigger` interface, as detailed in the Quartz Documentation. Several implementations are included in the Quartz Library. Our application does not implement a new `Trigger` class, so these details will not be documented here. Instead, we use the packaged `CronTrigger` implementation. This trigger operates on a unix style "Chron String." This string is made up of seven sections, `Seconds, Minutes, Hours, Day-Of-Month, Month, Day-Of-Week, Year (optional)`. These seven sections are separated by whitespace and accept particular values that correspond to certain conditions that must be true for a trigger activate. The trigger will activate when the current time fulfills the requirements. Below are several examples of Chron strings, and explanations
 
-* 0 0 12 * * ? - Will execute at 12pm(noon) every day
-* 0 15 10 * * ? 2005 - Will fire every day at 10:15am during 2005
-* 0 * 14 * * ? - Will fire every minute starting at 2pm and ending at 2:59pm, every day
-* 0 0/5 14,18 * * ? - Will fire every 5 minutes starting at 2pm and ending at 2:55pm, AND fire every 5 minutes starting at 6pm and ending at 6:55pm, every day
+* `0 0 12 * * ?` - Will execute at 12pm(noon) every day
+* `0 15 10 * * ? 2005` - Will fire every day at 10:15am during 2005
+* `0 * 14 * * ?` - Will fire every minute starting at 2pm and ending at 2:59pm, every day
+* `0 0/5 14,18 * * ?` - Will fire every 5 minutes starting at 2pm and ending at 2:55pm, AND fire every 5 minutes starting at 6pm and ending at 6:55pm, every day
 
 More information on the Chron Trigger can be found [here](https://quartz-scheduler.org/documentation/quartz-2.1.x/tutorials/crontrigger)
 
