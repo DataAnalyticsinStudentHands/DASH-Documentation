@@ -26,4 +26,3 @@ Overview of Documents
     - [Automation](Automation/README.md)
     - [FormBuilder](FormBuilder/README.md)
     - [Community Health Workers](CommunityHealthWorkers/README.md)
-    - [Password Reset](PasswordReset/README.md)
