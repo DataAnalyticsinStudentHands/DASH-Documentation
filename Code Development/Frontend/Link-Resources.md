@@ -7,6 +7,8 @@ These is a cheat sheet of links that should provide an overview of the commonly 
 * [Angular JS Promises 2](http://www.dwmkerr.com/promises-in-angularjs-the-definitive-guide/)
 * [Angular JS Phonecat Tutorial](https://docs.angularjs.org/tutorial)
 * [Angular JS Data Binding](https://docs.angularjs.org/guide/databinding)
+
+###AngularJS Directives
 * [A Practical Guide to AngularJS Directives](http://www.sitepoint.com/practical-guide-angularjs-directives/)
 * [Build custom directives with AngularJS](http://www.ng-newsletter.com/posts/directives.html)
 
