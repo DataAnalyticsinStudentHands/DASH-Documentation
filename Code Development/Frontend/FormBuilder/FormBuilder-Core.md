@@ -1,4 +1,4 @@
-Modifying FormBuilder
+Modifying FormBuilder Core Module
 =
 
 The FormBuilder core files are located in FormBuilder at `/www/module/formbuilder/` the file structure within is described below.
