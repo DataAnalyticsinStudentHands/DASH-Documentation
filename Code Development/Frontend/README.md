@@ -12,7 +12,7 @@ Overview of Documents
     - [Application Structure](Frontend-File-Structure.md)
     - [Link Resources - Cheat Sheet](Link-Resources.md)
     - [App Deployment To Web Server](App-Deployment-to-web-server.md) 
-    - [App Deployment to App Store](How-to-Build-Mobile-Applications-for-Production.md)
+    - [App Deployment to App Store](How-to-Build-Mobile-Applications-for-Production.md)u
 
 3. General App Guides
     - [App Design Standards](App%20Design%20Standards.md)
