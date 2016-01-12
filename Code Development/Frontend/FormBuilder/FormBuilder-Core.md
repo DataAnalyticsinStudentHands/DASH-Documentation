@@ -5,7 +5,7 @@ The FormBuilder core files are located in FormBuilder at `/www/module/formbuilde
  
 ### File Structure
 #### src
-Located within this folder are coffee script files which are compiled into `*.js` and `*.js.map` files. DO NOT in any circumstance modify `*.js.*` files as those changes will be immediately overwritten when the `*.coffee` files are compiled.
+Located within this folder are coffee script files which are compiled into `*.js` and `*.js.map` files. DO NOT in any circumstance modify `*.js` or `*.js.*` files as those changes will be immediately overwritten when the `*.coffee` files are compiled.
 
 In order to compile CoffeeScript files, you must run `npm install -g coffee-script` to install the coffeescript compiler. The easiest way to compile after installing is to open up the project in [WebStorm](https://www.jetbrains.com/webstorm/) (obtain a free EDU license [here](https://www.jetbrains.com/student/)), open a `*.coffee` file and allow the automatic watcher to detect the coffee binaries and do the compilation automatically. NOTE: You may also use the command line coffee compile tool, but has never been done successfully.
 

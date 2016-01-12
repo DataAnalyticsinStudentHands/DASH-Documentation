@@ -25,3 +25,5 @@ Overview of Documents
 5. Overview of Projects
     - [FormBuilder](FormBuilder/README.md)
     - [Community Health Workers](CommunityHealthWorkers/README.md)
+    - [Automation](Automation/README.md)
+    - [Password Reset](PasswordReset/README.md)
