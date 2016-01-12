@@ -27,4 +27,4 @@ Module definition. Most likely will not need to be modified.
 'Provides' the builder. Most likely will not need to be modified.
 
 ####components
-In this folder are the default FormBuilder components as described [here](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontend/FormBuilder/FormBuilder-Component.md)
+In this folder are the default FormBuilder components as described [here](../FormBuilder-Component.md)

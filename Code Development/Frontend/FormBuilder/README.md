@@ -8,7 +8,7 @@ It is built from the [angular-form-builder](https://github.com/kelp404/angular-f
 #### Contents
 
 - [Working with FormBuilder Interface](https://github.com/kelp404/angular-form-builder/blob/master/README.md)
-- [Components](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontend/FormBuilder/FormBuilder-Component.md)
-- [Working with FormBuilder Core Module (angular-form-builder)](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontend/FormBuilder/FormBuilder-Core.md)
-- [FormBuilder File Structure](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontend/FormBuilder/FormBuilder-File-Structure.gmd)
-- [FormBuilder Modules](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Frontend/FormBuilder/FormBuilder-Modules.gmd)
+- [Components](../FormBuilder-Component.md)
+- [Working with FormBuilder Core Module (angular-form-builder)](../FormBuilder-Core.md)
+- [FormBuilder File Structure](../FormBuilder-File-Structure.gmd)
+- [FormBuilder Modules](../FormBuilder-Modules.gmd)
