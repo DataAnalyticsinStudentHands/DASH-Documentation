@@ -1,6 +1,6 @@
 # OPTION 1 - Automated Install (Windows Only)
 
-Download the contents of the folder located [here](Setup-Local-Infrastructure/README.md) and run installer.bat this will request administrative rights and install a set of components with minimal user interaction.
+Download the contents of the folder located [here](../Setup-Local-Infrastructure/README.md) and run installer.bat this will request administrative rights and install a set of components with minimal user interaction.
 
 Installed Components
 
