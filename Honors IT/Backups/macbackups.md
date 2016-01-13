@@ -1,42 +1,47 @@
 # MAC Computer Backups
 
 ## Introduction
-The Honors College's backups are handled via a LaunchAgent that runs every day at 11:45 PM. It is installed when computers are imaged using the `merged_restore.sh` script. It uses a combination of rsync and and symlinks to create a full backup every weekend, and incremental backups every weekday. These backups are stored on the "Backups" share on the Synology NAS.
+The Honors College's backups are handled via a LaunchAgent that runs every day at 11:45 PM. It is installed when computers are imaged using the `merged_restore.sh` script. It uses a combination of rsync and and symlinks to create incremental backups every day. These backups are stored on the "Backups" share on the Synology NAS.
 
 ### Which computers get backed up?
 We only back up the Users folder from faculty and staff Mac computers. The lab, consulting, and classroom computers are not backed up and we offer no guarantee to retain the data on those computers. Student services, and recruitment staff should be doing all their work on their respective UHSA1 shares, and saving nothing to the local computer.
 
 We do not backup the full computer. We only backup certain data inside the Users folder (not backed up: Downloads, Trash and Cache). This strategy will make it easier to restore lost data since the backup is not convoluted.
 
-| Users                         | Location    | Computer Name |
+| Users                         | Location    | Computer Name/Backup folder name |
 |-------------------------------|-------------|-------------------------------------|
 | kemayer                       | 206D        | hc-206d                             |
 | jkgajan, cmbenz               | 204A        | hc-asmussen                         |
-| plindner                      | DASH        | hc-lindner                          |
 | jbbrown4                      | 204A        | hc-brown                            |
-| ?                             | ?           | hc-brunt                            |
+| cmbrunt2                      | CCW         | hc-brunt                            |
+| rcremins                      | 204D        | hc-cremins                          |
 | gtoti                         | DASH        | hc-dash5                            |
 | dblamson                      | ?           | hc-drainbow                         |
 | ehfletch                      | ?           | hc-fletcher                         |
+| FileMaker Server, hcadmin     | ?           | hc-fmp                              |
+| jrharvey                      | ?           | hc-harvey                           |
+| drainbow                      | ?           | hc-lamson                           |
+| ceveaux                       | 212W        | hc-leveaux                          |
+| plindner                      | DASH        | hc-lindner                          |
+| lllyke                        | 212F        | hc-lyke                             |
+| ipmorris                      | ?           | hc-morrisson                         |
+| kdyrick                       | Dean's Area | hc-myrick                           |
+| dprice3                       | DASH        | hc-price                            |
+| csseitz, cerios               | Dean's Area | HC-Seitz                            |
+| reirrieh                      | 212H        | hc-sirrieh                          |
+| kweber2                       | 211         | hc-weber                            |
 
-Need to check
-| R. Cremins                    | 204D        | hc-cremins                          |
-
-| C. Seitz                      | Dean's Area | HC-Seitz                            |
-| E. Rios                       | Dean's Area | hc-rios                             |
-| K. Myrick                     | Dean's Area | hc-myrick                                                               |
-| D. Mikics/J. Ferguson         | 206C        |                                     |
-| K. Weber                      | 211         | hc-weber                            |
+No backup, should be added asap!
+| hkvalier                      | ?           | hc-valier (need to load LaunchDaemon)                          |
+| E. Rios                       | Dean's Area | hc-rios (need to load LaunchDaemon) |
+| D. Mikics/J. Ferguson         | 206C        | hc-206c                             |
 | B. Monroe                     | 202A        |                                     |
 | T. Estess/R. Zaretsky         | 203B        |                                     |
-| C. LeVeaux-Haley              | 212W        | hc-leveaux                          |
 | A. Hamilton                   | 212W        |                                     |
-| R. Sirrieh                    | 212H        | HC-Sirrieh                          |
-| L. Lyke                       | 212F        | hc-lyke                             |
-| N. SakutriĘ                   | 212G        | hc-commstudent                      |
+| IT Desktop                    | ?           | hc-it                               |
 
 ### Security
-In order to guarantee security of each user's files (from other users, not administrators), we create a folder on the NAS for each user's computer, and set the permissions on the folder to be only accessible by the HC Admins group and the user whose computer is being backed up.
+In order to guarantee security of each user's files (from other users, not administrators), we have a folder on the NAS for each user's computer, and set the permissions on the folder to be only accessible by the HC Admins group and hcbackupuser (account used for the backup).
 
 In addition, the Backups share is not mounted by default for users. It is mounted at the time of backup and unmounted as soon as the backup is finished.
 
