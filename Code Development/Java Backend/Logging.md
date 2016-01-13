@@ -1,4 +1,4 @@
-# Logging Notes
+#Logging Notes
 
 This [page](http://gordondickens.com/wordpress/2013/03/27/sawing-through-the-java-loggers/) describes the frameworks we use for logging(SLF4j and Logback). Another tutorial can be found [here](http://www.codingpedia.org/ama/how-to-log-in-spring-with-slf4j-and-logback/). A quick summary:
 

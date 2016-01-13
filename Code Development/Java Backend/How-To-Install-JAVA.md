@@ -1,4 +1,4 @@
-## 1. Install Java SDK (Standard Development Kit)
+#1. Install Java SDK (Standard Development Kit)
 
 Check whether you have Java installed by opening a command line tool (cmd in Windows, Terminal in Mac OS) and type `java -version`. If it shows something like `java version "1.6.0_65"`
 `Java(TM) SE Runtime Environment (build 1.6.0_65-b14-462-11M4609)`

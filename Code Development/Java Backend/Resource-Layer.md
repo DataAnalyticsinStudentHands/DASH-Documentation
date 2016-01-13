@@ -1,4 +1,4 @@
-## Resource-Layer
+#Resource-Layer
 
 The Resource layer is generally responsible for containing the code which maps out the URL scheme for the API and also translates between JSON and Plain Old Java Objects. Each API method in the Resource layer can accept parameters and data in the form of headers or post data and then uses forwards that data on to the service layer where business logic is performed.
 

@@ -1,4 +1,4 @@
-##Introduction
+#Introduction
 The DAO or Data Access Object Layer uses the Entity form of the domain object to interface with the database. Like the Service layer the DAO is broken into an Interface and Implementation.  There is nothing out of the ordinary in the interface so we will focus on the Implementation.
 
 Our DAO implementation uses Hibernate to facilitate communication with the MySQL backend.
@@ -13,7 +13,9 @@ Let's look at SampleObjectDaoJPA2Impl.java:
 
 The @Component tag registers the class with Spring as a bean.  
 
-Using the @PersistenceContext tag on the declaration of EntityManager initializes entityMangager with the correct bean.
+Using the @PersistenceContext tag on the declaration of EntityManager initializes entityMangager with the correct bean. 
+
+Some of our java backends connect to multiple databases through the same code base. This concept is called "multi-tenancy." Details of this can be found in the [multi-tenancy documentation](../Multi-tenancy). 
 
 ##Reading from the database
 

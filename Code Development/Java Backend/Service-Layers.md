@@ -1,4 +1,4 @@
-## Service Layer
+#Service Layer
 
 The service layer is comprised of two pieces: an interface and the implementation. In addition to the usual benefits of using an interface/implementation pair, Spring Security allows us to perform access control inside the service interface.
 
@@ -13,7 +13,7 @@ Example:
     @PreAuthorize("hasPermission(#sampleObject, 'delete') or hasRole('ROLE_ADMIN')")
 	public void deleteSampleObject(SampleObject sampleObject);
 
-**Often it is required to check permissions on an object, but the object is not actually used by the method so there are many methods which pass in unused parameters.
+**NOTE:** Often it is required to check permissions on an object, but the object is not actually used by the method. The Spring Security annotations only have access to objects passed in by the method headers. Because of this, there are many methods which pass in unused parameters.
 
 ##Service Implementation
 

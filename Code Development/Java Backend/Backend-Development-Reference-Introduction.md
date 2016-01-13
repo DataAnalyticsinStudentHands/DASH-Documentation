@@ -1,4 +1,4 @@
-# Introduction
+#Introduction
 
 This page of the wiki is intended to assist backend developers with understanding the design strategies we've used to create this generic and flexible backend and how to extend this code base for a new project.  Our design of this backend is based on Object Oriented Design and you should be familiar with that paradigm before attempting to design your own implementations. You should also be familiar with HTTP protocol and how clients and servers interact in general.
 
