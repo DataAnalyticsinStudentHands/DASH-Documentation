@@ -1,88 +1,21 @@
-# NEEDS TO BE EDITED: Description of the Java Backend
-
-We are using [Jersey](https://jersey.java.net/) as framework for providing REST.
-
- * Some notes about how we do [logging](../ Logging.md)
- * Page [Access Control Lists](../Access-Control-Lists.md)
- * Page [Backend Development Reference Introduction](../Backend-Development-Reference-Introduction)
- * Page [DAO Layer](../DAO-Layer.md)
- * Page [Resource Layer](../Resource-Layer.md)
- * Page [Service Layer](../Service-Layers.md)
- * Page [Core VMA](../Volunteer-Management.md)
-
-
-# NEEDS TO BE EDITED: DASH Volunteer Management App Backend
-
-## Contents
-
- 1. [Introduction](../README.md#welcome)
-   * [Welcome](..//README.md#welcome)
-   * [Using the API](../README.md#using-the-api)
-     * [Type Definition](../README.md#type-definition)
-     * [Resource Use Cases](../README.md#resource-use-cases-create-read-update-delete-ect)
-     * [Permission Management](../wiki#permission-management-use-cases-only-for-resources-utilizing-access-control)
-  * [Authentication](../README.md#authentication)
-   * [The Cors Filter](../README.md#the-cors-filter)
-   * [Error Codes](../README.md#error-codes)
-
-
 ## Welcome
- This wiki is designed to assist front end developers connect and utilize the RESTful API for their application.  This introduction page includes generic information that is applicable to all of the apps using the DASH server.
+ These documents designed to assist back end developers with understanding and working on all of our Java backends. This introduction page includes generic information that is applicable to all of the apps using the DASH server.
 
-## Using the API
- Each resource for each application has a dedicated page on the wiki.  You can find a comprehensive list of resources on the home page for that app. An applications resources are accessed by navigating to housuggest.org:8888/*APP NAME HERE*/*RESOURCE*.   Here is a description of the components of a resources wiki.
-
-### Type Definition
- 1. Accounts for all of the fields/variables of that data type
- 2. Provides a conceptual explanation of any permission or roles that are used.
- 3. Outlines the URL structure for that resource
-
-### Resource Use Cases (Create, Read, Update, Delete, ect..)
- 1. Defines the URL and Method for each use case.
- 2. Defines all of the required and optional parameters.
- 3. Declares which roles and permissions are required for access.
- 4. Provides the format of possible responses.
-
-### Permission Management Use Cases (Only for resources utilizing access control)
- 1. Defines the URL and Method for each use case.
- 2. Defines all of the required and optional parameters.
- 3. Declares which roles and permissions are required for access.
- 4. Provides the format of possible responses.
+#Technologies Used 
+Our backends use [Jackson](http://wiki.fasterxml.com/JacksonHome) to expose the backends functionality to front end HTTP requests. Jackson helps to convert JSON data into java objects and vice versa. Our projects are created with the [Spring Framework](https://projects.spring.io/spring-framework/). This framework provides dependency injection and security features for our webservices. Logging is accomplished through the [Logback Project](http://logback.qos.ch/). Database access and ORM is done through [Hibernate](http://hibernate.org/) and their [JPA](http://www.oracle.com/technetwork/java/javaee/tech/persistence-jsp-140049.html) implementation. 
 
 ##Authentication
- All apps will use some form of authentication.  Every API request must include a Basic Authorization header, which will be evaluated for validity, prior to performing an service. The password should be hashed and salted (Please see @CarlSteven or @cmholley for our hashing salting algoriths) before encoding the username/password into Basic.
-
-
-Using ACL for new object services
-=================================
-
-For examples of using PreAuthorize, PostAuthorize, PreFilter, and PostFilter..
-See http://krams915.blogspot.com/2011/01/spring-security-3-full-acl-tutorial_1042.html
-
-Key things to remember:
-1. Authorization annotations should be included at the service level interface.
-
-2. Any methods that will delete a resource should accept an instance of the POJO as a parameter and apply a PreAuthorization annotation. Do not allow deletion of an object with just an id, it wont work right.  The have to give us a json of the object they want to delete. Example:
-
-    I want to delete an object of class Foo, called bar.
-    My service level method should look like
-
-    ```
-    @PreAuthorize("hasPermission(#bar, 'DELETE')")
-    void deleteObject(Foo bar);
-    ```
-
-3. All  POJOs that will be access controlled need to implement interface IAclObject.  Make sure that it is the POJO that implements it, and not the entity for that POJO.
-
-4. The service implementation of all resources (other than user) should contain an instance of GenericAclContoller.  Be sure to provide the template the POJO class you are handling with that service.
+ All apps will use some form of authentication.  Every API request must include a Basic Authorization header, which will be evaluated for validity, prior to performing an service. The password should be hashed and salted (Please see @CarlSteven or @cmholley for our hashing salting algorithms) before encoding the username/password into Basic.
 
 #Setting up your local development environment
 1. Download the following
     + [Java 7](../How-To-Install-JAVA.md)
-    + Eclipse Java EE Edition (Java local IDE)
-    + XAMPP (Used to temporarily activate Apache and MySQL at localhost)
-    + SourceTree (for git managment)
-    + putty (For ssh, windows only. Mac and Linux can use command-line ssh)
-    + WinSCP (For file transfering between local machine and server)
-    + MySQL Workbench (Remote SQL management)
-    +  
+    + [Eclipse Java EE Edition](https://eclipse.org/downloads/) (Java local IDE)
+    + [XAMPP](https://www.apachefriends.org/index.html) (Used to temporarily activate Apache and MySQL at localhost)
+    + [SourceTree](https://www.sourcetreeapp.com/) (for git management)
+    + [putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) (For ssh, windows only. Mac and Linux can use command-line ssh)
+    + [WinSCP](https://winscp.net/eng/download.php) (For file transfers between local machine and server)
+    + [MySQL Workbench](https://www.mysql.com/products/workbench/) (Remote SQL management)
+2. Clone the backend repository through git. A tutorial for doing this through SourceTree can be found [here](https://confluence.atlassian.com/bitbucket/clone-a-repository-223217891.html).
+3. Import the project into Eclipse. A tutorial for this can be found [here](http://agile.csc.ncsu.edu/SEMaterials/tutorials/import_export/).
+4. Create a server in Eclipse to run the backend on. Our servers run on Tomcat 7, so make sure you select Tomcat 7 for you local server. 
