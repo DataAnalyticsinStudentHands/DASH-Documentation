@@ -2,35 +2,28 @@
 
 We are using [Jersey](https://jersey.java.net/) as framework for providing REST.
 
- * Some notes about how we do [logging](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Logging.md)
- * Page [Access Control Lists](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Access-Control-Lists.md)
- * Page [Backend Development Reference Introduction](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Backend-Development-Reference-Introduction)
- * Page [DAO Layer](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/DAO-Layer.md)
- * Page [Resource Layer](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Resource-Layer.md)
- * Page [Service Layer](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Service-Layers.md)
- * Page [Core VMA](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/Volunteer-Management.md)
-
-
+ * Some notes about how we do [logging](../ Logging.md)
+ * Page [Access Control Lists](../Access-Control-Lists.md)
+ * Page [Backend Development Reference Introduction](../Backend-Development-Reference-Introduction)
+ * Page [DAO Layer](../DAO-Layer.md)
+ * Page [Resource Layer](../Resource-Layer.md)
+ * Page [Service Layer](../Service-Layers.md)
+ * Page [Core VMA](../Volunteer-Management.md)
 
 
 # NEEDS TO BE EDITED: DASH Volunteer Management App Backend
 
 ## Contents
 
- 1. [Introduction](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/README.md#welcome)
-   * [Welcome](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/README.md#welcome)
-   * [Using the API](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/README.md#using-the-api)
-     * [Type Definition](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/README.md#type-definition)
-     * [Resource Use Cases](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/README.md#resource-use-cases-create-read-update-delete-ect)
-     * [Permission Management](https://github.com/DataAnalyticsinStudentHands/RESTFUL-WS/wiki#permission-management-use-cases-only-for-resources-utilizing-access-control)
-  * [Authentication](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/README.md#authentication)
-   * [The Cors Filter](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/README.md#the-cors-filter)
-   * [Error Codes]https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/Code%20Development/Java%20Backend/README.md#error-codes)
- 2. [Volunteer Management App](https://github.com/DataAnalyticsinStudentHands/RESTFUL-WS/wiki/Volunteer-Management#volunteer-management-app)
-   * Contents
-   * API
-     * Users
-     * Groups
+ 1. [Introduction](../README.md#welcome)
+   * [Welcome](..//README.md#welcome)
+   * [Using the API](../README.md#using-the-api)
+     * [Type Definition](../README.md#type-definition)
+     * [Resource Use Cases](../README.md#resource-use-cases-create-read-update-delete-ect)
+     * [Permission Management](../wiki#permission-management-use-cases-only-for-resources-utilizing-access-control)
+  * [Authentication](../README.md#authentication)
+   * [The Cors Filter](../README.md#the-cors-filter)
+   * [Error Codes](../README.md#error-codes)
 
 
 ## Welcome
@@ -57,29 +50,8 @@ We are using [Jersey](https://jersey.java.net/) as framework for providing REST.
  4. Provides the format of possible responses.
 
 ##Authentication
- All apps will use some form of authentication.  Every API request must include a Basic Authorization header, which will be evaluated for validity, prior to performing an service. The password should be hashed and salted  (Please see @CarlSteven or @Tswiggs for our hashing salting algorithm) before encoding the username/password into Basic.  See the section on error codes 401 and 500, code 5001 "access is denied", for information about handling failed Authentication.
+ All apps will use some form of authentication.  Every API request must include a Basic Authorization header, which will be evaluated for validity, prior to performing an service. The password should be hashed and salted (Please see @CarlSteven or @cmholley for our hashing salting algoriths) before encoding the username/password into Basic.
 
-
-##The Cors Filter
-TODO: Write instructions for using preflights.
-
-##Error Codes
- TODO: Write descriptions of each error code
-
-
-
-
-
-
-
-Some weird old stuff ... that needs to be cleaned out.
-
-Instructions for authentication against the security filter
-===========================================================
-
-1. Set up the webSecurityConfig.xml to connect to the database you keep the security tables in.  By default it connects to the DB `test` with the login credentials "root" and no password.
-
-2. Import the test_acl.sql file included in the mysql directory.  This includes the necessary tables for user management and acl.  The only user that comes with the table is "tyler" who is given "ROLE_ADMIN".  You can use this user to authenticate against the server to gain access to UserService.createUsers() function which should allow for batch creation of users.  All new users created via post are given role "ROLE_USER".
 
 Using ACL for new object services
 =================================
@@ -103,3 +75,14 @@ Key things to remember:
 3. All  POJOs that will be access controlled need to implement interface IAclObject.  Make sure that it is the POJO that implements it, and not the entity for that POJO.
 
 4. The service implementation of all resources (other than user) should contain an instance of GenericAclContoller.  Be sure to provide the template the POJO class you are handling with that service.
+
+#Setting up your local development environment
+1. Download the following
+    + [Java 7](../How-To-Install-JAVA.md)
+    + Eclipse Java EE Edition (Java local IDE)
+    + XAMPP (Used to temporarily activate Apache and MySQL at localhost)
+    + SourceTree (for git managment)
+    + putty (For ssh, windows only. Mac and Linux can use command-line ssh)
+    + WinSCP (For file transfering between local machine and server)
+    + MySQL Workbench (Remote SQL management)
+    +  

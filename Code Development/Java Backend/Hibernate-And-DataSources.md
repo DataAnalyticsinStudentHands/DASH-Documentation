@@ -42,7 +42,7 @@ The `EntityManagerFactory` bean contains a reference to the `DataSource` bean th
 </bean>
 ```
 
-This bean references a JNDI name that is declared in *context.xml*. In order to change the database being used by an application, you must change the information in *context.xml*
+This bean references a JNDI name that is declared in *context.xml*. In order to change the database being used by an application, you must change the information in *context.xml*. This will change the database targeted by the `EntityManager` instances created by the `EntityManagerFactory`, and will also change all other database references such as authentication.
 
 ###hibernate.hbm2ddl.auto
 This *hibernate.hbm2ddl.auto* property is used to select a database initialization option. Hibernate has the ability to automatically generate a database schema based on your entity mappings during initialization. Be careful with this property as it can potentially cause data loss. This property has 5 potential values, defaulting to *none*.
