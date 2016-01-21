@@ -24,21 +24,24 @@ We do not backup the full computer. We only backup certain data inside the Users
 | ceveaux                       | 212W        | hc-leveaux                          |
 | plindner                      | DASH        | hc-lindner                          |
 | lllyke                        | 212F        | hc-lyke                             |
-| ipmorris                      | ?           | hc-morrisson                         |
+| ipmorris                      | ?           | hc-morrisson                        |
 | kdyrick                       | Dean's Area | hc-myrick                           |
 | dprice3                       | DASH        | hc-price                            |
+| cerios                        | Dean's Area | hc-rios                             |
 | csseitz, cerios               | Dean's Area | HC-Seitz                            |
-| reirrieh                      | 212H        | hc-sirrieh                          |
+| resirrieh                     | 212H        | hc-sirrieh                          |
+| hkvalier                      | ?           | hc-valier                           |
 | kweber2                       | 211         | hc-weber                            |
 
 No backup, should be added asap!
-| hkvalier                      | ?           | hc-valier (need to load LaunchDaemon)                          |
-| E. Rios                       | Dean's Area | hc-rios (need to load LaunchDaemon) |
+
+| Users                         | Location    | Computer Name/Backup folder name |
+|-------------------------------|-------------|-------------------------------------|
 | D. Mikics/J. Ferguson         | 206C        | hc-206c                             |
 | B. Monroe                     | 202A        |                                     |
 | T. Estess/R. Zaretsky         | 203B        |                                     |
 | A. Hamilton                   | 212W        |                                     |
-| IT Desktop                    | ?           | hc-it                               |
+| IT Desktop                    | ?           | hc-it      |                        
 
 ### Security
 In order to guarantee security of each user's files (from other users, not administrators), we have a folder on the NAS for each user's computer, and set the permissions on the folder to be only accessible by the HC Admins group and hcbackupuser (account used for the backup).
