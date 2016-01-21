@@ -34,11 +34,14 @@ We do not backup the full computer. We only backup certain data inside the Users
 | kweber2                       | 211         | hc-weber                            |
 
 No backup, should be added asap!
+
+| Users                         | Location    | Computer Name/Backup folder name |
+|-------------------------------|-------------|-------------------------------------|
 | D. Mikics/J. Ferguson         | 206C        | hc-206c                             |
 | B. Monroe                     | 202A        |                                     |
 | T. Estess/R. Zaretsky         | 203B        |                                     |
 | A. Hamilton                   | 212W        |                                     |
-| IT Desktop                    | ?           | hc-it                               |
+| IT Desktop                    | ?           | hc-it      |                        
 
 ### Security
 In order to guarantee security of each user's files (from other users, not administrators), we have a folder on the NAS for each user's computer, and set the permissions on the folder to be only accessible by the HC Admins group and hcbackupuser (account used for the backup).
