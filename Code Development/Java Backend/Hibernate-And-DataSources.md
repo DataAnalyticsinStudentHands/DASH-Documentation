@@ -70,3 +70,39 @@ public void testMethod(){
 ```
 
 Assume that an exception was thrown inside of `otherMethod()` that caused a roll back. The value of `user.age` would be reset to whatever it was before `testMethod()` began execution rather than 30, despite the fact that `updateUser()` has been called.
+
+##HQL and Native SQL Queries
+Hibernate uses its own query language, HQL, to construct database queries. HQL is designed to be syntactically similar to standard SQL, but also allows you to query for entire entities. For example, the following query would retrieve the `User` object with id 6.
+
+```SQL
+SELECT u FROM User WHERE u.id = 6
+```
+
+HQL also provides a single syntax across all database distributions that Hibernate is compatible with. These queries can be build through the `EntityManager` instance in the DAO layer. The code below constructs and executes a query to retrieve a specific `User` object from the database
+
+```java 
+public User getUserById(Long id){
+    try {
+            String qlString = "SELECT u FROM UserEntity u WHERE u.id = ?1";
+            TypedQuery<UserEntity> query = entityManager.createQuery(qlString, UserEntity.class);
+            query.setParameter(1, id);
+            return query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+}
+```
+
+It is important to use the `query.setParameter()` method rather than directly embedding user input into the query string. This method protects from SQL injection through user input.
+
+####Native SQL
+Although HQL is powerful and capable of doing many things standard SQL queries cannot, it is not perfect. In some cases, you may need to use the native SQL language of your database to execute queries. Hibernate allows us to construct a *Native SQL Query* through it's `Session` object. Hibernate's `EntityManager` class is actually wrapped around the `Session` class used by Hibernate's native API. This can be done by simply calling `entityManager.unwrap(Session.class`. This method returns the current `Session` instance. The `Session` object can then be used to build a native SQL query by calling `session.createSQLQuery(String arg0)` method. An example of a basic SELECT query is below.
+
+```Java
+Session session = entityManager.unwrap(Session.class);
+String qlString = "SELECT string_col FROM table WHERE int = :int";
+SQLQuery query = session.createSQLQuery(qlString);
+query.setLong("int", int);
+List<String> strings = query.list();
+return strings;
+```

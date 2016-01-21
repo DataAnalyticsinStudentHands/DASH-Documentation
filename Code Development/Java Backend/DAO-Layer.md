@@ -15,10 +15,10 @@ The @Component tag registers the class with Spring as a bean.
 
 Using the @PersistenceContext tag on the declaration of EntityManager initializes entityMangager with the correct bean. 
 
-Some of our java backends connect to multiple databases through the same code base. This concept is called "multi-tenancy." Details of this can be found in the [multi-tenancy documentation](../Multi-tenancy). 
+Some of our java backends connect to multiple databases through the same code base. This concept is called "multi-tenancy." Details of this can be found in the [multi-tenancy documentation](./Multi-tenancy). 
 
 ##EntityManager
-Every DAO layer class contains an `EntityManager` member variable. The [`EntityManager`](http://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html) class is part of the JPA standard that is implemented by Hibernate. This object is created by the `EntityManagerFactory` bean delcared in the `applicationContext.xml`. More information can be found in our [Hibernate and DataSources](../Hibernate-and-DataSources) documentation.
+Every DAO layer class contains an `EntityManager` member variable. The [`EntityManager`](http://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html) class is part of the JPA standard that is implemented by Hibernate. This object is created by the `EntityManagerFactory` bean delcared in the `applicationContext.xml`. More information can be found in our [Hibernate and DataSources](./Hibernate-and-DataSources) documentation.
 
 ##Reading from the database
 

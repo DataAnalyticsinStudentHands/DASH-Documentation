@@ -35,4 +35,39 @@ An alternative to `e.printStackTrace()` is the following:
 The `logger.debug()` method will log the given message at the debugging level. Messages can be logged at different levels using similar methods such as `logger.error()`.
 
 #Configure logging via Logback
-Logback can be configured by adding Logback.xml to the class path. 
+Logback can be configured by adding *logback.xml* to the class path. This file accomplishes two different tasks. First, it defines appenders to be assigned to a logger. An example appender definition is below.
+
+```xml
+<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>/var/log/tomcat/webapps/formbuilder-backend.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>/var/log/tomcat/webapps/formbuilder-backend-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>5MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+
+			<!-- keep 5 days' worth of history -->
+			<maxHistory>5</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d [%thread] %-5level %logger{35} - %msg %n</pattern>
+		</encoder>
+	</appender>
+```
+
+In this case, we are defining a [`RollingFileAppender`](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/RollingFileAppender.html). This appender writes all logging events to a file on the server. In this configuration, the `rollingPolicy` section configures a set of rules that restrict the files being created. The current days files will be stored in `/var/log/tomcat/webapps/formbuilder-backend.log`. The previous 5 days (set by the `maxHistory` tag) will be kept using the file naming pattern `/var/log/tomcat/webapps/formbuilder-backend-%d{yyyy-MM-dd}.%i.log`. All of these files are not to exceed 5mb, as set by the `maxFileSize` tag. 
+
+The second task is defining loggers to handle logging events. An example of this configuration is below. 
+
+```xml
+	<logger name="dash" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="FILE" />
+	</logger>
+```
+
+This section defines a logger named "dash". Please read the [Logback documentation](http://logback.qos.ch/manual/index.html) for a full explanation of how loggers work. The simple explanation of this logger is that it will write all logging requests of level DEBUG or lower to the FILE appender. By changing the level in this configuration, you can control what logging events are actually written. You can also declare multiple appender and apply those appenders to loggers. 

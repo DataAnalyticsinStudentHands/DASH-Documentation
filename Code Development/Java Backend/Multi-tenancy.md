@@ -3,7 +3,7 @@
 Multi-Tenancy is defined by [Gartner IT](http://www.gartner.com/it-glossary/multitenancy) as "the mode of operation of software where multiple independent instances of one or multiple applications operate in a shared environment. The instances (tenants) are logically isolated, but physically integrated." Essentially multi-tenancy is an architectural design where multiple tenants interact with the software, but are isolated from each other. For example, imagine there is a company that provides a social network application that is used within a company. Companies like this exist, such as [Edmodo](https://www.edmodo.com/) and [Bitrix24](https://www.bitrix24.com/). Two companies could pay you to set up networks within your application, but those two networks would exist separate from each other. One network's users cannot connect to the other network despite the fact that all of the server side code is running the same. Each company in this example is it's own "tenant". In contrast, a website like Facebook would NOT be considered a multi-tenant application because all users interact with the same instance of the application. There is no logical separation of data with shared functionality. 
 
 ##Combined Backend
-Our implementation of multi-tenancy can be found in our [Combined Backend Repository](https://github.com/DataAnalyticsinStudentHands/CombinedBackend). This java backend is designed to serve as a single code base that can handle various clones of the [VMA](../Volunteer-Management.md). This allows us to easily create a front end clone of this project and provide a new VMA style network without having to maintain an separate backend for this. 
+Our implementation of multi-tenancy can be found in our [Combined Backend Repository](https://github.com/DataAnalyticsinStudentHands/CombinedBackend). This java backend is designed to serve as a single code base that can handle various clones of the [VMA](./Volunteer-Management.md). This allows us to easily create a front end clone of this project and provide a new VMA style network without having to maintain an separate backend for this. 
 
 ##Data Segregation
 When using a standard SQL database, you have three separate options for separating one tenant's data from another. 
@@ -20,7 +20,7 @@ In our multi-tenant applications, we have chosen the second means of data segreg
 In order to implement multi-tenancy, two things must be accomplished. You must be able to identify the tenant and then access the specific tenant's data. 
 
 ###Selecting the proper dataSource
-To accomplish the second task, we utilize a special datasource. Our [DAO Layers](../DAO-Layer.md) utilize an `entityManager` to connect to the database. This object is created by the entityManagerFactory bean specified in the project's `applicationContext.xml`. An example definition is below.
+To accomplish the second task, we utilize a special datasource. Our [DAO Layers](./DAO-Layer.md) utilize an `entityManager` to connect to the database. This object is created by the entityManagerFactory bean specified in the project's `applicationContext.xml`. An example definition is below.
 
 ```xml
     <bean id="entityManagerFactory"
