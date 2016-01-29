@@ -1,4 +1,4 @@
-<img src="../assets/img/dash.png" width="100">
+<img src="assets/img/dash.png" width="100">
 
 # DASH Backend Server Infrastructure
 

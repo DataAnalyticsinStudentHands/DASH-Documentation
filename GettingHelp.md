@@ -1,4 +1,4 @@
-
+<img src="assets/img/dash.png" width=100>
 
 ## Finding Answers (in order of preference)
 
@@ -32,7 +32,7 @@ Error in cor(airquality) : missing observations in cov/cor
 
 ## Google is your friend
 
-<img src="../assets/img/google.png" height=500>
+<img src="assets/img/google.png" height=500>
 
 ---
 
