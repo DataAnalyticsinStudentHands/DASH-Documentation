@@ -2,7 +2,7 @@ The Honors College's main servers are virtualized for redundancy, efficiency and
 
 ## 1. HC-Deployment
 
-HC-Deployment is a Mac OS X virtual machine that controls OS deployment, software updates, and computer management.
+HC-Deployment is a Mac OS X virtual machine that controls OS deployment, software updates, and computer management. It also hosts the Munki reporting web interface.
 
 ### HC-Deployment Virtual Machine Settings
 
@@ -73,4 +73,4 @@ The virtual machines should be accessed through Microsoft Remote Desktop or Appl
 
 ## Backup
 
-All of the virtual machines are backed up manually using Veeam, which integrates with vSphere to freeze VM's and compress them to ZIP files, which are then copied to the VM Backups share on the Synology NAS. There are also ZIP files for the initial starting states of the servers with all of the software installed and configured, in case something completely breaks the VM.
+See [solution](https://honorscollege.freshservice.com/solution/categories/1000023134/folders/1000050771/articles/1000021154-server-backups)
