@@ -1,25 +1,4 @@
----
-title: "Getting Help"
-author: "Peggy Lindner"
-highlighter: highlight.js
-output: html_document
-job: The Honors College, University of Houston
-logo: dash.png
-mode: selfcontained
-hitheme: tomorrow
-subtitle: null
-framework: io2012
-url:
-  assets: assets
-  lib: libraries
-widgets: mathjax
----
-```{r fig.width=1, fig.height=1, echo=FALSE}
-library(png)
-library(grid)
-img <- readPNG("../assets/img/dash.png")
- grid.raster(img)
-```
+
 
 ## Finding Answers (in order of preference)
 
@@ -43,8 +22,8 @@ img <- readPNG("../assets/img/dash.png")
 ## Example: Error Messages
 
 ```r
-> library(datasets) 
-> data(airquality) 
+> library(datasets)
+> data(airquality)
 > cor(airquality)
 Error in cor(airquality) : missing observations in cov/cor
 ```
