@@ -1,4 +1,4 @@
-![Honors Logo](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/assets/img/honors.png)
+<img src="assets/img/honors.png" width="100">
 
 ## Honors IT Documentation
 
