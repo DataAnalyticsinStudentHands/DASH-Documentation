@@ -1,4 +1,4 @@
-<img src="assets/img/honors.png" width="100">
+<img src="assets/img/honors.png" width="300">
 
 ## Honors IT Documentation
 
