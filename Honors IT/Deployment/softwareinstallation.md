@@ -47,3 +47,44 @@ Do not use any feature lockdown customizations.
 Save the package and use MunkiAdmin to import the package.
 
 ## EasyFind
+
+## List of Software Installed automatically
+
+AdobeFlashPlayer
+AdobeReader
+Cyberduck
+Dropbox
+Firefox
+GoogleChrome
+GoogleDrive
+Handbrake
+MakeCatalogs
+OracleJava7
+OracleJava8
+SilverLight
+Skype
+Spotify
+TextMate2
+VLC
+MunkiTools2
+
+## List of Software Installed manually
+
+AutoDMG
+Brackets
+CreateUserPkg
+DeployStudioAdmin
+EasyFind
+EclipseLuna
+FileZilla
+LaTeXiT
+MunkiAdmin
+R.Munki
+SequelPro
+SublimeText3
+TeXLiveUtility
+TeamViewer
+TeamViewerQS
+MacTex
+Node.Munki
+smcFanControl
