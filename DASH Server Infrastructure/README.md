@@ -33,8 +33,28 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.51-b03, mixed mode)
 
 * Webserver [[Apache|Apache]]
 * Tomcat
+* MariaDB (MySQL)
 
-## Backup
+## Server Certificates
+
+### 1. dash.hnet.uh.edu (Production)
+
+We have installed a SSL server certificate for Tomcat to serve the SSL connections. The certificate is issued by [Comodo](https://www.namecheap.com/security/ssl-certificates/comodo/positivessl.aspx) and we managed it via an account at [namecheap](https://www.namecheap.com/). The account is associated with plindner[at]uh.edu and costs $10 per year. It has to be renewed in November.
+
+Instructions for the installation can be found within the namecheap [documentation](https://www.namecheap.com/support/knowledgebase/article.aspx/9441/0/tomcat-using-keytool).
+
+### 2. hnetdev.hnet.uh.edu (Development)
+
+We have installed a SSL server certificate for Tomcat & Apache to serve the SSL connections. The certificate is managed via [letsencrypt](https://letsencrypt.org/) and we followed installation instructions at this [blog](https://digitz.org/blog/lets-encrypt-ssl-centos-7-setup/) as well as  [general](https://letsencrypt.org/howitworks/) instructions on their website. To import the certificate into a JKS keystore we followed instructions [here](https://community.letsencrypt.org/t/how-to-use-the-certificate-for-tomcat/3677/3) and used the following command.
+
+`keytool -importkeystore -deststorepass ***** -destkeypass ***** -destkeystore devkeystore.jks -srckeystore /etc/letsencrypt/live/hnetdev.hnet.uh.edu/pkcs.p12 -srcstoretype PKCS12 -srcstorepass ***** -alias *****`
+Note: Make sure the keystore password and the key password are the same.
+
+Then the setup with the Tomcat server configuration file is the same as on the production server.
+
+## Backup - only on dash.hnet.uh.edu
+
+Since we run with a virtual machine and our code is in GitHub, we only backup the database files.
 
 Backups are done on a daily basis and are dumped into _/var/backup_. Additional backups are done weekly and on the first day of the month. Backups are synced to the S3 storage using s3cmd. The script [runmysqlbackup](../blob/master/runmysqlbackup) is a wrapper around calls to tools for backup and sends emails. It can be configured with the [runmysqlbackup.conf](../blob/master/backup/runmysqlbackup.conf) which is self explaining. The script runs daily as a cron job by user _backup_.
 
