@@ -6,7 +6,11 @@
 
 `sudo /usr/sbin/lsof | grep deleted` check with lsof if there are files held open, space will not be freed until they are closed
 
+### Count number of files
 
+To count the number of files recursively in the current and all directories below it, use:
+
+`find . -type f | wc -l`
 
 
 ### Find out the size of tables
