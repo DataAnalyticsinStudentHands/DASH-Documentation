@@ -81,6 +81,7 @@ Here we illustrate how the software lists and classes are managed in Munki. We h
 | loginuhsa1.mobileconfig   |                          | 205podprinter.mobileconfig        |         |           |                      |            |
 | Spotify                   |                          | 206podprinter.mobileconfig        |         |           |                      |            |
 | SSD Fan Control           |                          | AdobeIndesignCS6                  |         |           |                      |            |
+|                           |                          | Atom (1.2.4)                      |         |           |                      |            |
 | Sublime Text 3            |                          | copystoragexerox.mobileconfig     |         |           |                      |            |
 |                           |                          | deansareahp.mobileconfig          |         |           |                      |            |
 |                           |                          | deansareaxerox.mobileconfig       |         |           |                      |            |
