@@ -1,8 +1,8 @@
-![Honors Logo](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/blob/master/assets/img/honors.png)
+<img src="assets/img/honors.png" width="300">
 
 ## Honors IT Documentation
 
-Our online documentation can be found at [Honors FreshService](http://honorscollege.freshservice.com) The folder struture here mimics the structure inside the FreshService "Solutions" section. The documentation is written in Markdown. A cheatsheet for markdown can be found [here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+Our online documentation can be found at [Honors FreshService](http://honorscollege.freshservice.com) The folder struture here mimics the structure inside the FreshService "Solutions" section. The documentation is written in Markdown. A cheatsheet for markdown can be found [here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
 To get started:
 

@@ -1,4 +1,4 @@
-# Introduction
+#Introduction
 
 This page of the wiki is intended to assist backend developers with understanding the design strategies we've used to create this generic and flexible backend and how to extend this code base for a new project.  Our design of this backend is based on Object Oriented Design and you should be familiar with that paradigm before attempting to design your own implementations. You should also be familiar with HTTP protocol and how clients and servers interact in general.
 
@@ -8,9 +8,9 @@ This wiki page is going to use the SampleObject as an example for each layer of 
 
 Every project extended from this code base is built using a similar architecture.  Please note that we have developed our own flavor of terminology for these layers but for internal purposes it is useful to refer to them the same way.  Simply put each domain object in our RESTful backend have: 
 
-1. a resource layer which accepts requests and returns responses with useful HTTP status codes, JSONs and files when appropriate 
-1. a service layer where application logic is implemented 
-1. a DAO layer which formulates queries to read, write and delete objects in the database. 
+1. A resource layer which accepts requests and returns responses with useful HTTP status codes, JSONs and files when appropriate 
+1. A service layer where application logic is implemented 
+1. A DAO layer which formulates queries to read, write and delete objects in the database. 
 
 ![A simple diagram of our three layer architecture](http://i.imgur.com/ROhqVxG.png)
 
