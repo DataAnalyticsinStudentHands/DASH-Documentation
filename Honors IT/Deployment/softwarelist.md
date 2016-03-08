@@ -42,65 +42,65 @@ Here we illustrate how the software lists and classes are managed in Munki. We h
 | allcomputers                    |                                |                                   |         |           |                      |            |
 |---------------------------------|--------------------------------|-----------------------------------|---------|-----------|----------------------|------------|
 | Installs                        | Uninstalls                     | Optional Installs                 | Updates | Catalogs  | Included Manifests   | Conditions |
-| AdobeAir (19.0.0.213)           |                                | Dropbox (3.12.5)                  |         | available |                      |            |
-| AdobeFlashPlayer (20.0.0.306)   |                                | Firefox (40.0.3)                  |         |           |                      |            |
-| EasyFind (4.9.3)                |                                | Skype (7.10.0.777)                |         |           |                      |            |
-| GoogleChrome (47.0.2526.80)     |                                | VLC (2.2.1)                       |         |           |                      |            |
-| muniktools (4.0.2413)           |                                |                                   |         |           |                      |            |
-| munkitools_core (2.2.4.2431)    |                                |                                   |         |           |                      |            |
-| munkitools_launchd (2.0.0.1969) |                                |                                   |         |           |                      |            |
+| AdobeAir (19.0.0.213)           |                                | Android File Transfer (1.0)       |         | available |                      |            |
+| AdobeFlashPlayer (20.0.0.306)   |                                | Cyberduck (4.8.3)                 |         |           |                      |            |
+| EasyFind (4.9.3)                |                                | Dropbox (3.14.7)                  |         |           |                      |            |
+| GoogleChrome (49.0.2623.75)     |                                | Firefox (44.0.2)                  |         |           |                      |            |
+| munkireport (2.5.3)             |                                | GoogleDrive (1.28.1549.1322)      |         |           |                      |            |
+| muniktools (4.1.2627)           |                                | Skype (7.21.0.350)                |         |           |                      |            |
+| munkitools_core (2.5.1.2627)    |                                | TeamViewerQS (11.0.55321)         |         |           |                      |            |
+| munkitools_launchd (2.0.0.1969) |                                | VLC (2.2.2)                       |         |           |                      |            |
 | Office Installer (14.3.0)       |                                |                                   |         |           |                      |            |
-| Silverlight (5.1.40416.0)       |                                |                                   |         |           |                      |            |
-
 | labcomputer                     |                                |                                   |         |           |                      |            |
 |---------------------------------|--------------------------------|-----------------------------------|---------|-----------|----------------------|------------|
 | Installs                        | Uninstalls                     | Optional Installs                 | Updates | Catalogs  | Included Manifests   | Conditions |
 | guestaccount.mobileconfig (1.0) |                                | Atom (1.2.4)                      |         | available | allcomputers         |            |
-| labprinters.mobileconfig (1.0)  |                                | Spotify (1.0.10.107.gd0dfca3a)    |         |           |                      |            |
+| labprinters.mobileconfig (1.0)  |                                | Spotify (1.0.24.104.g92a22684)    |         |           |                      |            |
+| MATLAB_R2015b (8.5.0)           |                                |                                   |         |           |                      |            |
 | PaperCut Client (13.5)          |                                |                                   |         |           |                      |            |
-| Sublime Text 3 (3065)           |                                |                                   |         |           |                      |            |
-
+| Sublime Text 3 (3103)           |                                |                                   |         |           |                      |            |
 | bonnerlabcomputer               |                                |                                   |         |           |                      |            |
 |---------------------------------|--------------------------------|-----------------------------------|---------|-----------|----------------------|------------|
 | Installs                        | Uninstalls                     | Optional Installs                 | Updates | Catalogs  | Included Manifests   | Conditions |
-| guestaccount.mobileconfig (1.0) | labprinters.mobileconfig (1.0) | Atom (1.2.4)                      |         | available | allcomputers         |            |
-| gardensxerox.mobileconfig (1.0) | PaperCut Client (13.5)         | Spotify (1.0.10.107.gd0dfca3a)    |         |           |                      |            |
-| Sublime Text 3 (3065)           |                                |                                   |         |           |                      |            |
-
+| gardensxerox.mobileconfig (1.0) | labprinters.mobileconfig (1.0) | Atom (1.2.4)                      |         | available | allcomputers         |            |
+| Sublime Text 3 (3103)           | PaperCut Client (13.5)         | Spotify (1.0.24.104.g92a22684)    |         |           |                      |            |
 | consultingcomputer              |                          |                                   |         |           |                      |            |
 |---------------------------------|--------------------------|-----------------------------------|---------|-----------|----------------------|------------|
 | Installs                        | Uninstalls               | Optional Installs                 | Updates | Catalogs  | Included Manifests   | Conditions |
-| Adobe Reader XI                 |                          |                                   |         | available | allcomputers         |            |
+| Adobe Reader (11.0.10)          |                          |                                   |         | available | allcomputers         |            |
 | guestaccount.mobileconfig (1.0) |                          |                                   |         |           |                      |            |
-
-| facultystaffcomputer            |                          |                                        |         |           |                      |            |
-|---------------------------------|--------------------------|----------------------------------------|---------|-----------|----------------------|------------|
-| Installs                        | Uninstalls               | Optional Installs                      | Updates | Catalogs  | Included Manifests   | Conditions |
-| Acrobat XI                      |                          | 204podprinter.mobileconfig (1.0)       |         | available | allcomputers         |            |
-| loginuhsa1.mobileconfig (1.0)   |                          | 205podprinter.mobileconfig (1.0)       |         |           |                      |            |
-| Spotify (1.0.10.107.gd0dfca3a)  |                          | 206podprinter.mobileconfig (1.0)       |         |           |                      |            |
-| SSD Fan Control (2.0)           |                          | AdobeIndesignCS6 (8.0)                 |         |           |                      |            |
-| Sublime Text 3 (3065)           |                          | Atom (1.2.4)                           |         |           |                      |            |
-|                                 |                          | copystoragexerox.mobileconfig (1.0)    |         |           |                      |            |
-|                                 |                          | deansareahp.mobileconfig (1.0)         |         |           |                      |            |
-|                                 |                          | deansareaxerox.mobileconfig (1.0)      |         |           |                      |            |
-|                                 |                          | gardensxerox.mobileconfig (1.0)        |         |           |                      |            |
-|                                 |                          | recruitementprinter.mobileconfig (1.0) |         |           |                      |            |
-|                                 |                          | Spotify (1.0.10.107.gd0dfca3a)         |         |           |                      |            |
-|                                 |                          | ssoprinter.mobileconfig (1.0)          |         |           |                      |            |
-|                                 |                          | TeamViewerQS (10.0.47374)              |         |           |                      |            |
-|                                 |                          | xeroxphasercolor.mobileconfig (1.0)    |         |           |                      |            |
-
+| facultystaffcomputer                         |                          |                                                   |         |           |                      |            |
+|----------------------------------------------|--------------------------|---------------------------------------------------|---------|-----------|----------------------|------------|
+| Installs                                     | Uninstalls               | Optional Installs                                 | Updates | Catalogs  | Included Manifests   | Conditions |
+| Acrobat XI (11.0.0)                          |                          | 204podprinter.mobileconfig (1.0)                  |         | available | allcomputers         |            |
+| Login_to_NAS_Honors_Share.mobileconfig (1.0) |                          | 205podprinter.mobileconfig (1.0)                  |         |           |                      |            |
+| loginuhsa1.mobileconfig (1.0)                |                          | 206podprinter.mobileconfig (1.0)                  |         |           |                      |            |
+| Spotify (1.0.24.104.g92a22684)               |                          | 212GCommunicationsColorPrinter.mobileconfig (1.0) |         |           |                      |            |
+| SSD Fan Control (2.0)                        |                          | AdobeIndesignCS6 (8.0)                            |         |           |                      |            |
+| Sublime Text 3 (3103)                        |                          | Atom (1.2.4)                                      |         |           |                      |            |
+|                                              |                          | copystoragexerox.mobileconfig (1.0)               |         |           |                      |            |
+|                                              |                          | CreativeSuite6DesignStandard (6)                  |         |           |                      |            |
+|                                              |                          | deansareahp.mobileconfig (1.0)                    |         |           |                      |            |
+|                                              |                          | deansareaxerox.mobileconfig (1.0)                 |         |           |                      |            |
+|                                              |                          | gardensxerox.mobileconfig (1.0)                   |         |           |                      |            |
+|                                              |                          | iWork09 (4.0)                                     |         |           |                      |            |
+|                                              |                          | recruitementprinter.mobileconfig (1.0)            |         |           |                      |            |
+|                                              |                          | Spotify (1.0.24.104.g92a22684)                    |         |           |                      |            |
+|                                              |                          | ssoprinter.mobileconfig (1.0)                     |         |           |                      |            |
+|                                              |                          | TeamViewerQS (11.0.55321)                         |         |           |                      |            |
+|                                              |                          | xeroxphasercolor.mobileconfig (1.0)               |         |           |                      |            |
 | advisorcomputer                |                          |                                         |         |           |                      |            |
 |--------------------------------|--------------------------|-----------------------------------------|---------|-----------|----------------------|------------|
 | Installs                       | Uninstalls               | Optional Installs                       | Updates | Catalogs  | Included Manifests   | Conditions |
-| FileMakerPro14ARD (14.0.1.175) |                          | screenlockgatekeeper.mobileconfig (1.0) |         | available | facultystaffcomputer |            |
+| FileMakerPro14ARD (0.0)        | FilmMaker Pro 12 (12.0)  | CreativeSuite6DesignStandard (6)        |         | available | facultystaffcomputer |            |
+|                                |                          | ssoprinter.mobileconfig (1.0)           |         |           |                      |            |
+| admincomputer                |                          |                                         |         |           |                      |            |
+|------------------------------|--------------------------|-----------------------------------------|---------|-----------|----------------------|------------|
+| Installs                     | Uninstalls               | Optional Installs                       | Updates | Catalogs  | Included Manifests   | Conditions |
+| AutoDMG (1.5.5)              |                          | 3T MongoChef (3.2.3)                    |         | available | facultystaffcomputer |            |
+| CreateUserPkg (1.2.4)        |                          | Microsoft Remote Desktop Beta (8.2.18)  |         |           |                      |            |
+| DeployStudioAdmin (1.6.15)   |                          | screenlockgatekeeper.mobileconfig (1.0) |         |           |                      |            |
+| MunkiAdmin (1.4.1)           |                          |                                         |         |           |                      |            |
+| munkitools_admin (2.5.1.2627)|                          |                                         |         |           |                      |            |
 
-| admincomputer                |                          |                                        |         |           |                      |            |
-|------------------------------|--------------------------|----------------------------------------|---------|-----------|----------------------|------------|
-| Installs                     | Uninstalls               | Optional Installs                      | Updates | Catalogs  | Included Manifests   | Conditions |
-| AutoDMG (1.5.3)              |                          | screenlockgatekeeper.mobileconfig (1.0)|         | available | facultystaffcomputer |            |
-| CreateUserPkg (1.2.4)        |                          |                                        |         |           |                      |            |
-| DeploystudioAdmin (1.6.15)   |                          |                                        |         |           |                      |            |
-| MunkiAdmin (1.3.0)           |                          |                                        |         |           |                      |            |
-| munkitools_admin (2.3.0.2519)|                          |                                        |         |           |                      |            |
+Note: Astericks (*) indicates that the software installs automatically. All other software installs manually.

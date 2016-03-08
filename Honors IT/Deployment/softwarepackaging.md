@@ -61,6 +61,7 @@ Save the package and use MunkiAdmin to import the package.
 - MakeCatalogs
 - OracleJava7
 - OracleJava8
+- SequelPro
 - SilverLight
 - Skype
 - Spotify
@@ -80,7 +81,7 @@ Save the package and use MunkiAdmin to import the package.
 - LaTeXiT
 - MunkiAdmin
 - R.Munki
-- SequelPro
+
 - SublimeText3
 - TeXLiveUtility
 - TeamViewer
