@@ -1,39 +1,37 @@
-## Honors College User/Computer Classes and Munki
+The Honors College requires certain software packaged on its client computers to ensure the college runs smoothly. There are three classes of users in the Honors College, each with their own lists of packages. All packages will be imported into Munki for distribution, but certain software may require some work to create a distributable package (see [Software Packaging Guide](https://honorscollege.freshservice.com/solution/categories/1000023134/folders/1000035508/articles/1000015667-software-packaging-guide)).
 
-The Honors College requires certain software packaged on its client computers to ensure the college runs smoothly. There are three classes of users in the Honors College, each with their own lists of packages. All packages will be imported into Munki for distribution, but certain software may require some work to create a distributable package.
+Classes are determined and assigned by computer. For example, the computers in SSO will be imaged and configured as "advisor" computers, but if someone who works in SSO were to login in the computer lab, they would only be able to access software available to all lab users, since computers in the Honors computer lab are configured as "Lab Computer".
 
-Classes are determined and assigned by computer. For example, the computers in SSO will be imaged and configured as "advisor" computers, but if someone who works in SSO were to login in the computer lab, they would only be able to access software available to all lab users, since computer in there are configured as "Lab Computer".
+In addition to software packages, each class has different restrictions and login scripts that can be installed via packages.
 
-In addition to software, each class has different restrictions and login scripts.
-
-### Advidsor
+## Advidsor
 
 Advisors are any employee of the Honors College that requires access to student data on a regular basis, this includes actual HC advising staff, as well as Recruitment and Student Services student workers.
 
-#### Computer Configuration
+### Computer Configuration
 These users will be administrators of the computers they commonly use. For exapmle, SSO will have administrator rights on all of the SSO computers, but advisors will only administrator rights on the computer in their office.
 
-### Faculty & Staff
+## Faculty & Staff
 
 Faculty & Staff are University employees and student workers who do not require access to student data.
 
-#### Computer Configuration
+### Computer Configuration
 These users will be administrators of the computers they commonly use.
 
-### Lab Computers
+## Lab Computers
 
 These computers are for general purpose computing, and will be accessed by many people.
 
-#### Computer Configuration
+### Computer Configuration
 - These users will **not** be administrators.
 - Papercut is configured to start at login using a LaunchAgent, and cannot be exited.
 - These computers will be connected to the Lab Printers.
 
-### Classroom Computers & Consulting Offices
+## Classroom Computers & Consulting Offices
 
 These computers are for general purpose computing, and will be accessed by many people.
 
-## Manifests
+# Manifests
 
 Here we illustrate how the software lists and classes are managed in Munki. We have a hierarchy of manifests that controlled what software and scripts are installed on the different classes of computers.
 
@@ -50,7 +48,8 @@ Here we illustrate how the software lists and classes are managed in Munki. We h
 | muniktools (4.1.2627)           |                                | Skype (7.21.0.350)                |         |           |                      |            |
 | munkitools_core (2.5.1.2627)    |                                | TeamViewerQS (11.0.55321)         |         |           |                      |            |
 | munkitools_launchd (2.0.0.1969) |                                | VLC (2.2.2)                       |         |           |                      |            |
-| Office Installer (14.3.0)       |                                |                                   |         |           |                      |            |
+| Office Installer (14.3.0)       |                                |                                   |         |           |                      ||            |              
+
 | labcomputer                     |                                |                                   |         |           |                      |            |
 |---------------------------------|--------------------------------|-----------------------------------|---------|-----------|----------------------|------------|
 | Installs                        | Uninstalls                     | Optional Installs                 | Updates | Catalogs  | Included Manifests   | Conditions |
@@ -58,17 +57,20 @@ Here we illustrate how the software lists and classes are managed in Munki. We h
 | labprinters.mobileconfig (1.0)  |                                | Spotify (1.0.24.104.g92a22684)    |         |           |                      |            |
 | MATLAB_R2015b (8.5.0)           |                                |                                   |         |           |                      |            |
 | PaperCut Client (13.5)          |                                |                                   |         |           |                      |            |
-| Sublime Text 3 (3103)           |                                |                                   |         |           |                      |            |
+| Sublime Text 3 (3103)           |                                |                                   |         |           |                     | |            |
+
 | bonnerlabcomputer               |                                |                                   |         |           |                      |            |
 |---------------------------------|--------------------------------|-----------------------------------|---------|-----------|----------------------|------------|
 | Installs                        | Uninstalls                     | Optional Installs                 | Updates | Catalogs  | Included Manifests   | Conditions |
 | gardensxerox.mobileconfig (1.0) | labprinters.mobileconfig (1.0) | Atom (1.2.4)                      |         | available | allcomputers         |            |
-| Sublime Text 3 (3103)           | PaperCut Client (13.5)         | Spotify (1.0.24.104.g92a22684)    |         |           |                      |            |
+| Sublime Text 3 (3103)           | PaperCut Client (13.5)         | Spotify (1.0.24.104.g92a22684)    |         |           |                      ||            |
+
 | consultingcomputer              |                          |                                   |         |           |                      |            |
 |---------------------------------|--------------------------|-----------------------------------|---------|-----------|----------------------|------------|
 | Installs                        | Uninstalls               | Optional Installs                 | Updates | Catalogs  | Included Manifests   | Conditions |
 | Adobe Reader (11.0.10)          |                          |                                   |         | available | allcomputers         |            |
-| guestaccount.mobileconfig (1.0) |                          |                                   |         |           |                      |            |
+| guestaccount.mobileconfig (1.0) |                          |                                   |         |           |                      ||            |
+
 | facultystaffcomputer                         |                          |                                                   |         |           |                      |            |
 |----------------------------------------------|--------------------------|---------------------------------------------------|---------|-----------|----------------------|------------|
 | Installs                                     | Uninstalls               | Optional Installs                                 | Updates | Catalogs  | Included Manifests   | Conditions |
@@ -88,12 +90,14 @@ Here we illustrate how the software lists and classes are managed in Munki. We h
 |                                              |                          | Spotify (1.0.24.104.g92a22684)                    |         |           |                      |            |
 |                                              |                          | ssoprinter.mobileconfig (1.0)                     |         |           |                      |            |
 |                                              |                          | TeamViewerQS (11.0.55321)                         |         |           |                      |            |
-|                                              |                          | xeroxphasercolor.mobileconfig (1.0)               |         |           |                      |            |
+|                                              |                          | xeroxphasercolor.mobileconfig (1.0)               |         |           |                      | |           |
+
 | advisorcomputer                |                          |                                         |         |           |                      |            |
 |--------------------------------|--------------------------|-----------------------------------------|---------|-----------|----------------------|------------|
 | Installs                       | Uninstalls               | Optional Installs                       | Updates | Catalogs  | Included Manifests   | Conditions |
 | FileMakerPro14ARD (0.0)        | FilmMaker Pro 12 (12.0)  | CreativeSuite6DesignStandard (6)        |         | available | facultystaffcomputer |            |
-|                                |                          | ssoprinter.mobileconfig (1.0)           |         |           |                      |            |
+|                                |                          | ssoprinter.mobileconfig (1.0)           |         |           |                      |            ||
+
 | admincomputer                |                          |                                         |         |           |                      |            |
 |------------------------------|--------------------------|-----------------------------------------|---------|-----------|----------------------|------------|
 | Installs                     | Uninstalls               | Optional Installs                       | Updates | Catalogs  | Included Manifests   | Conditions |
@@ -101,6 +105,6 @@ Here we illustrate how the software lists and classes are managed in Munki. We h
 | CreateUserPkg (1.2.4)        |                          | Microsoft Remote Desktop Beta (8.2.18)  |         |           |                      |            |
 | DeployStudioAdmin (1.6.15)   |                          | screenlockgatekeeper.mobileconfig (1.0) |         |           |                      |            |
 | MunkiAdmin (1.4.1)           |                          |                                         |         |           |                      |            |
-| munkitools_admin (2.5.1.2627)|                          |                                         |         |           |                      |            |
+| munkitools_admin (2.5.1.2627)|                          |                                         |         |           |                      |           | |
 
-Note: Astericks (*) indicates that the software installs automatically. All other software installs manually.
+Note: Astericks (*) indicates that the package is imported into Munki via AutoUpdater. All other packages are imported manually.
