@@ -1,6 +1,6 @@
 # OPTION 1 - Automated Install (Windows Only)
 
-Download the contents of the folder located [here](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/tree/master/Code%20Development/Setup-Local-Infrastructure) and run installer.bat this will request administrative rights and install a set of components with minimal user interaction.
+Download the contents of the folder located [here](../Setup-Local-Infrastructure/README.md) and run installer.bat this will request administrative rights and install a set of components with minimal user interaction.
 
 Installed Components
 
@@ -172,3 +172,5 @@ Step 2- Launch the .dmg and install the app by following the directions
 
 ## 7. If you are working on a project that involves [ionic](http://ionicframework.com/getting-started/) 
 `sudo npm install -g ionic`
+
+## 8. If you are working on a meteor project, install meteor from [here](https://www.meteor.com/install)

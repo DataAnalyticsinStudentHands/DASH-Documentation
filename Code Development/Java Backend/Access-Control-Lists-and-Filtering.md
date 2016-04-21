@@ -77,7 +77,7 @@ After creating the ACL for a object you should be sure to give read, write, dele
 
 Example implementation from **SampleObjectServiceDbAccessImpl.java**
 
-        @Override
+    @Override
 	@Transactional
 	public Long createSampleObject(SampleObject sampleObject)
 			throws AppException {

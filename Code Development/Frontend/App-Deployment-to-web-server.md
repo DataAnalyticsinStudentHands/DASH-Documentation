@@ -1,7 +1,7 @@
 ## Deployment of Application to DASH Development or Production Server
 
 ### Server Configuration
-The server is configured using git hooks as described [here](http://nicolasgallagher.com/simple-git-deployment-strategy-for-static-sites/). There is a remote git repository on HouSuggest and HouSuggestDev, every push to it will be followed by copying the repo into `/srv/www/htdocs/<copy_dir>` which then translates to `www.housuggest.org/<copy_dir` or `hnetdev.hnet.uh.edu/<copy_dir>`.
+The server is configured using git hooks as described [here](http://nicolasgallagher.com/simple-git-deployment-strategy-for-static-sites/). We just have replaced using Makefile with Gulp. There is a remote git repository on HouSuggest and HouSuggestDev, every push to it will be followed by copying the repo into `/srv/www/htdocs/<copy_dir>` which then translates to `www.housuggest.org/<copy_dir` or `hnetdev.hnet.uh.edu/<copy_dir>`.
 
 
 ## Client Configuration - Mac

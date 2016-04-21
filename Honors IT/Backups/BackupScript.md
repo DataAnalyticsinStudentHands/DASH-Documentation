@@ -1,6 +1,6 @@
 ##Creating Backup Folders
 
-
+This is old and needs to updated ...
 ##```backup.sh``` v2015.06.28 - Backup Script
 
 ###Set interpreter

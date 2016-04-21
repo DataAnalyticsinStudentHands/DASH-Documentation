@@ -1,4 +1,4 @@
-## Resource-Layer
+#Resource-Layer
 
 The Resource layer is generally responsible for containing the code which maps out the URL scheme for the API and also translates between JSON and Plain Old Java Objects. Each API method in the Resource layer can accept parameters and data in the form of headers or post data and then uses forwards that data on to the service layer where business logic is performed.
 
@@ -14,7 +14,7 @@ The resource layer can be found in the directory "src/.../pojo". We will be step
 
 **@Path** defines the url that this resource can be accessed at.  In practice it appends the "/sampleObjects" to the end of the URL for the webservice.
 
-All resources must also be registered in the **DashApplicationSetup.java** in the dash directoy of the project.
+All resources must also be registered in the **DashApplicationSetup.java** in the dash directory of the project.
 
 ###Creating New Objects
 
@@ -44,7 +44,7 @@ The create method for a resource should be accessed by a **@POST** to the resour
 	
 The **@Consumes** tag defines that the Client need to send a JSON string as input.  Jackson will automatically take the incoming JSON and attempt to map it to the methods parameter which in this case is of type SampleObject.  This relies on the mapping provided in SampleObject.java by the @XMLElement tags.
 
-Inside the method the sampleObject is handed to the createSampleObject funtion of the Service layer.  If everything is successful then the method returns the 201 code and includes information about the new objects ID and the URL to access it.
+Inside the method the sampleObject is handed to the createSampleObject function of the Service layer.  If everything is successful then the method returns the 201 code and includes information about the new objects ID and the URL to access it.
 
 See the section on returning status codes and the section on object creation at the service level for how to return useful error information.
 
