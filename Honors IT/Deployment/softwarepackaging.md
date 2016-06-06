@@ -50,6 +50,46 @@ Save the package and use MunkiAdmin to import the package.
 
 ## List of Software Installed automatically
 
+<<<<<<< HEAD:Honors IT/Deployment/softwareinstallation.md
+AdobeFlashPlayer
+AdobeReader
+Cyberduck
+Dropbox
+Firefox
+GoogleChrome
+GoogleDrive
+Handbrake
+MakeCatalogs
+OracleJava7
+OracleJava8
+SilverLight
+Skype
+Spotify
+TextMate2
+VLC
+MunkiTools2
+
+## List of Software Installed manually
+
+AutoDMG
+Brackets
+CreateUserPkg
+DeployStudioAdmin
+EasyFind
+EclipseLuna
+FileZilla
+LaTeXiT
+MunkiAdmin
+R.Munki
+SequelPro
+SublimeText3
+TeXLiveUtility
+TeamViewer
+TeamViewerQS
+MacTex
+Node.Munki
+smcFanControl
+=======
 - AdobeFlashPlayer
 - AdobeReader
 - Cyberduck
@@ -89,3 +129,4 @@ Save the package and use MunkiAdmin to import the package.
 - MacTex
 - Node.Munki
 - smcFanControl
+>>>>>>> 70f10d6816e71520de2bb8a1e287f10d8d8790bd:Honors IT/Deployment/softwarepackaging.md
