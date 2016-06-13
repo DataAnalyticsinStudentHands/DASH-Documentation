@@ -1,11 +1,7 @@
-
-
-# Introduction
-
-This script is included on every DeployStudio workflow.
+The ```merged_restore.sh``` script is included on every DeployStudio workflow.
 
 ## Usage
-The restore script should be used at the end of DeployStudio workflows, or can be run by itself if a computer needs the correct LaunchAgents and other files for its restore class.
+The script is used at the end of DeployStudio workflows, or can be run by itself if a computer needs the correct LaunchAgents and other files for its restore class.
 
 | Restore Name                      | Manifest Name                     | Student Logins? | Shared Computer? | Backed Up? |
 |-----------------------------------|-----------------------------------|-----------------|------------------|------------|

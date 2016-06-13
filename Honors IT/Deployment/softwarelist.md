@@ -14,28 +14,38 @@ We are using a "base" manifest which looks like follows:
 
 ### allcomputers
 
-| Installs                          | Uninstalls                     | Optional Installs                 | Updates | Catalogs  | Included Manifests   | Conditions |
+| Managed Installs                  | Managed Uninstalls             | Optional Installs                 | Updates | Catalogs  | Included Manifests   | Conditions |
 |-----------------------------------|--------------------------------|-----------------------------------|---------|-----------|----------------------|------------|
-| AdobeAir (21.0)*                 |                                | Android File Transfer (1.0)       |         | available |                      |            |
-| AdobeFlashPlayer (21.0.0.213)*   |                                | Cyberduck (4.9)*                 |         |           |                      |            |
+| AdobeAir (21.0)*                  |                                | Android File Transfer (1.0)       |         | available |                      |            |
+| AdobeFlashPlayer (21.0.0.213)*    |                                | Cyberduck (4.9)*                 |         |           |                      |            |
 | EasyFind (4.9.3)                  |                                | Dropbox (3.16.1)*                |         |           |                      |            |
 | GoogleChrome (1.29.1861.9751) *   |                                | Firefox (45.0.1)*                |         |           |                      |            |
-| munkireport (2.5.3)*             |                                | GoogleDrive (1.29.1861.9751)*    |         |           |                      |            |
-| muniktools (4.2.2679)*           |                                | Skype (7.25.0.356)*              |         |           |                      |            |
-| munkitools_core (2.6.1.2684)*    |                                | TeamViewerQS (11.0.55321)*       |         |           |                      |            |
-| munkitools_launchd (2.0.0.1969)* |                                | VLC (2.2.2)*                     |         |           |                      |            |
-| Office Installer (14.3.0)*       |                                |                                   |         |           |                      ||            |
-
-
+| munkireport (2.5.3)*              |                                | GoogleDrive (1.29.1861.9751)*    |         |           |                      |            |
+| muniktools (4.2.2679)*            |                                | Skype (7.25.0.356)*              |         |           |                      |            |
+| munkitools_core (2.6.1.2684)*     |                                | TeamViewerQS (11.0.55321)*       |         |           |                      |            |
+| munkitools_launchd (2.0.0.1969)*  |                                | VLC (2.2.2)*                     |         |           |                      |            |
+| Office Installer (14.3.0)*        |                                |                                   |         |           |                      |           |            
 ## Computer Classes
 
 The following is a description of the existing computer classes and the according manifest as they are implemented.
+
+### Admin
+Computers used by HonorsIT.
+
+| Installs                        | Uninstalls               | Optional Installs                        | Updates | Catalogs  | Included Manifests   | Conditions |
+|---------------------------------|--------------------------|------------------------------------------|---------|-----------|----------------------|------------|
+| AutoDMG (1.5.5) *               |                          | 3T MongoChef (3.4.1)                     |         | available | facultystaffcomputer |            |
+| CreateUserPkg (1.2.4)           |                          | Microsoft Remote Desktop Beta (8.2.18) * |         |           |                      |            |
+| DeployStudioAdmin (1.6.15) *    |                          | screenlockgatekeeper.mobileconfig (1.0)  |         |           |                      |            |
+| MunkiAdmin (1.4.2) *            |                          |                                          |         |           |                      |            |
+| munkitools_admin (2.7.0) * |                          |                                          |         |           |                      |           | |
+
 
 ### Faculty & Staff
 
 Faculty & Staff are University employees and student workers who do not require access to student data.
 #### Computer Configuration
-- Automatic login to UHSHA1 (UHShare)
+- Automatic login to UHSHA1 (HCShare)
 - Automatic login to hc-storage (HonorsShare)
 - Printers can be installed via ManagedSoftware
 
@@ -82,7 +92,7 @@ These computers are for general purpose computing, and will be accessed by peopl
 
 | Installs                        | Uninstalls                     | Optional Installs                 | Updates | Catalogs  | Included Manifests   | Conditions |
 |---------------------------------|--------------------------------|-----------------------------------|---------|-----------|----------------------|------------|
-| guestaccount.mobileconfig (1.0) |                                |                                   |         | available |   bonnerlabcomputer  |            |
+| SourceTree (2.2.4) |                                |                                   |         | available |   bonnerlabcomputer  |            |
 | gardensxerox.mobileconfig (1.0) |                                | Atom (1.6.0) *                    |         |           |                      |            |
 | Sublime Text 3 (3103) *         |                                | Spotify (1.0.26.132.ga4e3ccee) *  |         |           |                      |            |
 
@@ -90,8 +100,7 @@ These computers are for general purpose computing, and will be accessed by peopl
 
 These computers are for general purpose computing, and will be accessed by many people.
 
-### Admin
-Computers used by HonorsIT.
+
 
 
 
@@ -129,13 +138,5 @@ Computers used by HonorsIT.
 | FileMakerPro14ARD (0.0)        | FilmMaker Pro 12 (12.0)  | CreativeSuite6DesignStandard (6)        |         | available | facultystaffcomputer |            |
 |                                |                          | ssoprinter.mobileconfig (1.0)           |         |           |                      |            ||
 
-| admincomputer                   |                          |                                          |         |           |                      |            |
-|---------------------------------|--------------------------|------------------------------------------|---------|-----------|----------------------|------------|
-| Installs                        | Uninstalls               | Optional Installs                        | Updates | Catalogs  | Included Manifests   | Conditions |
-| AutoDMG (1.5.5) *               |                          | 3T MongoChef (3.4.1)                     |         | available | facultystaffcomputer |            |
-| CreateUserPkg (1.6.0)           |                          | Microsoft Remote Desktop Beta (8.2.18) * |         |           |                      |            |
-| DeployStudioServer (1.7.2) *    |                          | screenlockgatekeeper.mobileconfig (1.0)  |         |           |                      |            |
-| MunkiAdmin (1.4.1) *            |                          |                                          |         |           |                      |            |
-| munkitools_admin (2.6.1.2684) * |                          |                                          |         |           |                      |           | |
 
 Note: Astericks (*) indicates that the package is imported into Munki via AutoUpdater. All other packages are imported manually.
