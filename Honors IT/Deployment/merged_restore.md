@@ -7,16 +7,17 @@ This script is included on every DeployStudio workflow.
 ## Usage
 The restore script should be used at the end of DeployStudio workflows, or can be run by itself if a computer needs the correct LaunchAgents and other files for its restore class.
 
-| Restore Name             | Manifest Name                     | Student Logins? | Shared Computer? | Backed Up? |
-|--------------------------|-----------------------------------|-----------------|------------------|------------|
-| Admin Restore            | admin_ManagedInstalls.plist       | no              | no               | yes        |
-| Advisor Restore          | advisor_ManagedInstalls.plist     | no              | no               | yes        |
-| Bonner Lab Restore       | lab_ManagedInstalls.plist         | yes             | yes              | no         |
-| Classroom/Podium Restore | consulting_ManagedInstalls.plist  | yes             | yes              | no         |
-| Consulting Restore       | consulting_ManagedInstalls.plist  | yes             | yes              | no         |
-| DASH Lab Restore         | dashlab_ManagedInstalls.plist     | yes             | yes              | no         |
-| Faculty/Staff Restore    | facultystaff_ManagedInstalls.plist| no              | no               | yes        |
-| Lab Computers            | lab_ManagedInstalls.plist         | yes             | yes              | no         |
+| Restore Name                      | Manifest Name                     | Student Logins? | Shared Computer? | Backed Up? |
+|-----------------------------------|-----------------------------------|-----------------|------------------|------------|
+| Admin Computer Restore            | admin_ManagedInstalls.plist       | no              | no               | yes        |
+| Advisor Computer Restore          | advisor_ManagedInstalls.plist     | no              | no               | yes        |
+| Bonner Computer Lab Restore       | lab_ManagedInstalls.plist         | yes             | yes              | no         |
+| Classroom/Podium Computer Restore | consulting_ManagedInstalls.plist  | yes             | yes              | no         |
+| Consulting Computing Restore      | consulting_ManagedInstalls.plist  | yes             | yes              | no         |
+| DASH Lab Computer Restore         | dashlab_ManagedInstalls.plist     | yes             | yes              | no         |
+| Faculty/Staff Computer Restore    | facultystaff_ManagedInstalls.plist| no              | no               | yes        |
+| Lab Computer Restore              | lab_ManagedInstalls.plist         | yes             | yes              | no         |
+| Student Worker Computer Restore   | lab_ManagedInstalls.plist         | no              | yes              | no         |
 
 ### Manual Execution
 ```merged_restore.sh``` needs to be run as root and has 4 parameters:
