@@ -71,6 +71,10 @@ The virtual machines should be accessed through Microsoft Remote Desktop or Appl
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://www.lucidchart.com/documents/embeddedchart/2a9f5b91-65a2-460b-a40f-0e00f890da06" id="75TcRTG5p9d1"></iframe></div>
 
+## Restarting the VM server
+
+If the physical machine running the VMs is restarted for any reason, the VMs must be manually restarted. This applies to all restarts, including restarting through the ESXi interface, restarting the machine through the power button, or in the event of a power failure. As noted above, the VMs can only be accessed remotely through the web using the VSphere web client. This client only runs on windows, so a windows machine will be needed if the VM server must be shut down.
+
 ## Backup
 
 See [solution](https://honorscollege.freshservice.com/solution/categories/1000023134/folders/1000050771/articles/1000021154-server-backups)
