@@ -93,25 +93,33 @@ Faculty & Staff are University employees and student workers who do not require 
 - Automatic login to hc-storage (HonorsShare)
 - Printers can be installed via ManagedSoftware
 
-| Managed Installs                  | Managed Uninstalls             | Optional Installs                 | Updates | Catalogs  | Included Manifests   | Conditions |
-|-----------------------------------|--------------------------------|-----------------------------------|---------|-----------|----------------------|------------|
-| Acrobat XI (11.0.15)              |                                | 204podprinter.mobileconfig (1.0)  | Acrobat Update 11.0.14 (11.0.14) | available | allcomputers         |            |
-| Login_to_NAS_Honors_Share.mobileconfig (1.0) |                          | 205podprinter.mobileconfig (1.0)                  |                                  |           |                      |            |
-| loginuhsa1.mobileconfig (1.0)                |                          | 206podprinter.mobileconfig (1.0)                  |                                  |           |                      |            |
-| Spotify (1.0.26.132.ga4e3ccee) *             |                          | 212GCommunicationsColorPrinter.mobileconfig (1.0) |                                  |           |                      |            |
-| SSD Fan Control (2.0)                        |                          | AdobeIndesignCS6 (8.0)                            |                                  |           |                      |            |
-| Sublime Text 3 (3103) *                      |                          | Atom (1.6.0) *                                    |                                  |           |                      |            |
-|                                              |                          | copystoragexerox.mobileconfig (1.0)               |                                  |           |                      |            |
-|                                              |                          | CreativeSuite6DesignStandard (6)                  |                                  |           |                      |            |
-|                                              |                          | deansareahp.mobileconfig (1.0)                    |                                  |           |                      |            |
-|                                              |                          | deansareaxerox.mobileconfig (1.0)                 |                                  |           |                      |            |
-|                                              |                          | gardensxerox.mobileconfig (1.0)                   |                                  |           |                      |            |
-|                                              |                          | iWork09 (4.0)                                     |                                  |           |                      |            |
-|                                              |                          | recruitementprinter.mobileconfig (1.0)            |                                  |           |                      |            |
-|                                              |                          | Spotify (1.0.26.132.ga4e3ccee) *                  |                                  |           |                      |            |
-|                                              |                          | ssoprinter.mobileconfig (1.0)                     |                                  |           |                      |            |
-|                                              |                          | TeamViewerQS (11.0.55321) *                       |                                  |           |                      |            |
-|                                              |                          | xeroxphasercolor.mobileconfig (1.0)               |                                  |           |                      | |           |
+#### Details for Munki Manifest facultystaffcomputer
+
+- General: Catalogs  available
+- Included Manfests: allcomputers
+- Referencing Manifests: admincomputer, advisorcomputer
+- Conditions: no conditions
+
+| Managed Installs                             | Managed Uninstalls         | Managed Updates                   |Optional Installs                                  |
+|----------------------------------------------|----------------------------|-----------------------------------|---------------------------------------------------|
+| Acrobat XI (11.0.15)                         |                            | Acrobat Update 11.0.14 (11.0.14)  | 204podprinter.mobileconfig (1.0)                  |
+| Login_to_NAS_Honors_Share.mobileconfig (1.0) |                            |                                   | 205podprinter.mobileconfig (1.0)                  |
+| loginuhsa1.mobileconfig (1.0)                |                            |                                   | 206podprinter.mobileconfig (1.0)                  |
+| Spotify (1.0.26.132.ga4e3ccee) *             |                            |                                   | 212GCommunicationsColorPrinter.mobileconfig (1.0) |
+| SSD Fan Control (2.0)                        |                            |                                   | AdobeIndesignCS6 (8.0)                            |
+| Sublime Text 3 (3103) *                      |                            |                                   | Atom (1.6.0) *                                    |  
+|                                              |                            |                                   | copystoragexerox.mobileconfig (1.0)               |
+|                                              |                            |                                   | CreativeSuite6DesignStandard (6)                  |
+|                                              |                            |                                   | deansareahp.mobileconfig (1.0)                    |
+|                                              |                            |                                   | deansareaxerox.mobileconfig (1.0)                 |
+|                                              |                            |                                   | gardensxerox.mobileconfig (1.0)                   |
+|                                              |                            |                                   | iWork09 (4.0)                                     |
+|                                              |                            |                                   | recruitementprinter.mobileconfig (1.0)            |
+|                                              |                            |                                   | Scribus (1.4.6) *                                 |
+|                                              |                            |                                   | Spotify (1.0.26.132.ga4e3ccee) *                  |
+|                                              |                            |                                   | ssoprinter.mobileconfig (1.0)                     |
+|                                              |                            |                                   | TeamViewerQS (11.0.55321) *                       |
+|                                              |                            |                                   | Zotero (4.0.29.5) *                               |
 
 ### Lab Computers
 
