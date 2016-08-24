@@ -18,7 +18,7 @@ We are using a "base" manifest which looks like follows:
 |-----------------------------------|--------------------------------|-----------------------------------|---------|-----------|----------------------|------------|
 | AdobeAir (21.0)*                  | Microsoft Office 2016          | Android File Transfer (1.0)       |         | available |                      |            |
 | AdobeFlashPlayer (21.0.0.213)*    |                                | Cyberduck (4.9)*                  |         |           |                      |            |
-| EasyFind (4.9.3)                  |                                | Dropbox (3.16.1)*                 |         |           |                      |            |
+| EasyFind (4.9.3)                  |                                | Dropbox (8.4.21)*                 |         |           |                      |            |
 | GoogleChrome (1.29.1861.9751) *   |                                | Firefox (45.0.1)*                 |         |           |                      |            |
 | munkireport (2.5.3)*              |                                | GoogleDrive (1.29.1861.9751)*     |         |           |                      |            |
 | muniktools (4.2.2679)*            |                                | Skype (7.25.0.356)*               |         |           |                      |            |
