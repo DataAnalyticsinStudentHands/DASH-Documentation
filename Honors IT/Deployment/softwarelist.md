@@ -19,12 +19,15 @@ We are using a "base" manifest which looks like follows:
 | AdobeAir (21.0)*                  | Microsoft Office 2016          | Android File Transfer (1.0)       |         | available |                      |            |
 | AdobeFlashPlayer (21.0.0.213)*    |                                | Cyberduck (4.9)*                  |         |           |                      |            |
 | EasyFind (4.9.3)                  |                                | Dropbox (8.4.21)*                 |         |           |                      |            |
-| GoogleChrome (1.29.1861.9751) *   |                                | Firefox (45.0.1)*                 |         |           |                      |            |
+| GoogleChrome (1.29.1861.9751) *   |                                | Firefox (48.0.1)*                 |         |           |                      |            |
 | munkireport (2.5.3)*              |                                | GoogleDrive (1.29.1861.9751)*     |         |           |                      |            |
 | muniktools (4.2.2679)*            |                                | Skype (7.25.0.356)*               |         |           |                      |            |
 | munkitools_core (2.6.1.2684)*     |                                | TeamViewerQS (11.0.55321)*        |         |           |                      |            |
-| munkitools_launchd (2.0.0.1969)*  |                                | VLC (2.2.2)*                      |         |           |                      |            |
-| Office Installer (14.3.0)*        |                                |                                   |         |           |                      |            |            
+| munkitools_launchd (2.0.0.1969)*  |                                | VLC (2.2.4)*                      |         |           |                      |            |
+| Office Installer (14.3.0)*        |                                | Things (2.8.4)                    |         |           |                      |            |                      
+            |                      |                                | FileZilla (3.21.0)                |         |           | | | |
+
+
 ## Computer Classes
 
 The following is a description of the existing computer classes and the according manifest as they are implemented.
@@ -38,7 +41,8 @@ Computers used by HonorsIT.
 | CreateUserPkg (1.2.4)           |                          | LatexIt (2.8.0)*                          |         |           |                      |            |
 | DeployStudioAdmin (1.6.15)*     |                          | MacTex (2015)*                            |         |           |                      |            |
 | MunkiAdmin (1.4.2)*             |                          | Microsoft Remote Desktop Beta (8.2.18) *  |         |           |                      |            |
-| munkitools_admin (2.7.0)*       |                          | screenlockgatekeeper.mobileconfig (1.0)   |         |           |                      |            |
+| munkitools_admin (2.7.0)*       |                          | screenlockgatekeeper.mobileconfig (1.0)   |         |           |                      |
+
 
 ### Advisor
 
@@ -119,6 +123,7 @@ Faculty & Staff are University employees and student workers who do not require 
 |                                              |                            |                                   | Spotify (1.0.26.132.ga4e3ccee) *                  |
 |                                              |                            |                                   | ssoprinter.mobileconfig (1.0)                     |
 |                                              |                            |                                   | TeamViewerQS (11.0.55321) *                       |
+|                                              |                            |                                   | Things (2.8.4) *                       |
 |                                              |                            |                                   | Zotero (4.0.29.5) *                               |
 
 ### Lab Computers
