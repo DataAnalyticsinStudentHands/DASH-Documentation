@@ -19,9 +19,9 @@ We are using a "base" manifest which looks like follows:
 | AdobeAir (21.0)*                  | Microsoft Office 2016          | Android File Transfer (1.0)       |         | available |                      |            |
 | AdobeFlashPlayer (22.0.0.209)*    |                                | Cyberduck (5.0.11)*                  |         |           |                      |            |
 | EasyFind (4.9.3)                  |                                | Dropbox (8.4.21)*                 |         |           |                      |            |
-| GoogleChrome (52.0.2743.116) *   |                                | Firefox (48.0.1)*                 |         |           |                      |            |
+| GoogleChrome (52.0.2743.116) *   |                                | Firefox (48.0.2)*                 |         |           |                      |            |
 | munkireport (2.5.3)*              |                                | GoogleDrive (1.31.2873.2758)*     |         |           |                      |            |
-| munkitools (4.2.2751)*            |                                | Skype (7.34.0.164)*               |         |           |                      |            |
+| munkitools (4.2.2751)*            |                                | Skype (7.35.0.231)*               |         |           |                      |            |
 | munkitools_core (2.7.0.2753)*     |                                | TeamViewerQS (11.0.62308)*        |         |           |                      |            |
 | munkitools_launchd (2.0.0.1969)*  |                                | VLC (2.2.4)*                      |         |           |                      |            |
 | Office Installer (14.3.0)*        |                                | Things (2.8.4)*                   |         |           |                      |            |                      
