@@ -8,9 +8,11 @@ In addition to software packages, each class has different restrictions and logi
 
 Here we illustrate how the software lists and classes are managed in Munki. We have a hierarchy of manifests which controls what software and scripts are installed on the different classes of computers.
 
+We are using a "base" manifest which looks like follows:
+
 <div style="width: 480px; height: 360px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:480px; height:360px" src="https://www.lucidchart.com/documents/embeddedchart/28cc149b-ad34-4479-b628-2c8b098de765" id="30qdae92R_YY"></iframe></div>
 
-We are using a "base" manifest which looks like follows:
+
 
 ### allcomputers
 
