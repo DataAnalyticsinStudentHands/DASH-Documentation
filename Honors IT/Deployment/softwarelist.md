@@ -97,7 +97,7 @@ These computers are for general purpose computing, and will be accessed by peopl
 |                                   |                                | RStudio (0.99.486) *              |         |           |                      |            |
 |                                   |                                | SequelPro (1.1.2) *               |         |           |                      |            |
 |                                   |                                | TeamViewer (11.0.65280) *         |         |           |                      |            |
-|                                   |                                | Spotify (1.0.33.106.g60b5d1f0) *  |         |           |                      |            |
+|                                   |                                | Spotify (1.0.36.134.g1cba1920) *  |         |           |                      |            |
 
 
 ### Faculty & Staff
