@@ -113,6 +113,8 @@ Faculty & Staff are University employees and student workers who do not require 
 |                                              |                            |                                   | deansareahp.mobileconfig (1.0)                    |
 |                                              |                            |                                   | deansareaxerox.mobileconfig (1.0)                 |
 |                                              |                            |                                   | gardensxerox.mobileconfig (1.0)                   |
+|                                              |                            |                                   | GarageBand (6.0.5)                                |
+|                                              |                            |                                   | iMovie (10.1.2)                                   |
 |                                              |                            |                                   | iWork09 (4.0)                                     |
 |                                              |                            |                                   | recruitementprinter.mobileconfig (1.0)            |
 |                                              |                            |                                   | Scribus (1.4.6) *                                 |
