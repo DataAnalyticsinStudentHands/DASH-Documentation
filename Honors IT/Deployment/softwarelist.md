@@ -19,14 +19,14 @@ We are using a "base" manifest which looks like follows:
 | Managed Installs                  | Managed Uninstalls             | Optional Installs                 | Updates | Catalogs  | Included Manifests   | Conditions |
 |-----------------------------------|--------------------------------|-----------------------------------|---------|-----------|----------------------|------------|
 | AdobeAir (21.0)*                  | Microsoft Office 2016          | Android File Transfer (1.0)       |         | available |                      |            |
-| AdobeFlashPlayer (22.0.0.209)*    |                                | Cyberduck (5.0.11)*                  |         |           |                      |            |
-| EasyFind (4.9.3)                  |                                | Dropbox (8.4.21)*                 |         |           |                      |            |
+| AdobeFlashPlayer (22.0.0.209)*    |                                | Cyberduck (5.1.10)*                  |         |           |                      |            |
+| EasyFind (4.9.3)                  |                                | Dropbox (9.4.49)*                 |         |           |                      |            |
 | GoogleChrome (53.0.2785.89) *   |                                 | Firefox (48.0.2)*                 |         |           |                      |            |
 | munkireport (2.5.3)*              |                                | GoogleDrive (1.31.2873.2758)*     |         |           |                      |            |
 | munkitools (4.2.2751)*            |                                | Skype (7.35.0.231)*               |         |           |                      |            |
-| munkitools_core (2.7.0.2753)*     |                                | TeamViewerQS (11.0.62308)*        |         |           |                      |            |
+| munkitools_core (2.7.0.2753)*     |                                | TeamViewerQS (11.0.65452)*        |         |           |                      |            |
 | munkitools_launchd (2.0.0.1969)*  |                                | VLC (2.2.4)*                      |         |           |                      |            |
-| Office Installer (14.3.0)*        |                                | TeamViewer (11.0.65280) *         |         |           |                      |            |
+| Office Installer (14.3.0)*        |                                | TeamViewer (11.0.65452) *         |         |           |                      |            |
 |                                   |                                | Things (2.8.4)*                   |         |           |                      |            |                      
              |                      |                                | FileZilla (3.21.0)                |         |           | | | |
 
@@ -41,8 +41,8 @@ Computers used by HonorsIT.
 | Managed Installs                  | Managed Uninstalls             | Optional Installs                 | Updates | Catalogs  | Included Manifests   | Conditions |
 |---------------------------------|--------------------------|-------------------------------------------|---------|-----------|----------------------|------------|
 | AutoDMG (1.5.5)*                |                          | 3T MongoChef (3.4.1)                      |         | available | facultystaffcomputer |            |
-| CreateUserPkg (1.2.4)           |                          | Cyberduck (5.0.11)*                       |         |           | facultystaffcomputer |            |
-| DeployStudioAdmin (1.6.15)*     |                          | Dropbox (8.4.21)*                         |         |           |             |            |
+| CreateUserPkg (1.2.4)           |                          | Cyberduck (5.1.0)*                       |         |           | facultystaffcomputer |            |
+| DeployStudioAdmin (1.6.15)*     |                          | Dropbox (9.4.49)*                         |         |           |             |            |
 | MunkiAdmin (1.4.3)*             |                          | FileZilla (3.21.0)                        |         |           |             |            |
 | munkitools_admin (2.7.1.2764)*  |                          | Firefox (48.0.2)*                         |         |           |             |            |
 | TextMate2 (2.0-beta.12.4) *     |                          | Ghostscript (9.19)*                       |         |           |                      |            |
@@ -51,9 +51,9 @@ Computers used by HonorsIT.
 |                                 |                          | Microsoft Remote Desktop Beta (8.2.18) *  |         |           |                      |            |
 |                                 |                          | screenlockgatekeeper.mobileconfig (1.0)   |         |           |                      |            |
 |                                 |                          | Skype (7.35.0.231)*                       |         |           |                      |            |
-|                                 |                          | Spotify (1.0.33.106.g60b5d1f0) *          |         |           |                      |            |
-|                                 |                          | TeamViewer (11.0.65280) *                 |         |           |                      |            |
-|                                 |                          | TeamViewerQS (11.0.62308)*                |         |           |                      |
+|                                 |                          | Spotify (1.0.36.124.g1cba1920) *          |         |           |                      |            |
+|                                 |                          | TeamViewer (11.0.65452) *                 |         |           |                      |            |
+|                                 |                          | TeamViewerQS (11.0.65452)*                |         |           |                      |
 
 
 ### Advisor
@@ -76,7 +76,7 @@ These computers are for general purpose computing, and will be accessed by peopl
 |-----------------------------------|--------------------------------|-----------------------------------|---------|-----------|----------------------|------------|
 | guestaccount.mobileconfig (1.0)   |                                |                                   |         | available |   allcomputers       |            |
 | gardensxerox.mobileconfig (1.0)   |                                | Atom (1.6.0) *                    |         |           |                      |            |
-| Sublime Text 3 (3103) *           |                                | Spotify (1.0.33.106.g60b5d1f0) *  |         |           |                      |            |
+| Sublime Text 3 (3103) *           |                                | Spotify (1.0.36.124.g1cba1920) *  |         |           |                      |            |
 
 ### Consulting Offices & Classroom Computers
 
@@ -102,7 +102,7 @@ These computers are for general purpose computing, and will be accessed by peopl
 | gardensxerox.mobileconfig (1.0)   |                         | Atom (1.6.0) *                           |         |           |                      |            |
 | Sublime Text 3 (3103) *           |                         | Brackets (1.6.0) *                       |         |           |                      |            |
 | Xcode (7.3) *                     |                         | CreativeSuite6DesignStandard (6)         |         |           |                      |            |
-|                                   |                         | EclipseLuna (1.6.0) *                    |         |           |                      |            |
+|                                   |                         | EclipseLuna (4.4.0) *                    |         |           |                      |            |
 |                                   |                         | guestaccount.mobileconfig (1.0)          |         |           |                      |            |
 |                                   |                         | iWork09 (4.0)                            |         |           |                      |            |
 |                                   |                         | LatexIt (2.8.1)*                         |         |           |                      |            |
@@ -110,13 +110,13 @@ These computers are for general purpose computing, and will be accessed by peopl
 |                                   |                         | MATLAB_R2015b (8.5.0)                    |         |           |                      |            |
 |                                   |                         | Microsoft Remote Desktop Beta (8.2.18) * |         |           |                      |            |
 |                                   |                         | mysql (5.7.11) *                         |         |           |                      |            |
-|                                   |                         | node (6.2.2) *                           |         |           |                      |            |
+|                                   |                         | node (6.5.0) *                           |         |           |                      |            |
 |                                   |                         | OracleJava8 (1.8.101.13) *               |         |           |                      |            |
 |                                   |                         | R (3.3.1) *                              |         |           |                      |            |
 |                                   |                         | Robomongo (0.9.0-RC4) *                  |         |           |                      |            |
 |                                   |                         | RStudio (0.99.486) *                     |         |           |                      |            |
 |                                   |                         | SequelPro (1.1.2) *                      |         |           |                      |            |
-|                                   |                         | TeamViewer (11.0.65280) *                |         |           |                      |            |
+|                                   |                         | TeamViewer (11.0.65452) *                |         |           |                      |            |
 |                                   |                         | Spotify (1.0.36.134.g1cba1920) *         |         |           |                      |            |
 
 
@@ -140,7 +140,7 @@ Faculty & Staff are University employees and student workers who do not require 
 | Acrobat XI (11.0.0)                         |                            | Acrobat Update 11.0.17 (11.0.17)  | 204podprinter.mobileconfig (1.0)                  |
 | Login_to_NAS_Honors_Share.mobileconfig (1.0) |                            |                                   | 205podprinter.mobileconfig (1.0)                  |
 | loginuhsa1.mobileconfig (1.0)                |                            |                                   | 206podprinter.mobileconfig (1.0)                  |
-| Spotify (1.0.33.106.g60b5d1f0) *             |                            |                                   | 212GCommunicationsColorPrinter.mobileconfig (1.0) |
+| Spotify (1.0.36.134.g1cba1920) *             |                            |                                   | 212GCommunicationsColorPrinter.mobileconfig (1.0) |
 | SSD Fan Control (2.0)                        |                            |                                   | AdobeIndesignCS6 (8.0)                            |
 | Sublime Text 3 (3103) *                      |                            |                                   | Atom (1.6.0) *                                    |  
 |                                              |                            |                                   | copystoragexerox.mobileconfig (1.0)               |
@@ -151,11 +151,11 @@ Faculty & Staff are University employees and student workers who do not require 
 |                                              |                            |                                   | iWork09 (4.0)                                     |
 |                                              |                            |                                   | recruitementprinter.mobileconfig (1.0)            |
 |                                              |                            |                                   | Scribus (1.4.6) *                                 |
-|                                              |                            |                                   | Spotify (1.0.33.106.g60b5d1f0) *                  |
+|                                              |                            |                                   | Spotify (1.0.36.134.g1cba1920) *                  |
 |                                              |                            |                                   | ssoprinter.mobileconfig (1.0)                     |
-|                                              |                            |                                   | TeamViewerQS  (11.0.62308) *                       |
+|                                              |                            |                                   | TeamViewerQS  (11.0.65452) *                       |
 |                                              |                            |                                   | Things (2.8.4) *                       |
-|                                              |                            |                                   | Zotero (4.0.29.5) *                               |
+|                                              |                            |                                   | Zotero (4.0.29.11) *                               |
 
 ### Lab Computers
 
@@ -168,7 +168,7 @@ These computers are for general purpose computing, and will be accessed by many 
 | Managed Installs                  | Managed Uninstalls             | Optional Installs                 | Updates | Catalogs  | Included Manifests   | Conditions |
 |-----------------------------------|--------------------------------|-----------------------------------|---------|-----------|----------------------|------------|
 | guestaccount.mobileconfig (1.0)   |                                | Atom (1.6.0)*                     |         | available | allcomputers         |            |
-| labprinters.mobileconfig (1.0)    |                                | Spotify (1.0.33.106.g60b5d1f0)*   |         |           |                      |            |
+| labprinters.mobileconfig (1.0)    |                                | Spotify (1.0.36.134.g1cba1920)*   |         |           |                      |            |
 | MATLAB_R2015b (8.5.0)             |                                |                                   |         |           |                      |            |
 | PaperCut Client (13.5)            |                                |                                   |         |           |                      |            |
 | Sublime Text 3 (3103)*            |                                |                                   |         |           |                      |            |       
