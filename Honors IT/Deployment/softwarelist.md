@@ -17,13 +17,13 @@ We are using a "base" manifest which looks like follows:
 | Managed Installs                  | Managed Uninstalls             | Optional Installs                 | Updates | Catalogs  | Included Manifests   | Conditions |
 |-----------------------------------|--------------------------------|-----------------------------------|---------|-----------|----------------------|------------|
 | AdobeAir (21.0)*                  | Microsoft Office 2016          | Android File Transfer (1.0)       |         | available |                      |            |
-| AdobeFlashPlayer (21.0.0.213)*    |                                | Cyberduck (4.9)*                  |         |           |                      |            |
-| EasyFind (4.9.3)                  |                                | Dropbox (3.16.1)*                 |         |           |                      |            |
-| GoogleChrome (1.29.1861.9751) *   |                                | Firefox (45.0.1)*                 |         |           |                      |            |
-| munkireport (2.5.3)*              |                                | GoogleDrive (1.29.1861.9751)*     |         |           |                      |            |
-| muniktools (4.2.2679)*            |                                | Skype (7.25.0.356)*               |         |           |                      |            |
-| munkitools_core (2.6.1.2684)*     |                                | TeamViewerQS (11.0.55321)*        |         |           |                      |            |
-| munkitools_launchd (2.0.0.1969)*  |                                | VLC (2.2.2)*                      |         |           |                      |            |
+| AdobeFlashPlayer (22.0.0.209)*    |                                | Cyberduck (5.1.0)*                  |         |           |                      |            |
+| EasyFind (4.9.3)                  |                                | Dropbox (9.4.49)*                 |         |           |                      |            |
+| GoogleChrome (52.0.2743.116) *   |                                | Firefox (48.0.2)*                 |         |           |                      |            |
+| munkireport (2.5.3)*              |                                | GoogleDrive (1.31.2873.2758)*     |         |           |                      |            |
+| munkitools (4.2.2679)*            |                                | Skype (7.35.0.231)*               |         |           |                      |            |
+| munkitools_core (2.7.0.2753)*     |                                | TeamViewerQS (11.0.62308)*        |         |           |                      |            |
+| munkitools_launchd (2.0.0.1969)*  |                                | VLC (2.2.4)*                      |         |           |                      |            |
 | Office Installer (14.3.0)*        |                                |                                   |         |           |                      |            |            
 ## Computer Classes
 
@@ -35,10 +35,10 @@ Computers used by HonorsIT.
 | Managed Installs                  | Managed Uninstalls             | Optional Installs                 | Updates | Catalogs  | Included Manifests   | Conditions |
 |---------------------------------|--------------------------|-------------------------------------------|---------|-----------|----------------------|------------|
 | AutoDMG (1.5.5)*                |                          | 3T MongoChef (3.4.1)                      |         | available | facultystaffcomputer |            |
-| CreateUserPkg (1.2.4)           |                          | LatexIt (2.8.0)*                          |         |           |                      |            |
-| DeployStudioAdmin (1.6.15)*     |                          | MacTex (2015)*                            |         |           |                      |            |
-| MunkiAdmin (1.4.2)*             |                          | Microsoft Remote Desktop Beta (8.2.18) *  |         |           |                      |            |
-| munkitools_admin (2.7.0)*       |                          | screenlockgatekeeper.mobileconfig (1.0)   |         |           |                      |            |
+| CreateUserPkg (1.2.4)           |                          | LatexIt (2.8.1)*                          |         |           |                      |            |
+| DeployStudioAdmin (1.6.15)*     |                          | MacTex (2016)*                            |         |           |                      |            |
+| MunkiAdmin (1.4.3)*             |                          | Microsoft Remote Desktop Beta (8.2.18) *  |         |           |                      |            |
+| munkitools_admin (2.7.1.2764)*       |                          | screenlockgatekeeper.mobileconfig (1.0)   |         |           |                      |            |
 
 ### Advisor
 
@@ -60,7 +60,7 @@ These computers are for general purpose computing, and will be accessed by peopl
 |-----------------------------------|--------------------------------|-----------------------------------|---------|-----------|----------------------|------------|
 | guestaccount.mobileconfig (1.0)   |                                |                                   |         | available |   allcomputers       |            |
 | gardensxerox.mobileconfig (1.0)   |                                | Atom (1.6.0) *                    |         |           |                      |            |
-| Sublime Text 3 (3103) *           |                                | Spotify (1.0.26.132.ga4e3ccee) *  |         |           |                      |            |
+| Sublime Text 3 (3103) *           |                                | Spotify (1.0.36.134.g1cba1920) *  |         |           |                      |            |
 
 ### Consulting Offices & Classroom Computers
 
@@ -82,7 +82,7 @@ These computers are for general purpose computing, and will be accessed by peopl
 |-----------------------------------|--------------------------------|-----------------------------------|---------|-----------|----------------------|------------|
 | SourceTree (2.2.4)                |                                |                                   |         | available |   bonnerlabcomputer  |            |
 | gardensxerox.mobileconfig (1.0)   |                                | Atom (1.6.0) *                    |         |           |                      |            |
-| Sublime Text 3 (3103) *           |                                | Spotify (1.0.26.132.ga4e3ccee) *  |         |           |                      |            |
+| Sublime Text 3 (3103) *           |                                | Spotify (1.0.36.134.g1cba1920) *  |         |           |                      |            |
 
 
 ### Faculty & Staff
@@ -102,10 +102,10 @@ Faculty & Staff are University employees and student workers who do not require 
 
 | Managed Installs                             | Managed Uninstalls         | Managed Updates                   |Optional Installs                                  |
 |----------------------------------------------|----------------------------|-----------------------------------|---------------------------------------------------|
-| Acrobat XI (11.0.15)                         |                            | Acrobat Update 11.0.14 (11.0.14)  | 204podprinter.mobileconfig (1.0)                  |
+| Acrobat XI (11.0.0)                          |                            | Acrobat Update 11.0.17 (11.0.17)  | 204podprinter.mobileconfig (1.0)                  |
 | Login_to_NAS_Honors_Share.mobileconfig (1.0) |                            |                                   | 205podprinter.mobileconfig (1.0)                  |
 | loginuhsa1.mobileconfig (1.0)                |                            |                                   | 206podprinter.mobileconfig (1.0)                  |
-| Spotify (1.0.26.132.ga4e3ccee) *             |                            |                                   | 212GCommunicationsColorPrinter.mobileconfig (1.0) |
+| Spotify (1.0.36.134.g1cba1920) *             |                            |                                   | 212GCommunicationsColorPrinter.mobileconfig (1.0) |
 | SSD Fan Control (2.0)                        |                            |                                   | AdobeIndesignCS6 (8.0)                            |
 | Sublime Text 3 (3103) *                      |                            |                                   | Atom (1.6.0) *                                    |  
 |                                              |                            |                                   | copystoragexerox.mobileconfig (1.0)               |
@@ -118,10 +118,10 @@ Faculty & Staff are University employees and student workers who do not require 
 |                                              |                            |                                   | iWork09 (4.0)                                     |
 |                                              |                            |                                   | recruitementprinter.mobileconfig (1.0)            |
 |                                              |                            |                                   | Scribus (1.4.6) *                                 |
-|                                              |                            |                                   | Spotify (1.0.26.132.ga4e3ccee) *                  |
+|                                              |                            |                                   | Spotify (1.0.36.134.g1cba1920) *                  |
 |                                              |                            |                                   | ssoprinter.mobileconfig (1.0)                     |
-|                                              |                            |                                   | TeamViewerQS (11.0.55321) *                       |
-|                                              |                            |                                   | Zotero (4.0.29.5) *                               |
+|                                              |                            |                                   | TeamViewerQS (11.0.62308) *                       |
+|                                              |                            |                                   | Zotero (4.0.29.11) *                               |
 
 ### Lab Computers
 
@@ -134,7 +134,7 @@ These computers are for general purpose computing, and will be accessed by many 
 | Managed Installs                  | Managed Uninstalls             | Optional Installs                 | Updates | Catalogs  | Included Manifests   | Conditions |
 |-----------------------------------|--------------------------------|-----------------------------------|---------|-----------|----------------------|------------|
 | guestaccount.mobileconfig (1.0)   |                                | Atom (1.6.0)*                     |         | available | allcomputers         |            |
-| labprinters.mobileconfig (1.0)    |                                | Spotify (1.0.26.132.ga4e3ccee)*   |         |           |                      |            |
+| labprinters.mobileconfig (1.0)    |                                | Spotify (1.0.36.134.g1cba1920)*   |         |           |                      |            |
 | MATLAB_R2015b (8.5.0)             |                                |                                   |         |           |                      |            |
 | PaperCut Client (13.5)            |                                |                                   |         |           |                      |            |
 | Sublime Text 3 (3103)*            |                                |                                   |         |           |                      |            |       
