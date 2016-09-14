@@ -49,7 +49,8 @@ Computers used by HonorsIT.
 |                                 |                          | LatexIt (2.8.1)*                          |         |           |                      |            |
 |                                 |                          | MacTex (2016)*                            |         |           |                      |            |
 |                                 |                          | Microsoft Remote Desktop Beta (8.2.18) *  |         |           |                      |            |
-|                                 |                          | screenlockgatekeeper.mobileconfig (1.0)   |         |           |                      |            |
+|                                 |                          | Microsoft Remote Desktop Beta (8.2.18) *  |         |           |                      |            |
+|                                 |                          | OneDrive (17.3.6517) *                    |         |           |                      |            |
 |                                 |                          | Skype (7.35.0.231)*                       |         |           |                      |            |
 |                                 |                          | Spotify (1.0.36.124.g1cba1920) *          |         |           |                      |            |
 |                                 |                          | TeamViewer (11.0.65452) *                 |         |           |                      |            |
@@ -111,6 +112,7 @@ These computers are for general purpose computing, and will be accessed by peopl
 |                                   |                         | Microsoft Remote Desktop Beta (8.2.18) * |         |           |                      |            |
 |                                   |                         | mysql (5.7.11) *                         |         |           |                      |            |
 |                                   |                         | node (6.5.0) *                           |         |           |                      |            |
+|                                   |                         | OneDrive (17.3.6517) *                   |         |           |                      |            |
 |                                   |                         | OracleJava8 (1.8.101.13) *               |         |           |                      |            |
 |                                   |                         | R (3.3.1) *                              |         |           |                      |            |
 |                                   |                         | Robomongo (0.9.0-RC4) *                  |         |           |                      |            |
@@ -149,6 +151,7 @@ Faculty & Staff are University employees and student workers who do not require 
 |                                              |                            |                                   | deansareaxerox.mobileconfig (1.0)                 |
 |                                              |                            |                                   | gardensxerox.mobileconfig (1.0)                   |
 |                                              |                            |                                   | iWork09 (4.0)                                     |
+|                                              |                            |                                   | OneDrive (17.3.6517)                   |
 |                                              |                            |                                   | recruitementprinter.mobileconfig (1.0)            |
 |                                              |                            |                                   | Scribus (1.4.6) *                                 |
 |                                              |                            |                                   | Spotify (1.0.36.134.g1cba1920) *                  |
