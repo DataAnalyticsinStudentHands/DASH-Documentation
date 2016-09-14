@@ -14,36 +14,38 @@ We do not backup the full computer. We only backup certain data inside the Users
 | jkgajan, cmbenz               | 204A        | hc-asmussen                         |
 | jbbrown4                      | 204A        | hc-brown                            |
 | cmbrunt2                      | CCW         | hc-brunt                            |
-| rcremins                      | 204D        | hc-cremins                          |
+| rcremins                      | 206A        | hc-cremins                          |
 | gtoti                         | DASH        | hc-dash5                            |
 | dblamson                      | CCW         | hc-lamson                           |
-| ehfletch                      | ?           | hc-fletcher                         |
-| FileMaker Server, hcadmin     | ?           | hc-fmp                              |
+| ehfletch                      | S17A        | hc-fletcher                         |
+| FileMaker Server, hcadmin     | 212K        | hc-fmp                              |
 | jrharvey                      | CCW         | hc-harvey                           |
-| drainbow                      | ?           | hc-drainbow                         |
+| drainbow                      | 205D        | hc-drainbow                         |
 | cleveaux                      | 212W        | hc-leveaux                          |
 | plindner                      | DASH        | hc-lindner                          |
 | lllyke                        | 212F        | hc-lyke                             |
-| ipmorris                      | ?           | hc-morrisson                        |
+| ipmorris                      | 204C        | hc-morrisson                        |
 | kdmyrick                      | Dean's Area | hc-myrick                           |
 | dprice3                       | DASH        | hc-price                            |
 | cerios                        | Dean's Area | hc-rios                             |
 | resirrieh                     | 212H        | hc-sirrieh                          |
-| hkvalier                      | ?           | hc-valier                           |
+| hkvalier                      | Gardens-16  | hc-valier                           |
 | kweber2                       | 211         | hc-weber                            |
 | D. Mikics/J.Ferguson          | 206C        | hc-206C                             |
 | Honors IT                     | 212K        | hc-IT                               |
 | Honors IT                     | 212K        | hc-it-laptop                        |
-| jlzecher                      | ?           | hc-zecher                           |
+| jlzecher                      | 206A        | hc-zecher                           |
 | gmaya                         | CCW         | hc-maya                             |
 | sakeen                        | Bonner Base | hc-keen                             |
+| jahennes                      | SSO         | hc-hennessy                         |
+| bmonroe                       | Dean's Area | Dean Monroe's iMac                  |
+|  awleland                      | Bonner Base | hc-leland                           |
 
 
 No backup, should be added asap!
 
 | Users                         | Location    | Computer Name/Backup folder name |
 |-------------------------------|-------------|-------------------------------------|
-| B. Monroe                     | 202A        |                                     |
 | T. Estess/R. Zaretsky         | 203B        |                                     |
 
 ### Security
@@ -53,3 +55,7 @@ In addition, the Backups share is not mounted by default for users. It is mounte
 
 ### Why not Time Machine?
 Many Apple users extol the virtues of Time Machine as a backups solution. They're not wrong. Time Machine is a great backup solution for consumers. However, it does not scale well to our environment or offer the security requested by users. In addition, it locks us into using Macs to read the backed up data because Time Machine is Apple-only.
+
+### Issues with current backups: To be updated regularly!
+
+Please document any problems that appear when checking backups. This includes user accounts that should be backing up but are not.  
