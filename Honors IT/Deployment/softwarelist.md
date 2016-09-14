@@ -20,8 +20,8 @@ We are using a "base" manifest which looks like follows:
 |-----------------------------------|--------------------------------|-----------------------------------|---------|-----------|----------------------|------------|
 | AdobeAir (21.0)*                  | Microsoft Office 2016          | Android File Transfer (1.0)       |         | available |                      |            |
 | AdobeFlashPlayer (22.0.0.209)*    |                                | Cyberduck (5.1.10)*                  |         |           |                      |            |
-| EasyFind (4.9.3)                  |                                | Dropbox (9.4.49)*                 |         |           |                      |            |
-| GoogleChrome (53.0.2785.89) *   |                                 | Firefox (48.0.2)*                 |         |           |                      |            |
+| EasyFind (4.9.3)                  |                                | Dropbox (10.4.25)*                 |         |           |                      |            |
+| GoogleChrome (53.0.2785.113) *   |                                 | Firefox (48.0.2)*                 |         |           |                      |            |
 | munkireport (2.5.3)*              |                                | GoogleDrive (1.31.2873.2758)*     |         |           |                      |            |
 | munkitools (4.2.2751)*            |                                | Skype (7.35.0.231)*               |         |           |                      |            |
 | munkitools_core (2.7.0.2753)*     |                                | TeamViewerQS (11.0.65452)*        |         |           |                      |            |
@@ -40,9 +40,9 @@ Computers used by HonorsIT.
 
 | Managed Installs                  | Managed Uninstalls             | Optional Installs                 | Updates | Catalogs  | Included Manifests   | Conditions |
 |---------------------------------|--------------------------|-------------------------------------------|---------|-----------|----------------------|------------|
-| AutoDMG (1.5.5)*                |                          | 3T MongoChef (3.4.1)                      |         | available | facultystaffcomputer |            |
+| AutoDMG (1.5.5)*                |                          | 3T MongoChef (4.2.0)                      |         | available | facultystaffcomputer |            |
 | CreateUserPkg (1.2.4)           |                          | Cyberduck (5.1.0)*                       |         |           | facultystaffcomputer |            |
-| DeployStudioAdmin (1.6.15)*     |                          | Dropbox (9.4.49)*                         |         |           |             |            |
+| DeployStudioAdmin (1.6.15)*     |                          | Dropbox (10.4.25)*                         |         |           |             |            |
 | MunkiAdmin (1.4.3)*             |                          | FileZilla (3.21.0)                        |         |           |             |            |
 | munkitools_admin (2.7.1.2764)*  |                          | Firefox (48.0.2)*                         |         |           |             |            |
 | TextMate2 (2.0-beta.12.4) *     |                          | Ghostscript (9.19)*                       |         |           |                      |            |
@@ -98,7 +98,7 @@ These computers are for general purpose computing, and will be accessed by peopl
 
 | Managed Installs                  | Managed Uninstalls             | Optional Installs                 | Updates | Catalogs  | Included Manifests   | Conditions |
 |-----------------------------------|--------------------------------|-----------------------------------|---------|-----------|----------------------|------------|
-| SourceTree (2.2.4)                |                         | 3T MongoChef (3.4.1)                     |         | available |   bonnerlabcomputer  |          
+| SourceTree (2.2.4)                |                         | 3T MongoChef (4.2.0)                     |         | available |   bonnerlabcomputer  |          
 | gardensxerox.mobileconfig (1.0)   |                         | Atom (1.6.0) *                           |         |           |                      |            |
 | Sublime Text 3 (3103) *           |                         | Brackets (1.6.0) *                       |         |           |                      |            |
 | Xcode (7.3) *                     |                         | CreativeSuite6DesignStandard (6)         |         |           |                      |            |
