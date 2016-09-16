@@ -19,11 +19,11 @@ We are using a "base" manifest which looks like follows:
 | Managed Installs                  | Managed Uninstalls             | Optional Installs                 | Updates | Catalogs  | Included Manifests   | Conditions |
 |-----------------------------------|--------------------------------|-----------------------------------|---------|-----------|----------------------|------------|
 | AdobeAir (21.0)*                  | Microsoft Office 2016          | Android File Transfer (1.0)       |         | available |                      |            |
-| AdobeFlashPlayer (22.0.0.209)*    |                                | Cyberduck (5.1.10)*                  |         |           |                      |            |
-| EasyFind (4.9.3)                  |                                | Dropbox (10.4.25)*                 |         |           |                      |            |
+| AdobeFlashPlayer (22.0.0.209)*    |                                | Cyberduck (5.1.0)*                |         |           |                      |            |
+| EasyFind (4.9.3)                  |                                | Dropbox (10.4.25)*                |         |           |                      |            |
 | GoogleChrome (53.0.2785.113) *   |                                 | Firefox (48.0.2)*                 |         |           |                      |            |
 | munkireport (2.5.3)*              |                                | GoogleDrive (1.31.2873.2758)*     |         |           |                      |            |
-| munkitools (4.2.2751)*            |                                | Skype (7.35.0.231)*               |         |           |                      |            |
+| munkitools (4.2.2751)*            |                                | Skype (7.36.0.217)*               |         |           |                      |            |
 | munkitools_core (2.7.0.2753)*     |                                | TeamViewerQS (11.0.65452)*        |         |           |                      |            |
 | munkitools_launchd (2.0.0.1969)*  |                                | VLC (2.2.4)*                      |         |           |                      |            |
 | Office Installer (14.3.0)*        |                                | TeamViewer (11.0.65452) *         |         |           |                      |            |
@@ -41,8 +41,8 @@ Computers used by HonorsIT.
 | Managed Installs                  | Managed Uninstalls             | Optional Installs                 | Updates | Catalogs  | Included Manifests   | Conditions |
 |---------------------------------|--------------------------|-------------------------------------------|---------|-----------|----------------------|------------|
 | AutoDMG (1.5.5)*                |                          | 3T MongoChef (4.2.0)                      |         | available | facultystaffcomputer |            |
-| CreateUserPkg (1.2.4)           |                          | Cyberduck (5.1.0)*                       |         |           | facultystaffcomputer |            |
-| DeployStudioAdmin (1.6.15)*     |                          | Dropbox (10.4.25)*                         |         |           |             |            |
+| CreateUserPkg (1.2.4)           |                          | Cyberduck (5.1.0)*                        |         |           | facultystaffcomputer |            |
+| DeployStudioAdmin (1.6.15)*     |                          | Dropbox (10.4.25)*                        |         |           |             |            |
 | MunkiAdmin (1.4.3)*             |                          | FileZilla (3.21.0)                        |         |           |             |            |
 | munkitools_admin (2.7.1.2764)*  |                          | Firefox (48.0.2)*                         |         |           |             |            |
 | TextMate2 (2.0-beta.12.4) *     |                          | Ghostscript (9.19)*                       |         |           |                      |            |
@@ -51,7 +51,7 @@ Computers used by HonorsIT.
 |                                 |                          | Microsoft Remote Desktop Beta (8.2.18) *  |         |           |                      |            |
 |                                 |                          | Microsoft Remote Desktop Beta (8.2.18) *  |         |           |                      |            |
 |                                 |                          | OneDrive (17.3.6517) *                    |         |           |                      |            |
-|                                 |                          | Skype (7.35.0.231)*                       |         |           |                      |            |
+|                                 |                          | Skype (7.36.0.217)*                       |         |           |                      |            |
 |                                 |                          | Spotify (1.0.36.124.g1cba1920) *          |         |           |                      |            |
 |                                 |                          | TeamViewer (11.0.65452) *                 |         |           |                      |            |
 |                                 |                          | TeamViewerQS (11.0.65452)*                |         |           |                      |
