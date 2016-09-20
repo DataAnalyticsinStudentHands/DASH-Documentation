@@ -59,3 +59,16 @@ Many Apple users extol the virtues of Time Machine as a backups solution. They'r
 ### Issues with current backups: To be updated regularly!
 
 Please document any problems that appear when checking backups. This includes user accounts that should be backing up but are not.  
+
+| Users                         | Location    | Computer Name/Backup folder name | Not Backed Up Since |
+|-------------------------------|-------------|-------------------------------------|----------------------|
+| ipmorris                      | 204C        | hc-morrisson                             | 8/8/16                   |
+| gmaya                         | CCW         | hc-maya                             | 9/8/16                   |
+| jlzecher                      | 206A        | hc-zecher                             | 8/8/16                   |
+| FleMaker Server               | 212K        | hc-fmp                             | 6/24/15                  |
+| hcadmin                       | 212K        | hc-fmp                             | 7/26/16                  |
+| resirrieh                     | 212H        | hc-sirrieh                             | 8/9/16                   |
+| lllyke                        | 212F        | hc-lyke                             | 8/10/16                  |
+| gtoti                         | DASH        | hc-dash5                             | 8/8/16                   |
+| cleveaux                      | 212W        | hc-leveaux                             | 8/8/16                   |
+| cmbenz                        | 204A        | hc-asmussen                             | 12/10/15                 |
