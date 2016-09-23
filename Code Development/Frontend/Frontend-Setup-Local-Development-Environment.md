@@ -165,6 +165,9 @@ step 1- enter the following command into a terminal
 
 `sudo npm install -g cordova`
 
+Sometimes you may have to run:
+`cordova platform update ios`
+
 ## 6. Install Brackets
 Step 1- Download from [Brackets Download Page](http://brackets.io)
 
