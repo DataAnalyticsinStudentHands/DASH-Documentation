@@ -177,7 +177,7 @@ Faculty & Staff are University employees and student workers who do not require 
 |                                              |                            |                                   | Spotify (1.0.33.106.g60b5d1f0) *                  |
 |                                              |                            |                                   | ssoprinter.mobileconfig (1.0)                     |
 |                                              |                            |                                   | TeamViewerQS (11.0.62308) *                       |
-|                                              |                            |                                   | Things (2.8.4) *                       |
+|                                              |                            |                                   | Things (2.8.7) *                       |
 |                                              |                            |                                   | Zotero (4.0.29.5) *                               |
 >>>>>>> da05195545cbbbb05286b68404d5f5c4e3b4be09
 
