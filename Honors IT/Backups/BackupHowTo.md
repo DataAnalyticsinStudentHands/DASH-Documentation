@@ -1,7 +1,48 @@
-##Creating Backup Folders
+##Backup How To-Dos
 
+We have created a UNIX bash script that will run automatically via LaunchDeamons on machines where it gets installed. The standard installation happens when the "backup" option is selected with the [merged_restore](https://honorscollege.freshservice.com/solution/categories/1000023134/folders/1000035508/articles/1000015668-merged-restore-script) script (please see [instructions](https://honorscollege.freshservice.com/solution/categories/1000023134/folders/1000035508/articles/1000015668-merged-restore-script)).
+
+### Checking Backups
+Currenty, this is a manual task. Log on to web interface for the [Synology NAS hc-storage](http://hc-stoarge.cougaret.uh.edu:5000). Open the "File Station" view and got to "Backups" folder. Check each hostname/user/cougarnetID for latest backup times. Should be within the last few days if changes were made. Note any discrepancies.
+
+### Fixing Issues
+If the backup is old (more than 2 weeks), follow these steps:
+
+Find the IP address of the host in Remote Desktop (hc-it)
+1. SSH into the remote host
+`ssh hcadmin@172.27.XXX.XXX`
+(password is the standard hcadmin password)
+2. Check if the backup script exists
+`sudo ls -la /usr/local/bin/backup.sh`
+3. If the backup script exists, run it (if not, make a ticket)
+`sudo sh /usr/local/bin/backup.sh`
+4. Verify that the backups are being created on HC-storage by running the find command listed above
+5. TBD: (check launch daemons)
+/Library/LaunchDaemons/edu.uh.honors.backup.plist
+6. TBD: (check log files?)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### The Backup Script explained
 This is old and needs to updated ...
-##```backup.sh``` v2015.06.28 - Backup Script
+
+```backup.sh``` v2015.06.28
 
 ###Set interpreter
 
