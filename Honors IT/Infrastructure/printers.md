@@ -49,5 +49,5 @@ When the part comes in, install it and return the empty cartridge to Brenda. We 
 |-----------------|--------------|---------------------------|---------------|
 | Copy Storage Xerox| https://172.27.56.7/ | copier01.honors.e.uh.edu | Xerox WorkCentre 5855 |
 | Dean's Area Xerox | http://172.27.56.8/ | copier02.honors.e.uh.edu | Xerox WorkCentre 3615 |
-| South Gardens Xerox | http://172.27.219.1/ | 584-s15-sgwc-prntr.honors.e.uh.edu | Xerox WorkCenter 5755 |
+| South Gardens Xerox | http://172.27.219.1/ | 584-s15-sgwc-prntr.honors.e.uh.edu | Xerox WorkCenter 5845 |
 | Speech/Debate Xerox | http://172.27.159.207/ |  | Xerox WorkCenter 4250 |
