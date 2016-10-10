@@ -52,6 +52,8 @@ Note: Make sure the keystore password and the key password are the same.
 
 Then the setup with the Tomcat server configuration file is the same as on the production server.
 
+The certifcate expires every 90 days. Just run `./letsencrypt-auto renew` for renewal.
+
 ## Backup - only on dash.hnet.uh.edu
 
 Since we run with a virtual machine and our code is in GitHub, we only backup the database files.
