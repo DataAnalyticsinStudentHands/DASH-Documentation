@@ -41,7 +41,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.51-b03, mixed mode)
 
 We have installed a SSL server certificate for Tomcat to serve the SSL connections. The certificate is issued by [Comodo](https://www.namecheap.com/security/ssl-certificates/comodo/positivessl.aspx) and we managed it via an account at [namecheap](https://www.namecheap.com/). The account is associated with plindner[at]uh.edu and costs $10 per year. It has to be renewed in November.
 
-Instructions for the installation can be found within the namecheap [documentation](https://www.namecheap.com/support/knowledgebase/article.aspx/9441/0/tomcat-using-keytool).
+Instructions for the installation can be found within the namecheap [documentation](https://www.namecheap.com/support/knowledgebase/article.aspx/9441/0/tomcat-using-keytool). To check the validity of the csr, you can use this [link](https://decoder.link/result/)
 
 ### 2. hnetdev.hnet.uh.edu (Development)
 
