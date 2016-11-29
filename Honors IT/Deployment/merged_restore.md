@@ -1,60 +1,57 @@
-The ```merged_restore.sh``` script is included on every DeployStudio workflow.
-
 ## Usage
-The script is used at the end of DeployStudio workflows, or can be run by itself if a computer needs the correct LaunchAgents and other files for its restore class.
+The ```merged_restore.sh``` script is included on every DeployStudio workflow. It can also be run independently on the command line with ```sudo``` if a computer needs the correct LaunchAgents and other files for its restore class.
 
-| Restore Name                      | Manifest Name                     | Student Logins? | Shared Computer? | Backed Up? |
-|-----------------------------------|-----------------------------------|-----------------|------------------|------------|
-| Admin Computer Restore            | admin_ManagedInstalls.plist       | no              | no               | yes        |
-| Advisor Computer Restore          | advisor_ManagedInstalls.plist     | no              | no               | yes        |
-| Bonner Computer Lab Restore       | lab_ManagedInstalls.plist         | yes             | yes              | no         |
-| Classroom/Podium Computer Restore | consulting_ManagedInstalls.plist  | yes             | yes              | no         |
-| Consulting Computing Restore      | consulting_ManagedInstalls.plist  | yes             | yes              | no         |
-| DASH Lab Computer Restore         | dashlab_ManagedInstalls.plist     | yes             | yes              | no         |
-| Faculty/Staff Computer Restore    | facultystaff_ManagedInstalls.plist| no              | no               | yes        |
-| Lab Computer Restore              | lab_ManagedInstalls.plist         | yes             | yes              | no         |
-| Student Worker Computer Restore   | lab_ManagedInstalls.plist         | no              | yes              | no         |
+The following table shows the information used by the workflo in DeployStudio.
+
+| Restore Name                      | Manifest plist file                | Argument used to select Manifest | Shared Computer? | General Student Login | Backed Up? |
+|-----------------------------------|------------------------------------|----------------------------------|------------------|-----------------------|------------|
+| Admin Computer Restore            | admin_ManagedInstalls.plist        | admincomputer                    | no               | no                    | yes        |
+| Advisor Computer Restore          | advisor_ManagedInstalls.plist      | advisorcomputer                  | no               | no                    | yes        |
+| Bonner Computer Lab Restore       | lab_ManagedInstalls.plist          | bonnerlabcomputer                | yes              | yes                   | no         |
+| Classroom/Podium Computer Restore | consulting_ManagedInstalls.plist   | consultingcomputer               | yes              | no                    | no         |
+| Consulting Computing Restore      | consulting_ManagedInstalls.plist   | consultingcomputer               | yes              | no                    | no         |
+| DASH Lab Computer Restore         | dashlab_ManagedInstalls.plist      | dashlabcomputer                  | yes              | yes                   | no         |
+| Faculty/Staff Computer Restore    | facultystaff_ManagedInstalls.plist | facultystaffcomputer             | no               | no                    | yes        |
+| Lab Computer Restore              | lab_ManagedInstalls.plist          | labcomputer                      | yes              | yes                   | no         |
+| Student Worker Computer Restore   | lab_ManagedInstalls.plist          | labcomputer                      | yes              | no                    | no         |
 
 ### Manual Execution
-```merged_restore.sh``` needs to be run as root and has 4 parameters:
+```merged_restore.sh``` needs to be run as root and has 4 arguments that can be set:
 
-"restore_type" has the following possible values, which map to the different types of computers in the College:
+1. "restore_type" has the following possible values, which map to the different types of computers in the College:
 
-* ```labcomputer```
-* ```bonnerlabcomputer```
-* ```dashlabcomputer```
-* ```facultystaffcomputer```
-* ```admincomputer```
-* ```advisorcomputer```
-* ```consultingcomputer```
-* ```presentation```
+ * ```labcomputer```
+ * ```bonnerlabcomputer```
+ * ```dashlabcomputer```
+ * ```facultystaffcomputer```
+ * ```admincomputer```
+ * ```advisorcomputer```
+ * ```consultingcomputer```
+ * ```presentation```
 
-"shared" has two possible values and determines whether the keychain reset and removal LaunchAgent is installed.
+2. "shared" has two possible values and determines whether the keychain reset and removal LaunchAgent is installed.
 
-* ```shared``` - Installs Keychain reset LaunchDaemon.
-* ```notshared``` - Does nothing.
+ * ```shared``` - Installs Keychain reset LaunchDaemon.
+ * ```notshared``` - Does nothing.
 
-"student_login" has two possible values, and determines whether the HC Students Active Directory group is allowed to login to the computer. Student workers are a part of HC Authenticated Users and don't need to use HC Students.
+3. "student_login" has two possible values, and determines whether the HC Students Active Directory group is allowed to login to the computer. Student workers are a part of HC Authenticated Users and don't need to use HC Students.
 
-* ```student``` - Adds the HC Students group to the allowed list of users.
-* ```nostudent``` - Only allows HC Admins and HC Authenticated Users to login.
+ * ```student``` - Adds the HC Students group to the allowed list of users.
+ * ```nostudent``` - Only allows HC Admins and HC Authenticated Users to login.
 
-"backup" has two possible values, and determines whether the backup LaunchDaemon is installed. Computers that are shared should not be backed up. This includes SSO and Recruitment.
+4. "backup" has two possible values, and determines whether the backup LaunchDaemon is installed. Computers that are shared should not be backed up. This includes SSO and Recruitment.
 
-* ```backup``` - Installs the LaunchAgent.
-* ```nobackup``` - Does nothing.
+ * ```backup``` - Installs the LaunchAgent.
+ * ```nobackup``` - Does nothing.
 
 
 ## The Script
-The contents of this version of the script are below, with comments that explain the purpose of each function and the execution flow of the program.
-
-
-### Set interpreter and various constants
+The contents of this version of the script are below, with comments that explain the purpose of each function and the execution flow of the program. The script first defines variables and functions which will be called depending on the arguments.
 
 ````
 #!/bin/sh
 
-# start here
+# Set interpreter and various constants
 kickstart="/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart"
 systemsetup="/usr/sbin/systemsetup"
 networksetup="/usr/sbin/networksetup"
@@ -62,12 +59,7 @@ defaults="/usr/bin/defaults"
 airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
 hcstorage="http://hc-storage.cougarnet.uh.edu"
 
-````
-
-### Turn off AirPort
-This makes sure that all network communications run through the Ethernet port. Wi-Fi interferes with Cougarnet access. It also required an administrator password to turn Wi-Fi on.
-
-````
+# Turn off AirPort. This makes sure that all network communications run through the Ethernet port. Wi-Fi interferes with Cougarnet access. It also required an administrator password to turn Wi-Fi on.
 function turnOffAirport {
 	$networksetup -detectnewhardware
 	echo "Turning off airport..."
@@ -75,29 +67,20 @@ function turnOffAirport {
 	$airport en1 prefs RequireAdminPowerToggle=YES
 	$systemsetup -setwakeonnetworkaccess on
 }
-````
-### Turn on SSH
-This allows remote access through the command line.
 
-````
+# Turn on SSH. This allows remote access through the command line.
 function turnOnSSH {
 	echo "Turning on ssh..."
 	$systemsetup -setremotelogin on
 }
-````
-### Turn on Remote Desktop
-This allows Remote Access through Apple Remote Desktop.
 
-````
+# Turn on Remote Desktop. This allows Remote Access through Apple Remote Desktop.
 function turnOnRemoteDesktop {
 	echo "Turning on RemoteManagement..."
 	$kickstart -activate -configure -access -on -users hcadmin -privs -all -restart -agent
 }
-````
-### Get ManagedInstalls.plist
-This uses the first parameter to get the correct list of software for the computer.
 
-````
+# Get ManagedInstalls.plist. This uses the first parameter to get the correct list of software to for the computer (munki will process the lists later).
 function getManagedInstallsPlist {
 	echo "Getting ManagedInstalls.plist..."
 	if [ "$1" == "facultystaffcomputer" ]
@@ -127,64 +110,50 @@ function getManagedInstallsPlist {
 	else
 		echo "Can't load ManagedInstalls.plist..."
 	fi
+	echo "Changing permissions for /usr/local/bin"
+	/bin/chmod 755 /usr/local/bin
 }
-````
-### Enable Guest Account
 
-````
+# Enable the Guest Account.
 function enableGuestAccount {
+	echo "Enabling Guest account ..."
 	$defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool YES
 }
-````
 
-### Install PaperCut LaunchAgent
-This installs a script that keeps PaperCut constantly open.
-
-````
+# Install PaperCut LaunchAgent. This installs a script that keeps PaperCut constantly open.
 function getPaperCutLaunchAgent {
 	echo "Getting PaperCut login script..."
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.papercut.plist -o "/Library/LaunchAgents/edu.uh.honors.papercut.plist"
 	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.papercut.plist
 }
-````
 
-### Setting Guest account to automatically login
-````
+# Setting Guest account to automatically login after the computer started.
 function setAutomaticGuestLogin {
 	echo "Setting guest to automatic login..."
 	$defaults write /Library/Preferences/com.apple.loginwindow autoLoginUser guest
 }
-````
 
-### Install Screen Lock LaunchAgent
-This installs a script on shared computers to disable the screen lock.
-
-````
+# Install Screen Lock LaunchAgent. This installs a script on shared computers to disable the screen lock.
 function getScreenLockLaunchAgent {
 	echo "Installing script to disable screen lock..."
-	/usr/bin/curl -s --show-error $hcstorage/scripts/disable_screen_lock.sh -o "/usr/local/bin/disable_screen_lock.sh"
+	/usr/bin/curl -s --show-error $hcstorage/scripts/disable_screen_lock.sh -o "/usr/local/bin/disable_screen_lock.sh" --create-dirs
 	/bin/chmod +x /usr/local/bin/disable_screen_lock.sh
 
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.disablescreenlock.plist -o "/Library/LaunchAgents/edu.uh.honors.disablescreenlock.plist"
 	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.disablescreenlock.plist
 }
-````
-### Install Keychain Reset LaunchDaemon
-This installs a script that resets the keychain nightly (useful on shared computers).
 
-````
+# Install Keychain Reset LaunchDaemon. This installs a script that resets the keychain nightly (useful on shared computers).
 function getKeychainResetLaunchDaemon {
 	echo "Getting Keychain Fix Script..."
-	/usr/bin/curl -s --show-error $hcstorage/scripts/reset_keychains.sh -o "/usr/local/bin/reset_keychains.sh"
+	/usr/bin/curl -s --show-error $hcstorage/scripts/reset_keychains.sh -o "/usr/local/bin/reset_keychains.sh" --create-dirs
 	/bin/chmod +x /usr/local/bin/reset_keychains.sh
 
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.resetkeychains.plist -o "/Library/LaunchDaemons/edu.uh.honors.resetkeychains.plist"
 	/bin/chmod 644 /Library/LaunchDaemons/edu.uh.honors.resetkeychains.plist
 }
-````
-### Restrict the logins to certain Groups
 
-````
+# Restrict the AD logins to certain Groups (we are using HC Admins, HC Autheticated Users & HC Students)
 function restrictActiveDirectoryLogins {
 	echo "Restricting Active Directory logins..."
 	/usr/bin/dscl . -create /Groups/com.apple.loginwindow.netaccounts
@@ -195,7 +164,7 @@ function restrictActiveDirectoryLogins {
 	/usr/sbin/dseditgroup -o edit -n /Local/Default -a HC\ Admins -t group com.apple.loginwindow.netaccounts
 	/usr/sbin/dseditgroup -o edit -n /Local/Default -a HC\ Authenticated\ Users -t group com.apple.loginwindow.netaccounts
 
-	if [ "$3" == "student" ]
+	if [ "$1" == "student" ]
 	then
 		echo "Adding students to allowed user list..."
 		/usr/sbin/dseditgroup -o edit -n /Local/Default -a HC\ Students -t group com.apple.loginwindow.netaccounts
@@ -209,111 +178,92 @@ function restrictActiveDirectoryLogins {
 	/usr/sbin/dseditgroup -o edit -n /Local/Default -a localaccounts -t group com.apple.access_loginwindow
 	/usr/sbin/dseditgroup -o edit -n /Local/Default -a com.apple.loginwindow.netaccounts -t group com.apple.access_loginwindow
 }
-````
-### Install Backup LaunchDaemon
-This installs the backup script and schedules regular backups.
 
-````
+# Install Backup LaunchDaemon. This installs the backup script and schedules regular backups.
 function getBackupLaunchDaemon {
 	echo "Getting Backup Script..."
-	/usr/bin/curl -s --show-error $hcstorage/scripts/backup.sh -o "/usr/local/bin/backup.sh"
+	/usr/bin/curl -s --show-error $hcstorage/scripts/backup.sh -o "/usr/local/bin/backup.sh" --create-dirs
 	/bin/chmod +x /usr/local/bin/backup.sh
 
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.backup.plist -o "/Library/LaunchDaemons/edu.uh.honors.backup.plist"
 	/bin/chmod 644 /Library/LaunchDaemons/edu.uh.honors.backup.plist
 }
-````
 
-### Install Office Setup LaunchAgent
-This installs a script that suppresses the Office Setup screen when a user logs into a computer.
-
-````
+# Install Office Setup LaunchAgent. This installs a script that suppresses the Office Setup screen when a user logs into a computer.
 function getOfficeSetupLaunchAgent {
 	echo "Getting Office setup script..."
-	/usr/bin/curl -s --show-error $hcstorage/scripts/curl_office_plists.sh -o "/usr/local/bin/curl_office_plists.sh"
+	/usr/bin/curl -s --show-error $hcstorage/scripts/curl_office_plists.sh -o "/usr/local/bin/curl_office_plists.sh" --create-dirs
 	/bin/chmod +x /usr/local/bin/curl_office_plists.sh
 
 	echo "Getting Office preferences login script..."
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.curlofficeprefs.plist -o "/Library/LaunchAgents/edu.uh.honors.curlofficeprefs.plist"
 	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.curlofficeprefs.plist
 }
-````
-### Disable System Sleep
-````
+
+# Disable System Sleep
 function disableSystemSleep {
 	echo "Disabling system sleep..."
 	/usr/bin/pmset sleep 0
 }
-````
 
-### Disable save Window state at logout
-````
+# Disable save Window state at logout
 function disableSaveWindowState {
 	echo "Disable the save window state at logout..."
 	$defaults write com.apple.loginwindow 'TALLogoutSavesState' -bool false
 }
-````
 
-### Disable Automatic Software Updates
-````
+# Disable Automatic Software Updates. We are using Munki to handle this.
 function disableAutomaticSoftwareUpdates {
 	echo "Disabling Software Update Automatic Checks"
 	softwareupdate --schedule off
 }
-````
-### Disable Gatekeeper
-````
+
+# Disable Gatekeeper. Gatekeeper helps to protect your Mac from malware and misbehaving apps downloaded from the Internet. But disable it in order for our scripts to run.
 function disableGatekeeper {
 	echo "Disabling Gatekeeper..."
 	spctl --master-disable
 }
-````
 
-### Show username & password fields in Login Window
-````
+# Show username & password fields in Login Window instead of circles.
 function enableUsernameAndPasswordFields {
 	echo "Enabling username and password fields..."
 	$defaults write /Library/Preferences/com.apple.loginwindow SHOWFULLNAME -bool TRUE
 }
-````
 
-### Munki in Bootstrap mode
-````
+# Munki in Bootstrap mode. Used with DeployStudio workflows. When DeployStudio reboots the machine again, Munki will run on the second reboot.
 function bootstrapMunki {
 	echo "Setting munki to bootstrap mode..."
 	touch /Users/Shared/.com.googlecode.munki.checkandinstallatstartup
 }
-````
 
-### Run actions
-````
-echo "Running firstboot script..."
+# Run the functions that are generic to all workflows & setups.
+echo "Running merged_restore.sh script..."
 turnOffAirport
 turnOnSSH
 turnOnRemoteDesktop
 getManagedInstallsPlist $1
 enableGuestAccount
 
-#Enable persistent PaperCut on lab computers
-if [ "$1" == "lab" ]
+# Enable persistent PaperCut on lab computers
+if [ "$1" == "labcomputer" ]
 then
 	getPaperCutLaunchAgent
 fi
 
-#Automatic guest login on classroom and podium computers
+# Automatic guest login on classroom and podium computers
 if [ "$1" == "presentation" ]
 then
 	setAutomaticGuestLogin
 fi
 
-#If computer is shared, we want keychains to reset, and to not lock the screen
+# If computer is shared, we want keychains to reset, and to not lock the screen
 if [ "$2" == "shared" ]
 then
 	getScreenLockLaunchAgent
 	getKeychainResetLaunchDaemon
 fi
 
-#If students are logging in, this can't be an employee computer. Therefore, if not a student, run all other actions.
+# If students are logging in, this can't be an employee computer. Therefore, if not a student, run all other actions.
 if [ "$3" == "student" ]
 then
 	restrictActiveDirectoryLogins student
@@ -325,9 +275,8 @@ if [ "$4" = "backup" ]
 then
 	getBackupLaunchDaemon
 fi
-````
-### Run actions common to all systems
-````
+
+# Run actions common to all systems
 getOfficeSetupLaunchAgent
 disableSystemSleep
 disableSaveWindowState
