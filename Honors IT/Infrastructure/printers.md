@@ -1,4 +1,4 @@
-There are several different printers at the Honors College, but they're all HP Printers, or Xerox Copiers. Printers are now a self-service operation, managed through Munki. Settings for each printer are created in Profile Manager, and deployed through Munki. Each printer has a static IP address to remove it from the DHCP Pool.
+There are several different printers at the Honors College, but they're all HP Printers, Xerox Copiers, or Sharp Copiers. Printers are now a self-service operation, managed through Munki. Settings for each printer are created in Profile Manager, and deployed through Munki. Each printer has a static IP address to remove it from the DHCP Pool.
 
 ## Setup
 All the printers have a web interface that can be reached via IP address. The login for the Xerox machines is admin (1111). They are configured to send alert emails to honorsit@central.uh.edu and other (e.g. Brenda Ramirez for supplies).
@@ -47,7 +47,7 @@ When the part comes in, install it and return the empty cartridge to Brenda. We 
 
 | Printer Name    | IP Address   | DNS Name                  | Model Number  |
 |-----------------|--------------|---------------------------|---------------|
-| Copy Storage Xerox| https://172.27.56.7/ | copier01.honors.e.uh.edu | Xerox WorkCentre 5855 |
+| Copy Storage Sharp| https://172.27.56.7/ | copier01.honors.e.uh.edu | SHARP MX-6070N |
 | Dean's Area Xerox | http://172.27.56.8/ | copier02.honors.e.uh.edu | Xerox WorkCentre 3615 |
-| South Gardens Xerox | http://172.27.219.1/ | 584-s15-sgwc-prntr.honors.e.uh.edu | Xerox WorkCenter 5845 |
+| South Gardens Sharp | http://172.27.219.1/ | 584-s15-sgwc-prntr.honors.e.uh.edu | SHARP MX-M654N |
 | Speech/Debate Xerox | http://172.27.159.207/ |  | Xerox WorkCenter 4250 |
