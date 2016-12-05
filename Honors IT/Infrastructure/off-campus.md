@@ -20,12 +20,13 @@ Each person needs to fill in the off campus form [PRP-2](http://www.uh.edu/finan
 | 606519 |                 | MACBOOK PRO                       | C02G5D8MDRJ7 | 8/31/11       | Bhojani,Sarah         |                    |
 | 607502 |                 | MACBOOK PRO                       | C1MH5NHQDV13 | 3/3/12        | Bailey,Jeremy D       |                    |
 | 607853 |                 | MACBOOK AIR                       | CO2HLOMCDJY9 | 5/3/12        | Armstrong,Richard H   |                    |
-| 608927 |                 | MACBOOK PRO                       | CO2HV4DMDTY4 | 8/9/12        | Hamilton, Andrew      |                    |
+| 608927 | hc-mbr-1        | MACBOOK PRO 13.3"                 | CO2HV4DMDTY4 | 8/9/12        | Hamilton, Andrew      | Yes, in 212K       |
 | 608999 |                 | MACBOOK PRO                       | CO2HP4KLDTYY | 9/3/12        | Myrick,Keri D         |                    |
 | 614726 |                 | MACBOOK AIR 13.3" 128GB           |              | 10/6/14       | Nuila,Ricardo Ernesto |                    |
 | 616295 |                 | MACBOOK PRO 13" W/ RETINA DISP    |              | 8/27/15       | Sirrieh,Rita Evelyn   |                    |
 | 616296 |                 | MACBOOK PRO 13" W/ RETINA DISP    |              | 8/27/15       | Seitz,Colleen S       |                    |
 | 616298 |                 | MACBOOK PRO 13.3                  |              | 8/27/15       | Rainbow,David         |                    |
-| 705825 |                 | DELL LATITUDE E6500               | FXBHQH1      | 11/20/08      | Gardner, Everette     |                    |
+| 705825 | hc-it-laptop2   | DELL LATITUDE E6500               | FXBHQH1      | 11/20/08      | Gardner, Everette     |                    |
 | 711763 |                 | LATITUDE 6430                     | 7WNWWW1      | 3/19/13       | Spring,Sarah          |                    |
 |        | hc-mba-zaretsky | MacBook Air Model A1465 MJVM2LL/A | C02SL0CVGFWM | 11/15/16      | Zaretsky, Robert      |                    |
+| 707802 |                 | DELL OPTIPLEX 960 SMALL FORM      | 5H64XL1      | 03/10/10      | Ramirez, Brenda       |                    |
