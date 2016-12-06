@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>address</key>
+	<string>172.27.56.7</string>
+	<key>default_catalog</key>
+	<string>development</string>
+	<key>display_name</key>
+	<string>Copy Storage Sharp</string>
+	<key>location</key>
+	<string>Copy Storage Room</string>
+	<key>name</key>
+	<string>Settings for Copy Storage Sharp</string>
+	<key>options</key>
+	<array>
+		<string>job-sheets=none,none</string>
+		<string>media=na_letter_8.5x11in</string>
+		<string>sides=two-sided-long-edge</string>
+	</array>
+	<key>ppd</key>
+	<string>/Library/Printers/PPDs/Contents/Resources/SHARP MX-6070N.PPD.gz</string>
+	<key>queue_name</key>
+	<string>SharpMX-6070N</string>
+	<key>requires</key>
+	<array>
+		<string>MX-C52</string>
+	</array>
+	<key>version</key>
+	<string>1.0</string>
+</dict>
+</plist>
