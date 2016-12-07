@@ -1,7 +1,8 @@
 This is a list of off campus equipment.
 Each person needs to fill in the off campus form [PRP-2](http://www.uh.edu/finance/Departments/Property%20Management/PRP-2.xls)
 
-#ISSUES-----Colleen Seitz no longer works here, hc-mbr-1 and hc-it-laptop3 have been returned and live in Copy/Storage
+#ISSUES-----Colleen Seitz no longer works here, hc-mbr-1 and hc-it-laptop3 have been returned and live in Copy/Storage,
+603582 and 500792 have been returned and are broken
 
 | Number | Machine Name      | Asset Description                 | Serial ID    | Purchase Date | Assignee              | Returned to Campus |
 |--------|-------------------|-----------------------------------|--------------|---------------|-----------------------|--------------------|
