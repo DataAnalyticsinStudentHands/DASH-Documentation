@@ -25,9 +25,9 @@ Each person needs to fill in the off campus form [PRP-2](http://www.uh.edu/finan
 | 608927 | hc-mbr-1          | MACBOOK PRO 13.3"                 | CO2HV4DMDTY4 | 8/9/12        | Hamilton, Andrew      | Yes, in 212K       |
 | 608999 |                   | MACBOOK PRO                       | CO2HP4KLDTYY | 9/3/12        | Myrick,Keri D         |                    |
 | 614726 |                   | MACBOOK AIR 13.3" 128GB           | C2VNC57TG085 | 10/6/14       | Nuila,Ricardo Ernesto |                    |
-| 616295 |                   | MACBOOK PRO 13" W/ RETINA DISP    |              | 8/27/15       | Sirrieh,Rita Evelyn   |                    |
+| 616295 | hc-mbr-sirrieh    | MACBOOK PRO 13" W/ RETINA DISP    | C02Q345GFVH8 | 8/27/15       | Sirrieh,Rita Evelyn   |                    |
 | 616296 |                   | MACBOOK PRO 13" W/ RETINA DISP    |              | 8/27/15       | Seitz,Colleen S       |                    |
-| 616298 |                   | MACBOOK PRO 13.3                  |              | 8/27/15       | Rainbow,David         |                    |
+| 616298 | hc-mbr-drainbow   | MACBOOK PRO 13.3                  | C02Q2L9MFVH5 | 8/27/15       | Rainbow,David         |                    |
 | 705825 | HC-IT-laptop2     | DELL LATITUDE E6500               | FXBHQH1      | 11/20/08      | Gardner, Everette     |                    |
 | 711763 |                   | LATITUDE 6430                     | 7WNWWW1      | 3/19/13       | Spring,Sarah          |                    |
 |        | hc-mba-zaretsky   | MACBOOK AIR MODEL A1465 MJVM2LL/A | C02SL0CVGFWM | 11/15/16      | Zaretsky, Robert      | Hasn't left yet  |
