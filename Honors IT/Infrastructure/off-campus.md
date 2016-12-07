@@ -19,7 +19,6 @@ Each person needs to fill in the off campus form [PRP-2](http://www.uh.edu/finan
 | 606519    |                   | MACBOOK PRO                       | C02G5D8MDRJ7 | 8/31/11       | Bhojani,Sarah         |                    |
 | 607502    |                   | MACBOOK PRO                       | C1MH5NHQDV13 | 3/3/12        | Bailey,Jeremy D       |                    |
 | 607853    |                   | MACBOOK AIR                       | CO2HLOMCDJY9 | 5/3/12        | Armstrong,Richard H   |                    |
-| 608927    | hc-mbr-1          | MACBOOK PRO 13.3"                 | CO2HV4DMDTY4 | 8/9/12        | Hamilton, Andrew      | Yes, in 212K   |
 | 608999    |                   | MACBOOK PRO                       | CO2HP4KLDTYY | 9/3/12        | Myrick,Keri D         |                    |
 | 614726    |                   | MACBOOK AIR 13.3" 128GB           | C2VNC57TG085 | 10/6/14       | Nuila,Ricardo Ernesto |                    |
 | 616295    | hc-mbr-sirrieh    | MACBOOK PRO 13" W/ RETINA DISP    | C02Q345GFVH8 | 8/27/15       | Sirrieh,Rita Evelyn   |                    |
