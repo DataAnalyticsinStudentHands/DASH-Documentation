@@ -7,13 +7,11 @@ Each person needs to fill in the off campus form [PRP-2](http://www.uh.edu/finan
 |--------|-------------------|-----------------------------------|--------------|---------------|-----------------------|--------------------|
 | 308996 |                   | MACITOSH IMAC 400: DV, RUBY, 4    | YM0382UVJAU  | 10/23/00      | Zaretsky,Robert D     |                    |
 | 329357 |                   | IMAC 20" INTEL CORE 2 DUO         |              | 4/3/07        | Monroe,William        |                    |
-| 500792 |                   | MACBOOK 2.0GHz INTEL CORE 2       | W87351CMZ5Y  | 9/17/07       | Zaretsky,Robert D     | Yes, in 212K        |
 | 500930 |                   | MACBOOK 2.16GHz                   | W87450YBZ66  | 11/20/07      | Estess,Ted L          |                    |
 | 501556 |                   | MACBOOK 13" 2.2GHZ (WHITE)        | W88091D30P5  | 3/10/08       | Newman,Anna P         |                    |
 | 502153 |                   | IMAC 24" 3.06GHZ INTEL CORE       | QP8230G90KM  | 7/15/08       | Estess,Ted L          |                    |
 | 600476 |                   | MACBOOK PRO 15''                  | W88471Z81GN  | 11/21/08      | Valier,Helen K        |                    |
 | 603063 | HC-IT-Laptop3     | DELL PRECISION M6500              | 76C3XL1      | 3/5/10        | Santee, Ornela        | Yes, in 212K        |
-| 603582 |                   | MACBOOK 13.3" WHITE               | W80099TL8PW  | 8/5/10        | Zaretsky,Robert D     | Yes, in 212K        |
 | 604909 |                   | MACBOOK 13''                      | 450510VVF5X  | 1/5/11        | Armstrong,Richard H   |                    |
 | 605228 |                   | APPLE MACBOOK MC516               | 451020LLF5W  | 4/5/11        | LeVeaux,Christine     |                    |
 | 605336 |                   | INSPIRON 560 SLIM TOWER           | 4SVQDP1      | 3/23/11       | Bailey,Jeremy D       |                    |
