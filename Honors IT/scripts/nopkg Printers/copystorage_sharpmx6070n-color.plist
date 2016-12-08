@@ -3,18 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>address</key>
-	<string>172.27.56.7</string>
+	<string>copier01.honors.e.uh.edu</string>
 	<key>default_catalog</key>
 	<string>testing</string>
 	<key>display_name</key>
-	<string>Copy Storage Sharp</string>
+	<string>Copy Storage Sharp [Color]</string>
 	<key>location</key>
 	<string>Copy Storage Room</string>
 	<key>name</key>
-	<string>Settings for Copy Storage Sharp</string>
+	<string>Settings for Copy Storage Sharp [Color]</string>
 	<key>options</key>
 	<array>
-		<string>ARCMode=CMBW</string>
 		<string>Option6=Installed</string>
 		<string>Option1=Finisher</string>
 		<string>Option9=PModule33</string>
@@ -22,7 +21,7 @@
 	<key>ppd</key>
 	<string>/Library/Printers/PPDs/Contents/Resources/SHARP MX-6070N.PPD.gz</string>
 	<key>queue_name</key>
-	<string>SharpMX-6070N</string>
+	<string>SharpMX-6070N-Color</string>
 	<key>requires</key>
 	<array>
 		<string>Sharp Driver MX-C52</string>
