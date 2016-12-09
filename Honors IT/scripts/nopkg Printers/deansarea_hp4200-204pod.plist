@@ -21,6 +21,10 @@
 	<string>/Library/Printers/PPDs/Contents/Resources/HP LaserJet 4200 Series.gz</string>
 	<key>queue_name</key>
 	<string>HP4200</string>
+	<key>requires</key>
+	<array>
+		<string>norequirements</string>
+	</array>
 	<key>version</key>
 	<string>1.0</string>
 </dict>
