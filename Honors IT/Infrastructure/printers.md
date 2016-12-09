@@ -19,6 +19,13 @@ When the part comes in, install it and return the empty cartridge to Brenda. We 
 * Open Managed Software Center.
 * Select **Remove** for the desired printer.
 
+## Contact info for Sharp Printer Support
+Skelton Business  
+Collin Grimes  
+cgrimes@sbesharp.com  
+(281)-226-3412  
+equipmybiz.com  
+
 
 ## Printer Listings
 
@@ -52,10 +59,3 @@ When the part comes in, install it and return the empty cartridge to Brenda. We 
 | South Gardens Sharp | http://172.27.219.1/ | 584-s15-sgwc-prntr.honors.e.uh.edu | SHARP MX-M654N |
 | Speech/Debate Xerox | http://172.27.159.207/ |  | Xerox WorkCenter 4250 |
 
-
-Contact info for Sharp: 
-Skelton Business
-Collin Grimes
-cgrimes@sbesharp.com
-(281)-226-3412
-equipmybiz.com
