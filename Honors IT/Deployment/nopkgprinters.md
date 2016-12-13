@@ -1,6 +1,6 @@
 ## nopkg Installation of Printer Settings
 
-A nopkg installation allows us to push a just a script to the client, without a corresponding payload. For the printers, this script is installing the printer settings via a nopkg installation. The nopkg installer package is dependent on the respective printer driver package being installed, which insures that the settings are only applied to clients who already have the driver installed. If the driver isn't found, the dependency first installs the driver and then the nopkg settings.
+A nopkg installation allows us to push a just a script to the client, without a corresponding payload. Essentially, for each package munki needs a "payload" (i.e. software) to install, and this installation can be modified with scripts via munki. Nopkg allows us to simply forgo the payload and instead just install the script. For the printers, this script is installing the printer settings via a nopkg installation. The nopkg installer package is dependent on the respective printer driver package being installed, which insures that the settings are only applied to clients who already have the driver installed. If the driver isn't found, the dependency first installs the driver and then the nopkg settings.
 
 
 ### Creating a nopkg Package Using printer-pkginfo
