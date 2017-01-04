@@ -13,7 +13,7 @@ The following table shows the information used by the workflo in DeployStudio.
 | DASH Lab Computer Restore         | dashlab_ManagedInstalls.plist      | dashlabcomputer                  | yes              | yes                   | no         |
 | Faculty/Staff Computer Restore    | facultystaff_ManagedInstalls.plist | facultystaffcomputer             | no               | no                    | yes        |
 | Lab Computer Restore              | lab_ManagedInstalls.plist          | labcomputer                      | yes              | yes                   | no         |
-| Student Worker Computer Restore   | lab_ManagedInstalls.plist          | labcomputer                      | yes              | no                    | no         |
+| Student Worker Computer Restore   | advisor_ManagedInstalls.plist      | advisorcomputer                  | yes              | no                    | no         |
 
 ### Manual Execution
 ```merged_restore.sh``` needs to be run as root and has 4 arguments that can be set:
