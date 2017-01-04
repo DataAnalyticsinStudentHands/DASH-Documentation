@@ -8,7 +8,7 @@ The following table shows the information used by the workflo in DeployStudio.
 | Admin Computer Restore            | admin_ManagedInstalls.plist        | admincomputer                    | no               | no                    | yes        |
 | Advisor Computer Restore          | advisor_ManagedInstalls.plist      | advisorcomputer                  | no               | no                    | yes        |
 | Bonner Computer Lab Restore       | lab_ManagedInstalls.plist          | bonnerlabcomputer                | yes              | yes                   | no         |
-| Classroom/Podium Computer Restore | consulting_ManagedInstalls.plist   | consultingcomputer               | yes              | no                    | no         |
+| Classroom/Podium Computer Restore | consulting_ManagedInstalls.plist   | presentation               | yes              | no                    | no         |
 | Consulting Computer Restore      | consulting_ManagedInstalls.plist   | consultingcomputer               | yes              | no                    | no         |
 | DASH Lab Computer Restore         | dashlab_ManagedInstalls.plist      | dashlabcomputer                  | yes              | yes                   | no         |
 | Faculty/Staff Computer Restore    | facultystaff_ManagedInstalls.plist | facultystaffcomputer             | no               | no                    | yes        |
