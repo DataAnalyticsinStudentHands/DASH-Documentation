@@ -46,8 +46,11 @@ Instructions for the installation can be found within the namecheap [documentati
 ### 2. hnetdev.hnet.uh.edu (Development)
 
 We have installed a SSL server certificate for Tomcat & Apache to serve the SSL connections. The certificate is managed via [letsencrypt](https://letsencrypt.org/) and we followed installation instructions at this [blog](https://digitz.org/blog/lets-encrypt-ssl-centos-7-setup/) as well as  [general](https://letsencrypt.org/howitworks/) instructions on their website. To import the certificate into a JKS keystore we followed instructions [here](https://community.letsencrypt.org/t/how-to-use-the-certificate-for-tomcat/3677/3) and used the following command.
+
 `openssl pkcs12 -export -in cert.pem -inkey privkey.pem -out cert_and_key.p12 -name tomcat -CAfile chain.pem -caname root`
+
 `keytool -importkeystore -deststorepass ***** -destkeypass ***** -destkeystore devkeystore.jks -srckeystore /etc/letsencrypt/live/hnetdev.hnet.uh.edu/pkcs.p12 -srcstoretype PKCS12 -srcstorepass ***** -alias *****`
+
 `keytool -import -trustcacerts -alias root -file chain.pem -keystore devkeystore.jks`
 
 Move the keystore into the tomcat configuration folder and restart Tomcat. The setup of the Tomcat server configuration file is the same as on the production server.
