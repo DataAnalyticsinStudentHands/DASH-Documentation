@@ -4,7 +4,7 @@ Each person needs to fill in the off campus form [PRP-2](http://www.uh.edu/finan
 
 | Asset Tag | Machine Name      | Asset Description                 | Serial ID    | Purchase Date | Assignee               | Returned to Campus|
 |-----------|-------------------|-----------------------------------|--------------|---------------|------------------------|--------------------|
-| 308996    |                   | MACITOSH IMAC 400: DV, RUBY, 4    | YM0382UVJAU  | 10/23/00      | Zaretsky, Robert D      | YES (needs to be decommissioned)                   |
+| 308996    |                   | MACITOSH IMAC 400: DV, RUBY, 4    | YM0382UVJAU  | 10/23/00      | Zaretsky, Robert D      | YES (needs to be decommissioned later)                   |
 | 329357    |                   | IMAC 20" INTEL CORE 2 DUO         |              | 4/3/07        | Monroe, William        |                    |
 | 500930    |                   | MACBOOK 2.16GHz                   | W87450YBZ66  | 11/20/07      | Estess, Ted L          |                    |
 | 501556    |                   | MACBOOK 13" 2.2GHZ (WHITE)        | W88091D30P5  | 3/10/08       | Newman, Anna P         |                    |
