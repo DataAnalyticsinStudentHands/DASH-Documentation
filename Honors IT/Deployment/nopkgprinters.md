@@ -51,3 +51,6 @@ Once the output file is generated, drop it in to /web/munki/pkgsinfo/printers on
 |--------------------|---------------------------------------------------------------|
 | Copy Storage Sharp | copystorageSharpv1.0.plist, copystorageSharpv-colorv1.0.plist |
 | Gardens Sharp      | gardensSharpv1.0.plist                                        |
+| Pod Printer 204    | deansarea_hp4200-204pod.plist, deansareaHP4200v1.0plist       |
+| Pod Printer 205    | deansarea_hp600-205pod.plist, deansareaHP600-205v1.0.plist    |
+| Pod Printer 206    | deansareaHP600-206pod.plist, deansareaHP600-206v1.0.plist     |
