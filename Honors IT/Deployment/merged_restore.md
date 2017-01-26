@@ -32,7 +32,7 @@ The following table shows the information used by the workflo in DeployStudio.
 2. "shared" has two possible values and determines whether the keychain reset and removal LaunchAgent is installed.
 
  * ```shared``` - Installs Keychain reset LaunchDaemon.
- * ```notshared``` - Does nothing.
+ * ```notshared``` - Removes Keychain reset LaunchDaemon, if it exists.
 
 3. "student_login" has two possible values, and determines whether the HC Students Active Directory group is allowed to login to the computer. Student workers are a part of HC Authenticated Users and don't need to use HC Students.
 
@@ -42,7 +42,7 @@ The following table shows the information used by the workflo in DeployStudio.
 4. "backup" has two possible values, and determines whether the backup LaunchDaemon is installed. Computers that are shared should not be backed up. This includes SSO and Recruitment.
 
  * ```backup``` - Installs the LaunchAgent.
- * ```nobackup``` - Does nothing.
+ * ```nobackup``` - Removes the LaunchAgent, if it exists.
 
 
 ## The Script
@@ -50,6 +50,7 @@ The contents of this version of the script are below, with comments that explain
 
 ````
 #!/bin/sh
+
 
 # Set interpreter and various constants
 kickstart="/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart"
@@ -127,20 +128,48 @@ function getPaperCutLaunchAgent {
 	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.papercut.plist
 }
 
+# Uninstall PaperCut LaunchAgent. This uninstalls the script that keeps PaperCut constantly open, if it exists
+function uninstallPaperCutLaunchAgent {
+    echo "Uninstalling Papercut login script..."
+    rm -f /Library/LaunchAgents/edu.uh.honors.papercut.plist
+}
+
 # Setting Guest account to automatically login after the computer started.
 function setAutomaticGuestLogin {
 	echo "Setting guest to automatic login..."
 	$defaults write /Library/Preferences/com.apple.loginwindow autoLoginUser guest
 }
 
+# Disable automatic login of Guest account, in case it is enabled
+function disableAutomaticGuestLogin {
+    echo "Disabling automatic guest login..."
+    $defaults delete /Library/Preferences/com.apple.loginwindow autoLoginUser
+}
+
 # Install Screen Lock LaunchAgent. This installs a script on shared computers to disable the screen lock.
 function getScreenLockLaunchAgent {
 	echo "Installing script to disable screen lock..."
+	rm -f /usr/local/bin/enable_screen_lock.sh
+	rm -f /Library/LaunchAgents/edu.uh.honors.enablescreenlock.plist
+
 	/usr/bin/curl -s --show-error $hcstorage/scripts/disable_screen_lock.sh -o "/usr/local/bin/disable_screen_lock.sh" --create-dirs
 	/bin/chmod +x /usr/local/bin/disable_screen_lock.sh
 
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.disablescreenlock.plist -o "/Library/LaunchAgents/edu.uh.honors.disablescreenlock.plist"
 	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.disablescreenlock.plist
+}
+
+# Uninstall Screen Lock LaunchAgent. This uninstalls the script on nonshared computers to disable the screen lock, if it exists
+function uninstallScreenLockLaunchAgent {
+    echo "Uninstalling script that disables screen lock..."
+    rm -f /usr/local/bin/disable_screen_lock.sh
+    rm -f /Library/LaunchAgents/edu.uh.honors.disablescreenlock.plist
+
+		/usr/bin/curl -s --show-error $hcstorage/scripts/enable_screen_lock.sh -o "/usr/local/bin/enable_screen_lock.sh" --create-dirs
+		/bin/chmod +x /usr/local/bin/enable_screen_lock.sh
+
+		/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.enablescreenlock.plist -o "/Library/LaunchAgents/edu.uh.honors.enablescreenlock.plist"
+		/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.enablescreenlock.plist
 }
 
 # Install Keychain Reset LaunchDaemon. This installs a script that resets the keychain nightly (useful on shared computers).
@@ -152,6 +181,14 @@ function getKeychainResetLaunchDaemon {
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.resetkeychains.plist -o "/Library/LaunchDaemons/edu.uh.honors.resetkeychains.plist"
 	/bin/chmod 644 /Library/LaunchDaemons/edu.uh.honors.resetkeychains.plist
 }
+
+# Uninstall Keychain Reset LaunchDaemon. This uninstalls the script that resets the keychain nightly.
+function uninstallKeychainResetLaunchDaemon {
+    echo "Uninstalling Keychain Fix Script..."
+    rm -f /usr/local/bin/reset_keychains.sh
+    rm -f /Library/LaunchDaemons/edu.uh.honors.resetkeychains.plist
+}
+
 
 # Restrict the AD logins to certain Groups (we are using HC Admins, HC Autheticated Users & HC Students)
 function restrictActiveDirectoryLogins {
@@ -170,6 +207,12 @@ function restrictActiveDirectoryLogins {
 		/usr/sbin/dseditgroup -o edit -n /Local/Default -a HC\ Students -t group com.apple.loginwindow.netaccounts
 	fi
 
+    if [ "$1" == "nostudent" ]
+    then
+        echo "Ensuring students are not on allowed user list..."
+        /usr/sbin/dseditgroup -o edit -n /Local/Default -d HC\ Students -t group com.apple.loginwindow.netaccounts
+    fi
+
 	/usr/bin/dscl . -create /Groups/com.apple.access_loginwindow
 	/usr/bin/dscl . -create /Groups/com.apple.access_loginwindow Password "*"
 	/usr/bin/dscl . -create /Groups/com.apple.access_loginwindow PrimaryGroupID 223
@@ -187,6 +230,12 @@ function getBackupLaunchDaemon {
 
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.backup.plist -o "/Library/LaunchDaemons/edu.uh.honors.backup.plist"
 	/bin/chmod 644 /Library/LaunchDaemons/edu.uh.honors.backup.plist
+}
+
+# Uninstall Backup LaunchDaemon. This deletes the backup script.
+function uninstallBackupLaunchDaemon {
+    rm -f /usr/local/bin/backup.sh
+    rm -f /Library/LaunchDaemons/edu.uh.honors.backup.plist
 }
 
 # Install Office Setup LaunchAgent. This installs a script that suppresses the Office Setup screen when a user logs into a computer.
@@ -248,12 +297,16 @@ enableGuestAccount
 if [ "$1" == "labcomputer" ]
 then
 	getPaperCutLaunchAgent
+else
+    uninstallPaperCutLaunchAgent
 fi
 
 # Automatic guest login on classroom and podium computers
 if [ "$1" == "presentation" ]
 then
 	setAutomaticGuestLogin
+else
+    disableAutomaticGuestLogin
 fi
 
 # If computer is shared, we want keychains to reset, and to not lock the screen
@@ -261,6 +314,9 @@ if [ "$2" == "shared" ]
 then
 	getScreenLockLaunchAgent
 	getKeychainResetLaunchDaemon
+else
+    uninstallScreenLockLaunchAgent
+    uninstallKeychainResetLaunchDaemon
 fi
 
 # If students are logging in, this can't be an employee computer. Therefore, if not a student, run all other actions.
@@ -274,6 +330,8 @@ fi
 if [ "$4" = "backup" ]
 then
 	getBackupLaunchDaemon
+else
+    uninstallBackupLaunchDaemon
 fi
 
 # Run actions common to all systems
