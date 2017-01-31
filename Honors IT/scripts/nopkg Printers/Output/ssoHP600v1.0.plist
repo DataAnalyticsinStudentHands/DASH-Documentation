@@ -7,7 +7,7 @@
 		<key>created_by</key>
 		<string>ksinha2</string>
 		<key>creation_date</key>
-		<date>2016-12-13T16:03:49Z</date>
+		<date>2017-01-31T15:10:11Z</date>
 		<key>munki_version</key>
 		<string>2.8.2.2855</string>
 		<key>os_version</key>
@@ -24,7 +24,7 @@
 	<key>developer</key>
 	<string>Printers</string>
 	<key>display_name</key>
-	<string>Dean's Area Pod 205</string>
+	<string>SSO HP M601</string>
 	<key>installcheck_script</key>
 	<string>#!/bin/sh
 
@@ -35,10 +35,10 @@
 # Make sure to install the required drivers first!
 
 # Variables. Edit these.
-printername="HP600-205"
-location="Dean's Area"
-gui_display_name="Dean's Area Pod 205"
-address="172.27.56.13"
+printername="HPM601-SSO"
+location="SSO"
+gui_display_name="SSO HP M601"
+address="172.27.56.11"
 driver_ppd="/Library/Printers/PPDs/Contents/Resources/HP LaserJet 600 M601 M602 M603.gz"
 # Populate these options if you want to set specific options for the printer. E.g. duplexing installed, etc.
 option_1=""
@@ -74,7 +74,7 @@ fi
 	<key>minimum_os_version</key>
 	<string>10.4.0</string>
 	<key>name</key>
-	<string>Settings for DA205Pod</string>
+	<string>Settings for SSOHPM601</string>
 	<key>postinstall_script</key>
 	<string>#!/bin/sh
 
@@ -85,10 +85,10 @@ fi
 # Make sure to install the required drivers first!
 
 # Variables. Edit these.
-printername="HP600-205"
-location="Dean's Area"
-gui_display_name="Dean's Area Pod 205"
-address="172.27.56.13"
+printername="HPM601-SSO"
+location="SSO"
+gui_display_name="SSO HP M601"
+address="172.27.56.11"
 driver_ppd="/Library/Printers/PPDs/Contents/Resources/HP LaserJet 600 M601 M602 M603.gz"
 # Populate these options if you want to set specific options for the printer. E.g. duplexing installed, etc.
 option_1=""
@@ -136,17 +136,13 @@ chmod -R 700 /private/etc/cups/deployment
 
 exit 0
     </string>
-	<key>requires</key>
-	<array>
-		<string>norequirements</string>
-	</array>
 	<key>unattended_install</key>
 	<true/>
 	<key>uninstall_method</key>
 	<string>uninstall_script</string>
 	<key>uninstall_script</key>
 	<string>#!/bin/sh
-printerName="HP600-205"
+printerName="HPM601-SSO"
 /usr/sbin/lpadmin -x $printerName
 rm -f /private/etc/cups/deployment/receipts/$printerName.plist
     </string>
@@ -156,4 +152,3 @@ rm -f /private/etc/cups/deployment/receipts/$printerName.plist
 	<string>1.0</string>
 </dict>
 </plist>
-
