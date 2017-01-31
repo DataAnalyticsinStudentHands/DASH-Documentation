@@ -6,3 +6,6 @@ speech/debate xerox ! nq
 206pod
 204pod
 sso nq
+recruit
+asstdean
+dean
