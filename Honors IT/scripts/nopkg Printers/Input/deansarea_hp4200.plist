@@ -3,24 +3,24 @@
 <plist version="1.0">
 <dict>
 	<key>address</key>
-	<string>172.27.56.11</string>
+	<string>172.27.56.15</string>
 	<key>default_catalog</key>
 	<string>testing</string>
 	<key>display_name</key>
-	<string>SSO HP M601</string>
+	<string>Deans Area HP</string>
 	<key>location</key>
-	<string>SSO</string>
+	<string>Deans Area</string>
 	<key>name</key>
-	<string>Settings for SSOHPM601</string>
+	<string>Settings for DAHP4200</string>
 	<key>options</key>
 	<array>
 		<string>landscape</string>
 		<string>media=A4</string>
 	</array>
 	<key>ppd</key>
-	<string>/Library/Printers/PPDs/Contents/Resources/HP LaserJet 600 M601 M602 M603.gz</string>
+	<string>/Library/Printers/PPDs/Contents/Resources/HP LaserJet 4200 Series.gz</string>
 	<key>queue_name</key>
-	<string>HPM601-SSO</string>
+	<string>HP4200-DA</string>
 	<key>requires</key>
 	<array>
 		<string>norequirements</string>

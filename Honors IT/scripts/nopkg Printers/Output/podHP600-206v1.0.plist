@@ -136,10 +136,6 @@ chmod -R 700 /private/etc/cups/deployment
 
 exit 0
     </string>
-	<key>requires</key>
-	<array>
-		<string>norequirements</string>
-	</array>
 	<key>unattended_install</key>
 	<true/>
 	<key>uninstall_method</key>
@@ -156,4 +152,3 @@ rm -f /private/etc/cups/deployment/receipts/$printerName.plist
 	<string>1.0</string>
 </dict>
 </plist>
-

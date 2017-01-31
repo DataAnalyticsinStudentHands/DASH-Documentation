@@ -7,7 +7,7 @@
 		<key>created_by</key>
 		<string>ksinha2</string>
 		<key>creation_date</key>
-		<date>2017-01-31T15:22:03Z</date>
+		<date>2017-01-31T15:28:49Z</date>
 		<key>munki_version</key>
 		<string>2.8.2.2855</string>
 		<key>os_version</key>
@@ -24,7 +24,7 @@
 	<key>developer</key>
 	<string>Printers</string>
 	<key>display_name</key>
-	<string>Pod 204</string>
+	<string>Deans Area HP</string>
 	<key>installcheck_script</key>
 	<string>#!/bin/sh
 
@@ -35,11 +35,11 @@
 # Make sure to install the required drivers first!
 
 # Variables. Edit these.
-printername="HP4200"
-location="Professor Offices"
-gui_display_name="Pod 204"
-address="172.27.56.14"
-driver_ppd="/Library/Printers/PPDs/Contents/Resources/HP LaserJet 4200 Series.gz"
+printername="HP4200-DA"
+location="Deans Area"
+gui_display_name="Deans Area HP"
+address="172.27.56.15"
+driver_ppd="/Library/Printers/PPDs/Contents/Resources/HP LaserJet 600 M601 M602 M603.gz"
 # Populate these options if you want to set specific options for the printer. E.g. duplexing installed, etc.
 option_1=""
 option_2=""
@@ -74,7 +74,7 @@ fi
 	<key>minimum_os_version</key>
 	<string>10.4.0</string>
 	<key>name</key>
-	<string>Settings for Pod 204</string>
+	<string>Settings for DAHP4200</string>
 	<key>postinstall_script</key>
 	<string>#!/bin/sh
 
@@ -85,11 +85,11 @@ fi
 # Make sure to install the required drivers first!
 
 # Variables. Edit these.
-printername="HP4200"
-location="Professor Offices"
-gui_display_name="Pod 204"
-address="172.27.56.14"
-driver_ppd="/Library/Printers/PPDs/Contents/Resources/HP LaserJet 4200 Series.gz"
+printername="HP4200-DA"
+location="Deans Area"
+gui_display_name="Deans Area HP"
+address="172.27.56.15"
+driver_ppd="/Library/Printers/PPDs/Contents/Resources/HP LaserJet 600 M601 M602 M603.gz"
 # Populate these options if you want to set specific options for the printer. E.g. duplexing installed, etc.
 option_1=""
 option_2=""
@@ -142,7 +142,7 @@ exit 0
 	<string>uninstall_script</string>
 	<key>uninstall_script</key>
 	<string>#!/bin/sh
-printerName="HP4200"
+printerName="HP4200-DA"
 /usr/sbin/lpadmin -x $printerName
 rm -f /private/etc/cups/deployment/receipts/$printerName.plist
     </string>
