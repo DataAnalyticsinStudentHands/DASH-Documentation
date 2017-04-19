@@ -8,16 +8,28 @@ We keep supplies for printers close to the locations of the printers. But most o
 
 When the part comes in, install it and return the empty cartridge to Brenda. We are recycling printer supplies.
 
-## Installing a Printer
+## Installing a Printer on Mac
 
-* Open Managed Software Center located in ```Applications``` -> ```Utilities```.
-* Select **Install** for the desired printer.
+* Open Managed Software Center located in ```Applications``` -> ```Utilities```
+* Select **Install** for the desired printer
 
+## Installing a Printer on PC
 
-## Removing a Printer
+* Acquire the appropriate driver from the Internet or elsewhere
+* Run the installer. It will vary based on wizard but you need to set it up with the IP address of the desired printer
+  * If you are installing the Copy/Storage Sharp, then after installation go to Devices and Printers (search for it)
+  * Right click on the Sharp device, click printer properties, go to color management
+  * Make sure the Sharp is selected, select Manual, add the Black & White profile, set it as default, remove the RGB one
 
-* Open Managed Software Center.
-* Select **Remove** for the desired printer.
+## Removing a Printer from Mac
+
+* Open Managed Software Center
+* Select **Remove** for the desired printer
+
+## Removing a Printer from PC
+
+* Go to Devices and Printers (search for it)
+* Right click the printer to be removed, click remove, enter admin password if necessary
 
 ## Contact info for Sharp Printer Support
 Skelton Business  
