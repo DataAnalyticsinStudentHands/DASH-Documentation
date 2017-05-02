@@ -72,15 +72,19 @@ function enableGuestAccount {
 
 # Install PaperCut LaunchAgent. This installs a script that keeps PaperCut constantly open.
 function getPaperCutLaunchAgent {
-	echo "Getting PaperCut login script..."
+	echo "Getting PaperCut login an default printer scripts..."
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.papercut.plist -o "/Library/LaunchAgents/edu.uh.honors.papercut.plist"
 	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.papercut.plist
+
+	/usr/bin/curl -s --show-error $hcstorage/scripts/set_default_printer.sh -o "/usr/local/bin/set_default_printer.sh" --create-dirs
+	/bin/chmod +x /usr/local/bin/set_default_printer.sh
 }
 
 # Uninstall PaperCut LaunchAgent. This uninstalls the script that keeps PaperCut constantly open, if it exists
 function uninstallPaperCutLaunchAgent {
     echo "Uninstalling Papercut login script..."
     rm -f /Library/LaunchAgents/edu.uh.honors.papercut.plist
+		rm -f /usr/local/bin/set_default_printer.sh
 }
 
 # Setting Guest account to automatically login after the computer started.
