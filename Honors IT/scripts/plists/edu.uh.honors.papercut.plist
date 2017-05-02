@@ -6,7 +6,8 @@
 	<string>com.papercut.client.agent</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/Applications/PCClient.app/Contents/MacOS/JavaAppLauncher</string>
+		<string>/Applications/PCClient.app/Contents/MacOS/JavaAppLauncher; \
+		/usr/bin/set_default_printer.sh</string>
 	</array>
 	<key>KeepAlive</key>
 	<true/>
