@@ -7,7 +7,7 @@
 	<key>ProgramArguments</key>
 	<array>
 		<string>/Applications/PCClient.app/Contents/MacOS/JavaAppLauncher; \
-		/usr/bin/set_default_printer.sh</string>
+		/usr/local/bin/set_default_printer.sh</string>
 	</array>
 	<key>KeepAlive</key>
 	<true/>
