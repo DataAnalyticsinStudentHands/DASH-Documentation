@@ -71,6 +71,7 @@ function enableGuestAccount {
 }
 
 # Install PaperCut LaunchAgent. This installs a script that keeps PaperCut constantly open.
+# This also installs a script that sets the default lab printer. This is here to ensure the two are always together.
 function getPaperCutLaunchAgent {
 	echo "Getting PaperCut login and default printer scripts..."
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.papercut.plist -o "/Library/LaunchAgents/edu.uh.honors.papercut.plist"
@@ -81,6 +82,7 @@ function getPaperCutLaunchAgent {
 }
 
 # Uninstall PaperCut LaunchAgent. This uninstalls the script that keeps PaperCut constantly open, if it exists
+# This also uninstalls the default lab printer script, the effects of which do not last after a user logs out
 function uninstallPaperCutLaunchAgent {
     echo "Uninstalling Papercut login script..."
     rm -f /Library/LaunchAgents/edu.uh.honors.papercut.plist
