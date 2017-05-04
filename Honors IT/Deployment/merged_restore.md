@@ -123,9 +123,16 @@ function enableGuestAccount {
 
 # Install PaperCut LaunchAgent. This installs a script that keeps PaperCut constantly open.
 function getPaperCutLaunchAgent {
-	echo "Getting PaperCut login and default printer scripts..."
+	echo "Getting PaperCut login script..."
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.papercut.plist -o "/Library/LaunchAgents/edu.uh.honors.papercut.plist"
 	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.papercut.plist
+}
+
+# Install Default Lab Printer LaunchAgent. This installs a script that sets the default printer for lab computers.
+function getLabPrinterLaunchAgent {
+	echo "Installing Default Lab Printer script..."
+	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.labprinters.plist -o "/Library/LaunchAgents/edu.uh.honors.labprinters.plist"
+	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.labprinters.plist
 
 	/usr/bin/curl -s --show-error $hcstorage/scripts/set_default_printer.sh -o "/usr/local/bin/set_default_printer.sh" --create-dirs
 	/bin/chmod +x /usr/local/bin/set_default_printer.sh
@@ -135,9 +142,14 @@ function getPaperCutLaunchAgent {
 function uninstallPaperCutLaunchAgent {
     echo "Uninstalling Papercut login script..."
     rm -f /Library/LaunchAgents/edu.uh.honors.papercut.plist
-    rm -f /usr/local/bin/set_default_printer.sh
 }
 
+# Uninstall Default Lab Printer LaunchAgent. This uninstalls a script that sets the default printer for lab computers, if it exists
+function uninstallLabPrinterLaunchAgent {
+		echo "Uninstalling Default Lab Printer script..."
+    rm -f /usr/local/bin/set_default_printer.sh
+		rm -f /Library/LaunchAgents/edu.uh.honors.labprinters.plist
+}
 
 # Setting Guest account to automatically login after the computer started.
 function setAutomaticGuestLogin {
@@ -302,8 +314,10 @@ enableGuestAccount
 if [ "$1" == "labcomputer" ]
 then
 	getPaperCutLaunchAgent
+	getLabPrinterLaunchAgent
 else
     uninstallPaperCutLaunchAgent
+		uninstallLabPrinterLaunchAgent
 fi
 
 # Automatic guest login on classroom and podium computers
