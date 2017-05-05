@@ -1,13 +1,22 @@
 ### Introduction
 
-Munki is a set of tools that, used together with a webserver-based repository of packages and package metadata, can be used by OS X administrators to manage software installs (and in many cases removals) on OS X client machines.
+`honorit@central.uh.edu` is an administrative account for the Honors Adobe Cloud Team license (password can be found in SecretServer)
 
-Our Munki repository is hosted at `//hc-storage/web/munki`
+Login at: [https://accounts.adobe.com](https://accounts.adobe.com)
 
-If you are new to Munki, here is a helpful guide. This will tell you a little more about how to setup a Munki server and deployment of software.
+That means, that Honors IT can manage the license and we don’t have to bother Martha with adding team members. Martha Hayes is still the primary contact on the team license.
 
-[http://technology.siprep.org/beginner-munki/](http://technology.siprep.org/beginner-munki/)
+Please note, that the Honors IT account is not using any of the licenses that we buy through the team. The named licenses to actually use the Adobe Cloud software are currently for:
 
-For specific questions, and more advanced user guides, check out the Munki Wiki on GitHub:
+1. Martha Hayes
 
-[https://github.com/munki/munki/wiki/FAQ](https://github.com/munki/munki/wiki/FAQ)
+2. Julia Brown
+
+Number 3 will hopefully show up today and will be given to Adrian Castillo.
+
+The renewal date on our licenses shows up as November 30, 2017.
+
+Please also remember that we will want to add Jennifer Hennessey to the team when her individual license expires.
+
+License renewal (yearly) and adding of new licenses should be done through CougarByte.
+
