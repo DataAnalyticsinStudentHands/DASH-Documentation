@@ -7,9 +7,9 @@ if [[ $(hostname) == *"bA"* || $(hostname) == *"bB"* ||
       $(hostname) == *"bE"* || $(hostname) == *"bF"* ||
       $(hostname) == *"bG"* || $(hostname) == *"bH"* ]]
 then
-#Lab printer 20
   lpoptions -d mcx_1
+  #Lab printer 20
 else
-#Lab printer 21
   lpoptions -d mcx_0
+  #Lab printer 21
 fi
