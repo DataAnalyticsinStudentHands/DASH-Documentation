@@ -2,10 +2,10 @@
 defaults write org.cups.PrintingPrefs UseLastPrinter -bool False
 #this needs to be false because it takes precedence over defaults
 
-if [[ $(hostname) == *"bA"* || $(hostname) == *"bB"* ||
-      $(hostname) == *"bC"* || $(hostname) == *"bD"* ||
-      $(hostname) == *"bE"* || $(hostname) == *"bF"* ||
-      $(hostname) == *"bG"* || $(hostname) == *"bH"* ]]
+if [[ $(hostname) == *"ba"* || $(hostname) == *"bb"* ||
+      $(hostname) == *"bc"* || $(hostname) == *"bd"* ||
+      $(hostname) == *"be"* || $(hostname) == *"bf"* ||
+      $(hostname) == *"bg"* || $(hostname) == *"bh"* ]]
 then
   lpoptions -d mcx_1
   #Lab printer 20
