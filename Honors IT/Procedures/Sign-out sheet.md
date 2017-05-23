@@ -5,3 +5,5 @@ If someone wants to borrow something out of IT, whether it is a laptop or a powe
 3. Be as descriptive as necessary, and use multiple lines whenever needed.
 
 A (fake) example is included below. This is to be replaced by an actual sign-out sheet when possible.
+
+![Sheet](https://github.com/DataAnalyticsinStudentHands/DASH-Documentation/raw/master/Honors IT/Procedures/Images/Equipment Sign-Out Sheet.png "Sign-Out Sheet")
