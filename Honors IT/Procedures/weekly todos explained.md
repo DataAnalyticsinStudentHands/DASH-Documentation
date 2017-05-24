@@ -8,7 +8,7 @@ Check Backups: Log on to web interface for the Synology NAS. Check computer/user
 
 Check Tickets: Log on to FreshService. Note any new tickets and continue to work on problems that have yet to be solved. If someone has worked on the issue and their documentation is unclear, contact them with any questions and clarify/edit documentation.
 
-Check A/V Needs: Elena Rios sends us a schedule for the week, usually on Friday or Monday. Check on what needs to be done daily. If an event is during your shift, it is your responsibility. Usually we try to set up and test at least an hour in advance. If you are on shift an hour in advance, this is also your responsibility.
+Check A/V Needs: Elena Rios sends us a schedule for the week, usually on Friday or Monday (Create a ticket with tasks for each day and event when she does). Check on what needs to be done daily. If an event is during your shift, it is your responsibility. Usually we try to set up and test at least an hour in advance. If you are on shift an hour in advance, this is also your responsibility.
 
 # Mid-Shift Duties
 
