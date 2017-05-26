@@ -13,3 +13,5 @@ We only back up user directories of faculty and staff Windows computers.
 | alittle (A. Little)           | Backup Job HC-LITTLE | hc-little |
 | mhanke (M. Hanke)             | hc-hanke/Backup Job HC-HANKE | hc-hanke |  
 | ghauser (G. Hauser)           | Backup Job HC-HAUSER | hc-hauser |
+
+Use these settings when setting up Veeam. However, do not include things like Google Drive, DropBox, OneDrive, Trash, and Downloads.
