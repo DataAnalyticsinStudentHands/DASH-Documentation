@@ -19,7 +19,7 @@
 |Monday   |Tuesday    |Wednesday |Thursday |Friday |
 |---------|-----------|----------|---------|-------|
 |Munki - software deployment|Munki - test updates|Munki - Document issues|Munki - Review Process|Munki - Finish Testing and Documentation|
-| Check Printer Tray | Check Printer Tray  | Check Printer Tray  | Check Printer Tray  | Check Printer Tray |
+| Check Printer Trays | Check Printer Trays  | Check Printer Trays  | Check Printer Trays  | Check Printer Trays |
 | Check Tickets    |Check Tickets  |Check Tickets  |Check Tickets  | Check Tickets |
 | Check A/V Needs  |Check A/V Needs  |Check A/V Needs  | Check A/V Needs |Check A/V Needs|
 |'Reset' Classrooms| 'Reset' Classrooms| 'Reset' Classrooms| 'Reset' Classrooms| 'Reset' Classrooms|
