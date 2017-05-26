@@ -11,4 +11,5 @@ We only back up user directories of faculty and staff Windows computers.
 | bjohnson (B. Rhoden)          | hc-rhoden/Backup Job HC-RHODEN2 | HC-Rhoden2   |
 | sbhojni (S. Bhojani)          | Backup Job HC-SBHOJANI | hc-bhojani |
 | alittle (A. Little)           | Backup Job HC-LITTLE | hc-little |
-| mhanke (M. Hanke)             | hc-hanke/Backup Job HC-HANKE | hc-hanke |             
+| mhanke (M. Hanke)             | hc-hanke/Backup Job HC-HANKE | hc-hanke |  
+| ghauser (G. Hauser)           | Backup Job HC-HAUSER | hc-hauser |
