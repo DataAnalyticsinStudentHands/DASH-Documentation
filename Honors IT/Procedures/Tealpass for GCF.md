@@ -1,8 +1,8 @@
-#Documentation concerning Tealpass will go here, when it is developed
+# Documentation concerning Tealpass will go here, when it is developed
 
 your solution here
 
-#Troubleshooting info supplied by Tealpass
+# Troubleshooting info supplied by Tealpass
 
 Mobile App
 One of the things we have been working on is to be more performant and operate at a greater scale making the check in process for your students even more seamless. This includes updates to both the Student mobile app and the Raspberry Pi software. If some of your students have already downloaded your university’s Tealpass app, then it is crucial that they download the update that has been pushed to the app store otherwise the app will not work properly. If you have not had any students download the app, then just instruct your students to download the most recent version in the app store.
