@@ -44,11 +44,11 @@ This is old and needs to updated ...
 
 ```backup.sh``` v2015.06.28
 
-###Set interpreter
+### Set interpreter
 
 ```#! /bin/sh```
 
-###Set variables, including day of week, host name, backup path, and current user
+### Set variables, including day of week, host name, backup path, and current user
 
 ```
 dayofweek=$(date +%u)
@@ -57,7 +57,7 @@ backuppath="/Volumes/Backups/$host"
 currentuser="$(whoami)"
 ```
 
-###Determine and/or mount backup drive.
+### Determine and/or mount backup drive.
 
 ```
 if mount | grep "hc-storage.cougarnet.uh.edu/Backups on /Volumes/Backups" > /dev/null;
