@@ -118,7 +118,7 @@ function getManagedInstallsPlist {
 # Enable the Guest Account.
 function enableGuestAccount {
 	echo "Enabling Guest account ..."
-	$defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool YES
+	$defaults write /Library/Preferences/com.apple.loginwindow.plist GuestEnabled -bool YES
 }
 
 # Install PaperCut LaunchAgent. This installs a script that keeps PaperCut constantly open.
@@ -154,13 +154,13 @@ function uninstallLabPrinterLaunchAgent {
 # Setting Guest account to automatically login after the computer started.
 function setAutomaticGuestLogin {
 	echo "Setting guest to automatic login..."
-	$defaults write /Library/Preferences/com.apple.loginwindow autoLoginUser guest
+	$defaults write /Library/Preferences/com.apple.loginwindow.plist autoLoginUser guest
 }
 
 # Disable automatic login of Guest account, in case it is enabled
 function disableAutomaticGuestLogin {
     echo "Disabling automatic guest login..."
-    $defaults delete /Library/Preferences/com.apple.loginwindow autoLoginUser
+    $defaults delete /Library/Preferences/com.apple.loginwindow.plist autoLoginUser
 }
 
 # Install Screen Lock LaunchAgent. This installs a script on shared computers to disable the screen lock.
@@ -275,7 +275,7 @@ function disableSystemSleep {
 # Disable save Window state at logout
 function disableSaveWindowState {
 	echo "Disable the save window state at logout..."
-	$defaults write com.apple.loginwindow 'TALLogoutSavesState' -bool false
+	$defaults write com.apple.loginwindow.plist 'TALLogoutSavesState' -bool false
 }
 
 # Disable Automatic Software Updates. We are using Munki to handle this.
