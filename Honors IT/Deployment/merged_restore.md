@@ -293,7 +293,7 @@ function disableGatekeeper {
 # Show username & password fields in Login Window instead of circles.
 function enableUsernameAndPasswordFields {
 	echo "Enabling username and password fields..."
-	$defaults write /Library/Preferences/com.apple.loginwindow SHOWFULLNAME -bool TRUE
+	$defaults write /Library/Preferences/com.apple.loginwindow.plist SHOWFULLNAME -bool TRUE
 }
 
 # Munki in Bootstrap mode. Used with DeployStudio workflows. When DeployStudio reboots the machine again, Munki will run on the second reboot.
