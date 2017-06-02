@@ -213,9 +213,6 @@ function getOfficeSetupLaunchAgent {
 	echo "Getting Office preferences login script..."
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.curlofficeprefs.plist -o "/Library/LaunchAgents/edu.uh.honors.curlofficeprefs.plist"
 	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.curlofficeprefs.plist
-	
-	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.curlofficeprefsnightly.plist -o "/Library/LaunchAgents/edu.uh.honors.curlofficeprefsnightly.plist"
-	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.curlofficeprefsnightly.plist
 }
 
 # Disable System Sleep
