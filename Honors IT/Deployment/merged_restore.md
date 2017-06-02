@@ -118,7 +118,7 @@ function getManagedInstallsPlist {
 # Enable the Guest Account.
 function enableGuestAccount {
 	echo "Enabling Guest account ..."
-	$defaults write /Library/Preferences/com.apple.loginwindow.plist GuestEnabled -bool YES
+	$defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool YES
 }
 
 # Install PaperCut LaunchAgent. This installs a script that keeps PaperCut constantly open.
@@ -154,13 +154,13 @@ function uninstallLabPrinterLaunchAgent {
 # Setting Guest account to automatically login after the computer started.
 function setAutomaticGuestLogin {
 	echo "Setting guest to automatic login..."
-	$defaults write /Library/Preferences/com.apple.loginwindow.plist autoLoginUser guest
+	$defaults write /Library/Preferences/com.apple.loginwindow autoLoginUser guest
 }
 
 # Disable automatic login of Guest account, in case it is enabled
 function disableAutomaticGuestLogin {
     echo "Disabling automatic guest login..."
-    $defaults delete /Library/Preferences/com.apple.loginwindow.plist autoLoginUser
+    $defaults delete /Library/Preferences/com.apple.loginwindow autoLoginUser
 }
 
 # Install Screen Lock LaunchAgent. This installs a script on shared computers to disable the screen lock.
@@ -261,7 +261,7 @@ function getOfficeSetupLaunchAgent {
 	/usr/bin/curl -s --show-error $hcstorage/scripts/curl_office_plists.sh -o "/usr/local/bin/curl_office_plists.sh" --create-dirs
 	/bin/chmod +x /usr/local/bin/curl_office_plists.sh
 
-	echo "Getting Office preferences login script..."
+	echo "Getting Office preferences login scripts..."
 	/usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.curlofficeprefs.plist -o "/Library/LaunchAgents/edu.uh.honors.curlofficeprefs.plist"
 	/bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.curlofficeprefs.plist
 }
@@ -275,7 +275,7 @@ function disableSystemSleep {
 # Disable save Window state at logout
 function disableSaveWindowState {
 	echo "Disable the save window state at logout..."
-	$defaults write com.apple.loginwindow.plist 'TALLogoutSavesState' -bool false
+	$defaults write com.apple.loginwindow 'TALLogoutSavesState' -bool false
 }
 
 # Disable Automatic Software Updates. We are using Munki to handle this.
@@ -293,7 +293,7 @@ function disableGatekeeper {
 # Show username & password fields in Login Window instead of circles.
 function enableUsernameAndPasswordFields {
 	echo "Enabling username and password fields..."
-	$defaults write /Library/Preferences/com.apple.loginwindow.plist SHOWFULLNAME -bool TRUE
+	$defaults write /Library/Preferences/com.apple.loginwindow SHOWFULLNAME -bool TRUE
 }
 
 # Munki in Bootstrap mode. Used with DeployStudio workflows. When DeployStudio reboots the machine again, Munki will run on the second reboot.
