@@ -9,6 +9,7 @@ Customization centers around a single file, `config.php`. General information he
 5. Edit `config.php` as per the instructions below, exit `nano` and save changes with *control+x*, then *y*, then *return*
    * If there is a typo in `config.php`, MunkiReport will not load
 6. Create a new package and deploy it via Munki to distribute new settings
+   * Use the "Version Override" instructions on this page: https://github.com/munkireport/munkireport-php/wiki/Client-setup
 
 ## Choosing Modules
 Each module tells the client to supply a particular set of data. Some modules require third party software. You should consider a module as a self contained unit that is responsible for collecting data, processing data and storing data in the database. Most, but not all modules translate direcly into one of the items on the *Listings* drop-down menu of munkireport. For more information and a complete list of all possible modules: https://github.com/munkireport/munkireport-php/wiki/Modules
