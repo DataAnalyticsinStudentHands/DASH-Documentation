@@ -43,7 +43,18 @@ The following table shows the information used by the workflo in DeployStudio.
 
  * ```backup``` - Installs the LaunchAgent.
  * ```nobackup``` - Removes the LaunchAgent, if it exists.
+ 
+ To run merged_restore.sh manually, open terminal and become admin with 
+ 
+```su - hcadmin```
 
+ Then, get the script with 
+   
+```scp hcadmin@hc-storage:/volume1/Deployment/Scripts/merged_restore.sh ~```
+    
+Then run the script itself. For example, for an admin computer you would run
+   
+```sudo bash ~/merged_restore.sh admincomputer notshared nostudent backup```
 
 ## The Script
 The contents of this version of the script are below, with comments that explain the purpose of each function and the execution flow of the program. The script first defines variables and functions which will be called depending on the arguments.
