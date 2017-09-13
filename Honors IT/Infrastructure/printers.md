@@ -21,6 +21,27 @@ When the part comes in, install it and return the empty cartridge to Brenda. We 
   * Right click on the Sharp device, click printer properties, go to color management
   * Make sure the Sharp is selected, select Manual, add the Black & White profile, set it as default, remove the RGB one
 
+## Installing and Configuring CopyStorage Sharp Printer without using ManagedSoftware
+ 
+The CopyStorage Sharp printer will accept print jobs from computers connected to the UH network without requiring authentication so long as those computers' print drivers are set to default to black and white printing only. Here's how to do that:
+
+On Mac:
+
+* Download and install the proper driver for the printer add the printer to the computer (use LPD protocol).
+* Open internet browser
+* Type: http://localhost:631/ (this is the CUPS interface)
+* Click on "Printers" then Select the Sharp MX-6070N (Copy Storage Sharp) printer
+* Check both of the drop down menus and look for the "Select Default Options" menu then select it
+* Select "Color" then Set "Color Mode" to "Black and White"
+* At the bottom of the page, click on the "Set Default Options" button
+* Enter a username and password for an account that has administrator privileges on the computer you are configuring. Once that's done, the browser should load a page that says the settings for the printer were successfully applied.
+       
+On Windows:
+
+* Download and install the proper driver for the printer then add the printer to the computer (use LPD protocol).
+* Open printer settings
+* Find the settings for the CopyStorage Sharp printer driver > Make sure the printer is set to print in black and white by default.
+
 ## Removing a Printer from Mac
 
 * Open Managed Software Center
