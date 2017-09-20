@@ -93,8 +93,11 @@ Save the package and use MunkiAdmin to import the package.
 4. Import into munki and make adjustments if needed (array)
 
 The following web sites might be of help:
+
 https://github.com/munki/munki/wiki/FileMaker-Pro
+
 https://technology.siprep.org/packaging-filemaker-pro-for-munki/
+
 https://www.techwalla.com/articles/how-to-edit-dmg
 
 
