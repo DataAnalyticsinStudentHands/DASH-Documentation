@@ -78,11 +78,11 @@ Do not use any feature lockdown customizations.
 
 Save the package and use MunkiAdmin to import the package.
 
-### FileMaker Pro Client
+## FileMaker Pro Client
 
 ### Package Format
 
-- currently dmg (this may change with another release)
+- currently .dmg (this may change with another release)
 - needs to be downloaded from special link provided at time of purchase (contact Brenda Ramirez)
 
 ### Instructions
