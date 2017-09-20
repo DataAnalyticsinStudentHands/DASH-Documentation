@@ -8,8 +8,6 @@ Please note, that the Honors IT account is not using any of the licenses that we
 
 
 
-Number 3 will hopefully show up today and will be given to Adrian Castillo.
-
 The renewal date on our licenses shows up as November 30, 2017.
 
 Please also remember that we will want to add Jennifer Hennessey to the team when her individual license expires.
