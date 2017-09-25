@@ -5,7 +5,7 @@
 	<key>Label</key>
 	<string>edu.uh.honors.disablescreenlock</string>
 	<key>Program</key>
-	<string>/usr/local/bin/disable_screen_lock.sh</string>
+	<string>/usr/local/honors/disable_screen_lock.sh</string>
 	<key>RunAtLoad</key>
 	<true/>
 </dict>

@@ -7,6 +7,6 @@
 	<key>Label</key>
 	<string>edu.uh.honors.enablescreenlock</string>
 	<key>Program</key>
-	<string>/usr/local/bin/enable_screen_lock.sh</string>
+	<string>/usr/local/honors/enable_screen_lock.sh</string>
 </dict>
 </plist>

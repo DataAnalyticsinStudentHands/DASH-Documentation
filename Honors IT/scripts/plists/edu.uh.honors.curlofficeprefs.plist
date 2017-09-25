@@ -5,7 +5,7 @@
 	<key>Label</key>
 	<string>edu.uh.honors.curlofficeprefs</string>
 	<key>Program</key>
-	<string>/usr/local/bin/curl_office_plists.sh</string>
+	<string>/usr/local/honors/curl_office_plists.sh</string>
 	<key>RunAtLoad</key>
 	<true/>
 </dict>

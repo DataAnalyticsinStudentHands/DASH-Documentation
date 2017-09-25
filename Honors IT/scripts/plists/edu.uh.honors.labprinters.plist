@@ -5,7 +5,7 @@
 	<key>Label</key>
 	<string>edu.uh.honors.labprinters.plist</string>
 	<key>Program</key>
-	<string>/usr/local/bin/set_default_printer.sh</string>
+	<string>/usr/local/honors/set_default_printer.sh</string>
 	<key>RunAtLoad</key>
 	<true/>
 </dict>

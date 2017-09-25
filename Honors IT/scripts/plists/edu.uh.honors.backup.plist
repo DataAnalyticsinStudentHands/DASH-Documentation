@@ -5,7 +5,7 @@
 		<key>Label</key>
 		<string>edu.uh.honors.backup</string>
 		<key>Program</key>
-		<string>/usr/local/bin/backup.sh</string>
+		<string>/usr/local/honors/backup.sh</string>
 		<key>StartCalendarInterval</key>
 		<dict>
 			<key>Hour</key>
