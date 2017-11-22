@@ -35,6 +35,8 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.51-b03, mixed mode)
 * Tomcat
 * MariaDB (MySQL)
 
+* MongoDB (on tcan.hnet.uh.edu only)
+
 ## Server Certificates
 
 ### 1. dash.hnet.uh.edu (Production)
