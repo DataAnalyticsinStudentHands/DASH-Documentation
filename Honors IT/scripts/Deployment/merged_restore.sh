@@ -254,7 +254,7 @@ function bootstrapMunki {
 
 # If this is a Sierra machine, and it is shared, we need to suppress the setup of Siri and a couple other things for first time logins
 function sierraSharedSiriSuppression {
-  if [ "$(sw_vers -productVersion | awk -F. '{print $2}')" == "11" && "$2" == "shared" ]
+  if [ "$(sw_vers -productVersion | awk -F. '{print $2}')" == "12" && "$2" == "shared" ]
   then
     echo "Downloading Siri suppression script..."
     /usr/bin/curl -s --show-error $hcstorage/scripts/sierra_suppressions.sh -o "/usr/local/honors/sierra_suppressions.sh" --create-dirs
