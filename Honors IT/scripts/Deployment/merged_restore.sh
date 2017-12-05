@@ -1,6 +1,52 @@
 #!/bin/sh
 
 
+# Check parameters in case of typos on a manual run
+declare -a param1=("admincomputer" "advisorcomputer" "bonnerlabcomputer" "presentation" "consultingcomputer" "dashlabcomputer" "facultystaffcomputer" "labcomputer")
+declare -a param2=("shared" "notshared")
+declare -a param3=("student" "nostudent")
+declare -a param4=("backup" "nobackup")
+
+if [[ ! " ${param1[@]} " =~ " $1 " ]]
+then
+  if [[ " ${param2[@]} " =~ " $1 " ]]
+  then
+    echo "*****MERGED RESTORE FAILURE*****
+Error: No manifest argument
+Quitting merged restore run..."
+    exit 1
+  else
+    echo "*****MERGED RESTORE FAILURE*****
+Error: Invalid manifest: $1
+Quitting merged restore run..."
+    exit 1
+  fi
+fi
+
+if [[ ! " ${param2[@]} " =~ " $2 " ]]
+then
+  echo "*****MERGED RESTORE FAILURE*****
+Error: Invalid shared status: $2
+Quitting merged restore run..."
+  exit 1
+fi
+
+if [[ ! " ${param3[@]} " =~ " $3 " ]]
+then
+  echo "*****MERGED RESTORE FAILURE*****
+Error: Invalid AD login restriction: $3
+Quitting merged restore run..."
+  exit 1
+fi
+
+if [[ ! " ${param4[@]} " =~ " $4 " ]]
+then
+  echo "*****MERGED RESTORE FAILURE*****
+Error: Invalid backup status: $4
+Quitting merged restore run..."
+  exit 1
+fi
+
 # Set interpreter and various constants
 kickstart="/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart"
 systemsetup="/usr/sbin/systemsetup"
@@ -58,16 +104,28 @@ function getManagedInstallsPlist {
   then
     /usr/bin/curl -s --show-error $hcstorage/managedinstalls/admin_ManagedInstalls.plist -o "/Library/Preferences/ManagedInstalls.plist"
   else
-    echo "Can't load ManagedInstalls.plist..."
+    echo "*********MERGED RESTORE FAILURE*********
+****************************************
+Error: Can't load ManagedInstalls.plist.
+    Check connection to hc-storage.
+****************************************"
   fi
-  echo "Creating /usr/local/honors..."
-  mkdir -m 755 /usr/local/honors
-  chown root:wheel /usr/local/honors
+
+  if [ ! -d "/usr/local/honors" ]
+  then
+    mkdir /usr/local/honors
+    echo "Creating /usr/local/honors..."
+  else
+    echo "/usr/local/honors exists"
+  fi
+echo "Changing permissions for /usr/local/honors..."
+chmod 755 /usr/local/honors
+chown root:wheel /usr/local/honors
 }
 
 # Enable the Guest Account
 function enableGuestAccount {
-  echo "Enabling Guest account ..."
+  echo "Enabling Guest account..."
   $defaults write /Library/Preferences/com.apple.loginwindow.plist GuestEnabled -bool YES
 }
 
@@ -254,7 +312,7 @@ function bootstrapMunki {
 
 # If this is a Sierra machine, and it is shared, we need to suppress the setup of Siri and a couple other things for first time logins
 function sierraSharedSiriSuppression {
-  if [ "$(sw_vers -productVersion | awk -F. '{print $2}')" == "12" && "$2" == "shared" ]
+  if [ "$(sw_vers -productVersion | awk -F. '{print $2}')" == "12" ] && [ "$1" == "shared" ]
   then
     echo "Downloading Siri suppression script..."
     /usr/bin/curl -s --show-error $hcstorage/scripts/sierra_suppressions.sh -o "/usr/local/honors/sierra_suppressions.sh" --create-dirs
@@ -324,7 +382,9 @@ disableAutomaticSoftwareUpdates
 disableGatekeeper
 enableUsernameAndPasswordFields
 bootstrapMunki
-sierraSharedSiriSuppression
+
+# Suppress Siri setup for new users on shared computers
+sierraSharedSiriSuppression $2
 
 echo "Done."
 
