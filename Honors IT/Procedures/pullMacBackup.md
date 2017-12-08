@@ -1,4 +1,4 @@
-In order to streamline the process of pulling down backup files to a newly reimaged mac, we have a script that utilizes a password-less rsa key. The key is stored on a password protected flash drive labeled "backup pull key".
+In order to streamline the process of pulling down backup files to a newly reimaged mac, we have a script that utilizes a password-less rsa key. The key is stored on a password protected flash drive labeled "mac backup pull key".
 
 IT IS VERY IMPORTANT THAT id_rsa IS NEVER STORED ANYWHERE OTHER THAN THIS FLASHDRIVE
 
