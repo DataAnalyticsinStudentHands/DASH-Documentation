@@ -13,14 +13,23 @@
 1. Rename the computer in System Preferences->Sharing, add something like "temp" or "reimaging" to the name.
 (e.g. "hc-tedestess" to "hc-tedestess-reimaging")
 2. Run the backup.sh script as hcadmin:
+
 `sudo bash /usr/local/honors/backup.sh`
+
 and check the terminal output to ensure that it ran completely and successfully.
+
 Note: The purpose of steps 1 and 2 is to create a backup containing only current files from the staff member's machine. The normal backup folders on hc-storage contain a litany of older files as well, possibly so many that they won't all fit back onto the machine.
+
 3. Check hc-storage to be sure the new backup folder is created as intended.
 4. Reimage the machine via the instructions above. (You can put the name back to normal now)
 5. Log into the machine as the faculty member, plug in the "MAC BACKUP PULL KEY" usb drive, unlock it, and run
+
 `bash /Volumes/keys/pull_mac_backup.sh hc-reimaging-name`
+
 (replace hc-reimaging-name with the new name you created in step 1)
+
 (yes, it should be run without sudo)
+
 Note: the script unmounts the usb drive when it finishes
+
 6. Check the Terminal output for errors.
