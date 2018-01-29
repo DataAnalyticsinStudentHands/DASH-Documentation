@@ -5,11 +5,11 @@
 		<key>Label</key>
 		<string>edu.uh.honors.resetkeychains</string>
 		<key>Program</key>
-		<string>/usr/bin/reset_keychains.sh</string>
+		<string>/usr/local/honors/reset_keychains.sh</string>
 		<key>StartCalendarInterval</key>
 		<dict>
 			<key>Hour</key>
-			<integer>20</integer>
+			<integer>2</integer>
 			<key>Minute</key>
 			<integer>0</integer>
 		</dict>

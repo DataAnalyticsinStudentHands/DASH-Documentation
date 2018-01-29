@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>address</key>
+	<string>172.27.56.25</string>
+	<key>default_catalog</key>
+	<string>testing</string>
+	<key>display_name</key>
+	<string>207A Printer</string>
+	<key>location</key>
+	<string>207A</string>
+	<key>name</key>
+	<string>Settings for 207A Printer</string>
+	<key>options</key>
+	<array>
+		<string>landscape</string>
+		<string>media=A4</string>
+	</array>
+	<key>ppd</key>
+	<string>/Library/Printers/PPDs/Contents/Resources/HP LaserJet Pro M402-M403 n-dn.gz</string>
+	<key>queue_name</key>
+	<string>207A-HPM402dn</string>
+	<key>requires</key>
+	<array>
+		<string>norequirements</string>
+	</array>
+	<key>version</key>
+	<string>1.0</string>
+</dict>
+</plist>

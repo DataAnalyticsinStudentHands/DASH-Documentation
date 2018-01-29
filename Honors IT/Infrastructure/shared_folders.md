@@ -4,7 +4,7 @@ The Honors College infrastructure operates with two shared network spaces:
 
 This is a service offered through UH IT using a Windows Shared Folder that is mounted via Samba.
 
-The mount point is \\uhsa1\HCShare
+The mount point is `\\uhsa1\HCShare`
 
 The HC Share is automatically mounted on staff, advisor, faculty and student service computers.
 

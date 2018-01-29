@@ -35,22 +35,33 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.51-b03, mixed mode)
 * Tomcat
 * MariaDB (MySQL)
 
+* MongoDB (on tcan.hnet.uh.edu only)
+
 ## Server Certificates
 
 ### 1. dash.hnet.uh.edu (Production)
 
 We have installed a SSL server certificate for Tomcat to serve the SSL connections. The certificate is issued by [Comodo](https://www.namecheap.com/security/ssl-certificates/comodo/positivessl.aspx) and we managed it via an account at [namecheap](https://www.namecheap.com/). The account is associated with plindner[at]uh.edu and costs $10 per year. It has to be renewed in November.
 
-Instructions for the installation can be found within the namecheap [documentation](https://www.namecheap.com/support/knowledgebase/article.aspx/9441/0/tomcat-using-keytool).
+When requesting the certificate make sure you generate a [csr for Tomcat](https://www.namecheap.com/support/knowledgebase/article.aspx/9422/0/tomcat-using-keytool).
+Instructions for the installation can be found within the namecheap [documentation](https://www.namecheap.com/support/knowledgebase/article.aspx/9441/0/tomcat-using-keytool). To check the validity of the csr, you can use this [link](https://decoder.link/result/)
+
+If you ended up with a pem (crt) certificate you can [follow instructions](https://coderwall.com/p/3t4xka/import-private-key-and-certificate-into-java-keystore) to import into keystore.
 
 ### 2. hnetdev.hnet.uh.edu (Development)
 
 We have installed a SSL server certificate for Tomcat & Apache to serve the SSL connections. The certificate is managed via [letsencrypt](https://letsencrypt.org/) and we followed installation instructions at this [blog](https://digitz.org/blog/lets-encrypt-ssl-centos-7-setup/) as well as  [general](https://letsencrypt.org/howitworks/) instructions on their website. To import the certificate into a JKS keystore we followed instructions [here](https://community.letsencrypt.org/t/how-to-use-the-certificate-for-tomcat/3677/3) and used the following command.
 
+`openssl pkcs12 -export -in cert.pem -inkey privkey.pem -out cert_and_key.p12 -name tomcat -CAfile chain.pem -caname root`
+
 `keytool -importkeystore -deststorepass ***** -destkeypass ***** -destkeystore devkeystore.jks -srckeystore /etc/letsencrypt/live/hnetdev.hnet.uh.edu/pkcs.p12 -srcstoretype PKCS12 -srcstorepass ***** -alias *****`
+
+`keytool -import -trustcacerts -alias root -file chain.pem -keystore devkeystore.jks`
+
+Move the keystore into the tomcat configuration folder and restart Tomcat. The setup of the Tomcat server configuration file is the same as on the production server.
 Note: Make sure the keystore password and the key password are the same.
 
-Then the setup with the Tomcat server configuration file is the same as on the production server.
+The certifcate expires every 90 days. Just run `./letsencrypt-auto renew` for renewal and repeat the Tomcat configuration steps.
 
 ## Backup - only on dash.hnet.uh.edu
 

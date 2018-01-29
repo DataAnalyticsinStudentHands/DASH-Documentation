@@ -1,4 +1,4 @@
-##Backup How To-Dos
+## Backup How To-Dos
 
 We have created a UNIX bash script that will run automatically via LaunchDeamons on machines where it gets installed. The standard installation happens when the "backup" option is selected with the [merged_restore](https://honorscollege.freshservice.com/solution/categories/1000023134/folders/1000035508/articles/1000015668-merged-restore-script) script (please see [instructions](https://honorscollege.freshservice.com/solution/categories/1000023134/folders/1000035508/articles/1000015668-merged-restore-script)).
 
@@ -44,11 +44,11 @@ This is old and needs to updated ...
 
 ```backup.sh``` v2015.06.28
 
-###Set interpreter
+### Set interpreter
 
 ```#! /bin/sh```
 
-###Set variables, including day of week, host name, backup path, and current user
+### Set variables, including day of week, host name, backup path, and current user
 
 ```
 dayofweek=$(date +%u)
@@ -57,7 +57,7 @@ backuppath="/Volumes/Backups/$host"
 currentuser="$(whoami)"
 ```
 
-###Determine and/or mount backup drive.
+### Determine and/or mount backup drive.
 
 ```
 if mount | grep "hc-storage.cougarnet.uh.edu/Backups on /Volumes/Backups" > /dev/null;
@@ -67,7 +67,7 @@ else
 	rm -rf /Volumes/Backups
 	mkdir /Volumes/Backups
 ```
-####If the computer is logged in using hcadmin, such as the FileMaker server, we have to use the generic backup user, rather than a Cougarnet login.
+#### If the computer is logged in using hcadmin, such as the FileMaker server, we have to use the generic backup user, rather than a Cougarnet login.
 ```
 if [ $currentuser = "hcadmin" ]
 	then
@@ -79,7 +79,7 @@ if [ $currentuser = "hcadmin" ]
 	fi
 fi
 ```
-###Check if it's the weekend. If it's the weekend, do a full backup. If it's a weekday, do an incremental backup.
+### Check if it's the weekend. If it's the weekend, do a full backup. If it's a weekday, do an incremental backup.
 
 We use the following rsync flags:
 
@@ -117,7 +117,7 @@ else
 	ln -s weekly $backuppath/current
 fi
 ```
-###Finally, we unmount the backup share.
+### Finally, we unmount the backup share.
 ```
 umount /Volumes/Backups
 ```

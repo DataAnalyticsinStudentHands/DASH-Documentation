@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>_metadata</key>
+	<dict>
+		<key>created_by</key>
+		<string>ksinha2</string>
+		<key>creation_date</key>
+		<date>2017-01-31T15:23:15Z</date>
+		<key>munki_version</key>
+		<string>2.8.2.2855</string>
+		<key>os_version</key>
+		<string>10.11.6</string>
+	</dict>
+	<key>autoremove</key>
+	<false/>
+	<key>catalogs</key>
+	<array>
+		<string>testing</string>
+	</array>
+	<key>category</key>
+	<string>Printers</string>
+	<key>developer</key>
+	<string>Printers</string>
+	<key>display_name</key>
+	<string>Pod 205</string>
+	<key>installcheck_script</key>
+	<string>#!/bin/sh
+
+# Based on 2010 Walter Meyer SUNY Purchase College (c)
+# Modified by Nick McSpadden, 2013
+
+# Script to install and setup printers on a Mac OS X system in a "Munki-Friendly" way.
+# Make sure to install the required drivers first!
+
+# Variables. Edit these.
+printername="HP600-205"
+location="Professor Offices"
+gui_display_name="Pod 205"
+address="172.27.56.13"
+driver_ppd="/Library/Printers/PPDs/Contents/Resources/HP LaserJet 600 M601 M602 M603.gz"
+# Populate these options if you want to set specific options for the printer. E.g. duplexing installed, etc.
+option_1=""
+option_2=""
+option_3=""
+currentVersion="1.0"
+
+### Determine if receipt is installed ###
+if [ -e "/private/etc/cups/deployment/receipts/$printername.plist" ]; then
+    storedVersion=$(/usr/libexec/PlistBuddy -c "Print :version" "/private/etc/cups/deployment/receipts/$printername.plist")
+    echo "Stored version: $storedVersion"
+else
+    storedVersion="0"
+fi
+
+versionComparison=$(echo "$storedVersion &lt; $currentVersion" | bc -l)
+# This will be 0 if the current receipt is greater than or equal to current version of the script
+
+### Printer Install ###
+# If the queue already exists (returns 0), we don't need to reinstall it.
+/usr/bin/lpstat -p "$printername"
+if [ $? -eq 0 ]; then
+    if [ "$versionComparison" -eq 0 ]; then
+        # We are at the current or greater version
+        exit 1
+    fi
+    # We are of lesser version, and therefore we should delete the printer and reinstall.
+    exit 0
+fi
+</string>
+	<key>installer_type</key>
+	<string>nopkg</string>
+	<key>minimum_os_version</key>
+	<string>10.4.0</string>
+	<key>name</key>
+	<string>Settings for Pod 205</string>
+	<key>postinstall_script</key>
+	<string>#!/bin/sh
+
+# Based on 2010 Walter Meyer SUNY Purchase College (c)
+# Modified by Nick McSpadden, 2013
+
+# Script to install and setup printers on a Mac OS X system in a "Munki-Friendly" way.
+# Make sure to install the required drivers first!
+
+# Variables. Edit these.
+printername="HP600-205"
+location="Professor Offices"
+gui_display_name="Pod 205"
+address="172.27.56.13"
+driver_ppd="/Library/Printers/PPDs/Contents/Resources/HP LaserJet 600 M601 M602 M603.gz"
+# Populate these options if you want to set specific options for the printer. E.g. duplexing installed, etc.
+option_1=""
+option_2=""
+option_3=""
+currentVersion="1.0"
+protocol="lpd"
+
+### Determine if receipt is installed ###
+if [ -e "/private/etc/cups/deployment/receipts/$printername.plist" ]; then
+    storedVersion=$(/usr/libexec/PlistBuddy -c "Print :version" "/private/etc/cups/deployment/receipts/$printername.plist")
+    echo "Stored version: $storedVersion"
+else
+    storedVersion="0"
+fi
+
+versionComparison=$(echo "$storedVersion &lt; $currentVersion" | bc -l)
+# This will be 0 if the current receipt is greater than or equal to current version of the script
+
+### Printer Install ###
+# If the queue already exists (returns 0), we don't need to reinstall it.
+/usr/bin/lpstat -p "$printername"
+if [ $? -eq 0 ]; then
+    if [ "$versionComparison" -eq 0 ]; then
+        # We are at the current or greater version
+        exit 1
+    fi
+    # We are of lesser version, and therefore we should delete the printer and reinstall.
+    /usr/sbin/lpadmin -x "$printername"
+fi
+
+# Now we can install the printer.
+/usr/sbin/lpadmin     -p "$printername"     -L "$location"     -D "$gui_display_name"     -v "${protocol}"://"${address}"     -P "$driver_ppd"     -o landscape -o media=A4      -o printer-is-shared=false     -o printer-error-policy=abort-job     -E
+# Enable and start the printers on the system (after adding the printer initially it is paused).
+/usr/sbin/cupsenable "$(lpstat -p | grep -w "printer" | awk '{print$2}')"
+
+# Create a receipt for the printer
+mkdir -p /private/etc/cups/deployment/receipts
+/usr/libexec/PlistBuddy -c "Add :version string" "/private/etc/cups/deployment/receipts/$printername.plist"
+/usr/libexec/PlistBuddy -c "Set :version $currentVersion" "/private/etc/cups/deployment/receipts/$printername.plist"
+
+# Permission the directories properly.
+chown -R root:_lp /private/etc/cups/deployment
+chmod -R 700 /private/etc/cups/deployment
+
+exit 0
+    </string>
+	<key>unattended_install</key>
+	<true/>
+	<key>uninstall_method</key>
+	<string>uninstall_script</string>
+	<key>uninstall_script</key>
+	<string>#!/bin/sh
+printerName="HP600-205"
+/usr/sbin/lpadmin -x $printerName
+rm -f /private/etc/cups/deployment/receipts/$printerName.plist
+    </string>
+	<key>uninstallable</key>
+	<true/>
+	<key>version</key>
+	<string>1.0</string>
+</dict>
+</plist>

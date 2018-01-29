@@ -1,4 +1,4 @@
-There are several different printers at the Honors College, but they're all HP Printers, or Xerox Copiers. Printers are now a self-service operation, managed through Munki. Settings for each printer are created in Profile Manager, and deployed through Munki. Each printer has a static IP address to remove it from the DHCP Pool.
+There are several different printers at the Honors College, but they're all HP Printers or Sharp Copiers. Printers are now a self-service operation, managed through Munki. Settings for each printer are created in Profile Manager, and deployed through Munki. Each printer has a static IP address to remove it from the DHCP Pool.
 
 ## Setup
 All the printers have a web interface that can be reached via IP address. The login for the Xerox machines is admin (1111). They are configured to send alert emails to honorsit@central.uh.edu and other (e.g. Brenda Ramirez for supplies).
@@ -8,16 +8,56 @@ We keep supplies for printers close to the locations of the printers. But most o
 
 When the part comes in, install it and return the empty cartridge to Brenda. We are recycling printer supplies.
 
-## Installing a Printer
+## Installing a Printer on Mac
 
-* Open Managed Software Center located in ```Applications``` -> ```Utilities```.
-* Select **Install** for the desired printer.
+* Open Managed Software Center located in ```Applications``` -> ```Utilities```
+* Select **Install** for the desired printer
 
+## Installing a Printer on PC
 
-## Removing a Printer
+* Acquire the appropriate driver from the Internet or elsewhere
+* Run the installer. It will vary based on wizard but you need to set it up with the IP address of the desired printer
+  * If you are installing the Copy/Storage Sharp, then after installation go to Devices and Printers (search for it)
+  * Right click on the Sharp device, click printer properties, go to color management
+  * Make sure the Sharp is selected, select Manual, add the Black & White profile, set it as default, remove the RGB one
 
-* Open Managed Software Center.
-* Select **Remove** for the desired printer.
+## Installing and Configuring CopyStorage Sharp Printer without using ManagedSoftware
+ 
+The CopyStorage Sharp printer will accept print jobs from computers connected to the UH network without requiring authentication so long as those computers' print drivers are set to default to black and white printing only. Here's how to do that:
+
+On Mac:
+
+* Download and install the proper driver for the printer add the printer to the computer (use LPD protocol).
+* Open internet browser
+* Type: http://localhost:631/ (this is the CUPS interface)
+* Click on "Printers" then Select the Sharp MX-6070N (Copy Storage Sharp) printer
+* Check both of the drop down menus and look for the "Select Default Options" menu then select it
+* Select "Color" then Set "Color Mode" to "Black and White"
+* At the bottom of the page, click on the "Set Default Options" button
+* Enter a username and password for an account that has administrator privileges on the computer you are configuring. Once that's done, the browser should load a page that says the settings for the printer were successfully applied.
+       
+On Windows:
+
+* Download and install the proper driver for the printer then add the printer to the computer (use LPD protocol).
+* Open printer settings
+* Find the settings for the CopyStorage Sharp printer driver > Make sure the printer is set to print in black and white by default.
+
+## Removing a Printer from Mac
+
+* Open Managed Software Center
+* Select **Remove** for the desired printer
+
+## Removing a Printer from PC
+
+* Go to Devices and Printers (search for it)
+* Right click the printer to be removed, click remove, enter admin password if necessary
+
+## Contact info for Sharp Printer Support
+Skelton Business  
+Collin Grimes  
+cgrimes@sbesharp.com  
+(281)-226-3412  
+equipmybiz.com  
 
 
 ## Printer Listings
@@ -47,7 +87,8 @@ When the part comes in, install it and return the empty cartridge to Brenda. We 
 
 | Printer Name    | IP Address   | DNS Name                  | Model Number  |
 |-----------------|--------------|---------------------------|---------------|
-| Copy Storage Xerox| https://172.27.56.7/ | copier01.honors.e.uh.edu | Xerox WorkCentre 5855 |
+| Copy Storage Sharp| https://172.27.56.7/ | copier01.honors.e.uh.edu | SHARP MX-6070N |
 | Dean's Area Xerox | http://172.27.56.8/ | copier02.honors.e.uh.edu | Xerox WorkCentre 3615 |
-| South Gardens Xerox | http://172.27.219.1/ | 584-s15-sgwc-prntr.honors.e.uh.edu | Xerox WorkCenter 5755 |
+| South Gardens Sharp | http://172.27.219.1/ | 584-s15-sgwc-prntr.honors.e.uh.edu | SHARP MX-M654N |
 | Speech/Debate Xerox | http://172.27.159.207/ |  | Xerox WorkCenter 4250 |
+
