@@ -1,4 +1,8 @@
-The Honors College's main servers are virtualized for redundancy, efficiency and speed. The entire system is hosted on a Mac Mini located in the Honors College Library Locations and uses VMWare's vSphere free hypervisor (ESXi) as a type 1 hypervisor. It is using the IP address 172.27.56.2 The system is made up of three virtual machines, described below.
+The Honors College's main servers are virtualized for redundancy, efficiency and speed. 
+
+The entire system is hosted on a Mac Mini located in the Honors College Library Locations and uses VMWare's vSphere free hypervisor (ESXi) as a type 1 hypervisor. It is using the IP address 172.27.56.2 The system is made up of three virtual machines, described below.
+
+For redundancy we are running another virtual host, housed in Honors Gardens, located in S17. It is only running one virtual machine (hc-gardens-deployment) using IP address 172.27.219.2
 
 ## 1. HC-Deployment
 
