@@ -310,9 +310,15 @@ function bootstrapMunki {
   touch /Users/Shared/.com.googlecode.munki.checkandinstallatstartup
 }
 
-# If this is a Sierra machine, and it is shared, we need to suppress the setup of Siri and a couple other things for first time logins
-function sierraSharedSiriSuppression {
-  if [ "$(sw_vers -productVersion | awk -F. '{print $2}')" == "12" ] && [ "$1" == "shared" ]
+# Add "Important CougarNet Information" dialog box to the lock screen
+function policyBanner {
+  echo "Downloading policyBanner..."
+  /usr/bin/curl -s --show-error $hcstorage/scripts/PolicyBanner.rtf -o "/Library/Security/PolicyBanner.rtf"
+}
+
+# If this is a High Sierra machine we need to suppress the setup of Siri and a couple other things for first time logins
+function highSierraSiriSuppression {
+  if [ "$(sw_vers -productVersion | awk -F. '{print $2}')" == "13" ] && [ "$1" == "shared" ]
   then
     echo "Downloading Siri suppression script..."
     /usr/bin/curl -s --show-error $hcstorage/scripts/sierra_suppressions.sh -o "/usr/local/honors/sierra_suppressions.sh" --create-dirs
@@ -381,10 +387,11 @@ disableSaveWindowState
 disableAutomaticSoftwareUpdates
 disableGatekeeper
 enableUsernameAndPasswordFields
+policyBanner
 bootstrapMunki
 
-# Suppress Siri setup for new users on shared computers
-sierraSharedSiriSuppression $2
+# Suppress Siri setup for new users on 10.13 users
+highSierraSiriSuppression $2
 
 echo "Done."
 
