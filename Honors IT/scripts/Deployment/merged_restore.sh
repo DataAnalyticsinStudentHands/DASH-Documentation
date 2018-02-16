@@ -319,7 +319,7 @@ function policyBanner {
 # If this is a Sierra or High Sierra machine we need to suppress the setup of Siri and a couple other things for first time logins
 function highSierraSiriSuppression {
 os_vers="$(sw_vers -productVersion | awk -F. '{print $2}')"
-  if [[ $os_vers == 12 || $os_vers == 13 ]] && [ "$1" == "shared" ]
+  if [ $os_vers == 12 ] || [ $os_vers == 13 ]
   then
     echo "Downloading Siri suppression script..."
     /usr/bin/curl -s --show-error $hcstorage/scripts/sierra_suppressions.sh -o "/usr/local/honors/sierra_suppressions.sh" --create-dirs
