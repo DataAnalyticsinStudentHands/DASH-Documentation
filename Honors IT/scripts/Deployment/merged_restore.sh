@@ -316,9 +316,10 @@ function policyBanner {
   /usr/bin/curl -s --show-error $hcstorage/scripts/PolicyBanner.rtf -o "/Library/Security/PolicyBanner.rtf"
 }
 
-# If this is a High Sierra machine we need to suppress the setup of Siri and a couple other things for first time logins
+# If this is a Sierra or High Sierra machine we need to suppress the setup of Siri and a couple other things for first time logins
 function highSierraSiriSuppression {
-  if [ "$(sw_vers -productVersion | awk -F. '{print $2}')" == "13" ] && [ "$1" == "shared" ]
+os_vers="$(sw_vers -productVersion | awk -F. '{print $2}')"
+  if [[ $os_vers == 12 || $os_vers == 13 ]] && [ "$1" == "shared" ]
   then
     echo "Downloading Siri suppression script..."
     /usr/bin/curl -s --show-error $hcstorage/scripts/sierra_suppressions.sh -o "/usr/local/honors/sierra_suppressions.sh" --create-dirs
