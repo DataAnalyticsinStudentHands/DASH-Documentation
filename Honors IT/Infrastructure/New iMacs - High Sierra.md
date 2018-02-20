@@ -1,0 +1,11 @@
+
+| Display Name | CI Type | Description | Asset Tag | Impact | Used By \(Email\) | Department | Managed By | Assigned On | Location | Product | Vendor | Cost | Warranty | Acquisition Date | Warranty Expiry Date | Domain | Asset State | Serial Number | Last Audit Date | Usage Type | Book Value \($\) | Used By \(Name\) | Managed By \(Name\) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| iMac 21.5" hc\-labA | Desktop Mac | | 622010 | Low | | |  honorsit@central\.uh\.edu | 1/10/18 | 210 | iMac 21.5" | Apple | 1563 | 12 | 12/25/17 | 12/25/18 | | In Use | C02VW12CJ1G9 | | Permanent | | | Honors IT Team |
+| iMac 21.5" hc\-labB | Desktop Mac | | 622021 | low | | |  honorsit@central\.uh\.edu | 1/10/18 | 210 | iMac 21.5" | Apple | 1563 | 12 | 12/25/17 | 12/25/18 | | In Use | C02VW12PJ1G9 | | Permanent | | | Honors IT Team |
+| iMac 21.5" hc\-labC | Desktop Mac | | 622017 | low | | |  honorsit@central\.uh\.edu | 1/10/18 | 210 | iMac 21.5" | Apple | 1563 | 12 | 12/25/17 | 12/25/18 | | In Use | C02VW12KJ1G9 | | Permanent | | | Honors IT Team |
+| iMac 21.5" hc\-labD | Desktop Mac | | 622011 | low | | |  honorsit@central\.uh\.edu | 1/10/18 | 210 | iMac 21.5" | Apple | 1563 | 12 | 12/25/17 | 12/25/18 | | In Use | C02VW12DJ1G9 | | Permanent | | | Honors IT Team |
+| iMac 21.5" hc\-labE | Desktop Mac | | 622016 | low | | |  honorsit@central\.uh\.edu | 1/10/18 | 210 | iMac 21.5" | Apple | 1563 | 12 | 12/25/17 | 12/25/18 | | In Use | C02VW12JJ1G9 | | Permanent | | | Honors IT Team |
+| iMac 21.5" hc\-labF | Desktop Mac | | 622004 | low | | |  honorsit@central\.uh\.edu | 1/10/18 | 210 | iMac 21.5" | Apple | 1563 | 12 | 12/25/17 | 12/25/18 | | In Use | C02VW0K3J1G9 | | Permanent | | | Honors IT Team |
+| iMac 21.5" hc\-labG | Desktop Mac | | 622022 | low | | |  honorsit@central\.uh\.edu | 1/10/18 | 210 | iMac 21.5" | Apple | 1563 | 12 | 12/25/17 | 12/25/18 | | In Use | C02VW12QJ1G9 | | Permanent | | | Honors IT Team |
+| iMac 21.5" hc\-labH | Desktop Mac | | 622014 | low | | |  honorsit@central\.uh\.edu | 1/10/18 | 210 | iMac 21.5" | Apple | 1563 | 12 | 12/25/17 | 12/25/18 | | In Use | C02VW12GJ1G9 | | Permanent | | | Honors IT Team |
