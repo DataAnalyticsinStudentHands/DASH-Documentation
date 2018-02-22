@@ -48,6 +48,8 @@ Instructions for the installation can be found within the namecheap [documentati
 
 If you ended up with a pem (crt) certificate you can [follow instructions](https://coderwall.com/p/3t4xka/import-private-key-and-certificate-into-java-keystore) to import into keystore.
 
+There is another SSL certificate for https://www.uhcommunityhealth.org/ (the Odoo instance). It is also from [Comodo](https://www.namecheap.com/security/ssl-certificates/comodo/positivessl.aspx), manged by the same account as the Tomcat one. It needs to be installed in /etc/httpd/conf/certs.
+
 ### 2. hnetdev.hnet.uh.edu (Development)
 
 We have installed a SSL server certificate for Tomcat & Apache to serve the SSL connections. The certificate is managed via [letsencrypt](https://letsencrypt.org/) and we followed installation instructions at this [blog](https://digitz.org/blog/lets-encrypt-ssl-centos-7-setup/) as well as  [general](https://letsencrypt.org/howitworks/) instructions on their website. To import the certificate into a JKS keystore we followed instructions [here](https://community.letsencrypt.org/t/how-to-use-the-certificate-for-tomcat/3677/3) and used the following command.
