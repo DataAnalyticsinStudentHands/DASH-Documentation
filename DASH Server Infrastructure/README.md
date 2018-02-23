@@ -48,7 +48,15 @@ Instructions for the installation can be found within the namecheap [documentati
 
 If you ended up with a pem (crt) certificate you can [follow instructions](https://coderwall.com/p/3t4xka/import-private-key-and-certificate-into-java-keystore) to import into keystore.
 
-There is another SSL certificate for https://www.uhcommunityhealth.org/ (the Odoo instance). It is also from [Comodo](https://www.namecheap.com/security/ssl-certificates/comodo/positivessl.aspx), manged by the same account as the Tomcat one. It needs to be installed in /etc/httpd/conf/certs.
+There is another SSL certificate for https://www.uhcommunityhealth.org/ (the Odoo instance). It is also from [Comodo](https://www.namecheap.com/security/ssl-certificates/comodo/positivessl.aspx), manged by the same account as the Tomcat one. 
+
+The process for renewing the certificate:
+
+1. Go to namecheap and purchase new certificate (valid for one year)
+2. Domain verification via email
+3. Place certficate, e.g. in /etc/httpd/conf/certs
+4. Check permissions and SELinux (e.g. ls -Z)
+5. Restart Apaache
 
 ### 2. hnetdev.hnet.uh.edu (Development)
 
