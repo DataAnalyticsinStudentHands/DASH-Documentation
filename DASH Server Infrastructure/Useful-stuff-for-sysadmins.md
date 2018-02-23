@@ -31,6 +31,12 @@ To count the number of files recursively in the current and all directories belo
 
 All our virtualized servers are running RHEL. There are some specifics with permissions called [Enforcing](https://www.centos.org/docs/5/html/5.2/Deployment_Guide/sec-sel-enable-disable-enforcement.html)
 
+We have to change the mode by running something like:
+    `chcon unconfined_u:object_r:httpd_config_t:s0  /etc/httpd/conf/certs/uhcommunityhealth_org.ca-bundle`
+    
+Check status:
+    `ls -Z`
+
 ### Firewall-cmd open port 3000
 
     firewall-cmd --permanent --zone=public --add-port=3000/tcp
