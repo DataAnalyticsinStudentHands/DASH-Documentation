@@ -6,9 +6,6 @@ declare -a param1=("admincomputer" "advisorcomputer" "bonnerlabcomputer" "presen
 declare -a param2=("shared" "notshared")
 declare -a param3=("student" "nostudent")
 declare -a param4=("backup" "nobackup")
-# param5 is either a name to give the machine or "nonamechange"
-declare -a param6=("adbind" "noadbind")
-declare -a param7=("packages" "nopackages")
 
 if [[ ! " ${param1[@]} " =~ " $1 " ]]
 then
@@ -50,31 +47,6 @@ Quitting merged restore run..."
   exit 1
 fi
 
-if [ "$5" == "" ]
-then
-  echo "*****MERGED RESTORE FAILURE*****
-Error: No computer name given
-Use \"nonamechange\" to leave name unchanged
-Quitting merged restore run..."
-  exit 1
-fi
-
-if [[ ! " ${param6[@]} " =~ " $6 " ]]
-then
-  echo "*****MERGED RESTORE FAILURE*****
-Error: Invalid AD Bind status: $6
-Quitting merged restore run..."
-  exit 1
-fi
-
-if [[ ! " ${param7[@]} " =~ " $7 " ]]
-then
-  echo "*****MERGED RESTORE FAILURE*****
-Error: Invalid argmuent for whether packages should be installed: $7
-Quitting merged restore run..."
-  exit 1
-fi
-
 # Set interpreter and various constants
 kickstart="/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart"
 systemsetup="/usr/sbin/systemsetup"
@@ -82,9 +54,6 @@ networksetup="/usr/sbin/networksetup"
 defaults="/usr/bin/defaults"
 airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
 hcstorage="http://hc-storage.cougarnet.uh.edu"
-
-# Whether the machine needs to be rebooted at the end. Changed by certain parameters and functions.
-reboot_required=false
 
 # Turn off AirPort. This makes sure that all network communications run through the Ethernet port. Wi-Fi interferes with Cougarnet access. It also required an administrator password to turn Wi-Fi on.
 function turnOffAirport {
@@ -104,7 +73,7 @@ function turnOnSSH {
 # Turn on Remote Desktop. This allows Remote Access through Apple Remote Desktop.
 function turnOnRemoteDesktop {
   echo "Turning on RemoteManagement..."
-  $kickstart -activate -configure -allowAccessFor -specifiedUsers -access -on -users hcadmin -privs -all -restart -agent
+  $kickstart -activate -configure -access -on -users hcadmin -privs -all -restart -agent
 }
 
 # Get ManagedInstalls.plist. This uses the first parameter to get the correct list of software to for the computer (munki will process the lists later).
@@ -135,11 +104,11 @@ function getManagedInstallsPlist {
   then
     /usr/bin/curl -s --show-error $hcstorage/managedinstalls/admin_ManagedInstalls.plist -o "/Library/Preferences/ManagedInstalls.plist"
   else
-    echo "***********MERGED RESTORE FAILURE***********
-********************************************
-Error: Can't retrieve ManagedInstalls.plist.
-    Check reachability of hc-storage/web
-********************************************"
+    echo "*********MERGED RESTORE FAILURE*********
+****************************************
+Error: Can't load ManagedInstalls.plist.
+    Check connection to hc-storage.
+****************************************"
   fi
 
   if [ ! -d "/usr/local/honors" ]
@@ -202,23 +171,6 @@ function disableAutomaticGuestLogin {
   $defaults delete /Library/Preferences/com.apple.loginwindow.plist autoLoginUser
 }
 
-# Install guest autologin LaunchDaemon. This installs a script that resets the autologin of guest.
-function getGuestAutoLoginDaemon {
-  echo "Getting Auto Guest Login Script..."
-  /usr/bin/curl -s --show-error $hcstorage/scripts/guest_autologin.sh -o "/usr/local/honors/guest_autologin.sh" --create-dirs
-  /bin/chmod +x /usr/local/honors/guest_autologin.sh
-
-  /usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.guestautologin.plist -o "/Library/LaunchDaemons/edu.uh.honors.guestautologin.plist"
-  /bin/chmod 644 /Library/LaunchDaemons/edu.uh.honors.guestautologin.plist
-}
-
-# Uninstall guest autologin LaunchDaemon. This uninstalls the script that resets the autologin of guest.
-function uninstallGuestAutoLoginDaemon {
-  echo "Uninstalling Auto Guest Login Script..."
-  rm -f /usr/local/honors/guest_autologin.sh
-  rm -f /Library/LaunchDaemons/edu.uh.honors.guestautologin.plist
-}
-
 # Install Screen Lock LaunchAgent. This installs a script on shared computers to disable the screen lock.
 function getScreenLockLaunchAgent {
   echo "Installing script to disable screen lock..."
@@ -261,6 +213,7 @@ function uninstallKeychainResetLaunchDaemon {
   rm -f /usr/local/honors/reset_keychains.sh
   rm -f /Library/LaunchDaemons/edu.uh.honors.resetkeychains.plist
 }
+
 
 # Restrict the AD logins to certain Groups (we are using HC Admins, HC Autheticated Users & HC Students)
 function restrictActiveDirectoryLogins {
@@ -336,13 +289,13 @@ function disableSaveWindowState {
 # Disable Automatic Software Updates. We are using Munki to handle this.
 function disableAutomaticSoftwareUpdates {
   echo "Disabling Software Update Automatic Checks"
-  /usr/sbin/softwareupdate --schedule off
+  softwareupdate --schedule off
 }
 
 # Disable Gatekeeper. Gatekeeper helps to protect your Mac from malware and misbehaving apps downloaded from the Internet. But disable it in order for our scripts to run.
 function disableGatekeeper {
   echo "Disabling Gatekeeper..."
-  /usr/sbin/spctl --master-disable
+  spctl --master-disable
 }
 
 # Show username & password fields in Login Window instead of circles.
@@ -351,27 +304,22 @@ function enableUsernameAndPasswordFields {
   $defaults write /Library/Preferences/com.apple.loginwindow.plist SHOWFULLNAME -bool TRUE
 }
 
-# Munki in Bootstrap mode. Munki will run on the second reboot.
+# Munki in Bootstrap mode. Used with DeployStudio workflows. When DeployStudio reboots the machine again, Munki will run on the second reboot.
 function bootstrapMunki {
   echo "Setting munki to bootstrap mode..."
   touch /Users/Shared/.com.googlecode.munki.checkandinstallatstartup
 }
 
-# Add "Important CougarNet Information" dialog box to the lock screen, if not a presentation or consulting computer.
+# Add "Important CougarNet Information" dialog box to the lock screen
 function policyBanner {
-  if [ "$1" != "presentation" ] && [ "$1" != "consultingcomputer" ]
-  then
-    echo "Downloading policyBanner..."
-    /usr/bin/curl -s --show-error $hcstorage/scripts/PolicyBanner.rtf -o "/Library/Security/PolicyBanner.rtf"
-  else
-    /bin/rm /Library/Security/PolicyBanner.rtf
-  fi
+  echo "Downloading policyBanner..."
+  /usr/bin/curl -s --show-error $hcstorage/scripts/PolicyBanner.rtf -o "/Library/Security/PolicyBanner.rtf"
 }
 
 # If this is a Sierra or High Sierra machine we need to suppress the setup of Siri and a couple other things for first time logins
-function siriSuppression {
-  os_vers="$(sw_vers -productVersion | awk -F. '{print $2}')"
-  if [ "$os_vers" == "12" ] || [ "$os_vers" == "13" ]
+function highSierraSiriSuppression {
+os_vers="$(sw_vers -productVersion | awk -F. '{print $2}')"
+  if [ $os_vers == 12 ] || [ $os_vers == 13 ]
   then
     echo "Downloading Siri suppression script..."
     /usr/bin/curl -s --show-error $hcstorage/scripts/sierra_suppressions.sh -o "/usr/local/honors/sierra_suppressions.sh" --create-dirs
@@ -382,92 +330,13 @@ function siriSuppression {
   fi
 }
 
-# Change machine name if prompted to change
-function setMachineName {
-  if [ "$1" != "nonamechange" ]
-  then
-    echo "Changing machine name to $1. This will require restart..."
-    /usr/sbin/scutil --set HostName "$1"
-    /usr/sbin/scutil --set LocalHostName "$1"
-    /usr/sbin/scutil --set ComputerName "$1"
-    /usr/bin/dscacheutil -flushcache
-    reboot_required=true
-  else
-    echo "Leaving machine name unchanged."
-  fi
-}
-
-# Set time and date server
-function setTimeAndDate {
-  echo "Setting date and time server..."
-  /usr/sbin/ntpdate -u cndc13.cougarnet.uh.edu
-}
-
-# Bind to AD
-function bindToAD {
-	if [ "$1" == "adbind" ]
-	then
-	  read -p "Enter AD Admin username:" ADusername
-	  if [ "$2" == "facultystaffcomputer" ]
-	  then
-	    dsconfigad -a "$3" -u "$ADusername" -ou "OU=HC-Faculty,OU=HC,DC=cougarnet,DC=uh,DC=edu" -domain cougarnet.uh.edu -localhome enable -useuncpath enable -alldomains enable
-	  elif [ "$2" == "presentation" ]
-	  then
-	    dsconfigad -a "$3" -u "$ADusername" -ou "OU=HC-Classrooms,OU=HC,DC=cougarnet,DC=uh,DC=edu" -domain cougarnet.uh.edu -localhome enable -useuncpath enable -alldomains enable
-	  elif [ "$2" == "consultingcomputer" ]
-	  then
-	    dsconfigad -a "$3" -u "$ADusername" -ou "OU=HC-Consulting,OU=HC,DC=cougarnet,DC=uh,DC=edu" -domain cougarnet.uh.edu -localhome enable -useuncpath enable -alldomains enable
-	  elif [ "$2" == "advisorcomputer" ]
-	  then
-	    dsconfigad -a "$3" -u "$ADusername" -ou "OU=HC-Faculty,OU=HC,DC=cougarnet,DC=uh,DC=edu" -domain cougarnet.uh.edu -localhome enable -useuncpath enable -alldomains enable
-	  elif [ "$2" == "labcomputer" ]
-	  then
-	    dsconfigad -a "$3" -u "$ADusername" -ou "OU=HC-HonorsLab,OU=HC,DC=cougarnet,DC=uh,DC=edu" -domain cougarnet.uh.edu -localhome enable -useuncpath enable -alldomains enable
-	  elif [ "$2" == "dashlabcomputer" ]
-	  then
-	    dsconfigad -a "$3" -u "$ADusername" -ou "OU=HC-Faculty,OU=HC,DC=cougarnet,DC=uh,DC=edu" -domain cougarnet.uh.edu -localhome enable -useuncpath enable -alldomains enable
-	  elif [ "$2" == "bonnerlabcomputer" ]
-	  then
-	    dsconfigad -a "$3" -u "$ADusername" -ou "OU=HC-BonnerLab,OU=HC,DC=cougarnet,DC=uh,DC=edu" -domain cougarnet.uh.edu -localhome enable -useuncpath enable -alldomains enable
-	  elif [ "$2" == "admincomputer" ]
-	  then
-	    dsconfigad -a "$3" -u "$ADusername" -ou "OU=HC-Servers,OU=HC,DC=cougarnet,DC=uh,DC=edu" -domain cougarnet.uh.edu -localhome enable -useuncpath enable -alldomains enable
-	  fi
-	fi
-}
-
-# Install packages
-function installPackages {
-  if [ "$1" == "packages" ]
-  then
-    echo "Downloading munkitools..."
-    /usr/bin/curl -s --show-error $hcstorage/packages/munkitools-3.1.1.3447.pkg -o "/usr/local/honors/munkitools-3.1.1.3447.pkg"
-    echo "Restore run is complete. Installing munkitools. This will restart the computer..."
-    /usr/sbin/installer -pkg /usr/local/honors/munkitools-3.1.1.3447.pkg -target /
-    reboot_required=true
-  fi
-}
-
-
-# Run functions
+# Run the functions that are generic to all workflows & setups.
 echo "Running merged_restore.sh script..."
 turnOffAirport
 turnOnSSH
 turnOnRemoteDesktop
-setTimeAndDate
-setMachineName $5
-bindToAD $6 $1 $5
-restrictActiveDirectoryLogins $3
 getManagedInstallsPlist $1
 enableGuestAccount
-getOfficeSetupLaunchAgent
-disableSystemSleep
-disableSaveWindowState
-disableAutomaticSoftwareUpdates
-disableGatekeeper
-enableUsernameAndPasswordFields
-policyBanner $1
-siriSuppression $2
 
 # Enable persistent PaperCut on lab computers
 if [ "$1" == "labcomputer" ]
@@ -480,13 +349,11 @@ else
 fi
 
 # Automatic guest login on classroom and podium computers
-if [ "$1" == "presentation" ] || [ "$1" == "consultingcomputer" ]
+if [ "$1" == "presentation" ]
 then
   setAutomaticGuestLogin
-  getGuestAutoLoginDaemon
 else
   disableAutomaticGuestLogin
-  uninstallGuestAutoLoginDaemon
 fi
 
 # If computer is shared, we want keychains to reset, and to not lock the screen
@@ -499,7 +366,14 @@ else
   uninstallKeychainResetLaunchDaemon
 fi
 
-# If backups are needed, install the backup launch daemon.
+# If students are logging in, this can't be an employee computer. Therefore, if not a student, run all other actions.
+if [ "$3" == "student" ]
+then
+  restrictActiveDirectoryLogins student
+else
+  restrictActiveDirectoryLogins nostudent
+fi
+
 if [ "$4" = "backup" ]
 then
   getBackupLaunchDaemon
@@ -507,21 +381,21 @@ else
   uninstallBackupLaunchDaemon
 fi
 
-# Bootstrap near the end
+# Run actions common to all systems
+getOfficeSetupLaunchAgent
+disableSystemSleep
+disableSaveWindowState
+disableAutomaticSoftwareUpdates
+disableGatekeeper
+enableUsernameAndPasswordFields
+policyBanner
 bootstrapMunki
 
-sleep 20
+# Suppress Siri setup for new users on 10.13 users
+highSierraSiriSuppression $2
 
-# Munkitools installation will restart the machine automatically, regardless of reboot_required. Ensure it is run last.
-installPackages $7
+echo "Done."
 
-# Reboot machine if required
-if [ $reboot_required == true ]
-then
-  echo "Done. Restarting computer..."
-  shutdown -r -t 3
-else
-  echo "Done."
-fi
+sleep 15
 
 exit 0
