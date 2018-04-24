@@ -364,7 +364,7 @@ function policyBanner {
     echo "Downloading policyBanner..."
     /usr/bin/curl -s --show-error $hcstorage/scripts/PolicyBanner.rtf -o "/Library/Security/PolicyBanner.rtf"
   else
-    /bin/rm /Library/Security/PolicyBanner.rtf
+    /bin/rm -f /Library/Security/PolicyBanner.rtf
   fi
 }
 
@@ -407,7 +407,7 @@ function setTimeAndDate {
 function bindToAD {
 	if [ "$1" == "adbind" ]
 	then
-	  read -p "Enter AD Admin username:" ADusername
+	  read -p "Enter AD Admin username: " ADusername
 	  if [ "$2" == "facultystaffcomputer" ]
 	  then
 	    dsconfigad -a "$3" -u "$ADusername" -ou "OU=HC-Faculty,OU=HC,DC=cougarnet,DC=uh,DC=edu" -domain cougarnet.uh.edu -localhome enable -useuncpath enable -alldomains enable
@@ -519,7 +519,8 @@ installPackages $7
 if [ $reboot_required == true ]
 then
   echo "Done. Restarting computer..."
-  shutdown -r -t 3
+  sleep 3
+  shutdown -r now
 else
   echo "Done."
 fi
