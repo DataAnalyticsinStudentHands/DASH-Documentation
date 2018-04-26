@@ -449,16 +449,12 @@ function installPackages {
 }
 
 
-# Run functions
+# Run functions common to all machines
 echo "Running merged_restore.sh script..."
 turnOffAirport
 turnOnSSH
 turnOnRemoteDesktop
 setTimeAndDate
-setMachineName $5
-bindToAD $6 $1 $5
-restrictActiveDirectoryLogins $3
-getManagedInstallsPlist $1
 enableGuestAccount
 getOfficeSetupLaunchAgent
 disableSystemSleep
@@ -466,8 +462,8 @@ disableSaveWindowState
 disableAutomaticSoftwareUpdates
 disableGatekeeper
 enableUsernameAndPasswordFields
+siriSuppression
 policyBanner $1
-siriSuppression $2
 
 # Enable persistent PaperCut on lab computers
 if [ "$1" == "labcomputer" ]
@@ -507,13 +503,15 @@ else
   uninstallBackupLaunchDaemon
 fi
 
-# Bootstrap near the end
+# Big stuff near the end
+setMachineName $5
+bindToAD $6 $1 $5
+restrictActiveDirectoryLogins $3
+getManagedInstallsPlist $1
 bootstrapMunki
+installPackages $7
 
 sleep 20
-
-# Munkitools installation will restart the machine automatically, regardless of reboot_required. Ensure it is run last.
-installPackages $7
 
 # Reboot machine if required
 if [ $reboot_required == true ]
