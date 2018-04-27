@@ -399,8 +399,9 @@ function setMachineName {
 
 # Set time and date server
 function setTimeAndDate {
-  echo "Setting date and time server..."
-  /usr/sbin/ntpdate -u cndc13.cougarnet.uh.edu
+  echo "Setting time zone and and time server..."
+  /usr/sbin/systemsetup -settimezone America/Chicago
+  /usr/sbin/ntpdate -u time.uh.edu
 }
 
 # Bind to AD
