@@ -1,69 +1,104 @@
-<span style="font-size: large;">NetRestore (High Sierra) Workflow and Setup:</span>
+NetRestore (High Sierra) Workflow and Setup:
 
-<span style="">The following figures illustrate the workflow for imaging a computer and some other workflows involved.</span>
+The following figures illustrate the workflow for imaging a computer and some other workflows involved.
 
-<div style="width: 640px; height: 480px; margin: 10px;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://www.lucidchart.com/documents/embeddedchart/bb41149d-06e0-4605-9ee6-09078926ce2a" id="E4LxE4c4B5aR"></iframe></div>
+## Imaging A Computer With High Sierra
 
-<span style="font-family: -apple-system, system-ui, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif; font-size: 14px; font-weight: 400;">In the following we describe the software that is used in the process of creating, maintenance and deploying images. We then describe the setup that used within Honors.</span>
+       0. Add the computer in Active Directory.
+
+                 A. Use Microsoft Remote Desktop to log into Active Directory. (Use cougarnet ID and password to log on.)
+
+                 B. Click on 'Active Directory Users and Computers' . Navigate to the appropriate group (e.g. HC-Staff). Create the computer.<br>
+
+1. Make sure your computer is connected to the network via ethernet. Then, restart the computer and hold down the option key. This will list all available bootable disks.
+2. Choose NetRestore of MacOS High Sierra.
+3. Once computer is imaged with the new OS, log in as admin and manually download merged_restore from hc-storage and run it, inputting requested credentials.
+4. Update CMDB
+
+## Upgrading to High Sierra Without Wiping
+
+1. Make sure your computer is connected to the network via ethernet. Then, restart the computer and hold the option key. This will list all available bootable disks.
+2. Select NetInstall of MacOS High Sierra. This will simply upgrade/reinstall the OS as if you had used the App Store, but without all the hassle.
+
+<br>
+
+In the following we describe the software that is used in the process of creating, maintenance and deploying images. We then describe the setup that used within Honors.
 
 ### Server.app
 
 Server.app is Mac OS X's directory and server application. It provides a NetInstall service which makes images available over a network. It is provided by the Mac App Store and can be downloaded [here](https://itunes.apple.com/us/app/os-x-server/id883878097?mt=12).
 
+<br>
+
 ### System Image Utility
 
-<span style="">System Image Utility is an application included in OS X. It can be used to create NetInstall and NetRestore Images.</span>  
-
-<span style="">  
-</span>
+System Image Utility is an application included in OS X. It can be used to create NetInstall and NetRestore Images.<br>
 
 ### Munki
 
 Munki is a client-server application that uses a web server and plists to install software for each type of computer we support. It can be found [on GitHub](https://github.com/munki/).
 
+<br>
+
 ### MunkiAdmin
 
 MunkiAdmin is a GUI that allows us to manage the munki respository with little work. It can be found [on GitHub](https://github.com/hjuutilainen/munkiadmin).
+
+<br>
 
 **NOTE: Always download the latest versions of these tools before using them.**
 
 ## Setup
 
+<br>
+
 ### Notes
 
-*   All of this software should be installed on the machine, or can be restored from a backup.
-*   All of the shares located on HC-Storage should be mounted before beginning this process.
-*   Make sure that OS X is up-to-date before proceeding.
+* All of this software should be installed on the machine, or can be restored from a backup.
+* All of the shares located on HC-Storage should be mounted before beginning this process.
+* Make sure that OS X is up-to-date before proceeding.
 
 ### OS X Server
 
 #### Install Server.app: Server.app should already be installed on HC-Deployment. If not, the VM should be restored from backup. If a backup does not exist, reinstall the app from the App Store.
 
+<br>
+
 #### Setup OS X Server:
+
+<br>
 
 **Mac OS X Server should already be configured, the following instructions are for an installation from scratch.**
 
-1.  Go through the Mac OS Server setup process, and make sure that it will be set up on the computer.
-2.  Once Server has completed its setup tasks, go to the settings tab the Overview page, and check that Enable Apple Push Notifications is checked. If not, check the box, and follow the instructions.
-3.  Turn on NetInstall service by selecting NetInstall in the left-hand pane and moving the toggle on the page to **ON**.
+1. Go through the Mac OS Server setup process, and make sure that it will be set up on the computer.
+2. Once Server has completed its setup tasks, go to the settings tab the Overview page, and check that Enable Apple Push Notifications is checked. If not, check the box, and follow the instructions.
+3. Turn on NetInstall service by selecting NetInstall in the left-hand pane and moving the toggle on the page to **ON**.
 
 ### System Image Utility
 
 System Image Utility can be used to create new (basic) Images from an OS Installer. Merged_restore then handles most all of the other settings once taken care of by DeployStudio.
 
+<br>
+
 Instructions to create these images are in the LucidChart above. There should be no need to create new ones unless a new OS is being deployed or new settings are being added. Images are vanilla and are used for all mac machine types in the college. New settings specific to certain workflows should be added to merged_restore.
+
+<br>
 
 hcadmin account information for NetRestore Images:
 
-*   Account Type: Administrator
-*   Full Name: `The Honors College`
-*   Account Name: `hcadmin`
-*   Password: Enter the hcadmin password
-*   Verify: Repeat the password from above
+* Account Type: Administrator
+* Full Name: `The Honors College`
+* Account Name: `hcadmin`
+* Password: Enter the hcadmin password
+* Verify: Repeat the password from above
+
+<br>
 
 ### Munki
 
 Munki provides a client-server model for maintaining software on computers throughout the College. It replies on a HTTP server, client package, and PLIST files.
+
+<br>
 
 #### How Munki Works:
 
@@ -71,16 +106,20 @@ Munki is installed on all client computers, and when called (or at boot), check 
 
 When called, munki checks the appropriate manifest on the server, then checks the catalogs available to that manifest. If a package appears on both the manifest, and in one of the available catalogs, it will be downloaded and installed.
 
+<br>
+
 #### Setup:
 
 Make sure that all the shares on HC-Storage are mounted and writable. Make sure that there is a folder labeled `munki` in the web folder, with the following subdirectories:
 
-*   catalogs
-*   manifests
-*   pkgs
-*   pkgsinfo
+* catalogs
+* manifests
+* pkgs
+* pkgsinfo
 
 Install `munkitools.dmg` on the local computer. Munki setup is now complete.
+
+<br>
 
 ### MunkiAdmin
 
@@ -88,17 +127,42 @@ Install `munkitools.dmg` on the local computer. Munki setup is now complete.
 
 Download the latest version of MunkiAdmin from GitHub, and copy it to the Applications folder on the local computer.
 
+<br>
+
 #### Managing a Munki Repository:
 
 Open MunkiAdmin, and navigate to the munki share, which should be `\Volumes\Shared\web\munki\` and open the repository. You can view all available packages, catalogs, and manifests.
 
+<br>
+
 **Remember that a package and the catalog it is assigned to must be enabled in the manifest.**
 
-<span style="font-size: large;">DeployStudio (Sierra and before) Workflow and Setup:</span>
+<br>
+
+DeployStudio (Sierra and before) Workflow and Setup:
 
 The following figures illustrate the workflow for imaging a computer and some other workflows involved.
 
-<div style="width: 640px; height: 480px; margin: 10px;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://www.lucidchart.com/documents/embeddedchart/e7fae3b7-587c-4b59-90e3-f410ac3239ad" id="6l89Ew87hb7Q"></iframe></div>
+## Imaging A Computer With Sierra (old technique using DeployStudio, for special cases)
+
+       0. Add the computer in Active Directory.
+
+                 A. Use Microsoft Remote Desktop to log into Active Directory. (Use cougarnet ID and password to log on.)
+
+                 B. Click on 'Active Directory Users and Computers' . Navigate to the appropriate group (e.g. HC-Staff). Create the computer.<br>
+
+1. Make sure your computer is connected to the network via ethernet.
+2. Then, restart the computer. After the start up 'chime', hold down the N key. This will cause the computer to boot from the network.
+3. After naming the computer, you will be directed to a list of possible profiles to choose from. Select your desired profile, then press the 'play' button.
+4. On the 'Active Directory binding' form, edit the 'Computers node' field to the appropriate group (e.g. HC-Staff).<br>
+5. When prompted, enter an admin account username and password to bind computer to the domain. After completing the process, computer will restart.
+6. If everything works properly, computer will complete binding to ActiveDirectory upon restart.
+7. Update CMDB.
+8. Verify that the new computer name shows up in MunkiReport.
+
+<br>
+
+<br>
 
 In the following we describe the software that is used in the process of creating, maintenance and deploying images. We then describe the setup that used within Honors.
 
@@ -138,10 +202,10 @@ Server.app is Mac OS X's directory and server application. It provides Profile M
 
 ### Notes
 
-*   If not noted otherwise, all of this work will be done on the HC-Deployment virtual machine. It can be accessed through Apple Remote Desktop or by using the vCenter console installed on HC-Management.
-*   All of this software should be installed on HC-Deployment, or can be restored from a backup of HC-Deployment.
-*   All of the shares located on HC-Storage should be mounted on HC-Deployment before beginning this process.
-*   Make sure that OS X is up-to-date before proceeding.
+* If not noted otherwise, all of this work will be done on the HC-Deployment virtual machine. It can be accessed through Apple Remote Desktop or by using the vCenter console installed on HC-Management.
+* All of this software should be installed on HC-Deployment, or can be restored from a backup of HC-Deployment.
+* All of the shares located on HC-Storage should be mounted on HC-Deployment before beginning this process.
+* Make sure that OS X is up-to-date before proceeding.
 
 ### OS X Server
 
@@ -153,11 +217,11 @@ Server.app should already be installed on HC-Deployment. If not, the VM should b
 
 **Mac OS X Server should already be configured, the following instructions are for an installation from scratch.**
 
-1.  Go through the Mac OS Server setup process, and make sure that it will be set up on the computer HC-Deployment.
-2.  Once Server has completed its setup tasks, go to the settings tab the Overview page, and check that Enable Apple Push Notifications is checked. If not, check the box, and follow the instructions.
-3.  Turn on Websites service by selecting Websites in the left-hand pane and moving the toggle on the page to **ON**.
-4.  Enable Profile Manager by selecting Profile Manager in the left-hand pane and moving the toogle on the page to **ON**.
-5.  Configure Profile Manager by following the instructions [here](http://krypted.com/mac-security/configure-profile-manager-on-yosemite-server-yosemite-running-the-server-app/) under the section Setting Up Profile Manager. **Do not configure the Device Enrollment Program, or the Volume Purchase Program.**
+1. Go through the Mac OS Server setup process, and make sure that it will be set up on the computer HC-Deployment.
+2. Once Server has completed its setup tasks, go to the settings tab the Overview page, and check that Enable Apple Push Notifications is checked. If not, check the box, and follow the instructions.
+3. Turn on Websites service by selecting Websites in the left-hand pane and moving the toggle on the page to **ON**.
+4. Enable Profile Manager by selecting Profile Manager in the left-hand pane and moving the toogle on the page to **ON**.
+5. Configure Profile Manager by following the instructions [here](http://krypted.com/mac-security/configure-profile-manager-on-yosemite-server-yosemite-running-the-server-app/) under the section Setting Up Profile Manager. **Do not configure the Device Enrollment Program, or the Volume Purchase Program.**
 
 ### DeployStudio
 
@@ -173,17 +237,17 @@ Follow the [DeployStudio Quick Installation Guide](http://www.deploystudio.com/D
 
 Our DeployStudio installation will be using the following options:
 
-*   Full network configuration
-*   The repository will be located on HC-Storage at `smb://hc-storage.cougarnet.uh.edu/Deployment/`
-*   The server address will be `http://hc-deployment.cougarnet.uh.edu:60080/`
-*   The username will be `hcadmin` and password will be the local password for hcadmin.
-*   HC-Deployment will be set up as a DeployStudio master.
-*   Select **network sharepoint** as the location of the DeployStudio repository and enter the path given above. The user name is `deployment` and fill in the associated password.
-*   Don't enable email notifications.
-*   Don't encrypt traffic, use the default server port, and **do not** reject unknown computers.
-*   Don't configure any specific groups for DeployStudio access.
-*   Do not change multicast settings. UH's network is not compatible with multicast deployments.
-*   Make sure `Hardware Serial Number (default)` is selected as the computer identifier.
+* Full network configuration
+* The repository will be located on HC-Storage at `smb://hc-storage.cougarnet.uh.edu/Deployment/`
+* The server address will be `http://hc-deployment.cougarnet.uh.edu:60080/`
+* The username will be `hcadmin` and password will be the local password for hcadmin.
+* HC-Deployment will be set up as a DeployStudio master.
+* Select **network sharepoint** as the location of the DeployStudio repository and enter the path given above. The user name is `deployment` and fill in the associated password.
+* Don't enable email notifications.
+* Don't encrypt traffic, use the default server port, and **do not** reject unknown computers.
+* Don't configure any specific groups for DeployStudio access.
+* Do not change multicast settings. UH's network is not compatible with multicast deployments.
+* Make sure `Hardware Serial Number (default)` is selected as the computer identifier.
 
 #### Create a NetBoot Set
 
@@ -191,19 +255,19 @@ Refer to the Creating a DeployStudio NetBoot Set in the [DeployStudio Quick Inst
 
 Use these options:
 
-*   Do not enable the DHCP server.
-*   Use the current boot volume as the source.
-*   Use the provided system name.
-*   Set the unique identifier to any number between 1 and 65535 that is not the provided one.
-*   Use the NFS protocol.
-*   Use the current language.
-*   Set the network time server to `cndc13.cougarnet.uh.edu`.
-*   Select `Connect to specific servers` and enter `http://hc-deployment.cougarnet.uh.edu:60080/` in both the preferred and alternative text fields.
-*   The default login will be `hcadmin` and the associated password on HC-Deployment.
-*   Set the ARD user login to `hcadmin` and the password to `gocoogs`. It need not be complex or secure because it is temporary.
-*   Disable wireless support
-*   Make sure the destination is set to `/Library/NetBoot/NetBootSP0`.
-*   Make it the default NetBoot set.
+* Do not enable the DHCP server.
+* Use the current boot volume as the source.
+* Use the provided system name.
+* Set the unique identifier to any number between 1 and 65535 that is not the provided one.
+* Use the NFS protocol.
+* Use the current language.
+* Set the network time server to `cndc13.cougarnet.uh.edu`.
+* Select `Connect to specific servers` and enter `http://hc-deployment.cougarnet.uh.edu:60080/` in both the preferred and alternative text fields.
+* The default login will be `hcadmin` and the associated password on HC-Deployment.
+* Set the ARD user login to `hcadmin` and the password to `gocoogs`. It need not be complex or secure because it is temporary.
+* Disable wireless support
+* Make sure the destination is set to `/Library/NetBoot/NetBootSP0`.
+* Make it the default NetBoot set.
 
 When NetBoot set creation is finished, go into Server.app and turn on the NetBoot service.
 
@@ -219,8 +283,8 @@ Once the download has completed, open AutoDMG and follow the instructions in [th
 
 Use the following information to name and save the image:
 
-*   Name the image `BaseImage.hfs.dmg`. **The image must have the extension `.hfs.dmg` to be recognized by DeployStudio.**
-*   The image should be saved to `\Volumes\Deployment\Masters\HFS\` to ensure that it is placed in the DeployStudio network share.
+* Name the image `BaseImage.hfs.dmg`. **The image must have the extension `.hfs.dmg` to be recognized by DeployStudio.**
+* The image should be saved to `\Volumes\Deployment\Masters\HFS\` to ensure that it is placed in the DeployStudio network share.
 
 ### CreateUserPkg
 
@@ -232,13 +296,13 @@ Use CreateUserPkg on HC-IT (It is already installed, look in Utilities), mount t
 
 Fill out the fields as follows:
 
-*   Full Name: `The Honors College`
-*   Account Name: `hcadmin`
-*   Password: Enter the hcadmin password
-*   Verify: Repeat the password from above
-*   Account Type: Administrator
-*   Package Type: `edu.uh.honors.createhcadmin.pkg`
-*   Version: `yyyy.mm` Example: `2015.03`
+* Full Name: `The Honors College`
+* Account Name: `hcadmin`
+* Password: Enter the hcadmin password
+* Verify: Repeat the password from above
+* Account Type: Administrator
+* Package Type: `edu.uh.honors.createhcadmin.pkg`
+* Version: `yyyy.mm` Example: `2015.03`
 
 Save the created package to `\Volumes\Deployment\Packages\ and add it to desired workflows.`
 
@@ -256,10 +320,10 @@ When called, munki checks the appropriate manifest on the server, then checks th
 
 Make sure that all the shares on HC-Storage are mounted and writable. Make sure that there is a folder labeled `munki` in the web folder, with the following subdirectories:
 
-*   catalogs
-*   manifests
-*   pkgs
-*   pkgsinfo
+* catalogs
+* manifests
+* pkgs
+* pkgsinfo
 
 Install `munkitools.dmg` on the local computer. Munki setup is now complete.
 
@@ -270,3 +334,15 @@ Install `munkitools.dmg` on the local computer. Munki setup is now complete.
 Download the latest version of MunkiAdmin from GitHub, and copy it to the Applications folder on the local computer.
 
 #### Managing a Munki Repository
+
+Open MunkiAdmin, and navigate to the munki share, which should be `\Volumes\Shared\web\munki\` and open the repository. You can view all available packages, catalogs, and manifests.
+
+**Remember that a package and the catalog it is assigned to must be enabled in the manifest.**
+
+### AutoPkgr
+
+AutoPkgr checks for updates to specified pieces of software, and automatically imports them to Munki. This often results in duplicate packages, so you may need to clean up the duplicates in MunkiAdmin every once in awhile. It is installed on HC-Deployment.
+
+#### Setup
+
+AutoPkgr should be configured according to [these instructions](https://derflounder.wordpress.com/2014/07/15/autopkgr-a-gui-for-autopkg/). Only select recipes that correspond to the Honors College Package List. Do not configure the email notifications. This is the path for the munki repository - `\Volumes\Shared\web\munki\`. AutoPkgr should run automatically from here on out.
