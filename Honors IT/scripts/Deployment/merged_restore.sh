@@ -441,6 +441,10 @@ function bindToAD {
 function installPackages {
   if [ "$1" == "packages" ]
   then
+    echo "Downloading HP printer driver package..."
+    /usr/bin/curl -s --show-error $hcstorage/packages/HewlettPackardPrinterDrivers.pkg -o "/usr/local/honors/HewlettPackardPrinterDrivers.pkg"
+    echo "Installing HP printer drivers..."
+    /usr/sbin/installer -pkg /usr/local/honors/HewlettPackardPrinterDrivers.pkg -target /
     echo "Downloading munkitools..."
     /usr/bin/curl -s --show-error $hcstorage/packages/munkitools-3.1.1.3447.pkg -o "/usr/local/honors/munkitools-3.1.1.3447.pkg"
     echo "Restore run is complete. Installing munkitools. This will restart the computer..."
