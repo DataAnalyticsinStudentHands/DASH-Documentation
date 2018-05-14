@@ -73,7 +73,8 @@ function turnOnSSH {
 # Turn on Remote Desktop. This allows Remote Access through Apple Remote Desktop.
 function turnOnRemoteDesktop {
   echo "Turning on RemoteManagement..."
-  $kickstart -activate -configure -access -on -users hcadmin -privs -all -restart -agent
+  $kickstart -activate -configure -allowAccessFor -specifiedUsers -configure -users hcadmin -access -on
+  $kickstart -configure -users hcadmin -privs -all -restart -agent
 }
 
 # Get ManagedInstalls.plist. This uses the first parameter to get the correct list of software to for the computer (munki will process the lists later).
