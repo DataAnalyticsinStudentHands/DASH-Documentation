@@ -155,10 +155,16 @@ chmod 755 /usr/local/honors
 chown root:wheel /usr/local/honors
 }
 
-# Enable the Guest Account
-function enableGuestAccount {
-  echo "Enabling Guest account..."
-  $defaults write /Library/Preferences/com.apple.loginwindow.plist GuestEnabled -bool YES
+# Create the hcguest accoung
+function createHCGuestAccount {
+  echo "Creating hcguest account..."
+  # Delete hcguest in case it exists to remove settings
+  /usr/bin/dscl localhost delete /Local/Default/Users/hcguest
+  rm -rf /Users/hcguest
+
+  # Download and install hcguest package
+  /usr/bin/curl -s --show-error $hcstorage/packages/create_hcguest-1.0.pkg -o /usr/local/honors/create_hcguest-1.0.pkg
+  /usr/sbin/installer -pkg /usr/local/honors/create_hcguest-1.0.pkg -target /
 }
 
 # Install PaperCut LaunchAgent. This installs a script that keeps PaperCut constantly open.
@@ -191,21 +197,21 @@ function uninstallLabPrinterLaunchAgent {
   rm -f /Library/LaunchAgents/edu.uh.honors.labprinters.plist
 }
 
-# Setting Guest account to automatically login after the computer started.
+# Setting hcguest account to automatically login after the computer started.
 function setAutomaticGuestLogin {
-  echo "Setting guest to automatic login..."
-  $defaults write /Library/Preferences/com.apple.loginwindow.plist autoLoginUser guest
+  echo "Setting hcguest to automatic login..."
+  $defaults write /Library/Preferences/com.apple.loginwindow.plist autoLoginUser hcguest
 }
 
-# Disable automatic login of Guest account, in case it is enabled
+# Disable automatic login of hcguest account, in case it is enabled
 function disableAutomaticGuestLogin {
-  echo "Disabling automatic guest login..."
+  echo "Disabling automatic hcguest login..."
   $defaults delete /Library/Preferences/com.apple.loginwindow.plist autoLoginUser
 }
 
-# Install guest autologin LaunchDaemon. This installs a script that resets the autologin of guest.
+# Install hcguest autologin LaunchDaemon. This installs a script that resets the autologin of hcguest.
 function getGuestAutoLoginDaemon {
-  echo "Getting Auto Guest Login Script..."
+  echo "Getting Auto hcguest Login Script..."
   /usr/bin/curl -s --show-error $hcstorage/scripts/guest_autologin.sh -o "/usr/local/honors/guest_autologin.sh" --create-dirs
   /bin/chmod +x /usr/local/honors/guest_autologin.sh
 
@@ -213,9 +219,9 @@ function getGuestAutoLoginDaemon {
   /bin/chmod 644 /Library/LaunchDaemons/edu.uh.honors.guestautologin.plist
 }
 
-# Uninstall guest autologin LaunchDaemon. This uninstalls the script that resets the autologin of guest.
+# Uninstall hcguest autologin LaunchDaemon. This uninstalls the script that resets the autologin of hcguest.
 function uninstallGuestAutoLoginDaemon {
-  echo "Uninstalling Auto Guest Login Script..."
+  echo "Uninstalling Auto hcguest Login Script..."
   rm -f /usr/local/honors/guest_autologin.sh
   rm -f /Library/LaunchDaemons/edu.uh.honors.guestautologin.plist
 }
@@ -442,10 +448,10 @@ function bindToAD {
 function installPackages {
   if [ "$1" == "packages" ]
   then
-    echo "Downloading HP printer driver package..."
-    /usr/bin/curl -s --show-error $hcstorage/packages/HewlettPackardPrinterDrivers.pkg -o "/usr/local/honors/HewlettPackardPrinterDrivers.pkg"
-    echo "Installing HP printer drivers..."
-    /usr/sbin/installer -pkg /usr/local/honors/HewlettPackardPrinterDrivers.pkg -target /
+	echo "Downloading HP printer driver package..."
+	/usr/bin/curl -s --show-error $hcstorage/packages/HewlettPackardPrinterDrivers.pkg -o "/usr/local/honors/HewlettPackardPrinterDrivers.pkg"
+	echo "Installing HP printer drivers..."
+	/usr/sbin/installer -pkg /usr/local/honors/HewlettPackardPrinterDrivers.pkg -target /
     echo "Downloading munkitools..."
     /usr/bin/curl -s --show-error $hcstorage/packages/munkitools-3.1.1.3447.pkg -o "/usr/local/honors/munkitools-3.1.1.3447.pkg"
     echo "Restore run is complete. Installing munkitools. This will restart the computer..."
@@ -461,7 +467,7 @@ turnOffAirport
 turnOnSSH
 turnOnRemoteDesktop
 setTimeAndDate
-enableGuestAccount
+createHCGuestAccount
 getOfficeSetupLaunchAgent
 disableSystemSleep
 disableSaveWindowState
@@ -481,7 +487,7 @@ else
   uninstallLabPrinterLaunchAgent
 fi
 
-# Automatic guest login on classroom and podium computers
+# Automatic hcguest login on classroom and podium computers
 if [ "$1" == "presentation" ] || [ "$1" == "consultingcomputer" ]
 then
   setAutomaticGuestLogin
