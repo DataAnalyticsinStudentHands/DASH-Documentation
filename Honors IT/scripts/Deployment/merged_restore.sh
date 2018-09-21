@@ -404,11 +404,23 @@ function setMachineName {
   fi
 }
 
-# Set time and date server
+# Set time and date server on most computers. Downloads script and plist to persistently reset timeserver on High Sierra computers
 function setTimeAndDate {
-  echo "Setting time zone and and time server..."
-  /usr/sbin/systemsetup -settimezone America/Chicago
-  /usr/sbin/ntpdate -u time.uh.edu
+  os_vers="$(sw_vers -productVersion | awk -F. '{print $2}')"
+  if [ "$os_vers" != "13" ]
+  then
+    echo "Setting time zone and and time server..."
+    /usr/sbin/systemsetup -settimezone America/Chicago
+    /usr/sbin/ntpdate -u time.uh.edu
+  else
+    echo "Getting High Sierra Time Server script..."
+    /usr/bin/curl -s --show-error $hcstorage/scripts/high_sierra_timeserver.sh -o "/usr/local/honors/high_sierra_timeserver.sh" --create-dirs
+    /bin/chmod +x /usr/local/honors/high_sierra_timeserver.sh
+
+    echo "Getting High Sierra Time Server plist..."
+    /usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.highsierratime.plist -o "/Library/LaunchAgents/edu.uh.honors.highsierratime.plist"
+    /bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.highsierratime.plist
+  fi
 }
 
 # Bind to AD
