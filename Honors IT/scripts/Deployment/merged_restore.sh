@@ -351,6 +351,12 @@ function disableAutomaticSoftwareUpdates {
 function disableGatekeeper {
   echo "Disabling Gatekeeper..."
   /usr/sbin/spctl --master-disable
+  echo "Getting Gatekeeper persistent disable Script..."
+  /usr/bin/curl -s --show-error $hcstorage/scripts/disable_gatekeeper.sh -o "/usr/local/honors/disable_gatekeeper.sh" --create-dirs
+  /bin/chmod +x /usr/local/honors/disable_gatekeeper.sh
+
+  /usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.disablegatekeeper.plist -o "/Library/LaunchDaemons/edu.uh.honors.disablegatekeeper.plist"
+  /bin/chmod 644 /Library/LaunchDaemons/edu.uh.honors.disablegatekeeper.plist
 }
 
 # Show username & password fields in Login Window instead of circles.
