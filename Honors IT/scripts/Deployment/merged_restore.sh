@@ -155,16 +155,17 @@ chmod 755 /usr/local/honors
 chown root:wheel /usr/local/honors
 }
 
-# Create the hcguest accoung
+# Create the hcguest account and set install scripts that manage it. They recreate it nightly and set it to log in automatically.
 function createHCGuestAccount {
-  echo "Creating hcguest account..."
-  # Delete hcguest in case it exists to remove settings
-  /usr/bin/dscl localhost delete /Local/Default/Users/hcguest
-  rm -rf /Users/hcguest
-
-  # Download and install hcguest package
+  echo "Pulling scripts to create hcguest account..."
+  # Download and install hcguest package and scripts
   /usr/bin/curl -s --show-error $hcstorage/packages/create_hcguest-1.0.pkg -o /usr/local/honors/create_hcguest-1.0.pkg
   /usr/sbin/installer -pkg /usr/local/honors/create_hcguest-1.0.pkg -target /
+  /usr/bin/curl -s --show-error $hcstorage/scripts/manage_hcguest.sh -o "/usr/local/honors/manage_hcguest.sh"
+  /usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.managehcguest.plist -o "/Library/LaunchAgents/edu.uh.honors.managehcguest.plist"
+  /bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.managehcguest.plist
+  echo "Creating hcguest..."
+  /bin/bash /usr/local/honors/manage_hcguest.sh
 }
 
 # Install PaperCut LaunchAgent. This installs a script that keeps PaperCut constantly open.
@@ -277,19 +278,19 @@ function restrictActiveDirectoryLogins {
   /usr/bin/dscl . -create /Groups/com.apple.loginwindow.netaccounts RealName "Login Window's custom net accounts"
   /usr/bin/dscl . -create /Groups/com.apple.loginwindow.netaccounts PrimaryGroupID 206
 
-  /usr/sbin/dseditgroup -o edit -n /Local/Default -a HC\ Admins -t group com.apple.loginwindow.netaccounts
-  /usr/sbin/dseditgroup -o edit -n /Local/Default -a HC\ Authenticated\ Users -t group com.apple.loginwindow.netaccounts
+  /usr/sbin/dseditgroup -o edit -n /Local/Default -a HC-Admins -t group com.apple.loginwindow.netaccounts
+  /usr/sbin/dseditgroup -o edit -n /Local/Default -a HC-Authenticated-Users -t group com.apple.loginwindow.netaccounts
 
   if [ "$1" == "student" ]
   then
     echo "Adding students to allowed user list..."
-    /usr/sbin/dseditgroup -o edit -n /Local/Default -a HC\ Students -t group com.apple.loginwindow.netaccounts
+    /usr/sbin/dseditgroup -o edit -n /Local/Default -a HC-Students -t group com.apple.loginwindow.netaccounts
   fi
 
   if [ "$1" == "nostudent" ]
   then
     echo "Ensuring students are not on allowed user list..."
-    /usr/sbin/dseditgroup -o edit -n /Local/Default -d HC\ Students -t group com.apple.loginwindow.netaccounts
+    /usr/sbin/dseditgroup -o edit -n /Local/Default -d HC-Students -t group com.apple.loginwindow.netaccounts
   fi
 
   /usr/bin/dscl . -create /Groups/com.apple.access_loginwindow
@@ -354,8 +355,14 @@ function disableGatekeeper {
 
 # Show username & password fields in Login Window instead of circles.
 function enableUsernameAndPasswordFields {
-  echo "Enabling username and password fields..."
-  $defaults write /Library/Preferences/com.apple.loginwindow.plist SHOWFULLNAME -bool TRUE
+  if [ $1 == "presentation" ]
+  then
+    # We will not enable this on presentation computers because it will interfere with the autologin of hcguest.
+    $defaults write /Library/Preferences/com.apple.loginwindow.plist SHOWFULLNAME -bool FALSE
+  else
+    echo "Enabling username and password fields..."
+    $defaults write /Library/Preferences/com.apple.loginwindow.plist SHOWFULLNAME -bool TRUE
+  fi
 }
 
 # Munki in Bootstrap mode. Munki will run on the second reboot.
@@ -407,12 +414,8 @@ function setMachineName {
 # Set time and date server on most computers. Downloads script and plist to persistently reset timeserver on High Sierra computers
 function setTimeAndDate {
   os_vers="$(sw_vers -productVersion | awk -F. '{print $2}')"
-  if [ "$os_vers" != "13" ]
+  if [ "$os_vers" == "13" ]
   then
-    echo "Setting time zone and and time server..."
-    /usr/sbin/systemsetup -settimezone America/Chicago
-    /usr/sbin/ntpdate -u time.uh.edu
-  else
     echo "Getting High Sierra Time Server script..."
     /usr/bin/curl -s --show-error $hcstorage/scripts/high_sierra_timeserver.sh -o "/usr/local/honors/high_sierra_timeserver.sh" --create-dirs
     /bin/chmod +x /usr/local/honors/high_sierra_timeserver.sh
@@ -420,6 +423,10 @@ function setTimeAndDate {
     echo "Getting High Sierra Time Server plist..."
     /usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.highsierratime.plist -o "/Library/LaunchAgents/edu.uh.honors.highsierratime.plist"
     /bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.highsierratime.plist
+  else
+    echo "Setting time zone and and time server..."
+    /usr/sbin/systemsetup -settimezone America/Chicago
+    /usr/sbin/ntpdate -u time.uh.edu
   fi
 }
 
@@ -472,20 +479,18 @@ function installPackages {
   fi
 }
 
-
 # Run functions common to all machines
 echo "Running merged_restore.sh script..."
 turnOffAirport
 turnOnSSH
 turnOnRemoteDesktop
 setTimeAndDate
-createHCGuestAccount
 getOfficeSetupLaunchAgent
 disableSystemSleep
 disableSaveWindowState
 disableAutomaticSoftwareUpdates
 disableGatekeeper
-enableUsernameAndPasswordFields
+enableUsernameAndPasswordFields $1
 siriSuppression
 policyBanner $1
 
@@ -497,6 +502,12 @@ then
 else
   uninstallPaperCutLaunchAgent
   uninstallLabPrinterLaunchAgent
+fi
+
+# Create hcguest on public and lab computers
+if [ "$1" == "presentation" ] || [ "$1" == "consultingcomputer" ] || [ "$1" == "labcomputer" ]
+then
+  createHCGuestAccount
 fi
 
 # Automatic hcguest login on classroom and podium computers

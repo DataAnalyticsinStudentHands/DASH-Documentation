@@ -1,4 +1,3 @@
-#########
 #!/bin/sh
 
 # Use "/usr/sbin/systemsetup -listtimezones" to see a list of available list time zones.
@@ -32,4 +31,3 @@ uuid=`/usr/sbin/system_profiler SPHardwareDataType | grep "Hardware UUID" | cut 
 /usr/sbin/systemsetup -getnetworktimeserver
 
 exit 0
-#########
