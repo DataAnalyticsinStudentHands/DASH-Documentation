@@ -47,6 +47,16 @@ Check status:
     $ firewall-cmd --runtime-to-permanent 
     $ firewall-cmd --reload 
 
+### Setup system services
+
+    `[root@www ~]# systemctl start rsyncd 
+     [root@www ~]# systemctl enable rsyncd 
+     [root@www ~]# systemctl list-units --type=service
+     
+     [root@www ~]# service service.name status`
+
+[Read](https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units)
+
 ### Links for Some services
 
 [MariaDB](http://sharadchhetri.com/2014/07/31/install-mariadb-server-centos-7-rhel-7/)
