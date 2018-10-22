@@ -37,6 +37,11 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.51-b03, mixed mode)
 
 * MongoDB (on tcan.hnet.uh.edu only)
 
+
+### TCEQ incoming data
+
+Are flowing in via setup of sftp on hnetdev.hnet.uh.edu into `/home/tceq/uploads`
+
 ## Server Certificates
 
 ### 1. dash.hnet.uh.edu (Production)
