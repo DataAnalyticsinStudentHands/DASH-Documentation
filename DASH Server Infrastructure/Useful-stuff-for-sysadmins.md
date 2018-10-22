@@ -37,11 +37,15 @@ We have to change the mode by running something like:
 Check status:
     `ls -Z`
 
-### Firewall-cmd open port 3000
+### Firewall-cmd open/close port 3000
 
     firewall-cmd --permanent --zone=public --add-port=3000/tcp
     firewall-cmd --reload
     firewall-cmd --permanent --list-all
+    
+    $ firewall-cmd --zone=public --remove-port=3000/tcp
+    $ firewall-cmd --runtime-to-permanent 
+    $ firewall-cmd --reload 
 
 ### Links for Some services
 
