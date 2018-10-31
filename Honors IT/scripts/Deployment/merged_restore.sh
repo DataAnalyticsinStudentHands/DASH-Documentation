@@ -155,19 +155,6 @@ chmod 755 /usr/local/honors
 chown root:wheel /usr/local/honors
 }
 
-# Create the hcguest account and set install scripts that manage it. They recreate it nightly and set it to log in automatically.
-function createHCGuestAccount {
-  echo "Pulling scripts to create hcguest account..."
-  # Download and install hcguest package and scripts
-  /usr/bin/curl -s --show-error $hcstorage/packages/create_hcguest-1.0.pkg -o /usr/local/honors/create_hcguest-1.0.pkg
-  /usr/sbin/installer -pkg /usr/local/honors/create_hcguest-1.0.pkg -target /
-  /usr/bin/curl -s --show-error $hcstorage/scripts/manage_hcguest.sh -o "/usr/local/honors/manage_hcguest.sh"
-  /usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.managehcguest.plist -o "/Library/LaunchAgents/edu.uh.honors.managehcguest.plist"
-  /bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.managehcguest.plist
-  echo "Creating hcguest..."
-  /bin/bash /usr/local/honors/manage_hcguest.sh
-}
-
 # Install PaperCut LaunchAgent. This installs a script that keeps PaperCut constantly open.
 function getPaperCutLaunchAgent {
   echo "Getting PaperCut login script..."
@@ -198,21 +185,21 @@ function uninstallLabPrinterLaunchAgent {
   rm -f /Library/LaunchAgents/edu.uh.honors.labprinters.plist
 }
 
-# Setting hcguest account to automatically login after the computer started.
+# Setting guest account to automatically login after the computer started.
 function setAutomaticGuestLogin {
-  echo "Setting hcguest to automatic login..."
-  $defaults write /Library/Preferences/com.apple.loginwindow.plist autoLoginUser hcguest
+  echo "Setting guest to automatic login..."
+  $defaults write /Library/Preferences/com.apple.loginwindow.plist autoLoginUser guest
 }
 
-# Disable automatic login of hcguest account, in case it is enabled
+# Disable automatic login of guest account, in case it is enabled
 function disableAutomaticGuestLogin {
-  echo "Disabling automatic hcguest login..."
+  echo "Disabling automatic guest login..."
   $defaults delete /Library/Preferences/com.apple.loginwindow.plist autoLoginUser
 }
 
-# Install hcguest autologin LaunchDaemon. This installs a script that resets the autologin of hcguest.
+# Install guest autologin LaunchDaemon. This installs a script that resets the autologin of guest.
 function getGuestAutoLoginDaemon {
-  echo "Getting Auto hcguest Login Script..."
+  echo "Getting Auto guest Login Script..."
   /usr/bin/curl -s --show-error $hcstorage/scripts/guest_autologin.sh -o "/usr/local/honors/guest_autologin.sh" --create-dirs
   /bin/chmod +x /usr/local/honors/guest_autologin.sh
 
@@ -220,9 +207,9 @@ function getGuestAutoLoginDaemon {
   /bin/chmod 644 /Library/LaunchDaemons/edu.uh.honors.guestautologin.plist
 }
 
-# Uninstall hcguest autologin LaunchDaemon. This uninstalls the script that resets the autologin of hcguest.
+# Uninstall guest autologin LaunchDaemon. This uninstalls the script that resets the autologin of guest.
 function uninstallGuestAutoLoginDaemon {
-  echo "Uninstalling Auto hcguest Login Script..."
+  echo "Uninstalling Auto guest Login Script..."
   rm -f /usr/local/honors/guest_autologin.sh
   rm -f /Library/LaunchDaemons/edu.uh.honors.guestautologin.plist
 }
@@ -361,14 +348,8 @@ function disableGatekeeper {
 
 # Show username & password fields in Login Window instead of circles.
 function enableUsernameAndPasswordFields {
-  if [ $1 == "presentation" ]
-  then
-    # We will not enable this on presentation computers because it will interfere with the autologin of hcguest.
-    $defaults write /Library/Preferences/com.apple.loginwindow.plist SHOWFULLNAME -bool FALSE
-  else
-    echo "Enabling username and password fields..."
-    $defaults write /Library/Preferences/com.apple.loginwindow.plist SHOWFULLNAME -bool TRUE
-  fi
+  echo "Enabling username and password fields..."
+  $defaults write /Library/Preferences/com.apple.loginwindow.plist SHOWFULLNAME -bool TRUE
 }
 
 # Munki in Bootstrap mode. Munki will run on the second reboot.
@@ -510,13 +491,7 @@ else
   uninstallLabPrinterLaunchAgent
 fi
 
-# Create hcguest on public and lab computers
-if [ "$1" == "presentation" ] || [ "$1" == "consultingcomputer" ] || [ "$1" == "labcomputer" ]
-then
-  createHCGuestAccount
-fi
-
-# Automatic hcguest login on classroom and podium computers
+# Automatic guest login on classroom and podium computers
 if [ "$1" == "presentation" ] || [ "$1" == "consultingcomputer" ]
 then
   setAutomaticGuestLogin
@@ -526,11 +501,14 @@ else
   uninstallGuestAutoLoginDaemon
 fi
 
-# If computer is shared, we want keychains to reset, and to not lock the screen
+# If computer is shared, we want keychains to reset, and to not lock the screen, but we don't want keychain reset on SSO and Recruitment computers
 if [ "$2" == "shared" ]
 then
   getScreenLockLaunchAgent
-  getKeychainResetLaunchDaemon
+  if [ "$1" != "advisorcomputer" ]
+  then
+    getKeychainResetLaunchDaemon
+  fi
 else
   uninstallScreenLockLaunchAgent
   uninstallKeychainResetLaunchDaemon
