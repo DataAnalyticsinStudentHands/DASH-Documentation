@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 
 # Check parameters in case of typos on a manual run
@@ -466,6 +466,27 @@ function installPackages {
   fi
 }
 
+# Installs update script for dsm.sys, sets it to check for updates every night
+function installDsmUpdater {
+  #checks if client is on TSM install list
+  install=false
+  while IFS='' read -r line || [[ -n "$line" ]]; do #reads line by line
+    IFS=',' read -ra LN <<< "$line" #splits lines by comma
+    hostname=$(hostname -s)
+    if [[ ${LN[0]} == $hostname ]]; then #places first field into names
+      install=true
+    fi
+  done < <(curl -s $hcstorage/TSM/TSM-NodeNames-Passwords.csv) #tells bash to read from TSM password file
+
+  if [ install == false ]; then return; fi
+  echo "Getting dsmupdate plist..."
+  /usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.dsmupdate -o "/Library/LaunchDaemons/edu.uh.honors.dsmupdate.plist"
+  /bin/chmod 644 /Library/LaunchDaemons/edu.uh.honors.dsmupdate.plist
+  echo "Getting dsm-sys_updater script..."
+  /usr/bin/curl -s --show-error $hcstorage/scripts/dsm-sys_updater.sh -o "/usr/local/honors/dsm-sys_updater.sh"
+  /bin/chmod +x /usr/local/honors/dsm-sys_updater.sh
+}
+
 # Run functions common to all machines
 echo "Running merged_restore.sh script..."
 turnOffAirport
@@ -480,6 +501,7 @@ disableGatekeeper
 enableUsernameAndPasswordFields $1
 siriSuppression
 policyBanner $1
+installDsmUpdater
 
 # Enable persistent PaperCut on lab computers
 if [ "$1" == "labcomputer" ]
