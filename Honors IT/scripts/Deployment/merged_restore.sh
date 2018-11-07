@@ -316,6 +316,23 @@ function getOfficeSetupLaunchAgent {
   /bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.curlofficeprefs.plist
 }
 
+# Reset USB sticks such as clicker receivers
+function getResetIOusb {
+ echo "Getting reset usb i/o script...."
+ /usr/bin/curl -s --show-error $hcstorage/scripts/resetioUSB.sh -o "/usr/local/honors/resetioUSB.sh" --create-dirs
+ /bin/chmod +x /usr/local/honors/resetioUSB.sh
+
+ /usr/bin/curl -s --show-error $hcstorage/plists/edu.uh.honors.curlofficeprefs.plist -o "/Library/LaunchAgents/edu.uh.honors.resetiousb.plist"
+ /bin/chmod 644 /Library/LaunchAgents/edu.uh.honors.resetiousb.plist
+}
+
+# Delete reset USB stick resetter
+function uninstallResetIOusb {
+  echo "Uninstalling reset usb i/o script...."
+  rm -rf /usr/local/honors/resetioUSB.sh
+  rm -rf /Library/LaunchAgents/edu.uh.honors.resetiousb.plist
+}
+
 # Disable System Sleep
 function disableSystemSleep {
   echo "Disabling system sleep..."
@@ -516,9 +533,11 @@ fi
 # Automatic guest login on classroom and podium computers
 if [ "$1" == "presentation" ] || [ "$1" == "consultingcomputer" ]
 then
+  getResetIOusb
   setAutomaticGuestLogin
   getGuestAutoLoginDaemon
 else
+  uninstallResetIOusb
   disableAutomaticGuestLogin
   uninstallGuestAutoLoginDaemon
 fi
