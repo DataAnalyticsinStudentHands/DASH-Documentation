@@ -13,7 +13,7 @@ AdobeReaderDC | 18.011.20063, 19.008.20071
 AdobeReaderUpdate 11.0.23 | 11.0.23
 All_Printer_Drivers | 2.0
 AndroidFileTransfer | 1.0.11
-Atom | 1.32.1, 1.32.2, 1.33.0
+Atom | 1.32.2, 1.33.0
 Audacity | 2.2.2.0
 AutoDMG | 1.8, 1.8.1, 1.9
 Brackets | 1.12.0, 1.13.0
