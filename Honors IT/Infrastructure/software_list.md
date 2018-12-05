@@ -1,7 +1,5 @@
 Application | Versions
 --- | ---
-Markdown->html output not supported. | 
-Please install the 'markdown' python package with either `pip install markdown` or `easy_install markdown`. | 
 Acrobat DC Installer | 15.017.20050
 Adobe AIR Installer | 19.0
 AdobeAcrobatProX_Update | 10.1.16
