@@ -80,7 +80,7 @@ Settings for SSO HP M607 | 1.0
 SkyDrive | 17.0.2012.705
 Skype | 8.33.0.41, 8.34.0.78
 SourceTree | 2.7.6, 3.0, 3.0.1
-Spotify | 1.0.91.183.g259b84fa, 1.0.92.390.g2ce5ec7d, 1.0.93.244.g1e3a05e7, 1.0.94.262.g3d5c231c
+Spotify | 1.0.92.390.g2ce5ec7d, 1.0.93.244.g1e3a05e7, 1.0.94.262.g3d5c231c
 SublimeText3 | 3176
 TeXLiveUtility | 1.26, 1.34, 1.35
 TeamViewer | 13.2.14327, 14.0.12966, 14.0.13880
