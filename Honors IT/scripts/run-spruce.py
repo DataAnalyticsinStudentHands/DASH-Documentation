@@ -1,7 +1,6 @@
 #!/usr/local/bin/python3
 from subprocess import Popen, PIPE, call
 import requests
-import base64
 import json
 
 p = Popen(['/usr/local/spruce/spruce name -v'], stdout=PIPE, shell=True)
@@ -46,6 +45,10 @@ data = {
 headers = {'Content-Type': 'application/json'}
 auth=('2k0wudpPKxvNuR4xmzS', 'X')
 r = requests.put(url, auth=auth, json=data, headers=headers)
-markdown_file = open('software_list.md', 'w')
+call("/usr/bin/git --git-dir=/usr/local/spruce/docs-repo/DASH-Documentation/.git/ --work-tree=/usr/local/spruce/docs-repo/DASH-Documentation/ pull", shell=True)
+markdown_file = open('/usr/local/spruce/docs-repo/DASH-Documentation/Honors IT/Infrastructure/software_list.md', 'w')
 markdown_file.write(markdown_formatted_output)
 markdown_file.close()
+call("/usr/bin/git --git-dir=/usr/local/spruce/docs-repo/DASH-Documentation/.git/ --work-tree=/usr/local/spruce/docs-repo/DASH-Documentation/ add /usr/local/spruce/docs-repo/DASH-Documentation/Honors\ IT/Infrastructure/software_list.md", shell=True)
+call("/usr/bin/git --git-dir=/usr/local/spruce/docs-repo/DASH-Documentation/.git/ --work-tree=/usr/local/spruce/docs-repo/DASH-Documentation/ commit -m 'Updated software_list.md'", shell=True)
+call("/usr/bin/git --git-dir=/usr/local/spruce/docs-repo/DASH-Documentation/.git/ --work-tree=/usr/local/spruce/docs-repo/DASH-Documentation/ push", shell=True)
