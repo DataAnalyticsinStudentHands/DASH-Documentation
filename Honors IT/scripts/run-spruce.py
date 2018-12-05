@@ -38,7 +38,6 @@ if not version:
 html_formatted_output += '</td></tr></table>'
 data = {
     'solution_article': {
-    'title': 'Spruce Test Software List',
     'description': html_formatted_output
     }
 }
