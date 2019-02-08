@@ -24,18 +24,18 @@ FileMaker Pro 16 | 16.0.2
 FileMaker Pro 17 Advanced | 17.0.3
 FileMaker Pro Update | 16.0.5
 FileZilla | 3.38.1, 3.39.0, 3.40.0
-Firefox | 63.0.3, 64.0, 64.0.2
+Firefox | 63.0.3, 64.0, 64.0.2, 65.0
 Flux | 39.987
 Ghostscript | 1.0
 GitHub Desktop | 1.4.3
-GoogleChrome | 71.0.3578.80, 71.0.3578.98
+GoogleChrome | 71.0.3578.80, 71.0.3578.98, 72.0.3626.81
 GoogleDrive | 3.42.9858.3671, 3.43.1584.4446, 3.43.2448.9071
 Handbrake | 1.1.1, 1.1.2, 1.2.0
 IBM Spectrum Protect | 8.1.4.0
 Identity Finder | 9.1.1
 JavaForOSX | 1.0.0.0.1.1247562015
 Keynote | 7.3
-LaTeXiT | 2.10.1, 2.12.0
+LaTeXiT | 2.10.1, 2.12.0, 2.13.0
 Lync Installer | 14.0.7
 MATLAB_R2015b | 8.5.0
 MATLAB_R2018a | 9.4.0
@@ -55,7 +55,7 @@ NoMAD | 1.1.2.797, 1.1.4.933
 Numbers | 4.3
 Office 2011 | 14.1.0
 Office2011_update | 14.7.1, 14.7.2, 14.7.4, 14.7.7
-OneDrive | 18.131.701, 18.151.729, 18.172.826, 18.192.920, 18.212.1021, 18.222.1104
+OneDrive | 18.131.701, 18.151.729, 18.172.826, 18.192.920, 18.212.1021, 18.222.1104, 18.240.1202
 OracleJava10 | 10.0.2.0.13
 OracleJava8 | 1.8.181.13, 1.8.191.12, 1.8.201.09
 OracleJava8JDK | 1.8.0_181, 1.8.0_191, 1.8.0_201, 10.0.2
@@ -79,10 +79,11 @@ Settings for Lab Printer 20 | 1.0
 Settings for Recruitment Printer HP M601 | 1.0
 Settings for SSO HP M607 | 1.0
 SkyDrive | 17.0.2012.705
-Skype | 8.33.0.41, 8.34.0.78
+Skype | 8.33.0.41, 8.34.0.78, 8.38.0.138
 SkypeForBusiness | 16.12.0.77
 SourceTree | 2.7.6, 3.0.1
-Spotify | 1.0.94.262.g3d5c231c, 1.0.95.289.g342899da, 1.0.96.181.gf6bc1b6b, 1.0.98.78.gb45d2a6b
+Spirion | 10.5.4
+Spotify | 1.0.94.262.g3d5c231c, 1.0.95.289.g342899da, 1.0.96.181.gf6bc1b6b, 1.0.98.78.gb45d2a6b, 1.0.99.250.g936eab8d
 SublimeText3 | 3176
 TeXLiveUtility | 1.26, 1.34, 1.35
 TeamViewer | 14.0.13880, 14.1.3399, 14.1.9025
