@@ -4,7 +4,7 @@ Acrobat DC Installer | 15.017.20050
 Adobe AIR Installer | 19.0
 AdobeAcrobatProX_Update | 10.1.16
 AdobeCCInDesignTest | 13.0.0.125
-AdobeFlashPlayer | 32.0.0.101, 32.0.0.114, 32.0.0.142, 32.0.0.156
+AdobeFlashPlayer | 32.0.0.114, 32.0.0.142, 32.0.0.156
 AdobeInDesignCS6 | 8.0
 AdobeReader | 11.0.10
 AdobeReaderDC | 19.008.20071, 19.010.20064, 19.010.20069, 19.010.20091, 19.010.20098
