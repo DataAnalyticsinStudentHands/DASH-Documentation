@@ -24,13 +24,14 @@ FileMaker Pro 16 | 16.0.2
 FileMaker Pro 17 Advanced | 17.0.3
 FileMaker Pro Update | 16.0.5
 FileZilla | 3.38.1, 3.39.0, 3.40.0, 3.41.1, 3.41.2
-Firefox | 63.0.3, 64.0, 64.0.2, 65.0, 65.0.1, 65.0.2, 66.0
+Firefox | 63.0.3, 64.0, 64.0.2, 65.0, 65.0.1, 65.0.2, 66.0, 66.0.2
 Flux | 39.987
 GIMP | 2.10.8
 Ghostscript | 1.0
 GitHub Desktop | 1.4.3
 GoogleChrome | 71.0.3578.80, 71.0.3578.98, 72.0.3626.81, 72.0.3626.96, 72.0.3626.109, 72.0.3626.119, 72.0.3626.121, 73.0.3683.86
 GoogleDrive | 3.42.9858.3671, 3.43.1584.4446, 3.43.2448.9071
+Handbrake | 1.2.2
 IBM Spectrum Protect | 8.1.4.0
 Identity Finder | 9.1.1
 JavaForOSX | 1.0.0.0.1.1247562015
@@ -82,11 +83,11 @@ Settings for Lab Printer 20 | 1.0
 Settings for Recruitment Printer HP M601 | 1.0
 Settings for SSO HP M607 | 1.0
 SkyDrive | 17.0.2012.705
-Skype | 8.33.0.41, 8.34.0.78, 8.38.0.138, 8.39.0.175, 8.40.0.86, 8.41.0.54
+Skype | 8.33.0.41, 8.34.0.78, 8.38.0.138, 8.39.0.175, 8.40.0.86, 8.41.0.54, 8.42.0.60
 SkypeForBusiness | 16.12.0.77
 SourceTree | 2.7.6, 3.0.1, 3.1.1
 Spirion | 10.5.4
-Spotify | 1.0.94.262.g3d5c231c, 1.0.95.289.g342899da, 1.0.96.181.gf6bc1b6b, 1.0.98.78.gb45d2a6b, 1.0.99.250.g936eab8d, 1.1.0.237.g378f6f25, 1.1.1.348.g9064793a, 1.1.2.285.ga97985ef, 1.1.2.285.ga97985ef
+Spotify | 1.0.94.262.g3d5c231c, 1.0.95.289.g342899da, 1.0.96.181.gf6bc1b6b, 1.0.98.78.gb45d2a6b, 1.0.99.250.g936eab8d, 1.1.0.237.g378f6f25, 1.1.1.348.g9064793a, 1.1.2.285.ga97985ef, 1.1.2.285.ga97985ef, 1.1.3.259.g8172f63a
 SublimeText3 | 3176
 TeXLiveUtility | 1.26, 1.34, 1.35
 TeamViewer | 14.0.13880, 14.1.3399, 14.1.9025, 14.1.18533, 14.2.2558
@@ -97,7 +98,7 @@ TurningPoint | 8.5.0.25
 VLC | 3.0.4, 3.0.6
 XCode command line tools | 1.0
 XcodeApp | 10.1.0
-Zotero | 5.0.57, 5.0.58, 5.0.59, 5.0.60, 5.0.61, 5.0.64
+Zotero | 5.0.57, 5.0.58, 5.0.59, 5.0.60, 5.0.61, 5.0.64, 5.0.65
 copystorage_printer_driver | 1.14.0.18
 gardens_sharp_driver | 1.0
 iMovie | 10.1.2
