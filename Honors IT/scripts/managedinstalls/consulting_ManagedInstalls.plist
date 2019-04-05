@@ -4,22 +4,16 @@
 <dict>
 	<key>AppleSoftwareUpdatesOnly</key>
 	<false/>
-	<key>CagtalogURL</key>
-	<string>http://hc-storage.cougarnet.uh.edu/munki/catalogs/</string>
 	<key>CatalogURL</key>
 	<string>http://hc-storage.cougarnet.uh.edu/munki/catalogs/</string>
 	<key>ClientIdentifier</key>
 	<string>consultingcomputer</string>
 	<key>DaysBetweenNotifications</key>
 	<integer>1</integer>
+	<key>FollowHTTPRedirects</key>
+	<string>https</string>
 	<key>InstallAppleSoftwareUpdates</key>
-	<false/>
-	<key>LastCheckDate</key>
-	<date>2015-03-16T16:03:06Z</date>
-	<key>LastCheckResult</key>
-	<integer>1</integer>
-	<key>LastNotifiedDate</key>
-	<date>2015-03-16T16:03:06Z</date>
+	<true/>
 	<key>LogFile</key>
 	<string>/Library/Managed Installs/Logs/ManagedSoftwareUpdate.log</string>
 	<key>LogToSyslog</key>

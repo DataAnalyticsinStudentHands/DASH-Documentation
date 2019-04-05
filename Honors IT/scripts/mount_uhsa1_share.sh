@@ -1,5 +1,6 @@
 #!/bin/sh
 
+function scriptcontents {
 currentuser="$(whoami)"
 
 if mount | grep "uhsa1.cougarnet.uh.edu/HCShare on /Volumes/HCShare" > /dev/null;
@@ -18,3 +19,8 @@ else
 fi
 
 exit 0
+}
+
+echo "***
+$0 | $(whoami) | $(date)" >> /usr/local/honors/honors_log.log
+scriptcontents 1>> /usr/local/honors/honors_log.log 2>> /usr/local/honors/honors_log.log
