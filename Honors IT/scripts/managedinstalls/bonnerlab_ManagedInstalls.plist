@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AppleSoftwareUpdatesOnly</key>
+	<false/>
+	<key>CatalogURL</key>
+	<string>http://hc-storage.cougarnet.uh.edu/munki/catalogs/</string>
+	<key>ClientIdentifier</key>
+	<string>bonnerlabcomputer</string>
+	<key>DaysBetweenNotifications</key>
+	<integer>1</integer>
+	<key>FollowHTTPRedirects</key>
+	<string>https</string>
+	<key>InstallAppleSoftwareUpdates</key>
+	<true/>
+	<key>LogFile</key>
+	<string>/Library/Managed Installs/Logs/ManagedSoftwareUpdate.log</string>
+	<key>LogToSyslog</key>
+	<false/>
+	<key>LoggingLevel</key>
+	<integer>1</integer>
+	<key>ManagedInstallDir</key>
+	<string>/Library/Managed Installs</string>
+	<key>ManifestURL</key>
+	<string>http://hc-storage.cougarnet.uh.edu/munki/manifests/</string>
+	<key>PackageURL</key>
+	<string>http://hc-storage.cougarnet.uh.edu/munki/pkgs/</string>
+	<key>PackageVerificationMode</key>
+	<string>hash</string>
+	<key>SoftwareRepoURL</key>
+	<string>http://hc-storage.cougarnet.uh.edu/munki</string>
+	<key>SuppressAutoInstall</key>
+	<false/>
+	<key>SuppressStopButtonOnInstall</key>
+	<true/>
+	<key>SuppressUserNotification</key>
+	<true/>
+	<key>UseClientCertificate</key>
+	<false/>
+</dict>
+</plist>
