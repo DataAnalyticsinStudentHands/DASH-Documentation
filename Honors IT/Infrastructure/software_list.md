@@ -10,7 +10,7 @@ AdobeReader | 11.0.10
 AdobeReaderDC | 19.010.20091, 19.010.20098, 19.010.20099
 AdobeReaderUpdate 11.0.23 | 11.0.23
 AndroidFileTransfer | 1.0.11, 1.0.12
-Atom | 1.36.0, 1.36.1, 1.37.0, 1.38.1
+Atom | 1.36.0, 1.36.1, 1.37.0, 1.38.1, 1.38.2
 Audacity | 2.2.2.0
 AutoDMG | 1.8.1, 1.9
 Brackets | 1.12.0, 1.13.0, 1.14.0
@@ -19,17 +19,17 @@ Cyberduck | 6.9.3, 6.9.4, 7.0.0
 DeployStudioAdmin | 1.7.8
 Dropbox | 72.4.136, 73.4.118, 74.4.115
 EasyFind | 4.9.3
-Eclipse | 4.9.0, 4.10.0, 4.11.0
+Eclipse | 4.9.0, 4.10.0, 4.11.0, 4.12.0
 FileMaker Pro 16 | 16.0.2
 FileMaker Pro 17 Advanced | 17.0.3
 FileMaker Pro Update | 16.0.5
 FileZilla | 3.42.1
-Firefox | 66.0.5, 67.0, 67.0.1, 67.0.2
+Firefox | 66.0.5, 67.0, 67.0.1, 67.0.2, 67.0.4
 Flux | 39.987
 GIMP | 2.10.8
 Ghostscript | 1.0
 GitHub Desktop | 1.4.3
-GoogleChrome | 74.0.3729.157, 74.0.3729.169, 75.0.3770.80, 75.0.3770.90
+GoogleChrome | 74.0.3729.157, 74.0.3729.169, 75.0.3770.80, 75.0.3770.90, 75.0.3770.100
 GoogleDrive | 3.42.9858.3671, 3.43.1584.4446, 3.43.2448.9071, 3.44.4750.7098
 Handbrake | 1.2.2
 IBM Spectrum Protect | 8.1.4.0
@@ -98,7 +98,7 @@ TurningPoint | 8.5.0.25
 VLC | 3.0.4, 3.0.6, 3.0.7, 3.0.7.1
 XCode command line tools | 1.0
 XcodeApp | 10.1.0
-Zotero | 5.0.64, 5.0.65, 5.0.66
+Zotero | 5.0.64, 5.0.65, 5.0.66, 5.0.68
 copystorage_printer_driver | 1.14.0.18
 gardens_sharp_driver | 1.0
 iMovie | 10.1.2
