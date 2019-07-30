@@ -15,7 +15,7 @@ Audacity | 2.2.2.0
 AutoDMG | 1.8.1, 1.9
 Brackets | 1.12.0, 1.13.0, 1.14.0
 CreateUserPkg | 1.2.4
-Cyberduck | 6.9.3, 6.9.4, 7.0.0, 7.0.1
+Cyberduck | 6.9.3, 6.9.4, 7.0.0, 7.0.1, 7.0.2
 DeployStudioAdmin | 1.7.8
 Dropbox | 72.4.136, 73.4.118, 74.4.115, 77.4.131
 EasyFind | 4.9.3
@@ -83,7 +83,7 @@ Settings for Lab Printer 20 | 1.0
 Settings for Recruitment Printer HP M601 | 1.0
 Settings for SSO HP M607 | 1.0
 SkyDrive | 17.0.2012.705
-Skype | 8.44.0.40, 8.45.0.43, 8.46.0.60, 8.49.0.49
+Skype | 8.44.0.40, 8.45.0.43, 8.46.0.60, 8.49.0.49, 8.50.0.38
 SkypeForBusiness | 16.12.0.77
 SourceTree | 2.7.6, 3.0.1, 3.1.1, 3.2
 Spirion | 10.5.4
@@ -98,7 +98,7 @@ TurningPoint | 8.5.0.25
 VLC | 3.0.4, 3.0.6, 3.0.7, 3.0.7.1
 XCode command line tools | 1.0
 XcodeApp | 10.1.0
-Zotero | 5.0.64, 5.0.65, 5.0.66, 5.0.68, 5.0.71
+Zotero | 5.0.64, 5.0.65, 5.0.66, 5.0.68, 5.0.71, 5.0.72
 copystorage_printer_driver | 1.14.0.18
 gardens_sharp_driver | 1.0
 iMovie | 10.1.2
