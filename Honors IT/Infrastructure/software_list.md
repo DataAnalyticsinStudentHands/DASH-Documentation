@@ -34,6 +34,7 @@ GoogleDrive | 3.42.9858.3671, 3.43.1584.4446, 3.43.2448.9071, 3.44.4750.7098, 3.
 Handbrake | 1.2.2
 IBM Spectrum Protect | 8.1.4.0
 Identity Finder | 9.1.1
+IntelliJ IDEA | 2019.2.1
 JavaForOSX | 1.0.0.0.1.1247562015
 Keynote | 7.3
 LaTeXiT | 2.10.1, 2.12.0, 2.13.0, 2.13.2
