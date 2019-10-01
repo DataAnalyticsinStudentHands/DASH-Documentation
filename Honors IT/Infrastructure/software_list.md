@@ -84,7 +84,7 @@ Settings for Lab Printer 20 | 1.0
 Settings for Recruitment Printer HP M601 | 1.0
 Settings for SSO HP M607 | 1.0
 SkyDrive | 17.0.2012.705
-Skype | 8.49.0.49, 8.52.0.138
+Skype | 8.49.0.49, 8.52.0.138, 8.52.0.145
 SkypeForBusiness | 16.12.0.77
 SourceTree | 2.7.6, 3.0.1, 3.1.1, 3.2
 Spirion | 10.5.4
