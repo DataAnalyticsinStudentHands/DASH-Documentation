@@ -5,7 +5,7 @@
 ### continually re-set those settings. It is also used to name, AD Bind, and distribute
 ### HP Printer Drivers to newly imaged computers.
 ###
-### It begins by validating the seven inputs required, then instantiates functions mostly
+### It begins by validating the eight inputs required, then instantiates functions mostly
 ### in no particular order, then runs those functions at the end, sometimes for only
 ### particular computer types.
 ###
@@ -31,6 +31,7 @@ declare -a param4=("backup" "nobackup")
 # param5 is either a name to give the machine or "nonamechange" (or "no")
 declare -a param6=("adbind" "noadbind" "no")
 declare -a param7=("packages" "nopackages" "no")
+declare -a param8=("wifi" "nowifi")
 
 if [[ ! " ${param1[@]} " =~ " $1 " ]]
 then
@@ -99,16 +100,28 @@ Quitting merged restore run..."
   exit 1
 fi
 
+if [[ ! " ${param8[@]} " =~ " $8 " ]]
+then
+  echo "*****MERGED RESTORE FAILURE*****
+Error: Invalid argmuent for whether WiFi should be turned off or not: $8
+Quitting merged restore run..."
+  exit 1
+fi
+
 # Whether the machine needs to be rebooted at the end. Changed by certain parameters and functions.
 reboot_required=false
 
 # Turn off AirPort. This makes sure that all network communications run through the Ethernet port. Wi-Fi interferes with Cougarnet access. It also required an administrator password to turn Wi-Fi on.
 function turnOffAirport {
+  if [ "$1" == "nowifi" ]
+  then
   /usr/sbin/networksetup -detectnewhardware
   echo "Turning off airport..."
   /usr/sbin/networksetup -setairportpower en1 off
+  fi
   /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport en1 prefs RequireAdminPowerToggle=YES
   /usr/sbin/systemsetup -setwakeonnetworkaccess on
+
 }
 
 # Turn on SSH. This allows remote access through the command line.
@@ -161,14 +174,25 @@ Error: Can't retrieve ManagedInstalls.plist.
 
   if [ ! -d "/usr/local/honors" ]
   then
-    mkdir /usr/local/honors
     echo "Creating /usr/local/honors..."
+    /bin/mkdir /usr/local/honors
   else
     echo "/usr/local/honors exists"
   fi
-echo "Changing permissions for /usr/local/honors..."
-chmod 755 /usr/local/honors
-chown root:wheel /usr/local/honors
+
+  if [ ! -f "/usr/local/honors/honors_log.log" ]
+  then
+    echo "Creating /usr/local/honors/honors_log.log..."
+    /usr/bin/touch /usr/local/honors/honors_log.log
+  else
+    echo "/usr/local/honors/honors_log.log exists"
+  fi
+
+echo "Setting permissions for /usr/local/honors and honors_log.log..."
+/bin/chmod 755 /usr/local/honors
+/usr/sbin/chown root:wheel /usr/local/honors
+/bin/chmod 666 /usr/local/honors/honors_log.log
+/usr/sbin/chown root:wheel /usr/local/honors/honors_log.log
 }
 
 # Install PaperCut LaunchAgent. This installs a script that keeps PaperCut constantly open.
@@ -271,6 +295,46 @@ function uninstallAutoLogoutLaunchAgent {
   echo "Uninstalling Automatic Logout script..."
   rm -f /usr/local/honors/autoLogout.sh
   rm -f /Library/LaunchAgents/edu.uh.honors.autologout.plist
+}
+
+# Create and enable the guest account if it does not already exist
+function createGuest {
+  if [ ! -d /Users/Guest ] && [ ! -d /Users/guest ]
+  then
+    echo "Creating the Guest account..."
+  	/usr/bin/dscl . -create /Users/Guest
+  	/usr/bin/dscl . -create /Users/Guest dsAttrTypeNative:_defaultLanguage en
+  	/usr/bin/dscl . -create /Users/Guest dsAttrTypeNative:_guest true
+  	/usr/bin/dscl . -create /Users/Guest dsAttrTypeNative:_writers__defaultLanguage Guest
+  	/usr/bin/dscl . -create /Users/Guest dsAttrTypeNative:_writers__LinkedIdentity Guest
+  	/usr/bin/dscl . -create /Users/Guest dsAttrTypeNative:_writers__UserCertificate Guest
+  	/usr/bin/dscl . -create /Users/Guest AuthenticationHint ''
+  	/usr/bin/dscl . -create /Users/Guest NFSHomeDirectory /Users/Guest
+
+  	# Give a little extra time for the password and kerberos to play nicely
+  	sleep 2
+  	/usr/bin/dscl . -passwd /Users/Guest ''
+  	sleep 2
+
+  	/usr/bin/dscl . -create /Users/Guest Picture "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/UserIcon.icns"
+  	/usr/bin/dscl . -create /Users/Guest PrimaryGroupID 201
+  	/usr/bin/dscl . -create /Users/Guest RealName "Guest User"
+  	/usr/bin/dscl . -create /Users/Guest RecordName Guest
+  	/usr/bin/dscl . -create /Users/Guest UniqueID 201
+  	/usr/bin/dscl . -create /Users/Guest UserShell /bin/bash
+  	/usr/bin/security add-generic-password -a Guest -s com.apple.loginwindow.guest-account -D "application password" /Library/Keychains/System.keychain
+
+  	defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool TRUE
+  fi
+}
+
+# Delete the guest account if it exists
+function deleteGuest {
+  if [ -d /Users/Guest ]
+  then
+    /usr/bin/dscl . -delete /Users/Guest
+    defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool FALSE
+  fi
 }
 
 # Setting guest account to automatically login after the computer started.
@@ -498,8 +562,8 @@ function setTimeAndDate {
 
 # Install hc-storage cert so that munki trusts it as https without a 3rd party signed cert
 function getStorageCert {
-  echo "Getting Curly Self-Signed Root Certificate..."
-  /usr/bin/scp hcadmin@hc-storage.cougarnet.uh.edu:/volume1/web/cert.pem /usr/local/cert.pem
+  echo "Getting HC-Storage Self-Signed Root Certificate..."
+  /usr/bin/scp hcadmin@hc-storage.cougarnet.uh.edu:/volume1/web/cert.pem /usr/local/honors/cert.pem
   /usr/bin/security add-trusted-cert -d -r trustAsRoot -k /Library/Keychains/system.keychain /usr/local/honors/cert.pem
 }
 
@@ -605,7 +669,7 @@ function installDSMUpdater {
 
 # Run functions common to all machines
 echo "Running merged_restore.sh script..."
-turnOffAirport
+turnOffAirport $8
 turnOnSSH
 turnOnRemoteDesktop
 setTimeAndDate
@@ -619,6 +683,14 @@ siriSuppression
 policyBanner $1
 installDSMUpdater
 getStorageCert
+
+# Guest account distribution
+if [ "$1" == "labcomputer" ] || [ "$1" == "presentation" ] || [ "$1" == "consultingcomputer" ]
+then
+  createGuest
+else
+  deleteGuest
+fi
 
 # Lab Computer settings
 if [ "$1" == "labcomputer" ]
