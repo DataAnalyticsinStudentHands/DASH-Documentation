@@ -562,8 +562,8 @@ function setTimeAndDate {
 
 # Install hc-storage cert so that munki trusts it as https without a 3rd party signed cert
 function getStorageCert {
-  echo "Getting Curly Self-Signed Root Certificate..."
-  /usr/bin/scp hcadmin@hc-storage.cougarnet.uh.edu:/volume1/web/cert.pem /usr/local/cert.pem
+  echo "Getting HC-Storage Self-Signed Root Certificate..."
+  /usr/bin/scp hcadmin@hc-storage.cougarnet.uh.edu:/volume1/web/cert.pem /usr/local/honors/cert.pem
   /usr/bin/security add-trusted-cert -d -r trustAsRoot -k /Library/Keychains/system.keychain /usr/local/honors/cert.pem
 }
 
